@@ -1,0 +1,351 @@
+{
+  "chapters_checked": 220,
+  "states": {
+    "draft": 32,
+    "planned": 188
+  },
+  "checks": {
+    "YAML parsing": 17,
+    "shell syntax": 61,
+    "Python syntax": 7,
+    "JSON parsing": 2,
+    "local links": 1021
+  },
+  "errors": [],
+  "warnings": [],
+  "evidence": [
+    {
+      "chapter": 1,
+      "path": "book/volumes/01-engineering-mental-models/001-what-devops-engineers-actually-own.md",
+      "status": "draft",
+      "sha256": "88932b7e806e4b96eeffed3b4f84396992a1ed7757b608fc9591e686da2145cf",
+      "prose_words": 1925,
+      "syntax_checks": {
+        "YAML parsing": 1,
+        "shell syntax": 1
+      }
+    },
+    {
+      "chapter": 2,
+      "path": "book/volumes/01-engineering-mental-models/002-requirements-before-tools.md",
+      "status": "draft",
+      "sha256": "5733c384992a989cb2f0650bee4f8709c8f3a351560fcb6c5eb446938068a72c",
+      "prose_words": 1725,
+      "syntax_checks": {}
+    },
+    {
+      "chapter": 3,
+      "path": "book/volumes/01-engineering-mental-models/003-how-computers-execute-services.md",
+      "status": "draft",
+      "sha256": "a3c0d64ea665ee18103dbf6932292091cb2310a60a0bc87510b02016bca0ad1c",
+      "prose_words": 1941,
+      "syntax_checks": {
+        "shell syntax": 1
+      }
+    },
+    {
+      "chapter": 4,
+      "path": "book/volumes/01-engineering-mental-models/004-reliability-and-risk.md",
+      "status": "draft",
+      "sha256": "f06f47e18da70fff96fd9778e5cb052ca1423de983741a070ee4177eb25f17c2",
+      "prose_words": 1811,
+      "syntax_checks": {
+        "shell syntax": 1
+      }
+    },
+    {
+      "chapter": 5,
+      "path": "book/volumes/01-engineering-mental-models/005-architecture-as-tradeoffs.md",
+      "status": "draft",
+      "sha256": "fe371ae1cc04e25b3ecd3f2fa65f849b12710afbe7f393e31afd597d20ff4b81",
+      "prose_words": 1708,
+      "syntax_checks": {}
+    },
+    {
+      "chapter": 6,
+      "path": "book/volumes/01-engineering-mental-models/006-environments-and-reproducibility.md",
+      "status": "draft",
+      "sha256": "d535869c51f0bae2094edf76e90e1b1524ccd2831137d92313f9be8c75a6ff38",
+      "prose_words": 1783,
+      "syntax_checks": {
+        "shell syntax": 2
+      }
+    },
+    {
+      "chapter": 7,
+      "path": "book/volumes/01-engineering-mental-models/007-learning-to-investigate.md",
+      "status": "draft",
+      "sha256": "4ac3df12dcb9aae3ce61028288f4a0eaaa0903a049178598043fe55741fb523a",
+      "prose_words": 1640,
+      "syntax_checks": {
+        "shell syntax": 1
+      }
+    },
+    {
+      "chapter": 8,
+      "path": "book/volumes/01-engineering-mental-models/008-working-safely-at-the-cli.md",
+      "status": "draft",
+      "sha256": "e428915b1d1d7d296c0c3f9425b8cc9317e3f95029937d5a6ae2f043a762c514",
+      "prose_words": 1727,
+      "syntax_checks": {
+        "shell syntax": 5
+      }
+    },
+    {
+      "chapter": 9,
+      "path": "book/volumes/01-engineering-mental-models/009-teams-ownership-and-operational-work.md",
+      "status": "draft",
+      "sha256": "0c2bfefb80ebd07e858563d43d823d1d2b9e49bc422302fb68b81a6d91b053dc",
+      "prose_words": 1558,
+      "syntax_checks": {}
+    },
+    {
+      "chapter": 10,
+      "path": "book/volumes/01-engineering-mental-models/010-the-dispatchdesk-project-begins.md",
+      "status": "draft",
+      "sha256": "cab80d1af3246cb950661386cf5a934baaf3ab90862b62b893fd6ec44a0c341c",
+      "prose_words": 1699,
+      "syntax_checks": {
+        "shell syntax": 3,
+        "Python syntax": 1
+      }
+    },
+    {
+      "chapter": 71,
+      "path": "book/volumes/08-infrastructure-as-code/071-declarative-infrastructure-and-reconciliation.md",
+      "status": "draft",
+      "sha256": "a3d388af12a57c1d799af63e1a70e29cdf86fa43ac90992292df3ab3318f56f2",
+      "prose_words": 2050,
+      "syntax_checks": {
+        "shell syntax": 4
+      }
+    },
+    {
+      "chapter": 72,
+      "path": "book/volumes/08-infrastructure-as-code/072-terraform-and-opentofu-cli-foundations.md",
+      "status": "draft",
+      "sha256": "d06340b1520b713ee63d113e8b9d96bde18c4e22491997d47f04cb0aa06c9650",
+      "prose_words": 1683,
+      "syntax_checks": {
+        "shell syntax": 4
+      }
+    },
+    {
+      "chapter": 73,
+      "path": "book/volumes/08-infrastructure-as-code/073-state-locking-and-remote-backends.md",
+      "status": "draft",
+      "sha256": "4ab18e6668b593740b827e61c8352af522215ee03d7a839541edc4a7bb4df837",
+      "prose_words": 1963,
+      "syntax_checks": {
+        "shell syntax": 3
+      }
+    },
+    {
+      "chapter": 74,
+      "path": "book/volumes/08-infrastructure-as-code/074-modules-and-infrastructure-boundaries.md",
+      "status": "draft",
+      "sha256": "a7ec681306e01d0a009c9b93d6f879a21139cbb3f90787be35f9d505929e5bec",
+      "prose_words": 1658,
+      "syntax_checks": {
+        "shell syntax": 1
+      }
+    },
+    {
+      "chapter": 75,
+      "path": "book/volumes/08-infrastructure-as-code/075-import-drift-and-safe-refactoring.md",
+      "status": "draft",
+      "sha256": "783e6dace364af9f35af8e194c68d273b21b3c6e9a1fbcd0b667605562e6e41b",
+      "prose_words": 1630,
+      "syntax_checks": {
+        "shell syntax": 1
+      }
+    },
+    {
+      "chapter": 76,
+      "path": "book/volumes/08-infrastructure-as-code/076-testing-and-policy-for-infrastructure.md",
+      "status": "draft",
+      "sha256": "4a652aeab18481c1df767cea90d0c1e3d41852ebe235935a8ffdf76864df7f4b",
+      "prose_words": 1406,
+      "syntax_checks": {
+        "shell syntax": 2,
+        "Python syntax": 1
+      }
+    },
+    {
+      "chapter": 77,
+      "path": "book/volumes/08-infrastructure-as-code/077-ansible-inventory-and-playbooks.md",
+      "status": "draft",
+      "sha256": "04abac4b2a75951acdc861e01cf0db59a4e25f31d323569c5391d25a422fbe93",
+      "prose_words": 1460,
+      "syntax_checks": {
+        "Python syntax": 1,
+        "YAML parsing": 1,
+        "shell syntax": 1
+      }
+    },
+    {
+      "chapter": 78,
+      "path": "book/volumes/08-infrastructure-as-code/078-ansible-roles-and-secret-handling.md",
+      "status": "draft",
+      "sha256": "6b57d9a2180fa018b8d048d7a91ac17354795639fabf0a65eccf12ffde1187aa",
+      "prose_words": 1468,
+      "syntax_checks": {
+        "YAML parsing": 4,
+        "shell syntax": 2
+      }
+    },
+    {
+      "chapter": 79,
+      "path": "book/volumes/08-infrastructure-as-code/079-cloud-init-and-cloudformation.md",
+      "status": "draft",
+      "sha256": "beeac3c3e5bcf3fe096641c9f8238b422c8cbf5a0197a3f5b69e5d7bd6227948",
+      "prose_words": 1544,
+      "syntax_checks": {
+        "YAML parsing": 2,
+        "shell syntax": 2
+      }
+    },
+    {
+      "chapter": 80,
+      "path": "book/volumes/08-infrastructure-as-code/080-infrastructure-lifecycle-and-disaster-recovery.md",
+      "status": "draft",
+      "sha256": "b9875aaf4dca97bcddb3b74f18a288ba404e47cb3fb3afa32f87b499bb1771a7",
+      "prose_words": 1670,
+      "syntax_checks": {
+        "shell syntax": 1,
+        "Python syntax": 1
+      }
+    },
+    {
+      "chapter": 141,
+      "path": "book/volumes/15-observability-and-telemetry/141-observability-from-questions-to-evidence.md",
+      "status": "draft",
+      "sha256": "5f7995d21c6ac29f69dcf3a91a3f6837ecefdeea8212784046d3dc2f3ca81cab",
+      "prose_words": 1644,
+      "syntax_checks": {
+        "Python syntax": 1,
+        "shell syntax": 1
+      }
+    },
+    {
+      "chapter": 142,
+      "path": "book/volumes/15-observability-and-telemetry/142-prometheus-and-exporters.md",
+      "status": "draft",
+      "sha256": "3ac90cae854b94e8dd4f2aca59285717ce646a8af481a57505773f7e3944ef7b",
+      "prose_words": 1620,
+      "syntax_checks": {
+        "YAML parsing": 1,
+        "shell syntax": 2
+      }
+    },
+    {
+      "chapter": 143,
+      "path": "book/volumes/15-observability-and-telemetry/143-promql-for-operational-questions.md",
+      "status": "draft",
+      "sha256": "dd38bd77e108fe2bd6b811659b672f816051e9b0f4bf2cd15d3365f3a98df9f4",
+      "prose_words": 1661,
+      "syntax_checks": {
+        "shell syntax": 1
+      }
+    },
+    {
+      "chapter": 144,
+      "path": "book/volumes/15-observability-and-telemetry/144-grafana-dashboards-and-provisioning.md",
+      "status": "draft",
+      "sha256": "73484c07dd403fe3a9e68c811d6f1594ccbed33772c1375f8bbbec1d8564921d",
+      "prose_words": 1504,
+      "syntax_checks": {
+        "YAML parsing": 2,
+        "JSON parsing": 1
+      }
+    },
+    {
+      "chapter": 145,
+      "path": "book/volumes/15-observability-and-telemetry/145-alertmanager-and-actionable-alerts.md",
+      "status": "draft",
+      "sha256": "a5e5ccb0a76f1e3e87223b096175e481a5055083a3fa9d204a4b9e15cb97256c",
+      "prose_words": 1570,
+      "syntax_checks": {
+        "Python syntax": 1,
+        "YAML parsing": 3,
+        "shell syntax": 1
+      }
+    },
+    {
+      "chapter": 146,
+      "path": "book/volumes/15-observability-and-telemetry/146-logs-with-journald-and-loki.md",
+      "status": "draft",
+      "sha256": "e1717e739e0be2b3e916ac73277136257b6d0cdb70ff08fd3a325951ccdb0405",
+      "prose_words": 2162,
+      "syntax_checks": {
+        "JSON parsing": 1,
+        "shell syntax": 5,
+        "YAML parsing": 1
+      }
+    },
+    {
+      "chapter": 147,
+      "path": "book/volumes/15-observability-and-telemetry/147-opentelemetry-instrumentation-and-collectors.md",
+      "status": "draft",
+      "sha256": "91567dffc9769a947a5ecf307dac87765d729c5a7dcd2bb313920f05f37d5526",
+      "prose_words": 1584,
+      "syntax_checks": {
+        "shell syntax": 1,
+        "Python syntax": 1,
+        "YAML parsing": 1
+      }
+    },
+    {
+      "chapter": 148,
+      "path": "book/volumes/15-observability-and-telemetry/148-tempo-jaeger-and-trace-investigation.md",
+      "status": "draft",
+      "sha256": "44da64064c529fe11fd5125636a281ca806cef592aaa5041acb7a98eb86bd0d0",
+      "prose_words": 1775,
+      "syntax_checks": {
+        "shell syntax": 1,
+        "YAML parsing": 1
+      }
+    },
+    {
+      "chapter": 149,
+      "path": "book/volumes/15-observability-and-telemetry/149-elastic-opensearch-and-cloudwatch.md",
+      "status": "draft",
+      "sha256": "6c751ec15ee5c0cb1bcd7c48ee8d061b7dfe7a844bbe732379c3bdbf33780f03",
+      "prose_words": 1641,
+      "syntax_checks": {
+        "shell syntax": 2
+      }
+    },
+    {
+      "chapter": 150,
+      "path": "book/volumes/15-observability-and-telemetry/150-observability-at-scale.md",
+      "status": "draft",
+      "sha256": "892840e7e81d00e1165d8efcb1dc17e982e30ff6ab9ad79b859931ce5de24607",
+      "prose_words": 1756,
+      "syntax_checks": {
+        "shell syntax": 1
+      }
+    },
+    {
+      "chapter": 211,
+      "path": "book/volumes/22-operational-reference/211-linux-and-shell-command-reference.md",
+      "status": "draft",
+      "sha256": "15cb91107c8222a23ee7608f0403c8bea674a16b0f259a9af6e3d98f14c21b11",
+      "prose_words": 1765,
+      "syntax_checks": {
+        "shell syntax": 5
+      }
+    },
+    {
+      "chapter": 214,
+      "path": "book/volumes/22-operational-reference/214-kubernetes-command-and-object-reference.md",
+      "status": "draft",
+      "sha256": "95e58ee116f1520c748232b5f4774456e26df32f873a0b543d8075a8d9a63c7b",
+      "prose_words": 1472,
+      "syntax_checks": {
+        "shell syntax": 6
+      }
+    }
+  ],
+  "limits": "Syntax/parsing and local links only; no infrastructure, provider, application, schema or runtime semantics execution."
+}

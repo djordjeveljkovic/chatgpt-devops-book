@@ -1,0 +1,3740 @@
+[
+  {
+    "chapter": 1,
+    "volume": 1,
+    "volume_title": "Engineering Mental Models",
+    "title": "What DevOps Engineers Actually Own",
+    "path": "book/volumes/01-engineering-mental-models/001-what-devops-engineers-actually-own.md",
+    "summary": "book/_ai/chapter-summaries/001-what-devops-engineers-actually-own.md",
+    "review": "book/_ai/reviews/001-what-devops-engineers-actually-own.md",
+    "sections": [
+      "Service lifecycle and responsibility",
+      "DevOps, operations, platform engineering and SRE",
+      "From a ticket to an operating outcome"
+    ],
+    "prerequisites": []
+  },
+  {
+    "chapter": 2,
+    "volume": 1,
+    "volume_title": "Engineering Mental Models",
+    "title": "Requirements Before Tools",
+    "path": "book/volumes/01-engineering-mental-models/002-requirements-before-tools.md",
+    "summary": "book/_ai/chapter-summaries/002-requirements-before-tools.md",
+    "review": "book/_ai/reviews/002-requirements-before-tools.md",
+    "sections": [
+      "Functional and operational requirements",
+      "Constraints and measurable acceptance",
+      "Writing a service charter"
+    ],
+    "prerequisites": [
+      1
+    ]
+  },
+  {
+    "chapter": 3,
+    "volume": 1,
+    "volume_title": "Engineering Mental Models",
+    "title": "How Computers Execute Services",
+    "path": "book/volumes/01-engineering-mental-models/003-how-computers-execute-services.md",
+    "summary": "book/_ai/chapter-summaries/003-how-computers-execute-services.md",
+    "review": "book/_ai/reviews/003-how-computers-execute-services.md",
+    "sections": [
+      "CPU, memory, storage and networks",
+      "Processes, kernels and system calls",
+      "Following one request through a machine"
+    ],
+    "prerequisites": [
+      2
+    ]
+  },
+  {
+    "chapter": 4,
+    "volume": 1,
+    "volume_title": "Engineering Mental Models",
+    "title": "Reliability and Risk",
+    "path": "book/volumes/01-engineering-mental-models/004-reliability-and-risk.md",
+    "summary": "book/_ai/chapter-summaries/004-reliability-and-risk.md",
+    "review": "book/_ai/reviews/004-reliability-and-risk.md",
+    "sections": [
+      "Availability, durability and correctness",
+      "Failure domains and correlated failure",
+      "Choosing an acceptable risk budget"
+    ],
+    "prerequisites": [
+      3
+    ]
+  },
+  {
+    "chapter": 5,
+    "volume": 1,
+    "volume_title": "Engineering Mental Models",
+    "title": "Architecture as Tradeoffs",
+    "path": "book/volumes/01-engineering-mental-models/005-architecture-as-tradeoffs.md",
+    "summary": "book/_ai/chapter-summaries/005-architecture-as-tradeoffs.md",
+    "review": "book/_ai/reviews/005-architecture-as-tradeoffs.md",
+    "sections": [
+      "Quality attributes and competing objectives",
+      "Reversibility and decision records",
+      "Comparing three viable architectures"
+    ],
+    "prerequisites": [
+      4
+    ]
+  },
+  {
+    "chapter": 6,
+    "volume": 1,
+    "volume_title": "Engineering Mental Models",
+    "title": "Environments and Reproducibility",
+    "path": "book/volumes/01-engineering-mental-models/006-environments-and-reproducibility.md",
+    "summary": "book/_ai/chapter-summaries/006-environments-and-reproducibility.md",
+    "review": "book/_ai/reviews/006-environments-and-reproducibility.md",
+    "sections": [
+      "Development, staging and production",
+      "Configuration and artifact identity",
+      "Preventing environment drift"
+    ],
+    "prerequisites": [
+      5
+    ]
+  },
+  {
+    "chapter": 7,
+    "volume": 1,
+    "volume_title": "Engineering Mental Models",
+    "title": "Learning to Investigate",
+    "path": "book/volumes/01-engineering-mental-models/007-learning-to-investigate.md",
+    "summary": "book/_ai/chapter-summaries/007-learning-to-investigate.md",
+    "review": "book/_ai/reviews/007-learning-to-investigate.md",
+    "sections": [
+      "Observation, hypotheses and experiments",
+      "Evidence quality and uncertainty",
+      "A disciplined troubleshooting notebook"
+    ],
+    "prerequisites": [
+      6
+    ]
+  },
+  {
+    "chapter": 8,
+    "volume": 1,
+    "volume_title": "Engineering Mental Models",
+    "title": "Working Safely at the CLI",
+    "path": "book/volumes/01-engineering-mental-models/008-working-safely-at-the-cli.md",
+    "summary": "book/_ai/chapter-summaries/008-working-safely-at-the-cli.md",
+    "review": "book/_ai/reviews/008-working-safely-at-the-cli.md",
+    "sections": [
+      "Execution context and privileges",
+      "Read, change, verify and recover",
+      "Recognizing destructive and costly commands"
+    ],
+    "prerequisites": [
+      7
+    ]
+  },
+  {
+    "chapter": 9,
+    "volume": 1,
+    "volume_title": "Engineering Mental Models",
+    "title": "Teams, Ownership and Operational Work",
+    "path": "book/volumes/01-engineering-mental-models/009-teams-ownership-and-operational-work.md",
+    "summary": "book/_ai/chapter-summaries/009-teams-ownership-and-operational-work.md",
+    "review": "book/_ai/reviews/009-teams-ownership-and-operational-work.md",
+    "sections": [
+      "Service ownership and handoffs",
+      "Toil, collaboration and documentation",
+      "A practical operational readiness review"
+    ],
+    "prerequisites": [
+      8
+    ]
+  },
+  {
+    "chapter": 10,
+    "volume": 1,
+    "volume_title": "Engineering Mental Models",
+    "title": "The DispatchDesk Project Begins",
+    "path": "book/volumes/01-engineering-mental-models/010-the-dispatchdesk-project-begins.md",
+    "summary": "book/_ai/chapter-summaries/010-the-dispatchdesk-project-begins.md",
+    "review": "book/_ai/reviews/010-the-dispatchdesk-project-begins.md",
+    "sections": [
+      "A small order and notification product",
+      "Workload, budget and reliability assumptions",
+      "Three companies with different constraints"
+    ],
+    "prerequisites": [
+      9
+    ]
+  },
+  {
+    "chapter": 11,
+    "volume": 2,
+    "volume_title": "Linux and Automation",
+    "title": "The Shell and Command Execution",
+    "path": "book/volumes/02-linux-and-automation/011-the-shell-and-command-execution.md",
+    "summary": "book/_ai/chapter-summaries/011-the-shell-and-command-execution.md",
+    "review": "book/_ai/reviews/011-the-shell-and-command-execution.md",
+    "sections": [
+      "Arguments, quoting and expansion",
+      "Environment, exit codes and PATH",
+      "Tracing a command without leaking secrets"
+    ],
+    "prerequisites": [
+      10
+    ]
+  },
+  {
+    "chapter": 12,
+    "volume": 2,
+    "volume_title": "Linux and Automation",
+    "title": "Files, Paths and Filesystem Tools",
+    "path": "book/volumes/02-linux-and-automation/012-files-paths-and-filesystem-tools.md",
+    "summary": "book/_ai/chapter-summaries/012-files-paths-and-filesystem-tools.md",
+    "review": "book/_ai/reviews/012-files-paths-and-filesystem-tools.md",
+    "sections": [
+      "Paths, inodes and directory entries",
+      "Finding and inspecting files",
+      "Safe copy, move and deletion workflows"
+    ],
+    "prerequisites": [
+      11
+    ]
+  },
+  {
+    "chapter": 13,
+    "volume": 2,
+    "volume_title": "Linux and Automation",
+    "title": "Text Processing and Pipelines",
+    "path": "book/volumes/02-linux-and-automation/013-text-processing-and-pipelines.md",
+    "summary": "book/_ai/chapter-summaries/013-text-processing-and-pipelines.md",
+    "review": "book/_ai/reviews/013-text-processing-and-pipelines.md",
+    "sections": [
+      "Streams, redirection and pipes",
+      "Searching and transforming structured text",
+      "Building a useful diagnostic pipeline"
+    ],
+    "prerequisites": [
+      12
+    ]
+  },
+  {
+    "chapter": 14,
+    "volume": 2,
+    "volume_title": "Linux and Automation",
+    "title": "Users, Groups and Permissions",
+    "path": "book/volumes/02-linux-and-automation/014-users-groups-and-permissions.md",
+    "summary": "book/_ai/chapter-summaries/014-users-groups-and-permissions.md",
+    "review": "book/_ai/reviews/014-users-groups-and-permissions.md",
+    "sections": [
+      "Ownership, modes and ACLs",
+      "sudo and privilege boundaries",
+      "Diagnosing permission denied"
+    ],
+    "prerequisites": [
+      13
+    ]
+  },
+  {
+    "chapter": 15,
+    "volume": 2,
+    "volume_title": "Linux and Automation",
+    "title": "Processes, Signals and Jobs",
+    "path": "book/volumes/02-linux-and-automation/015-processes-signals-and-jobs.md",
+    "summary": "book/_ai/chapter-summaries/015-processes-signals-and-jobs.md",
+    "review": "book/_ai/reviews/015-processes-signals-and-jobs.md",
+    "sections": [
+      "Process trees and descriptors",
+      "Signals and exit behavior",
+      "Stopping a stuck service gracefully"
+    ],
+    "prerequisites": [
+      14
+    ]
+  },
+  {
+    "chapter": 16,
+    "volume": 2,
+    "volume_title": "Linux and Automation",
+    "title": "Systemd and Service Lifecycles",
+    "path": "book/volumes/02-linux-and-automation/016-systemd-and-service-lifecycles.md",
+    "summary": "book/_ai/chapter-summaries/016-systemd-and-service-lifecycles.md",
+    "review": "book/_ai/reviews/016-systemd-and-service-lifecycles.md",
+    "sections": [
+      "Units, dependencies and restart policy",
+      "Journal and unit overrides",
+      "Operating a supervised service"
+    ],
+    "prerequisites": [
+      15
+    ]
+  },
+  {
+    "chapter": 17,
+    "volume": 2,
+    "volume_title": "Linux and Automation",
+    "title": "Packages and Linux Distributions",
+    "path": "book/volumes/02-linux-and-automation/017-packages-and-linux-distributions.md",
+    "summary": "book/_ai/chapter-summaries/017-packages-and-linux-distributions.md",
+    "review": "book/_ai/reviews/017-packages-and-linux-distributions.md",
+    "sections": [
+      "apt, dnf and package provenance",
+      "Ubuntu and Fedora/RHEL release differences",
+      "Installing and upgrading reproducibly"
+    ],
+    "prerequisites": [
+      16
+    ]
+  },
+  {
+    "chapter": 18,
+    "volume": 2,
+    "volume_title": "Linux and Automation",
+    "title": "Shell Automation That Survives Failure",
+    "path": "book/volumes/02-linux-and-automation/018-shell-automation-that-survives-failure.md",
+    "summary": "book/_ai/chapter-summaries/018-shell-automation-that-survives-failure.md",
+    "review": "book/_ai/reviews/018-shell-automation-that-survives-failure.md",
+    "sections": [
+      "Input validation and quoting",
+      "Idempotency, traps and temporary files",
+      "A restartable maintenance script"
+    ],
+    "prerequisites": [
+      17
+    ]
+  },
+  {
+    "chapter": 19,
+    "volume": 2,
+    "volume_title": "Linux and Automation",
+    "title": "Git for Operational Changes",
+    "path": "book/volumes/02-linux-and-automation/019-git-for-operational-changes.md",
+    "summary": "book/_ai/chapter-summaries/019-git-for-operational-changes.md",
+    "review": "book/_ai/reviews/019-git-for-operational-changes.md",
+    "sections": [
+      "Commits, branches and review",
+      "Reverting and resolving conflicts",
+      "Managing infrastructure changes as code"
+    ],
+    "prerequisites": [
+      18
+    ]
+  },
+  {
+    "chapter": 20,
+    "volume": 2,
+    "volume_title": "Linux and Automation",
+    "title": "Scheduling and Resource Limits",
+    "path": "book/volumes/02-linux-and-automation/020-scheduling-and-resource-limits.md",
+    "summary": "book/_ai/chapter-summaries/020-scheduling-and-resource-limits.md",
+    "review": "book/_ai/reviews/020-scheduling-and-resource-limits.md",
+    "sections": [
+      "Timers, cron and time zones",
+      "File descriptors and process limits",
+      "Preventing overlapping scheduled jobs"
+    ],
+    "prerequisites": [
+      19
+    ]
+  },
+  {
+    "chapter": 21,
+    "volume": 3,
+    "volume_title": "Networking and Traffic",
+    "title": "Packets, Addresses and Routing",
+    "path": "book/volumes/03-networking-and-traffic/021-packets-addresses-and-routing.md",
+    "summary": "book/_ai/chapter-summaries/021-packets-addresses-and-routing.md",
+    "review": "book/_ai/reviews/021-packets-addresses-and-routing.md",
+    "sections": [
+      "Interfaces, addresses and subnets",
+      "Routing tables and packet paths",
+      "Diagnosing an unreachable destination"
+    ],
+    "prerequisites": [
+      20
+    ]
+  },
+  {
+    "chapter": 22,
+    "volume": 3,
+    "volume_title": "Networking and Traffic",
+    "title": "TCP, UDP and Connections",
+    "path": "book/volumes/03-networking-and-traffic/022-tcp-udp-and-connections.md",
+    "summary": "book/_ai/chapter-summaries/022-tcp-udp-and-connections.md",
+    "review": "book/_ai/reviews/022-tcp-udp-and-connections.md",
+    "sections": [
+      "Handshakes, retransmission and ports",
+      "Connection state and timeouts",
+      "Using ss and packet capture"
+    ],
+    "prerequisites": [
+      21
+    ]
+  },
+  {
+    "chapter": 23,
+    "volume": 3,
+    "volume_title": "Networking and Traffic",
+    "title": "DNS from Resolver to Authority",
+    "path": "book/volumes/03-networking-and-traffic/023-dns-from-resolver-to-authority.md",
+    "summary": "book/_ai/chapter-summaries/023-dns-from-resolver-to-authority.md",
+    "review": "book/_ai/reviews/023-dns-from-resolver-to-authority.md",
+    "sections": [
+      "Recursive and authoritative resolution",
+      "Caching, TTL and negative responses",
+      "Debugging a failed DNS change"
+    ],
+    "prerequisites": [
+      22
+    ]
+  },
+  {
+    "chapter": 24,
+    "volume": 3,
+    "volume_title": "Networking and Traffic",
+    "title": "HTTP and API Traffic",
+    "path": "book/volumes/03-networking-and-traffic/024-http-and-api-traffic.md",
+    "summary": "book/_ai/chapter-summaries/024-http-and-api-traffic.md",
+    "review": "book/_ai/reviews/024-http-and-api-traffic.md",
+    "sections": [
+      "Methods, status and headers",
+      "Persistent connections and proxy boundaries",
+      "Following a request with curl"
+    ],
+    "prerequisites": [
+      23
+    ]
+  },
+  {
+    "chapter": 25,
+    "volume": 3,
+    "volume_title": "Networking and Traffic",
+    "title": "TLS, Certificates and Trust",
+    "path": "book/volumes/03-networking-and-traffic/025-tls-certificates-and-trust.md",
+    "summary": "book/_ai/chapter-summaries/025-tls-certificates-and-trust.md",
+    "review": "book/_ai/reviews/025-tls-certificates-and-trust.md",
+    "sections": [
+      "Certificate chains and names",
+      "Issuance, renewal and termination",
+      "Diagnosing TLS with openssl"
+    ],
+    "prerequisites": [
+      24
+    ]
+  },
+  {
+    "chapter": 26,
+    "volume": 3,
+    "volume_title": "Networking and Traffic",
+    "title": "SSH and Remote Administration",
+    "path": "book/volumes/03-networking-and-traffic/026-ssh-and-remote-administration.md",
+    "summary": "book/_ai/chapter-summaries/026-ssh-and-remote-administration.md",
+    "review": "book/_ai/reviews/026-ssh-and-remote-administration.md",
+    "sections": [
+      "Keys, agents and host verification",
+      "Bastions, tunnels and connection reuse",
+      "A reliable remote maintenance session"
+    ],
+    "prerequisites": [
+      25
+    ]
+  },
+  {
+    "chapter": 27,
+    "volume": 3,
+    "volume_title": "Networking and Traffic",
+    "title": "Firewalls and Network Policy",
+    "path": "book/volumes/03-networking-and-traffic/027-firewalls-and-network-policy.md",
+    "summary": "book/_ai/chapter-summaries/027-firewalls-and-network-policy.md",
+    "review": "book/_ai/reviews/027-firewalls-and-network-policy.md",
+    "sections": [
+      "Stateful filtering and rule ordering",
+      "nftables, ufw and firewalld",
+      "Changing access without losing SSH"
+    ],
+    "prerequisites": [
+      26
+    ]
+  },
+  {
+    "chapter": 28,
+    "volume": 3,
+    "volume_title": "Networking and Traffic",
+    "title": "NAT, Proxies and Connection Tracking",
+    "path": "book/volumes/03-networking-and-traffic/028-nat-proxies-and-connection-tracking.md",
+    "summary": "book/_ai/chapter-summaries/028-nat-proxies-and-connection-tracking.md",
+    "review": "book/_ai/reviews/028-nat-proxies-and-connection-tracking.md",
+    "sections": [
+      "Translation and return paths",
+      "Forward and reverse proxies",
+      "Finding conntrack and ephemeral-port exhaustion"
+    ],
+    "prerequisites": [
+      27
+    ]
+  },
+  {
+    "chapter": 29,
+    "volume": 3,
+    "volume_title": "Networking and Traffic",
+    "title": "Load Balancers and Traffic Distribution",
+    "path": "book/volumes/03-networking-and-traffic/029-load-balancers-and-traffic-distribution.md",
+    "summary": "book/_ai/chapter-summaries/029-load-balancers-and-traffic-distribution.md",
+    "review": "book/_ai/reviews/029-load-balancers-and-traffic-distribution.md",
+    "sections": [
+      "Layer four and layer seven routing",
+      "Health checks and connection draining",
+      "Choosing an algorithm and failure behavior"
+    ],
+    "prerequisites": [
+      28
+    ]
+  },
+  {
+    "chapter": 30,
+    "volume": 3,
+    "volume_title": "Networking and Traffic",
+    "title": "Network Troubleshooting in Layers",
+    "path": "book/volumes/03-networking-and-traffic/030-network-troubleshooting-in-layers.md",
+    "summary": "book/_ai/chapter-summaries/030-network-troubleshooting-in-layers.md",
+    "review": "book/_ai/reviews/030-network-troubleshooting-in-layers.md",
+    "sections": [
+      "Local, route, name and application evidence",
+      "tcpdump, tracepath and mtr",
+      "Separating packet loss from application latency"
+    ],
+    "prerequisites": [
+      29
+    ]
+  },
+  {
+    "chapter": 31,
+    "volume": 4,
+    "volume_title": "VPS and Server Operations",
+    "title": "Choosing and Provisioning a VPS",
+    "path": "book/volumes/04-vps-and-server-operations/031-choosing-and-provisioning-a-vps.md",
+    "summary": "book/_ai/chapter-summaries/031-choosing-and-provisioning-a-vps.md",
+    "review": "book/_ai/reviews/031-choosing-and-provisioning-a-vps.md",
+    "sections": [
+      "Sizing, regions and provider constraints",
+      "Images, SSH access and cloud-init",
+      "An auditable first-server build"
+    ],
+    "prerequisites": [
+      30
+    ]
+  },
+  {
+    "chapter": 32,
+    "volume": 4,
+    "volume_title": "VPS and Server Operations",
+    "title": "Host Hardening and Access",
+    "path": "book/volumes/04-vps-and-server-operations/032-host-hardening-and-access.md",
+    "summary": "book/_ai/chapter-summaries/032-host-hardening-and-access.md",
+    "review": "book/_ai/reviews/032-host-hardening-and-access.md",
+    "sections": [
+      "Administrative identities and updates",
+      "Exposure reduction and recovery access",
+      "An Ubuntu and Fedora/RHEL baseline"
+    ],
+    "prerequisites": [
+      31
+    ]
+  },
+  {
+    "chapter": 33,
+    "volume": 4,
+    "volume_title": "VPS and Server Operations",
+    "title": "Disks, Filesystems and Mounts",
+    "path": "book/volumes/04-vps-and-server-operations/033-disks-filesystems-and-mounts.md",
+    "summary": "book/_ai/chapter-summaries/033-disks-filesystems-and-mounts.md",
+    "review": "book/_ai/reviews/033-disks-filesystems-and-mounts.md",
+    "sections": [
+      "Block devices, partitions and filesystems",
+      "Persistent mounts and growth",
+      "Diagnosing full disks and inodes"
+    ],
+    "prerequisites": [
+      32
+    ]
+  },
+  {
+    "chapter": 34,
+    "volume": 4,
+    "volume_title": "VPS and Server Operations",
+    "title": "Deploying a Service with Systemd",
+    "path": "book/volumes/04-vps-and-server-operations/034-deploying-a-service-with-systemd.md",
+    "summary": "book/_ai/chapter-summaries/034-deploying-a-service-with-systemd.md",
+    "review": "book/_ai/reviews/034-deploying-a-service-with-systemd.md",
+    "sections": [
+      "Users, working directories and configuration",
+      "Release directories and service units",
+      "Deploying DispatchDesk without containers"
+    ],
+    "prerequisites": [
+      33
+    ]
+  },
+  {
+    "chapter": 35,
+    "volume": 4,
+    "volume_title": "VPS and Server Operations",
+    "title": "Reverse Proxies on a VPS",
+    "path": "book/volumes/04-vps-and-server-operations/035-reverse-proxies-on-a-vps.md",
+    "summary": "book/_ai/chapter-summaries/035-reverse-proxies-on-a-vps.md",
+    "review": "book/_ai/reviews/035-reverse-proxies-on-a-vps.md",
+    "sections": [
+      "Nginx routing and upstreams",
+      "TLS, buffering and timeout boundaries",
+      "Serving multiple applications safely"
+    ],
+    "prerequisites": [
+      34
+    ]
+  },
+  {
+    "chapter": 36,
+    "volume": 4,
+    "volume_title": "VPS and Server Operations",
+    "title": "Database and Cache Operations on One Host",
+    "path": "book/volumes/04-vps-and-server-operations/036-database-and-cache-operations-on-one-host.md",
+    "summary": "book/_ai/chapter-summaries/036-database-and-cache-operations-on-one-host.md",
+    "review": "book/_ai/reviews/036-database-and-cache-operations-on-one-host.md",
+    "sections": [
+      "PostgreSQL and Redis resource competition",
+      "Persistence, access and maintenance",
+      "Avoiding accidental public exposure"
+    ],
+    "prerequisites": [
+      35
+    ]
+  },
+  {
+    "chapter": 37,
+    "volume": 4,
+    "volume_title": "VPS and Server Operations",
+    "title": "Server Backups and Restore",
+    "path": "book/volumes/04-vps-and-server-operations/037-server-backups-and-restore.md",
+    "summary": "book/_ai/chapter-summaries/037-server-backups-and-restore.md",
+    "review": "book/_ai/reviews/037-server-backups-and-restore.md",
+    "sections": [
+      "Files, databases and configuration scope",
+      "Retention, encryption and consistency",
+      "Restoring into an isolated server"
+    ],
+    "prerequisites": [
+      36
+    ]
+  },
+  {
+    "chapter": 38,
+    "volume": 4,
+    "volume_title": "VPS and Server Operations",
+    "title": "Patching and Maintenance Windows",
+    "path": "book/volumes/04-vps-and-server-operations/038-patching-and-maintenance-windows.md",
+    "summary": "book/_ai/chapter-summaries/038-patching-and-maintenance-windows.md",
+    "review": "book/_ai/reviews/038-patching-and-maintenance-windows.md",
+    "sections": [
+      "Package and kernel updates",
+      "Drain, restart and smoke checks",
+      "Recovering from a bad host update"
+    ],
+    "prerequisites": [
+      37
+    ]
+  },
+  {
+    "chapter": 39,
+    "volume": 4,
+    "volume_title": "VPS and Server Operations",
+    "title": "Adding a Second Server",
+    "path": "book/volumes/04-vps-and-server-operations/039-adding-a-second-server.md",
+    "summary": "book/_ai/chapter-summaries/039-adding-a-second-server.md",
+    "review": "book/_ai/reviews/039-adding-a-second-server.md",
+    "sections": [
+      "Shared state and traffic distribution",
+      "Configuration consistency and failure domains",
+      "Moving from one machine to two"
+    ],
+    "prerequisites": [
+      38
+    ]
+  },
+  {
+    "chapter": 40,
+    "volume": 4,
+    "volume_title": "VPS and Server Operations",
+    "title": "VPS Incidents and Capacity",
+    "path": "book/volumes/04-vps-and-server-operations/040-vps-incidents-and-capacity.md",
+    "summary": "book/_ai/chapter-summaries/040-vps-incidents-and-capacity.md",
+    "review": "book/_ai/reviews/040-vps-incidents-and-capacity.md",
+    "sections": [
+      "CPU, memory, disk and network evidence",
+      "Provider limits and noisy neighbors",
+      "Deciding whether to resize or redesign"
+    ],
+    "prerequisites": [
+      39
+    ]
+  },
+  {
+    "chapter": 41,
+    "volume": 5,
+    "volume_title": "Container Internals and OCI",
+    "title": "Containers Are Isolated Processes",
+    "path": "book/volumes/05-container-internals-and-oci/041-containers-are-isolated-processes.md",
+    "summary": "book/_ai/chapter-summaries/041-containers-are-isolated-processes.md",
+    "review": "book/_ai/reviews/041-containers-are-isolated-processes.md",
+    "sections": [
+      "Process isolation versus virtual machines",
+      "Host-kernel dependencies and limits",
+      "Inspecting a running container from the host"
+    ],
+    "prerequisites": [
+      40
+    ]
+  },
+  {
+    "chapter": 42,
+    "volume": 5,
+    "volume_title": "Container Internals and OCI",
+    "title": "Linux Namespaces",
+    "path": "book/volumes/05-container-internals-and-oci/042-linux-namespaces.md",
+    "summary": "book/_ai/chapter-summaries/042-linux-namespaces.md",
+    "review": "book/_ai/reviews/042-linux-namespaces.md",
+    "sections": [
+      "PID, mount, network and user views",
+      "Namespace boundaries and inspection",
+      "Explaining container-visible resources"
+    ],
+    "prerequisites": [
+      41
+    ]
+  },
+  {
+    "chapter": 43,
+    "volume": 5,
+    "volume_title": "Container Internals and OCI",
+    "title": "Cgroups and Resource Accounting",
+    "path": "book/volumes/05-container-internals-and-oci/043-cgroups-and-resource-accounting.md",
+    "summary": "book/_ai/chapter-summaries/043-cgroups-and-resource-accounting.md",
+    "review": "book/_ai/reviews/043-cgroups-and-resource-accounting.md",
+    "sections": [
+      "CPU, memory and I/O controls",
+      "Limits, pressure and OOM behavior",
+      "Reading resource evidence rather than guesses"
+    ],
+    "prerequisites": [
+      42
+    ]
+  },
+  {
+    "chapter": 44,
+    "volume": 5,
+    "volume_title": "Container Internals and OCI",
+    "title": "Images, Layers and Content Identity",
+    "path": "book/volumes/05-container-internals-and-oci/044-images-layers-and-content-identity.md",
+    "summary": "book/_ai/chapter-summaries/044-images-layers-and-content-identity.md",
+    "review": "book/_ai/reviews/044-images-layers-and-content-identity.md",
+    "sections": [
+      "OCI image structure and manifests",
+      "Tags, digests and multi-platform images",
+      "Tracing an image from registry to runtime"
+    ],
+    "prerequisites": [
+      43
+    ]
+  },
+  {
+    "chapter": 45,
+    "volume": 5,
+    "volume_title": "Container Internals and OCI",
+    "title": "Container Filesystems and Storage",
+    "path": "book/volumes/05-container-internals-and-oci/045-container-filesystems-and-storage.md",
+    "summary": "book/_ai/chapter-summaries/045-container-filesystems-and-storage.md",
+    "review": "book/_ai/reviews/045-container-filesystems-and-storage.md",
+    "sections": [
+      "Read-only layers and writable state",
+      "Overlay behavior and mounts",
+      "Finding unexpected disk growth"
+    ],
+    "prerequisites": [
+      44
+    ]
+  },
+  {
+    "chapter": 46,
+    "volume": 5,
+    "volume_title": "Container Internals and OCI",
+    "title": "OCI Runtimes and Container Engines",
+    "path": "book/volumes/05-container-internals-and-oci/046-oci-runtimes-and-container-engines.md",
+    "summary": "book/_ai/chapter-summaries/046-oci-runtimes-and-container-engines.md",
+    "review": "book/_ai/reviews/046-oci-runtimes-and-container-engines.md",
+    "sections": [
+      "Engine, runtime and kernel responsibilities",
+      "containerd, CRI-O, runc and crun",
+      "Following a container start"
+    ],
+    "prerequisites": [
+      45
+    ]
+  },
+  {
+    "chapter": 47,
+    "volume": 5,
+    "volume_title": "Container Internals and OCI",
+    "title": "Rootless Containers and User Mapping",
+    "path": "book/volumes/05-container-internals-and-oci/047-rootless-containers-and-user-mapping.md",
+    "summary": "book/_ai/chapter-summaries/047-rootless-containers-and-user-mapping.md",
+    "review": "book/_ai/reviews/047-rootless-containers-and-user-mapping.md",
+    "sections": [
+      "User namespaces and subordinate IDs",
+      "Privileges, networking and storage limitations",
+      "Explaining root inside a rootless container"
+    ],
+    "prerequisites": [
+      46
+    ]
+  },
+  {
+    "chapter": 48,
+    "volume": 5,
+    "volume_title": "Container Internals and OCI",
+    "title": "Capabilities and Security Boundaries",
+    "path": "book/volumes/05-container-internals-and-oci/048-capabilities-and-security-boundaries.md",
+    "summary": "book/_ai/chapter-summaries/048-capabilities-and-security-boundaries.md",
+    "review": "book/_ai/reviews/048-capabilities-and-security-boundaries.md",
+    "sections": [
+      "Capabilities, seccomp and LSMs",
+      "AppArmor, SELinux and device access",
+      "Reducing privilege for a real workload"
+    ],
+    "prerequisites": [
+      47
+    ]
+  },
+  {
+    "chapter": 49,
+    "volume": 5,
+    "volume_title": "Container Internals and OCI",
+    "title": "Registries and Image Distribution",
+    "path": "book/volumes/05-container-internals-and-oci/049-registries-and-image-distribution.md",
+    "summary": "book/_ai/chapter-summaries/049-registries-and-image-distribution.md",
+    "review": "book/_ai/reviews/049-registries-and-image-distribution.md",
+    "sections": [
+      "Authentication, manifests and blobs",
+      "Caching, retention and availability",
+      "Diagnosing pull and platform errors"
+    ],
+    "prerequisites": [
+      48
+    ]
+  },
+  {
+    "chapter": 50,
+    "volume": 5,
+    "volume_title": "Container Internals and OCI",
+    "title": "The Container Contract",
+    "path": "book/volumes/05-container-internals-and-oci/050-the-container-contract.md",
+    "summary": "book/_ai/chapter-summaries/050-the-container-contract.md",
+    "review": "book/_ai/reviews/050-the-container-contract.md",
+    "sections": [
+      "Signals, logs and configuration",
+      "Ephemeral execution and durable state",
+      "Designing an application that restarts cleanly"
+    ],
+    "prerequisites": [
+      49
+    ]
+  },
+  {
+    "chapter": 51,
+    "volume": 6,
+    "volume_title": "Docker in Practice",
+    "title": "Installing and Inspecting Docker",
+    "path": "book/volumes/06-docker-in-practice/051-installing-and-inspecting-docker.md",
+    "summary": "book/_ai/chapter-summaries/051-installing-and-inspecting-docker.md",
+    "review": "book/_ai/reviews/051-installing-and-inspecting-docker.md",
+    "sections": [
+      "Engine installation on both Linux families",
+      "Daemon access and privilege",
+      "Verifying client, server and context"
+    ],
+    "prerequisites": [
+      50
+    ]
+  },
+  {
+    "chapter": 52,
+    "volume": 6,
+    "volume_title": "Docker in Practice",
+    "title": "Running and Managing Containers",
+    "path": "book/volumes/06-docker-in-practice/052-running-and-managing-containers.md",
+    "summary": "book/_ai/chapter-summaries/052-running-and-managing-containers.md",
+    "review": "book/_ai/reviews/052-running-and-managing-containers.md",
+    "sections": [
+      "run, create, start, stop and remove",
+      "Names, ports and restart policy",
+      "Operating a small HTTP container"
+    ],
+    "prerequisites": [
+      51
+    ]
+  },
+  {
+    "chapter": 53,
+    "volume": 6,
+    "volume_title": "Docker in Practice",
+    "title": "Dockerfiles and Build Contexts",
+    "path": "book/volumes/06-docker-in-practice/053-dockerfiles-and-build-contexts.md",
+    "summary": "book/_ai/chapter-summaries/053-dockerfiles-and-build-contexts.md",
+    "review": "book/_ai/reviews/053-dockerfiles-and-build-contexts.md",
+    "sections": [
+      "Instructions, context and ignore rules",
+      "Layers and reproducible dependency installation",
+      "Building a useful application image"
+    ],
+    "prerequisites": [
+      52
+    ]
+  },
+  {
+    "chapter": 54,
+    "volume": 6,
+    "volume_title": "Docker in Practice",
+    "title": "BuildKit, Caching and Multi-stage Builds",
+    "path": "book/volumes/06-docker-in-practice/054-buildkit-caching-and-multi-stage-builds.md",
+    "summary": "book/_ai/chapter-summaries/054-buildkit-caching-and-multi-stage-builds.md",
+    "review": "book/_ai/reviews/054-buildkit-caching-and-multi-stage-builds.md",
+    "sections": [
+      "Cache invalidation and dependency ordering",
+      "Build secrets and multi-stage boundaries",
+      "Reducing rebuild time and image size"
+    ],
+    "prerequisites": [
+      53
+    ]
+  },
+  {
+    "chapter": 55,
+    "volume": 6,
+    "volume_title": "Docker in Practice",
+    "title": "Docker Networking",
+    "path": "book/volumes/06-docker-in-practice/055-docker-networking.md",
+    "summary": "book/_ai/chapter-summaries/055-docker-networking.md",
+    "review": "book/_ai/reviews/055-docker-networking.md",
+    "sections": [
+      "Bridge, host and user-defined networks",
+      "Service naming and published ports",
+      "Debugging communication between containers"
+    ],
+    "prerequisites": [
+      54
+    ]
+  },
+  {
+    "chapter": 56,
+    "volume": 6,
+    "volume_title": "Docker in Practice",
+    "title": "Docker Volumes and Persistent Data",
+    "path": "book/volumes/06-docker-in-practice/056-docker-volumes-and-persistent-data.md",
+    "summary": "book/_ai/chapter-summaries/056-docker-volumes-and-persistent-data.md",
+    "review": "book/_ai/reviews/056-docker-volumes-and-persistent-data.md",
+    "sections": [
+      "Volumes, bind mounts and ownership",
+      "Backup and database consistency",
+      "Surviving container replacement"
+    ],
+    "prerequisites": [
+      55
+    ]
+  },
+  {
+    "chapter": 57,
+    "volume": 6,
+    "volume_title": "Docker in Practice",
+    "title": "Docker Compose for Multi-service Applications",
+    "path": "book/volumes/06-docker-in-practice/057-docker-compose-for-multi-service-applications.md",
+    "summary": "book/_ai/chapter-summaries/057-docker-compose-for-multi-service-applications.md",
+    "review": "book/_ai/reviews/057-docker-compose-for-multi-service-applications.md",
+    "sections": [
+      "Services, networks and configuration",
+      "Dependencies and readiness",
+      "An API, worker, PostgreSQL and Redis stack"
+    ],
+    "prerequisites": [
+      56
+    ]
+  },
+  {
+    "chapter": 58,
+    "volume": 6,
+    "volume_title": "Docker in Practice",
+    "title": "Inspecting and Debugging Docker",
+    "path": "book/volumes/06-docker-in-practice/058-inspecting-and-debugging-docker.md",
+    "summary": "book/_ai/chapter-summaries/058-inspecting-and-debugging-docker.md",
+    "review": "book/_ai/reviews/058-inspecting-and-debugging-docker.md",
+    "sections": [
+      "logs, exec, inspect, stats and events",
+      "Host and container evidence correlation",
+      "Diagnosing a crashing application"
+    ],
+    "prerequisites": [
+      57
+    ]
+  },
+  {
+    "chapter": 59,
+    "volume": 6,
+    "volume_title": "Docker in Practice",
+    "title": "Publishing and Promoting Images",
+    "path": "book/volumes/06-docker-in-practice/059-publishing-and-promoting-images.md",
+    "summary": "book/_ai/chapter-summaries/059-publishing-and-promoting-images.md",
+    "review": "book/_ai/reviews/059-publishing-and-promoting-images.md",
+    "sections": [
+      "Registry login, tagging and digest identity",
+      "Build once and promote",
+      "Releasing a versioned service"
+    ],
+    "prerequisites": [
+      58
+    ]
+  },
+  {
+    "chapter": 60,
+    "volume": 6,
+    "volume_title": "Docker in Practice",
+    "title": "Docker Production Operations",
+    "path": "book/volumes/06-docker-in-practice/060-docker-production-operations.md",
+    "summary": "book/_ai/chapter-summaries/060-docker-production-operations.md",
+    "review": "book/_ai/reviews/060-docker-production-operations.md",
+    "sections": [
+      "Daemon maintenance and log rotation",
+      "Health, resource limits and recovery",
+      "A production deployment review"
+    ],
+    "prerequisites": [
+      59
+    ]
+  },
+  {
+    "chapter": 61,
+    "volume": 7,
+    "volume_title": "Podman and the Rootless Host",
+    "title": "Installing and Understanding Podman",
+    "path": "book/volumes/07-podman-and-the-rootless-host/061-installing-and-understanding-podman.md",
+    "summary": "book/_ai/chapter-summaries/061-installing-and-understanding-podman.md",
+    "review": "book/_ai/reviews/061-installing-and-understanding-podman.md",
+    "sections": [
+      "Installation and version inspection",
+      "Local and remote execution",
+      "Comparing daemonless operation with Docker"
+    ],
+    "prerequisites": [
+      60
+    ]
+  },
+  {
+    "chapter": 62,
+    "volume": 7,
+    "volume_title": "Podman and the Rootless Host",
+    "title": "The Podman Container Lifecycle",
+    "path": "book/volumes/07-podman-and-the-rootless-host/062-the-podman-container-lifecycle.md",
+    "summary": "book/_ai/chapter-summaries/062-the-podman-container-lifecycle.md",
+    "review": "book/_ai/reviews/062-the-podman-container-lifecycle.md",
+    "sections": [
+      "run, inspect, exec, logs and cleanup",
+      "Rootless versus rootful state",
+      "Operating an HTTP service"
+    ],
+    "prerequisites": [
+      61
+    ]
+  },
+  {
+    "chapter": 63,
+    "volume": 7,
+    "volume_title": "Podman and the Rootless Host",
+    "title": "Rootless Identity and Volume Ownership",
+    "path": "book/volumes/07-podman-and-the-rootless-host/063-rootless-identity-and-volume-ownership.md",
+    "summary": "book/_ai/chapter-summaries/063-rootless-identity-and-volume-ownership.md",
+    "review": "book/_ai/reviews/063-rootless-identity-and-volume-ownership.md",
+    "sections": [
+      "Subordinate IDs and mappings",
+      "keep-id, unshare and file ownership",
+      "Repairing persistent-volume access"
+    ],
+    "prerequisites": [
+      62
+    ]
+  },
+  {
+    "chapter": 64,
+    "volume": 7,
+    "volume_title": "Podman and the Rootless Host",
+    "title": "Podman Networking and Ports",
+    "path": "book/volumes/07-podman-and-the-rootless-host/064-podman-networking-and-ports.md",
+    "summary": "book/_ai/chapter-summaries/064-podman-networking-and-ports.md",
+    "review": "book/_ai/reviews/064-podman-networking-and-ports.md",
+    "sections": [
+      "Network backends and rootless forwarding",
+      "Name resolution and port reachability",
+      "Diagnosing a network mismatch"
+    ],
+    "prerequisites": [
+      63
+    ]
+  },
+  {
+    "chapter": 65,
+    "volume": 7,
+    "volume_title": "Podman and the Rootless Host",
+    "title": "Podman Pods and Kubernetes YAML",
+    "path": "book/volumes/07-podman-and-the-rootless-host/065-podman-pods-and-kubernetes-yaml.md",
+    "summary": "book/_ai/chapter-summaries/065-podman-pods-and-kubernetes-yaml.md",
+    "review": "book/_ai/reviews/065-podman-pods-and-kubernetes-yaml.md",
+    "sections": [
+      "Shared namespaces and pod membership",
+      "generate kube and play kube boundaries",
+      "Moving a small pod between environments"
+    ],
+    "prerequisites": [
+      64
+    ]
+  },
+  {
+    "chapter": 66,
+    "volume": 7,
+    "volume_title": "Podman and the Rootless Host",
+    "title": "Quadlet and Systemd Integration",
+    "path": "book/volumes/07-podman-and-the-rootless-host/066-quadlet-and-systemd-integration.md",
+    "summary": "book/_ai/chapter-summaries/066-quadlet-and-systemd-integration.md",
+    "review": "book/_ai/reviews/066-quadlet-and-systemd-integration.md",
+    "sections": [
+      "Declarative units and generated services",
+      "User services, lingering and startup",
+      "Running a durable rootless service"
+    ],
+    "prerequisites": [
+      65
+    ]
+  },
+  {
+    "chapter": 67,
+    "volume": 7,
+    "volume_title": "Podman and the Rootless Host",
+    "title": "SELinux and Container Mounts",
+    "path": "book/volumes/07-podman-and-the-rootless-host/067-selinux-and-container-mounts.md",
+    "summary": "book/_ai/chapter-summaries/067-selinux-and-container-mounts.md",
+    "review": "book/_ai/reviews/067-selinux-and-container-mounts.md",
+    "sections": [
+      "Labels, shared and private relabeling",
+      "Diagnosing AVC denials",
+      "Fixing mounts without disabling policy"
+    ],
+    "prerequisites": [
+      66
+    ]
+  },
+  {
+    "chapter": 68,
+    "volume": 7,
+    "volume_title": "Podman and the Rootless Host",
+    "title": "Buildah and Skopeo Workflows",
+    "path": "book/volumes/07-podman-and-the-rootless-host/068-buildah-and-skopeo-workflows.md",
+    "summary": "book/_ai/chapter-summaries/068-buildah-and-skopeo-workflows.md",
+    "review": "book/_ai/reviews/068-buildah-and-skopeo-workflows.md",
+    "sections": [
+      "Building OCI images with Buildah",
+      "Inspecting and copying images with Skopeo",
+      "A registry-independent image workflow"
+    ],
+    "prerequisites": [
+      67
+    ]
+  },
+  {
+    "chapter": 69,
+    "volume": 7,
+    "volume_title": "Podman and the Rootless Host",
+    "title": "Migrating Docker Workflows to Podman",
+    "path": "book/volumes/07-podman-and-the-rootless-host/069-migrating-docker-workflows-to-podman.md",
+    "summary": "book/_ai/chapter-summaries/069-migrating-docker-workflows-to-podman.md",
+    "review": "book/_ai/reviews/069-migrating-docker-workflows-to-podman.md",
+    "sections": [
+      "Compatible commands and behavioral differences",
+      "Compose providers and socket compatibility",
+      "A measured migration checklist"
+    ],
+    "prerequisites": [
+      68
+    ]
+  },
+  {
+    "chapter": 70,
+    "volume": 7,
+    "volume_title": "Podman and the Rootless Host",
+    "title": "Podman Host Operations and Incidents",
+    "path": "book/volumes/07-podman-and-the-rootless-host/070-podman-host-operations-and-incidents.md",
+    "summary": "book/_ai/chapter-summaries/070-podman-host-operations-and-incidents.md",
+    "review": "book/_ai/reviews/070-podman-host-operations-and-incidents.md",
+    "sections": [
+      "Storage, upgrades and resource pressure",
+      "Service recovery and registry failures",
+      "Operating a fleet of rootless hosts"
+    ],
+    "prerequisites": [
+      69
+    ]
+  },
+  {
+    "chapter": 71,
+    "volume": 8,
+    "volume_title": "Infrastructure as Code",
+    "title": "Declarative Infrastructure and Reconciliation",
+    "path": "book/volumes/08-infrastructure-as-code/071-declarative-infrastructure-and-reconciliation.md",
+    "summary": "book/_ai/chapter-summaries/071-declarative-infrastructure-and-reconciliation.md",
+    "review": "book/_ai/reviews/071-declarative-infrastructure-and-reconciliation.md",
+    "sections": [
+      "Desired state and dependency graphs",
+      "Idempotency and ownership",
+      "Comparing scripts with declarative tools"
+    ],
+    "prerequisites": [
+      70
+    ]
+  },
+  {
+    "chapter": 72,
+    "volume": 8,
+    "volume_title": "Infrastructure as Code",
+    "title": "Terraform and OpenTofu CLI Foundations",
+    "path": "book/volumes/08-infrastructure-as-code/072-terraform-and-opentofu-cli-foundations.md",
+    "summary": "book/_ai/chapter-summaries/072-terraform-and-opentofu-cli-foundations.md",
+    "review": "book/_ai/reviews/072-terraform-and-opentofu-cli-foundations.md",
+    "sections": [
+      "Providers, resources and variables",
+      "init, validate, plan and apply",
+      "A reviewed infrastructure change"
+    ],
+    "prerequisites": [
+      71
+    ]
+  },
+  {
+    "chapter": 73,
+    "volume": 8,
+    "volume_title": "Infrastructure as Code",
+    "title": "State, Locking and Remote Backends",
+    "path": "book/volumes/08-infrastructure-as-code/073-state-locking-and-remote-backends.md",
+    "summary": "book/_ai/chapter-summaries/073-state-locking-and-remote-backends.md",
+    "review": "book/_ai/reviews/073-state-locking-and-remote-backends.md",
+    "sections": [
+      "Resource identity and state sensitivity",
+      "Remote state and concurrent changes",
+      "Recovering a failed state operation"
+    ],
+    "prerequisites": [
+      72
+    ]
+  },
+  {
+    "chapter": 74,
+    "volume": 8,
+    "volume_title": "Infrastructure as Code",
+    "title": "Modules and Infrastructure Boundaries",
+    "path": "book/volumes/08-infrastructure-as-code/074-modules-and-infrastructure-boundaries.md",
+    "summary": "book/_ai/chapter-summaries/074-modules-and-infrastructure-boundaries.md",
+    "review": "book/_ai/reviews/074-modules-and-infrastructure-boundaries.md",
+    "sections": [
+      "Inputs, outputs and composition",
+      "Environment and ownership boundaries",
+      "Designing a reusable network module"
+    ],
+    "prerequisites": [
+      73
+    ]
+  },
+  {
+    "chapter": 75,
+    "volume": 8,
+    "volume_title": "Infrastructure as Code",
+    "title": "Import, Drift and Safe Refactoring",
+    "path": "book/volumes/08-infrastructure-as-code/075-import-drift-and-safe-refactoring.md",
+    "summary": "book/_ai/chapter-summaries/075-import-drift-and-safe-refactoring.md",
+    "review": "book/_ai/reviews/075-import-drift-and-safe-refactoring.md",
+    "sections": [
+      "Discovery and import workflows",
+      "Address changes and replacement risk",
+      "Adopting existing infrastructure safely"
+    ],
+    "prerequisites": [
+      74
+    ]
+  },
+  {
+    "chapter": 76,
+    "volume": 8,
+    "volume_title": "Infrastructure as Code",
+    "title": "Testing and Policy for Infrastructure",
+    "path": "book/volumes/08-infrastructure-as-code/076-testing-and-policy-for-infrastructure.md",
+    "summary": "book/_ai/chapter-summaries/076-testing-and-policy-for-infrastructure.md",
+    "review": "book/_ai/reviews/076-testing-and-policy-for-infrastructure.md",
+    "sections": [
+      "Validation, plans and integration checks",
+      "Policy gates and change review",
+      "Checking an infrastructure pull request"
+    ],
+    "prerequisites": [
+      75
+    ]
+  },
+  {
+    "chapter": 77,
+    "volume": 8,
+    "volume_title": "Infrastructure as Code",
+    "title": "Ansible Inventory and Playbooks",
+    "path": "book/volumes/08-infrastructure-as-code/077-ansible-inventory-and-playbooks.md",
+    "summary": "book/_ai/chapter-summaries/077-ansible-inventory-and-playbooks.md",
+    "review": "book/_ai/reviews/077-ansible-inventory-and-playbooks.md",
+    "sections": [
+      "Inventory, modules and tasks",
+      "Privilege, handlers and idempotency",
+      "Configuring Ubuntu and Fedora/RHEL hosts"
+    ],
+    "prerequisites": [
+      76
+    ]
+  },
+  {
+    "chapter": 78,
+    "volume": 8,
+    "volume_title": "Infrastructure as Code",
+    "title": "Ansible Roles and Secret Handling",
+    "path": "book/volumes/08-infrastructure-as-code/078-ansible-roles-and-secret-handling.md",
+    "summary": "book/_ai/chapter-summaries/078-ansible-roles-and-secret-handling.md",
+    "review": "book/_ai/reviews/078-ansible-roles-and-secret-handling.md",
+    "sections": [
+      "Reusable roles and collections",
+      "Vault and external secret references",
+      "Operating a multi-host deployment"
+    ],
+    "prerequisites": [
+      77
+    ]
+  },
+  {
+    "chapter": 79,
+    "volume": 8,
+    "volume_title": "Infrastructure as Code",
+    "title": "Cloud-init and CloudFormation",
+    "path": "book/volumes/08-infrastructure-as-code/079-cloud-init-and-cloudformation.md",
+    "summary": "book/_ai/chapter-summaries/079-cloud-init-and-cloudformation.md",
+    "review": "book/_ai/reviews/079-cloud-init-and-cloudformation.md",
+    "sections": [
+      "First-boot configuration and image boundaries",
+      "AWS stacks, change sets and drift",
+      "Choosing the right provisioning layer"
+    ],
+    "prerequisites": [
+      78
+    ]
+  },
+  {
+    "chapter": 80,
+    "volume": 8,
+    "volume_title": "Infrastructure as Code",
+    "title": "Infrastructure Lifecycle and Disaster Recovery",
+    "path": "book/volumes/08-infrastructure-as-code/080-infrastructure-lifecycle-and-disaster-recovery.md",
+    "summary": "book/_ai/chapter-summaries/080-infrastructure-lifecycle-and-disaster-recovery.md",
+    "review": "book/_ai/reviews/080-infrastructure-lifecycle-and-disaster-recovery.md",
+    "sections": [
+      "Bootstrap dependencies and break-glass access",
+      "State recovery and teardown",
+      "Rebuilding a lost environment"
+    ],
+    "prerequisites": [
+      79
+    ]
+  },
+  {
+    "chapter": 81,
+    "volume": 9,
+    "volume_title": "AWS Foundations",
+    "title": "AWS Accounts, Regions and Responsibility",
+    "path": "book/volumes/09-aws-foundations/081-aws-accounts-regions-and-responsibility.md",
+    "summary": "book/_ai/chapter-summaries/081-aws-accounts-regions-and-responsibility.md",
+    "review": "book/_ai/reviews/081-aws-accounts-regions-and-responsibility.md",
+    "sections": [
+      "Accounts, organizations and environments",
+      "Regions, zones and service boundaries",
+      "A usable account layout"
+    ],
+    "prerequisites": [
+      80
+    ]
+  },
+  {
+    "chapter": 82,
+    "volume": 9,
+    "volume_title": "AWS Foundations",
+    "title": "AWS CLI and Identity Sessions",
+    "path": "book/volumes/09-aws-foundations/082-aws-cli-and-identity-sessions.md",
+    "summary": "book/_ai/chapter-summaries/082-aws-cli-and-identity-sessions.md",
+    "review": "book/_ai/reviews/082-aws-cli-and-identity-sessions.md",
+    "sections": [
+      "Profiles, regions and output formats",
+      "SSO, role sessions and credential precedence",
+      "Verifying identity before a command"
+    ],
+    "prerequisites": [
+      81
+    ]
+  },
+  {
+    "chapter": 83,
+    "volume": 9,
+    "volume_title": "AWS Foundations",
+    "title": "IAM Policies and Least Privilege",
+    "path": "book/volumes/09-aws-foundations/083-iam-policies-and-least-privilege.md",
+    "summary": "book/_ai/chapter-summaries/083-iam-policies-and-least-privilege.md",
+    "review": "book/_ai/reviews/083-iam-policies-and-least-privilege.md",
+    "sections": [
+      "Actions, resources and conditions",
+      "Role trust and permission evaluation",
+      "Debugging an access-denied response"
+    ],
+    "prerequisites": [
+      82
+    ]
+  },
+  {
+    "chapter": 84,
+    "volume": 9,
+    "volume_title": "AWS Foundations",
+    "title": "VPC, Subnets and Routes",
+    "path": "book/volumes/09-aws-foundations/084-vpc-subnets-and-routes.md",
+    "summary": "book/_ai/chapter-summaries/084-vpc-subnets-and-routes.md",
+    "review": "book/_ai/reviews/084-vpc-subnets-and-routes.md",
+    "sections": [
+      "Address design and routing",
+      "Internet access, NAT and endpoints",
+      "Tracing traffic through an AWS network"
+    ],
+    "prerequisites": [
+      83
+    ]
+  },
+  {
+    "chapter": 85,
+    "volume": 9,
+    "volume_title": "AWS Foundations",
+    "title": "Security Groups and Network ACLs",
+    "path": "book/volumes/09-aws-foundations/085-security-groups-and-network-acls.md",
+    "summary": "book/_ai/chapter-summaries/085-security-groups-and-network-acls.md",
+    "review": "book/_ai/reviews/085-security-groups-and-network-acls.md",
+    "sections": [
+      "Stateful and stateless boundaries",
+      "Ingress, egress and service exposure",
+      "A private database connectivity investigation"
+    ],
+    "prerequisites": [
+      84
+    ]
+  },
+  {
+    "chapter": 86,
+    "volume": 9,
+    "volume_title": "AWS Foundations",
+    "title": "EC2 and Instance Lifecycle",
+    "path": "book/volumes/09-aws-foundations/086-ec2-and-instance-lifecycle.md",
+    "summary": "book/_ai/chapter-summaries/086-ec2-and-instance-lifecycle.md",
+    "review": "book/_ai/reviews/086-ec2-and-instance-lifecycle.md",
+    "sections": [
+      "Images, instance types and metadata",
+      "SSH, Systems Manager and instance profiles",
+      "Provisioning and replacing a server"
+    ],
+    "prerequisites": [
+      85
+    ]
+  },
+  {
+    "chapter": 87,
+    "volume": 9,
+    "volume_title": "AWS Foundations",
+    "title": "EBS and Cloud Storage Choices",
+    "path": "book/volumes/09-aws-foundations/087-ebs-and-cloud-storage-choices.md",
+    "summary": "book/_ai/chapter-summaries/087-ebs-and-cloud-storage-choices.md",
+    "review": "book/_ai/reviews/087-ebs-and-cloud-storage-choices.md",
+    "sections": [
+      "Block, file and object semantics",
+      "Snapshots, performance and encryption",
+      "Choosing storage for an application"
+    ],
+    "prerequisites": [
+      86
+    ]
+  },
+  {
+    "chapter": 88,
+    "volume": 9,
+    "volume_title": "AWS Foundations",
+    "title": "S3 from the CLI",
+    "path": "book/volumes/09-aws-foundations/088-s3-from-the-cli.md",
+    "summary": "book/_ai/chapter-summaries/088-s3-from-the-cli.md",
+    "review": "book/_ai/reviews/088-s3-from-the-cli.md",
+    "sections": [
+      "Buckets, objects and access controls",
+      "Versioning, lifecycle and multipart upload",
+      "Operating an upload and retention workflow"
+    ],
+    "prerequisites": [
+      87
+    ]
+  },
+  {
+    "chapter": 89,
+    "volume": 9,
+    "volume_title": "AWS Foundations",
+    "title": "Route 53, Certificates and Load Balancers",
+    "path": "book/volumes/09-aws-foundations/089-route-53-certificates-and-load-balancers.md",
+    "summary": "book/_ai/chapter-summaries/089-route-53-certificates-and-load-balancers.md",
+    "review": "book/_ai/reviews/089-route-53-certificates-and-load-balancers.md",
+    "sections": [
+      "DNS records and routing policies",
+      "ACM and load-balancer integration",
+      "Publishing a secure endpoint"
+    ],
+    "prerequisites": [
+      88
+    ]
+  },
+  {
+    "chapter": 90,
+    "volume": 9,
+    "volume_title": "AWS Foundations",
+    "title": "AWS Budgets, Tags and Inventory",
+    "path": "book/volumes/09-aws-foundations/090-aws-budgets-tags-and-inventory.md",
+    "summary": "book/_ai/chapter-summaries/090-aws-budgets-tags-and-inventory.md",
+    "review": "book/_ai/reviews/090-aws-budgets-tags-and-inventory.md",
+    "sections": [
+      "Ownership and allocation tags",
+      "Budgets, quotas and billing evidence",
+      "Finding forgotten resources before cleanup"
+    ],
+    "prerequisites": [
+      89
+    ]
+  },
+  {
+    "chapter": 91,
+    "volume": 10,
+    "volume_title": "AWS Production Services",
+    "title": "EC2 Auto Scaling and Launch Templates",
+    "path": "book/volumes/10-aws-production-services/091-ec2-auto-scaling-and-launch-templates.md",
+    "summary": "book/_ai/chapter-summaries/091-ec2-auto-scaling-and-launch-templates.md",
+    "review": "book/_ai/reviews/091-ec2-auto-scaling-and-launch-templates.md",
+    "sections": [
+      "Immutable launches and capacity policy",
+      "Health, draining and replacement",
+      "Scaling a host-based service"
+    ],
+    "prerequisites": [
+      90
+    ]
+  },
+  {
+    "chapter": 92,
+    "volume": 10,
+    "volume_title": "AWS Production Services",
+    "title": "ECR and Container Artifact Promotion",
+    "path": "book/volumes/10-aws-production-services/092-ecr-and-container-artifact-promotion.md",
+    "summary": "book/_ai/chapter-summaries/092-ecr-and-container-artifact-promotion.md",
+    "review": "book/_ai/reviews/092-ecr-and-container-artifact-promotion.md",
+    "sections": [
+      "Repository permissions and image identity",
+      "Scanning, retention and cross-account access",
+      "Publishing a release by digest"
+    ],
+    "prerequisites": [
+      91
+    ]
+  },
+  {
+    "chapter": 93,
+    "volume": 10,
+    "volume_title": "AWS Production Services",
+    "title": "ECS and Fargate Services",
+    "path": "book/volumes/10-aws-production-services/093-ecs-and-fargate-services.md",
+    "summary": "book/_ai/chapter-summaries/093-ecs-and-fargate-services.md",
+    "review": "book/_ai/reviews/093-ecs-and-fargate-services.md",
+    "sections": [
+      "Tasks, services and capacity",
+      "Networking, IAM and deployment health",
+      "Deploying an API and background worker"
+    ],
+    "prerequisites": [
+      92
+    ]
+  },
+  {
+    "chapter": 94,
+    "volume": 10,
+    "volume_title": "AWS Production Services",
+    "title": "EKS and AWS Integration",
+    "path": "book/volumes/10-aws-production-services/094-eks-and-aws-integration.md",
+    "summary": "book/_ai/chapter-summaries/094-eks-and-aws-integration.md",
+    "review": "book/_ai/reviews/094-eks-and-aws-integration.md",
+    "sections": [
+      "Managed control plane and worker ownership",
+      "Identity, networking and storage integrations",
+      "An EKS operational responsibility map"
+    ],
+    "prerequisites": [
+      93
+    ]
+  },
+  {
+    "chapter": 95,
+    "volume": 10,
+    "volume_title": "AWS Production Services",
+    "title": "RDS and Managed Database Operations",
+    "path": "book/volumes/10-aws-production-services/095-rds-and-managed-database-operations.md",
+    "summary": "book/_ai/chapter-summaries/095-rds-and-managed-database-operations.md",
+    "review": "book/_ai/reviews/095-rds-and-managed-database-operations.md",
+    "sections": [
+      "Availability, maintenance and connections",
+      "Backups, replicas and recovery",
+      "Diagnosing database saturation"
+    ],
+    "prerequisites": [
+      94
+    ]
+  },
+  {
+    "chapter": 96,
+    "volume": 10,
+    "volume_title": "AWS Production Services",
+    "title": "ElastiCache and Managed Caching",
+    "path": "book/volumes/10-aws-production-services/096-elasticache-and-managed-caching.md",
+    "summary": "book/_ai/chapter-summaries/096-elasticache-and-managed-caching.md",
+    "review": "book/_ai/reviews/096-elasticache-and-managed-caching.md",
+    "sections": [
+      "Cache authority and eviction",
+      "Failover, connections and access",
+      "Designing for a cache outage"
+    ],
+    "prerequisites": [
+      95
+    ]
+  },
+  {
+    "chapter": 97,
+    "volume": 10,
+    "volume_title": "AWS Production Services",
+    "title": "SQS, SNS and EventBridge",
+    "path": "book/volumes/10-aws-production-services/097-sqs-sns-and-eventbridge.md",
+    "summary": "book/_ai/chapter-summaries/097-sqs-sns-and-eventbridge.md",
+    "review": "book/_ai/reviews/097-sqs-sns-and-eventbridge.md",
+    "sections": [
+      "Queue, fanout and routing semantics",
+      "Visibility, retries and dead letters",
+      "Operating a notification pipeline"
+    ],
+    "prerequisites": [
+      96
+    ]
+  },
+  {
+    "chapter": 98,
+    "volume": 10,
+    "volume_title": "AWS Production Services",
+    "title": "Lambda and Serverless Tradeoffs",
+    "path": "book/volumes/10-aws-production-services/098-lambda-and-serverless-tradeoffs.md",
+    "summary": "book/_ai/chapter-summaries/098-lambda-and-serverless-tradeoffs.md",
+    "review": "book/_ai/reviews/098-lambda-and-serverless-tradeoffs.md",
+    "sections": [
+      "Execution lifecycle and concurrency",
+      "Retries, packaging and observability",
+      "Choosing a small event-driven task"
+    ],
+    "prerequisites": [
+      97
+    ]
+  },
+  {
+    "chapter": 99,
+    "volume": 10,
+    "volume_title": "AWS Production Services",
+    "title": "CloudFront and Edge Delivery",
+    "path": "book/volumes/10-aws-production-services/099-cloudfront-and-edge-delivery.md",
+    "summary": "book/_ai/chapter-summaries/099-cloudfront-and-edge-delivery.md",
+    "review": "book/_ai/reviews/099-cloudfront-and-edge-delivery.md",
+    "sections": [
+      "Origins, caching and invalidation",
+      "Headers, authorization and dynamic content",
+      "Reducing origin load without stale-data surprises"
+    ],
+    "prerequisites": [
+      98
+    ]
+  },
+  {
+    "chapter": 100,
+    "volume": 10,
+    "volume_title": "AWS Production Services",
+    "title": "Secrets, CloudWatch and Cloud Resilience",
+    "path": "book/volumes/10-aws-production-services/100-secrets-cloudwatch-and-cloud-resilience.md",
+    "summary": "book/_ai/chapter-summaries/100-secrets-cloudwatch-and-cloud-resilience.md",
+    "review": "book/_ai/reviews/100-secrets-cloudwatch-and-cloud-resilience.md",
+    "sections": [
+      "KMS, Secrets Manager and rotation",
+      "Logs, metrics and managed alarms",
+      "A multi-zone recovery and cost review"
+    ],
+    "prerequisites": [
+      99
+    ]
+  },
+  {
+    "chapter": 101,
+    "volume": 11,
+    "volume_title": "Kubernetes Foundations",
+    "title": "Kubernetes Architecture and Reconciliation",
+    "path": "book/volumes/11-kubernetes-foundations/101-kubernetes-architecture-and-reconciliation.md",
+    "summary": "book/_ai/chapter-summaries/101-kubernetes-architecture-and-reconciliation.md",
+    "review": "book/_ai/reviews/101-kubernetes-architecture-and-reconciliation.md",
+    "sections": [
+      "API server, controllers and etcd",
+      "Nodes, kubelet and container runtime",
+      "Following a desired-state change"
+    ],
+    "prerequisites": [
+      100
+    ]
+  },
+  {
+    "chapter": 102,
+    "volume": 11,
+    "volume_title": "Kubernetes Foundations",
+    "title": "Local Clusters and kubectl Contexts",
+    "path": "book/volumes/11-kubernetes-foundations/102-local-clusters-and-kubectl-contexts.md",
+    "summary": "book/_ai/chapter-summaries/102-local-clusters-and-kubectl-contexts.md",
+    "review": "book/_ai/reviews/102-local-clusters-and-kubectl-contexts.md",
+    "sections": [
+      "kind, minikube and environment prerequisites",
+      "Contexts, namespaces and access",
+      "Avoiding a command against the wrong cluster"
+    ],
+    "prerequisites": [
+      101
+    ]
+  },
+  {
+    "chapter": 103,
+    "volume": 11,
+    "volume_title": "Kubernetes Foundations",
+    "title": "Pods and Application Lifecycles",
+    "path": "book/volumes/11-kubernetes-foundations/103-pods-and-application-lifecycles.md",
+    "summary": "book/_ai/chapter-summaries/103-pods-and-application-lifecycles.md",
+    "review": "book/_ai/reviews/103-pods-and-application-lifecycles.md",
+    "sections": [
+      "Pod identity and container restart",
+      "Init containers and lifecycle hooks",
+      "Deploying and inspecting a small service"
+    ],
+    "prerequisites": [
+      102
+    ]
+  },
+  {
+    "chapter": 104,
+    "volume": 11,
+    "volume_title": "Kubernetes Foundations",
+    "title": "Deployments, ReplicaSets and Jobs",
+    "path": "book/volumes/11-kubernetes-foundations/104-deployments-replicasets-and-jobs.md",
+    "summary": "book/_ai/chapter-summaries/104-deployments-replicasets-and-jobs.md",
+    "review": "book/_ai/reviews/104-deployments-replicasets-and-jobs.md",
+    "sections": [
+      "Controllers and ownership",
+      "Rollouts, Jobs and CronJobs",
+      "Choosing a workload controller"
+    ],
+    "prerequisites": [
+      103
+    ]
+  },
+  {
+    "chapter": 105,
+    "volume": 11,
+    "volume_title": "Kubernetes Foundations",
+    "title": "Services and Cluster DNS",
+    "path": "book/volumes/11-kubernetes-foundations/105-services-and-cluster-dns.md",
+    "summary": "book/_ai/chapter-summaries/105-services-and-cluster-dns.md",
+    "review": "book/_ai/reviews/105-services-and-cluster-dns.md",
+    "sections": [
+      "Selectors, endpoints and virtual addresses",
+      "Discovery and connection paths",
+      "Debugging a Service with no working backend"
+    ],
+    "prerequisites": [
+      104
+    ]
+  },
+  {
+    "chapter": 106,
+    "volume": 11,
+    "volume_title": "Kubernetes Foundations",
+    "title": "ConfigMaps, Secrets and Configuration",
+    "path": "book/volumes/11-kubernetes-foundations/106-configmaps-secrets-and-configuration.md",
+    "summary": "book/_ai/chapter-summaries/106-configmaps-secrets-and-configuration.md",
+    "review": "book/_ai/reviews/106-configmaps-secrets-and-configuration.md",
+    "sections": [
+      "Configuration injection and updates",
+      "Secret boundaries and application reload",
+      "Changing configuration predictably"
+    ],
+    "prerequisites": [
+      105
+    ]
+  },
+  {
+    "chapter": 107,
+    "volume": 11,
+    "volume_title": "Kubernetes Foundations",
+    "title": "Probes and Graceful Termination",
+    "path": "book/volumes/11-kubernetes-foundations/107-probes-and-graceful-termination.md",
+    "summary": "book/_ai/chapter-summaries/107-probes-and-graceful-termination.md",
+    "review": "book/_ai/reviews/107-probes-and-graceful-termination.md",
+    "sections": [
+      "Startup, readiness and liveness",
+      "Termination and traffic draining",
+      "Preventing probe-driven restart loops"
+    ],
+    "prerequisites": [
+      106
+    ]
+  },
+  {
+    "chapter": 108,
+    "volume": 11,
+    "volume_title": "Kubernetes Foundations",
+    "title": "Resource Requests, Limits and Scheduling",
+    "path": "book/volumes/11-kubernetes-foundations/108-resource-requests-limits-and-scheduling.md",
+    "summary": "book/_ai/chapter-summaries/108-resource-requests-limits-and-scheduling.md",
+    "review": "book/_ai/reviews/108-resource-requests-limits-and-scheduling.md",
+    "sections": [
+      "Scheduling and runtime enforcement",
+      "CPU throttling and memory exhaustion",
+      "Right-sizing a workload from evidence"
+    ],
+    "prerequisites": [
+      107
+    ]
+  },
+  {
+    "chapter": 109,
+    "volume": 11,
+    "volume_title": "Kubernetes Foundations",
+    "title": "Persistent Volumes and Stateful Workloads",
+    "path": "book/volumes/11-kubernetes-foundations/109-persistent-volumes-and-stateful-workloads.md",
+    "summary": "book/_ai/chapter-summaries/109-persistent-volumes-and-stateful-workloads.md",
+    "review": "book/_ai/reviews/109-persistent-volumes-and-stateful-workloads.md",
+    "sections": [
+      "Claims, classes and binding",
+      "StatefulSets and storage lifecycle",
+      "Replacing a Pod without losing data"
+    ],
+    "prerequisites": [
+      108
+    ]
+  },
+  {
+    "chapter": 110,
+    "volume": 11,
+    "volume_title": "Kubernetes Foundations",
+    "title": "kubectl Diagnostics and API Objects",
+    "path": "book/volumes/11-kubernetes-foundations/110-kubectl-diagnostics-and-api-objects.md",
+    "summary": "book/_ai/chapter-summaries/110-kubectl-diagnostics-and-api-objects.md",
+    "review": "book/_ai/reviews/110-kubectl-diagnostics-and-api-objects.md",
+    "sections": [
+      "get, describe, logs, exec and events",
+      "Object fields, labels and selectors",
+      "A first Kubernetes incident investigation"
+    ],
+    "prerequisites": [
+      109
+    ]
+  },
+  {
+    "chapter": 111,
+    "volume": 12,
+    "volume_title": "Kubernetes Production Engineering",
+    "title": "Cluster Provisioning and Ownership",
+    "path": "book/volumes/12-kubernetes-production-engineering/111-cluster-provisioning-and-ownership.md",
+    "summary": "book/_ai/chapter-summaries/111-cluster-provisioning-and-ownership.md",
+    "review": "book/_ai/reviews/111-cluster-provisioning-and-ownership.md",
+    "sections": [
+      "Managed and self-managed responsibilities",
+      "kubeadm, bootstrap and maintenance",
+      "A production cluster responsibility checklist"
+    ],
+    "prerequisites": [
+      110
+    ]
+  },
+  {
+    "chapter": 112,
+    "volume": 12,
+    "volume_title": "Kubernetes Production Engineering",
+    "title": "Cluster Networking and CNI",
+    "path": "book/volumes/12-kubernetes-production-engineering/112-cluster-networking-and-cni.md",
+    "summary": "book/_ai/chapter-summaries/112-cluster-networking-and-cni.md",
+    "review": "book/_ai/reviews/112-cluster-networking-and-cni.md",
+    "sections": [
+      "Pod routing and network implementation",
+      "Network policies and reachability",
+      "Diagnosing cross-node packet paths"
+    ],
+    "prerequisites": [
+      111
+    ]
+  },
+  {
+    "chapter": 113,
+    "volume": 12,
+    "volume_title": "Kubernetes Production Engineering",
+    "title": "Ingress and Gateway API",
+    "path": "book/volumes/12-kubernetes-production-engineering/113-ingress-and-gateway-api.md",
+    "summary": "book/_ai/chapter-summaries/113-ingress-and-gateway-api.md",
+    "review": "book/_ai/reviews/113-ingress-and-gateway-api.md",
+    "sections": [
+      "HTTP routing and controller ownership",
+      "TLS, ingress classes and Gateway resources",
+      "Publishing services with a supported controller"
+    ],
+    "prerequisites": [
+      112
+    ]
+  },
+  {
+    "chapter": 114,
+    "volume": 12,
+    "volume_title": "Kubernetes Production Engineering",
+    "title": "CSI and Production Storage",
+    "path": "book/volumes/12-kubernetes-production-engineering/114-csi-and-production-storage.md",
+    "summary": "book/_ai/chapter-summaries/114-csi-and-production-storage.md",
+    "review": "book/_ai/reviews/114-csi-and-production-storage.md",
+    "sections": [
+      "Drivers, snapshots and topology",
+      "Access modes, recovery and expansion",
+      "Diagnosing a volume that will not attach"
+    ],
+    "prerequisites": [
+      113
+    ]
+  },
+  {
+    "chapter": 115,
+    "volume": 12,
+    "volume_title": "Kubernetes Production Engineering",
+    "title": "RBAC and Workload Identity",
+    "path": "book/volumes/12-kubernetes-production-engineering/115-rbac-and-workload-identity.md",
+    "summary": "book/_ai/chapter-summaries/115-rbac-and-workload-identity.md",
+    "review": "book/_ai/reviews/115-rbac-and-workload-identity.md",
+    "sections": [
+      "Subjects, roles and bindings",
+      "Service accounts and external identity",
+      "Reducing deployment credentials"
+    ],
+    "prerequisites": [
+      114
+    ]
+  },
+  {
+    "chapter": 116,
+    "volume": 12,
+    "volume_title": "Kubernetes Production Engineering",
+    "title": "Placement, Disruption and Availability",
+    "path": "book/volumes/12-kubernetes-production-engineering/116-placement-disruption-and-availability.md",
+    "summary": "book/_ai/chapter-summaries/116-placement-disruption-and-availability.md",
+    "review": "book/_ai/reviews/116-placement-disruption-and-availability.md",
+    "sections": [
+      "Affinity, taints and topology spreading",
+      "Disruption budgets and maintenance",
+      "Draining nodes without false availability claims"
+    ],
+    "prerequisites": [
+      115
+    ]
+  },
+  {
+    "chapter": 117,
+    "volume": 12,
+    "volume_title": "Kubernetes Production Engineering",
+    "title": "Horizontal, Vertical and Node Autoscaling",
+    "path": "book/volumes/12-kubernetes-production-engineering/117-horizontal-vertical-and-node-autoscaling.md",
+    "summary": "book/_ai/chapter-summaries/117-horizontal-vertical-and-node-autoscaling.md",
+    "review": "book/_ai/reviews/117-horizontal-vertical-and-node-autoscaling.md",
+    "sections": [
+      "Metrics, feedback and scaling boundaries",
+      "HPA, VPA and node capacity",
+      "Diagnosing oscillation and unschedulable Pods"
+    ],
+    "prerequisites": [
+      116
+    ]
+  },
+  {
+    "chapter": 118,
+    "volume": 12,
+    "volume_title": "Kubernetes Production Engineering",
+    "title": "Helm and Kustomize",
+    "path": "book/volumes/12-kubernetes-production-engineering/118-helm-and-kustomize.md",
+    "summary": "book/_ai/chapter-summaries/118-helm-and-kustomize.md",
+    "review": "book/_ai/reviews/118-helm-and-kustomize.md",
+    "sections": [
+      "Packages, templates and overlays",
+      "Values, rendered manifests and release state",
+      "Reviewing deployment customization"
+    ],
+    "prerequisites": [
+      117
+    ]
+  },
+  {
+    "chapter": 119,
+    "volume": 12,
+    "volume_title": "Kubernetes Production Engineering",
+    "title": "Operators and Admission Policy",
+    "path": "book/volumes/12-kubernetes-production-engineering/119-operators-and-admission-policy.md",
+    "summary": "book/_ai/chapter-summaries/119-operators-and-admission-policy.md",
+    "review": "book/_ai/reviews/119-operators-and-admission-policy.md",
+    "sections": [
+      "Custom resources and controller contracts",
+      "Admission, policy and lifecycle ownership",
+      "Deciding whether an operator is justified"
+    ],
+    "prerequisites": [
+      118
+    ]
+  },
+  {
+    "chapter": 120,
+    "volume": 12,
+    "volume_title": "Kubernetes Production Engineering",
+    "title": "Upgrades, etcd and Cluster Recovery",
+    "path": "book/volumes/12-kubernetes-production-engineering/120-upgrades-etcd-and-cluster-recovery.md",
+    "summary": "book/_ai/chapter-summaries/120-upgrades-etcd-and-cluster-recovery.md",
+    "review": "book/_ai/reviews/120-upgrades-etcd-and-cluster-recovery.md",
+    "sections": [
+      "Version skew and staged upgrades",
+      "Control-plane backup and recovery",
+      "A failed-upgrade and restore scenario"
+    ],
+    "prerequisites": [
+      119
+    ]
+  },
+  {
+    "chapter": 121,
+    "volume": 13,
+    "volume_title": "Continuous Integration Platforms",
+    "title": "CI Architecture and Trust Boundaries",
+    "path": "book/volumes/13-continuous-integration-platforms/121-ci-architecture-and-trust-boundaries.md",
+    "summary": "book/_ai/chapter-summaries/121-ci-architecture-and-trust-boundaries.md",
+    "review": "book/_ai/reviews/121-ci-architecture-and-trust-boundaries.md",
+    "sections": [
+      "Events, workers and pipeline graphs",
+      "Untrusted code and credential exposure",
+      "Designing an artifact-producing pipeline"
+    ],
+    "prerequisites": [
+      120
+    ]
+  },
+  {
+    "chapter": 122,
+    "volume": 13,
+    "volume_title": "Continuous Integration Platforms",
+    "title": "GitHub Actions Workflows",
+    "path": "book/volumes/13-continuous-integration-platforms/122-github-actions-workflows.md",
+    "summary": "book/_ai/chapter-summaries/122-github-actions-workflows.md",
+    "review": "book/_ai/reviews/122-github-actions-workflows.md",
+    "sections": [
+      "Events, jobs, steps and expressions",
+      "Reusable workflows and matrices",
+      "A multi-language test workflow"
+    ],
+    "prerequisites": [
+      121
+    ]
+  },
+  {
+    "chapter": 123,
+    "volume": 13,
+    "volume_title": "Continuous Integration Platforms",
+    "title": "GitHub Actions Runners and Security",
+    "path": "book/volumes/13-continuous-integration-platforms/123-github-actions-runners-and-security.md",
+    "summary": "book/_ai/chapter-summaries/123-github-actions-runners-and-security.md",
+    "review": "book/_ai/reviews/123-github-actions-runners-and-security.md",
+    "sections": [
+      "Hosted and self-hosted execution",
+      "Permissions, OIDC and action pinning",
+      "Hardening a deployment workflow"
+    ],
+    "prerequisites": [
+      122
+    ]
+  },
+  {
+    "chapter": 124,
+    "volume": 13,
+    "volume_title": "Continuous Integration Platforms",
+    "title": "GitLab CI Pipeline Design",
+    "path": "book/volumes/13-continuous-integration-platforms/124-gitlab-ci-pipeline-design.md",
+    "summary": "book/_ai/chapter-summaries/124-gitlab-ci-pipeline-design.md",
+    "review": "book/_ai/reviews/124-gitlab-ci-pipeline-design.md",
+    "sections": [
+      "Stages, jobs, rules and includes",
+      "Artifacts, dependencies and environments",
+      "A merge-request and release pipeline"
+    ],
+    "prerequisites": [
+      123
+    ]
+  },
+  {
+    "chapter": 125,
+    "volume": 13,
+    "volume_title": "Continuous Integration Platforms",
+    "title": "GitLab Runners and Credentials",
+    "path": "book/volumes/13-continuous-integration-platforms/125-gitlab-runners-and-credentials.md",
+    "summary": "book/_ai/chapter-summaries/125-gitlab-runners-and-credentials.md",
+    "review": "book/_ai/reviews/125-gitlab-runners-and-credentials.md",
+    "sections": [
+      "Executor choices and runner isolation",
+      "Protected variables and federated identity",
+      "Operating runners without cross-job leakage"
+    ],
+    "prerequisites": [
+      124
+    ]
+  },
+  {
+    "chapter": 126,
+    "volume": 13,
+    "volume_title": "Continuous Integration Platforms",
+    "title": "Jenkins Controllers and Agents",
+    "path": "book/volumes/13-continuous-integration-platforms/126-jenkins-controllers-and-agents.md",
+    "summary": "book/_ai/chapter-summaries/126-jenkins-controllers-and-agents.md",
+    "review": "book/_ai/reviews/126-jenkins-controllers-and-agents.md",
+    "sections": [
+      "Controller duties and agent execution",
+      "Plugins, credentials and lifecycle",
+      "Installing and securing a Jenkins service"
+    ],
+    "prerequisites": [
+      125
+    ]
+  },
+  {
+    "chapter": 127,
+    "volume": 13,
+    "volume_title": "Continuous Integration Platforms",
+    "title": "Jenkins Declarative Pipelines",
+    "path": "book/volumes/13-continuous-integration-platforms/127-jenkins-declarative-pipelines.md",
+    "summary": "book/_ai/chapter-summaries/127-jenkins-declarative-pipelines.md",
+    "review": "book/_ai/reviews/127-jenkins-declarative-pipelines.md",
+    "sections": [
+      "Jenkinsfile, stages and post actions",
+      "Shared libraries and controlled reuse",
+      "A build, test and publish pipeline"
+    ],
+    "prerequisites": [
+      126
+    ]
+  },
+  {
+    "chapter": 128,
+    "volume": 13,
+    "volume_title": "Continuous Integration Platforms",
+    "title": "Tests, Quality Gates and Feedback",
+    "path": "book/volumes/13-continuous-integration-platforms/128-tests-quality-gates-and-feedback.md",
+    "summary": "book/_ai/chapter-summaries/128-tests-quality-gates-and-feedback.md",
+    "review": "book/_ai/reviews/128-tests-quality-gates-and-feedback.md",
+    "sections": [
+      "Unit, integration and contract boundaries",
+      "Security scans and useful gates",
+      "Balancing confidence with pipeline duration"
+    ],
+    "prerequisites": [
+      127
+    ]
+  },
+  {
+    "chapter": 129,
+    "volume": 13,
+    "volume_title": "Continuous Integration Platforms",
+    "title": "Artifacts, Caches and Build Reproducibility",
+    "path": "book/volumes/13-continuous-integration-platforms/129-artifacts-caches-and-build-reproducibility.md",
+    "summary": "book/_ai/chapter-summaries/129-artifacts-caches-and-build-reproducibility.md",
+    "review": "book/_ai/reviews/129-artifacts-caches-and-build-reproducibility.md",
+    "sections": [
+      "Artifacts versus disposable caches",
+      "Dependency integrity and reproducible inputs",
+      "Tracking one artifact through a pipeline"
+    ],
+    "prerequisites": [
+      128
+    ]
+  },
+  {
+    "chapter": 130,
+    "volume": 13,
+    "volume_title": "Continuous Integration Platforms",
+    "title": "CI Incidents and Platform Comparison",
+    "path": "book/volumes/13-continuous-integration-platforms/130-ci-incidents-and-platform-comparison.md",
+    "summary": "book/_ai/chapter-summaries/130-ci-incidents-and-platform-comparison.md",
+    "review": "book/_ai/reviews/130-ci-incidents-and-platform-comparison.md",
+    "sections": [
+      "Queueing, flaky jobs and worker pressure",
+      "GitHub, GitLab and Jenkins tradeoffs",
+      "Diagnosing a compromised or stalled pipeline"
+    ],
+    "prerequisites": [
+      129
+    ]
+  },
+  {
+    "chapter": 131,
+    "volume": 14,
+    "volume_title": "Delivery, Deployment and GitOps",
+    "title": "Release Engineering and Artifact Promotion",
+    "path": "book/volumes/14-delivery-deployment-and-gitops/131-release-engineering-and-artifact-promotion.md",
+    "summary": "book/_ai/chapter-summaries/131-release-engineering-and-artifact-promotion.md",
+    "review": "book/_ai/reviews/131-release-engineering-and-artifact-promotion.md",
+    "sections": [
+      "Build once and release identity",
+      "Environment gates and evidence",
+      "Promoting a tested image"
+    ],
+    "prerequisites": [
+      130
+    ]
+  },
+  {
+    "chapter": 132,
+    "volume": 14,
+    "volume_title": "Delivery, Deployment and GitOps",
+    "title": "Deployment to VPS Infrastructure",
+    "path": "book/volumes/14-delivery-deployment-and-gitops/132-deployment-to-vps-infrastructure.md",
+    "summary": "book/_ai/chapter-summaries/132-deployment-to-vps-infrastructure.md",
+    "review": "book/_ai/reviews/132-deployment-to-vps-infrastructure.md",
+    "sections": [
+      "SSH boundaries and release directories",
+      "Health checks and atomic switches",
+      "A reversible single-host deployment"
+    ],
+    "prerequisites": [
+      131
+    ]
+  },
+  {
+    "chapter": 133,
+    "volume": 14,
+    "volume_title": "Delivery, Deployment and GitOps",
+    "title": "Container Deployment to AWS",
+    "path": "book/volumes/14-delivery-deployment-and-gitops/133-container-deployment-to-aws.md",
+    "summary": "book/_ai/chapter-summaries/133-container-deployment-to-aws.md",
+    "review": "book/_ai/reviews/133-container-deployment-to-aws.md",
+    "sections": [
+      "ECS task revisions and service updates",
+      "EKS manifests and release evidence",
+      "A staged cloud deployment"
+    ],
+    "prerequisites": [
+      132
+    ]
+  },
+  {
+    "chapter": 134,
+    "volume": 14,
+    "volume_title": "Delivery, Deployment and GitOps",
+    "title": "Rolling Updates and Blue Green",
+    "path": "book/volumes/14-delivery-deployment-and-gitops/134-rolling-updates-and-blue-green.md",
+    "summary": "book/_ai/chapter-summaries/134-rolling-updates-and-blue-green.md",
+    "review": "book/_ai/reviews/134-rolling-updates-and-blue-green.md",
+    "sections": [
+      "Mixed versions and traffic switching",
+      "Capacity headroom and session state",
+      "Choosing a release strategy"
+    ],
+    "prerequisites": [
+      133
+    ]
+  },
+  {
+    "chapter": 135,
+    "volume": 14,
+    "volume_title": "Delivery, Deployment and GitOps",
+    "title": "Canary Releases and Feature Flags",
+    "path": "book/volumes/14-delivery-deployment-and-gitops/135-canary-releases-and-feature-flags.md",
+    "summary": "book/_ai/chapter-summaries/135-canary-releases-and-feature-flags.md",
+    "review": "book/_ai/reviews/135-canary-releases-and-feature-flags.md",
+    "sections": [
+      "Cohorts, metrics and decision windows",
+      "Flag lifecycle and rollback control",
+      "Stopping a harmful release early"
+    ],
+    "prerequisites": [
+      134
+    ]
+  },
+  {
+    "chapter": 136,
+    "volume": 14,
+    "volume_title": "Delivery, Deployment and GitOps",
+    "title": "Database and Message Compatibility",
+    "path": "book/volumes/14-delivery-deployment-and-gitops/136-database-and-message-compatibility.md",
+    "summary": "book/_ai/chapter-summaries/136-database-and-message-compatibility.md",
+    "review": "book/_ai/reviews/136-database-and-message-compatibility.md",
+    "sections": [
+      "Expand-and-contract schema changes",
+      "Backfills and mixed-version messages",
+      "Releasing without breaking old workers"
+    ],
+    "prerequisites": [
+      135
+    ]
+  },
+  {
+    "chapter": 137,
+    "volume": 14,
+    "volume_title": "Delivery, Deployment and GitOps",
+    "title": "GitOps Principles and Reconciliation",
+    "path": "book/volumes/14-delivery-deployment-and-gitops/137-gitops-principles-and-reconciliation.md",
+    "summary": "book/_ai/chapter-summaries/137-gitops-principles-and-reconciliation.md",
+    "review": "book/_ai/reviews/137-gitops-principles-and-reconciliation.md",
+    "sections": [
+      "Git state, controllers and drift",
+      "Promotion and secret boundaries",
+      "Separating build from deployment authority"
+    ],
+    "prerequisites": [
+      136
+    ]
+  },
+  {
+    "chapter": 138,
+    "volume": 14,
+    "volume_title": "Delivery, Deployment and GitOps",
+    "title": "Argo CD in Practice",
+    "path": "book/volumes/14-delivery-deployment-and-gitops/138-argo-cd-in-practice.md",
+    "summary": "book/_ai/chapter-summaries/138-argo-cd-in-practice.md",
+    "review": "book/_ai/reviews/138-argo-cd-in-practice.md",
+    "sections": [
+      "Applications, sync and health",
+      "Projects, permissions and rollback behavior",
+      "Operating an application through Argo CD"
+    ],
+    "prerequisites": [
+      137
+    ]
+  },
+  {
+    "chapter": 139,
+    "volume": 14,
+    "volume_title": "Delivery, Deployment and GitOps",
+    "title": "Flux in Practice",
+    "path": "book/volumes/14-delivery-deployment-and-gitops/139-flux-in-practice.md",
+    "summary": "book/_ai/chapter-summaries/139-flux-in-practice.md",
+    "review": "book/_ai/reviews/139-flux-in-practice.md",
+    "sections": [
+      "Sources, reconciliation and dependencies",
+      "Image automation and environment changes",
+      "Operating a comparable Flux deployment"
+    ],
+    "prerequisites": [
+      138
+    ]
+  },
+  {
+    "chapter": 140,
+    "volume": 14,
+    "volume_title": "Delivery, Deployment and GitOps",
+    "title": "Rollback, Roll Forward and Release Incidents",
+    "path": "book/volumes/14-delivery-deployment-and-gitops/140-rollback-roll-forward-and-release-incidents.md",
+    "summary": "book/_ai/chapter-summaries/140-rollback-roll-forward-and-release-incidents.md",
+    "review": "book/_ai/reviews/140-rollback-roll-forward-and-release-incidents.md",
+    "sections": [
+      "Application, data and infrastructure boundaries",
+      "Unknown completion and recovery decisions",
+      "A failed-release investigation"
+    ],
+    "prerequisites": [
+      139
+    ]
+  },
+  {
+    "chapter": 141,
+    "volume": 15,
+    "volume_title": "Observability and Telemetry",
+    "title": "Observability from Questions to Evidence",
+    "path": "book/volumes/15-observability-and-telemetry/141-observability-from-questions-to-evidence.md",
+    "summary": "book/_ai/chapter-summaries/141-observability-from-questions-to-evidence.md",
+    "review": "book/_ai/reviews/141-observability-from-questions-to-evidence.md",
+    "sections": [
+      "Metrics, logs, traces and profiles",
+      "User impact and service boundaries",
+      "Instrumenting a meaningful request path"
+    ],
+    "prerequisites": [
+      140
+    ]
+  },
+  {
+    "chapter": 142,
+    "volume": 15,
+    "volume_title": "Observability and Telemetry",
+    "title": "Prometheus and Exporters",
+    "path": "book/volumes/15-observability-and-telemetry/142-prometheus-and-exporters.md",
+    "summary": "book/_ai/chapter-summaries/142-prometheus-and-exporters.md",
+    "review": "book/_ai/reviews/142-prometheus-and-exporters.md",
+    "sections": [
+      "Scrapes, labels and time series",
+      "Exporters, discovery and retention",
+      "Monitoring hosts and application services"
+    ],
+    "prerequisites": [
+      141
+    ]
+  },
+  {
+    "chapter": 143,
+    "volume": 15,
+    "volume_title": "Observability and Telemetry",
+    "title": "PromQL for Operational Questions",
+    "path": "book/volumes/15-observability-and-telemetry/143-promql-for-operational-questions.md",
+    "summary": "book/_ai/chapter-summaries/143-promql-for-operational-questions.md",
+    "review": "book/_ai/reviews/143-promql-for-operational-questions.md",
+    "sections": [
+      "Counters, gauges, rates and histograms",
+      "Aggregation and missing series",
+      "Investigating latency and error rates"
+    ],
+    "prerequisites": [
+      142
+    ]
+  },
+  {
+    "chapter": 144,
+    "volume": 15,
+    "volume_title": "Observability and Telemetry",
+    "title": "Grafana Dashboards and Provisioning",
+    "path": "book/volumes/15-observability-and-telemetry/144-grafana-dashboards-and-provisioning.md",
+    "summary": "book/_ai/chapter-summaries/144-grafana-dashboards-and-provisioning.md",
+    "review": "book/_ai/reviews/144-grafana-dashboards-and-provisioning.md",
+    "sections": [
+      "Data sources, queries and panels",
+      "Variables, provisioning and access",
+      "A dashboard that supports diagnosis"
+    ],
+    "prerequisites": [
+      143
+    ]
+  },
+  {
+    "chapter": 145,
+    "volume": 15,
+    "volume_title": "Observability and Telemetry",
+    "title": "Alertmanager and Actionable Alerts",
+    "path": "book/volumes/15-observability-and-telemetry/145-alertmanager-and-actionable-alerts.md",
+    "summary": "book/_ai/chapter-summaries/145-alertmanager-and-actionable-alerts.md",
+    "review": "book/_ai/reviews/145-alertmanager-and-actionable-alerts.md",
+    "sections": [
+      "Grouping, routing and inhibition",
+      "Ownership and alert fatigue",
+      "Paging on service impact"
+    ],
+    "prerequisites": [
+      144
+    ]
+  },
+  {
+    "chapter": 146,
+    "volume": 15,
+    "volume_title": "Observability and Telemetry",
+    "title": "Logs with Journald and Loki",
+    "path": "book/volumes/15-observability-and-telemetry/146-logs-with-journald-and-loki.md",
+    "summary": "book/_ai/chapter-summaries/146-logs-with-journald-and-loki.md",
+    "review": "book/_ai/reviews/146-logs-with-journald-and-loki.md",
+    "sections": [
+      "Structured events and correlation",
+      "Collection, labels and retention",
+      "Following an error across services"
+    ],
+    "prerequisites": [
+      145
+    ]
+  },
+  {
+    "chapter": 147,
+    "volume": 15,
+    "volume_title": "Observability and Telemetry",
+    "title": "OpenTelemetry Instrumentation and Collectors",
+    "path": "book/volumes/15-observability-and-telemetry/147-opentelemetry-instrumentation-and-collectors.md",
+    "summary": "book/_ai/chapter-summaries/147-opentelemetry-instrumentation-and-collectors.md",
+    "review": "book/_ai/reviews/147-opentelemetry-instrumentation-and-collectors.md",
+    "sections": [
+      "Context propagation and signals",
+      "Collector pipelines and sampling",
+      "Tracing a multi-language request"
+    ],
+    "prerequisites": [
+      146
+    ]
+  },
+  {
+    "chapter": 148,
+    "volume": 15,
+    "volume_title": "Observability and Telemetry",
+    "title": "Tempo, Jaeger and Trace Investigation",
+    "path": "book/volumes/15-observability-and-telemetry/148-tempo-jaeger-and-trace-investigation.md",
+    "summary": "book/_ai/chapter-summaries/148-tempo-jaeger-and-trace-investigation.md",
+    "review": "book/_ai/reviews/148-tempo-jaeger-and-trace-investigation.md",
+    "sections": [
+      "Spans, parent relationships and timing",
+      "Sampling limits and backend choices",
+      "Finding a slow downstream dependency"
+    ],
+    "prerequisites": [
+      147
+    ]
+  },
+  {
+    "chapter": 149,
+    "volume": 15,
+    "volume_title": "Observability and Telemetry",
+    "title": "Elastic, OpenSearch and CloudWatch",
+    "path": "book/volumes/15-observability-and-telemetry/149-elastic-opensearch-and-cloudwatch.md",
+    "summary": "book/_ai/chapter-summaries/149-elastic-opensearch-and-cloudwatch.md",
+    "review": "book/_ai/reviews/149-elastic-opensearch-and-cloudwatch.md",
+    "sections": [
+      "Search-oriented log workflows",
+      "Managed telemetry and query costs",
+      "Choosing a telemetry backend"
+    ],
+    "prerequisites": [
+      148
+    ]
+  },
+  {
+    "chapter": 150,
+    "volume": 15,
+    "volume_title": "Observability and Telemetry",
+    "title": "Observability at Scale",
+    "path": "book/volumes/15-observability-and-telemetry/150-observability-at-scale.md",
+    "summary": "book/_ai/chapter-summaries/150-observability-at-scale.md",
+    "review": "book/_ai/reviews/150-observability-at-scale.md",
+    "sections": [
+      "Cardinality, storage and ingestion budgets",
+      "SLO dashboards and telemetry outages",
+      "A capacity review for the monitoring system"
+    ],
+    "prerequisites": [
+      149
+    ]
+  },
+  {
+    "chapter": 151,
+    "volume": 16,
+    "volume_title": "Performance and Capacity Engineering",
+    "title": "Workload Models and Measurement",
+    "path": "book/volumes/16-performance-and-capacity-engineering/151-workload-models-and-measurement.md",
+    "summary": "book/_ai/chapter-summaries/151-workload-models-and-measurement.md",
+    "review": "book/_ai/reviews/151-workload-models-and-measurement.md",
+    "sections": [
+      "Arrival rates, concurrency and service time",
+      "Percentiles and representative workloads",
+      "Writing a load-test charter"
+    ],
+    "prerequisites": [
+      150
+    ]
+  },
+  {
+    "chapter": 152,
+    "volume": 16,
+    "volume_title": "Performance and Capacity Engineering",
+    "title": "CPU, Memory and Scheduler Diagnosis",
+    "path": "book/volumes/16-performance-and-capacity-engineering/152-cpu-memory-and-scheduler-diagnosis.md",
+    "summary": "book/_ai/chapter-summaries/152-cpu-memory-and-scheduler-diagnosis.md",
+    "review": "book/_ai/reviews/152-cpu-memory-and-scheduler-diagnosis.md",
+    "sections": [
+      "Utilization, contention and pressure",
+      "Profiling and working-set evidence",
+      "Distinguishing CPU saturation from waiting"
+    ],
+    "prerequisites": [
+      151
+    ]
+  },
+  {
+    "chapter": 153,
+    "volume": 16,
+    "volume_title": "Performance and Capacity Engineering",
+    "title": "Disk, Network and Connection Bottlenecks",
+    "path": "book/volumes/16-performance-and-capacity-engineering/153-disk-network-and-connection-bottlenecks.md",
+    "summary": "book/_ai/chapter-summaries/153-disk-network-and-connection-bottlenecks.md",
+    "review": "book/_ai/reviews/153-disk-network-and-connection-bottlenecks.md",
+    "sections": [
+      "Latency, bandwidth, queues and IOPS",
+      "Connection pools and file descriptors",
+      "Finding a shared resource ceiling"
+    ],
+    "prerequisites": [
+      152
+    ]
+  },
+  {
+    "chapter": 154,
+    "volume": 16,
+    "volume_title": "Performance and Capacity Engineering",
+    "title": "Load Testing with k6 and Locust",
+    "path": "book/volumes/16-performance-and-capacity-engineering/154-load-testing-with-k6-and-locust.md",
+    "summary": "book/_ai/chapter-summaries/154-load-testing-with-k6-and-locust.md",
+    "review": "book/_ai/reviews/154-load-testing-with-k6-and-locust.md",
+    "sections": [
+      "Open and closed workload models",
+      "Warmup, test data and correctness",
+      "A staged DispatchDesk load experiment"
+    ],
+    "prerequisites": [
+      153
+    ]
+  },
+  {
+    "chapter": 155,
+    "volume": 16,
+    "volume_title": "Performance and Capacity Engineering",
+    "title": "Vertical Scaling Decisions",
+    "path": "book/volumes/16-performance-and-capacity-engineering/155-vertical-scaling-decisions.md",
+    "summary": "book/_ai/chapter-summaries/155-vertical-scaling-decisions.md",
+    "review": "book/_ai/reviews/155-vertical-scaling-decisions.md",
+    "sections": [
+      "Headroom, larger machines and limits",
+      "Downtime, cost and diminishing returns",
+      "A measured VPS resize decision"
+    ],
+    "prerequisites": [
+      154
+    ]
+  },
+  {
+    "chapter": 156,
+    "volume": 16,
+    "volume_title": "Performance and Capacity Engineering",
+    "title": "Horizontal Scaling Decisions",
+    "path": "book/volumes/16-performance-and-capacity-engineering/156-horizontal-scaling-decisions.md",
+    "summary": "book/_ai/chapter-summaries/156-horizontal-scaling-decisions.md",
+    "review": "book/_ai/reviews/156-horizontal-scaling-decisions.md",
+    "sections": [
+      "Stateless work and shared state",
+      "Coordination, partitioning and balancing",
+      "Adding replicas without multiplying a bottleneck"
+    ],
+    "prerequisites": [
+      155
+    ]
+  },
+  {
+    "chapter": 157,
+    "volume": 16,
+    "volume_title": "Performance and Capacity Engineering",
+    "title": "Autoscaling as a Feedback System",
+    "path": "book/volumes/16-performance-and-capacity-engineering/157-autoscaling-as-a-feedback-system.md",
+    "summary": "book/_ai/chapter-summaries/157-autoscaling-as-a-feedback-system.md",
+    "review": "book/_ai/reviews/157-autoscaling-as-a-feedback-system.md",
+    "sections": [
+      "Signals, delay and stabilization",
+      "Cold starts, floors and ceilings",
+      "Preventing scaling oscillation"
+    ],
+    "prerequisites": [
+      156
+    ]
+  },
+  {
+    "chapter": 158,
+    "volume": 16,
+    "volume_title": "Performance and Capacity Engineering",
+    "title": "Capacity Planning and Forecasting",
+    "path": "book/volumes/16-performance-and-capacity-engineering/158-capacity-planning-and-forecasting.md",
+    "summary": "book/_ai/chapter-summaries/158-capacity-planning-and-forecasting.md",
+    "review": "book/_ai/reviews/158-capacity-planning-and-forecasting.md",
+    "sections": [
+      "Growth, seasonality and failure reserve",
+      "Quotas and lead times",
+      "Estimating capacity with uncertainty"
+    ],
+    "prerequisites": [
+      157
+    ]
+  },
+  {
+    "chapter": 159,
+    "volume": 16,
+    "volume_title": "Performance and Capacity Engineering",
+    "title": "Caching, Batching and Efficiency",
+    "path": "book/volumes/16-performance-and-capacity-engineering/159-caching-batching-and-efficiency.md",
+    "summary": "book/_ai/chapter-summaries/159-caching-batching-and-efficiency.md",
+    "review": "book/_ai/reviews/159-caching-batching-and-efficiency.md",
+    "sections": [
+      "Reuse, locality and amortized cost",
+      "Freshness and batch latency",
+      "Reducing work before adding machines"
+    ],
+    "prerequisites": [
+      158
+    ]
+  },
+  {
+    "chapter": 160,
+    "volume": 16,
+    "volume_title": "Performance and Capacity Engineering",
+    "title": "Cost and Performance Tradeoffs",
+    "path": "book/volumes/16-performance-and-capacity-engineering/160-cost-and-performance-tradeoffs.md",
+    "summary": "book/_ai/chapter-summaries/160-cost-and-performance-tradeoffs.md",
+    "review": "book/_ai/reviews/160-cost-and-performance-tradeoffs.md",
+    "sections": [
+      "Unit economics and total ownership",
+      "Spot capacity, commitments and architecture",
+      "Comparing three scaling proposals"
+    ],
+    "prerequisites": [
+      159
+    ]
+  },
+  {
+    "chapter": 161,
+    "volume": 17,
+    "volume_title": "Distributed Systems and Data Operations",
+    "title": "Partial Failure and Timeouts",
+    "path": "book/volumes/17-distributed-systems-and-data-operations/161-partial-failure-and-timeouts.md",
+    "summary": "book/_ai/chapter-summaries/161-partial-failure-and-timeouts.md",
+    "review": "book/_ai/reviews/161-partial-failure-and-timeouts.md",
+    "sections": [
+      "Independent failure and uncertain outcomes",
+      "Timeout budgets and cancellation",
+      "Following a request that may have succeeded"
+    ],
+    "prerequisites": [
+      160
+    ]
+  },
+  {
+    "chapter": 162,
+    "volume": 17,
+    "volume_title": "Distributed Systems and Data Operations",
+    "title": "Retries, Idempotency and Backoff",
+    "path": "book/volumes/17-distributed-systems-and-data-operations/162-retries-idempotency-and-backoff.md",
+    "summary": "book/_ai/chapter-summaries/162-retries-idempotency-and-backoff.md",
+    "review": "book/_ai/reviews/162-retries-idempotency-and-backoff.md",
+    "sections": [
+      "Duplicate work and retry storms",
+      "Idempotency keys and jitter",
+      "A reliable worker retry contract"
+    ],
+    "prerequisites": [
+      161
+    ]
+  },
+  {
+    "chapter": 163,
+    "volume": 17,
+    "volume_title": "Distributed Systems and Data Operations",
+    "title": "Queues and Backpressure",
+    "path": "book/volumes/17-distributed-systems-and-data-operations/163-queues-and-backpressure.md",
+    "summary": "book/_ai/chapter-summaries/163-queues-and-backpressure.md",
+    "review": "book/_ai/reviews/163-queues-and-backpressure.md",
+    "sections": [
+      "Producer and consumer rates",
+      "Leases, dead letters and flow control",
+      "Recovering a growing work backlog"
+    ],
+    "prerequisites": [
+      162
+    ]
+  },
+  {
+    "chapter": 164,
+    "volume": 17,
+    "volume_title": "Distributed Systems and Data Operations",
+    "title": "Database Connections and Concurrency",
+    "path": "book/volumes/17-distributed-systems-and-data-operations/164-database-connections-and-concurrency.md",
+    "summary": "book/_ai/chapter-summaries/164-database-connections-and-concurrency.md",
+    "review": "book/_ai/reviews/164-database-connections-and-concurrency.md",
+    "sections": [
+      "Pools, locks and transaction boundaries",
+      "Contention and isolation",
+      "Diagnosing a database-backed service"
+    ],
+    "prerequisites": [
+      163
+    ]
+  },
+  {
+    "chapter": 165,
+    "volume": 17,
+    "volume_title": "Distributed Systems and Data Operations",
+    "title": "Replication and Failover",
+    "path": "book/volumes/17-distributed-systems-and-data-operations/165-replication-and-failover.md",
+    "summary": "book/_ai/chapter-summaries/165-replication-and-failover.md",
+    "review": "book/_ai/reviews/165-replication-and-failover.md",
+    "sections": [
+      "Replication lag and durability",
+      "Leader authority and fencing",
+      "Avoiding split-brain recovery"
+    ],
+    "prerequisites": [
+      164
+    ]
+  },
+  {
+    "chapter": 166,
+    "volume": 17,
+    "volume_title": "Distributed Systems and Data Operations",
+    "title": "Consistency and Consensus Concepts",
+    "path": "book/volumes/17-distributed-systems-and-data-operations/166-consistency-and-consensus-concepts.md",
+    "summary": "book/_ai/chapter-summaries/166-consistency-and-consensus-concepts.md",
+    "review": "book/_ai/reviews/166-consistency-and-consensus-concepts.md",
+    "sections": [
+      "Ordering, quorums and partitions",
+      "Consistency contracts and operational limits",
+      "Reasoning about a coordination service"
+    ],
+    "prerequisites": [
+      165
+    ]
+  },
+  {
+    "chapter": 167,
+    "volume": 17,
+    "volume_title": "Distributed Systems and Data Operations",
+    "title": "Cache Design and Invalidation",
+    "path": "book/volumes/17-distributed-systems-and-data-operations/167-cache-design-and-invalidation.md",
+    "summary": "book/_ai/chapter-summaries/167-cache-design-and-invalidation.md",
+    "review": "book/_ai/reviews/167-cache-design-and-invalidation.md",
+    "sections": [
+      "Source of truth and derived state",
+      "Stampedes, expiration and outage behavior",
+      "A controlled cache-failure experiment"
+    ],
+    "prerequisites": [
+      166
+    ]
+  },
+  {
+    "chapter": 168,
+    "volume": 17,
+    "volume_title": "Distributed Systems and Data Operations",
+    "title": "Database Scaling and Partitioning",
+    "path": "book/volumes/17-distributed-systems-and-data-operations/168-database-scaling-and-partitioning.md",
+    "summary": "book/_ai/chapter-summaries/168-database-scaling-and-partitioning.md",
+    "review": "book/_ai/reviews/168-database-scaling-and-partitioning.md",
+    "sections": [
+      "Indexes, read replicas and sharding",
+      "Hot keys and cross-partition work",
+      "Choosing a data scaling path"
+    ],
+    "prerequisites": [
+      167
+    ]
+  },
+  {
+    "chapter": 169,
+    "volume": 17,
+    "volume_title": "Distributed Systems and Data Operations",
+    "title": "Messaging and Event-driven Architecture",
+    "path": "book/volumes/17-distributed-systems-and-data-operations/169-messaging-and-event-driven-architecture.md",
+    "summary": "book/_ai/chapter-summaries/169-messaging-and-event-driven-architecture.md",
+    "review": "book/_ai/reviews/169-messaging-and-event-driven-architecture.md",
+    "sections": [
+      "Events, commands and delivery semantics",
+      "Outbox, ordering and schema evolution",
+      "Connecting order processing to notifications"
+    ],
+    "prerequisites": [
+      168
+    ]
+  },
+  {
+    "chapter": 170,
+    "volume": 17,
+    "volume_title": "Distributed Systems and Data Operations",
+    "title": "Stateful Recovery and Data Migration",
+    "path": "book/volumes/17-distributed-systems-and-data-operations/170-stateful-recovery-and-data-migration.md",
+    "summary": "book/_ai/chapter-summaries/170-stateful-recovery-and-data-migration.md",
+    "review": "book/_ai/reviews/170-stateful-recovery-and-data-migration.md",
+    "sections": [
+      "Backfill, reconciliation and authority",
+      "Cutover and recovery evidence",
+      "Migrating a live data boundary"
+    ],
+    "prerequisites": [
+      169
+    ]
+  },
+  {
+    "chapter": 171,
+    "volume": 18,
+    "volume_title": "Security and Software Supply Chains",
+    "title": "Threat Modeling for Operators",
+    "path": "book/volumes/18-security-and-software-supply-chains/171-threat-modeling-for-operators.md",
+    "summary": "book/_ai/chapter-summaries/171-threat-modeling-for-operators.md",
+    "review": "book/_ai/reviews/171-threat-modeling-for-operators.md",
+    "sections": [
+      "Assets, identities and trust boundaries",
+      "Abuse paths and practical controls",
+      "Threat modeling DispatchDesk"
+    ],
+    "prerequisites": [
+      170
+    ]
+  },
+  {
+    "chapter": 172,
+    "volume": 18,
+    "volume_title": "Security and Software Supply Chains",
+    "title": "Host Security and Patch Management",
+    "path": "book/volumes/18-security-and-software-supply-chains/172-host-security-and-patch-management.md",
+    "summary": "book/_ai/chapter-summaries/172-host-security-and-patch-management.md",
+    "review": "book/_ai/reviews/172-host-security-and-patch-management.md",
+    "sections": [
+      "Access, packages and attack surface",
+      "Ubuntu and Fedora/RHEL hardening differences",
+      "A defensible host-maintenance process"
+    ],
+    "prerequisites": [
+      171
+    ]
+  },
+  {
+    "chapter": 173,
+    "volume": 18,
+    "volume_title": "Security and Software Supply Chains",
+    "title": "Container Security in Practice",
+    "path": "book/volumes/18-security-and-software-supply-chains/173-container-security-in-practice.md",
+    "summary": "book/_ai/chapter-summaries/173-container-security-in-practice.md",
+    "review": "book/_ai/reviews/173-container-security-in-practice.md",
+    "sections": [
+      "Image content and runtime privilege",
+      "Rootless operation and workload isolation",
+      "Reviewing a container security posture"
+    ],
+    "prerequisites": [
+      172
+    ]
+  },
+  {
+    "chapter": 174,
+    "volume": 18,
+    "volume_title": "Security and Software Supply Chains",
+    "title": "Kubernetes Security Boundaries",
+    "path": "book/volumes/18-security-and-software-supply-chains/174-kubernetes-security-boundaries.md",
+    "summary": "book/_ai/chapter-summaries/174-kubernetes-security-boundaries.md",
+    "review": "book/_ai/reviews/174-kubernetes-security-boundaries.md",
+    "sections": [
+      "API access, workload policy and tenancy",
+      "Pod Security and network controls",
+      "A cluster threat and permissions review"
+    ],
+    "prerequisites": [
+      173
+    ]
+  },
+  {
+    "chapter": 175,
+    "volume": 18,
+    "volume_title": "Security and Software Supply Chains",
+    "title": "Secrets and Credential Rotation",
+    "path": "book/volumes/18-security-and-software-supply-chains/175-secrets-and-credential-rotation.md",
+    "summary": "book/_ai/chapter-summaries/175-secrets-and-credential-rotation.md",
+    "review": "book/_ai/reviews/175-secrets-and-credential-rotation.md",
+    "sections": [
+      "Secret distribution and lifecycle",
+      "Vault, cloud secrets and rotation",
+      "Recovering from a leaked credential"
+    ],
+    "prerequisites": [
+      174
+    ]
+  },
+  {
+    "chapter": 176,
+    "volume": 18,
+    "volume_title": "Security and Software Supply Chains",
+    "title": "Federation, OIDC and Short-lived Identity",
+    "path": "book/volumes/18-security-and-software-supply-chains/176-federation-oidc-and-short-lived-identity.md",
+    "summary": "book/_ai/chapter-summaries/176-federation-oidc-and-short-lived-identity.md",
+    "review": "book/_ai/reviews/176-federation-oidc-and-short-lived-identity.md",
+    "sections": [
+      "Trust claims and audience boundaries",
+      "CI and workload federation",
+      "Replacing static cloud keys"
+    ],
+    "prerequisites": [
+      175
+    ]
+  },
+  {
+    "chapter": 177,
+    "volume": 18,
+    "volume_title": "Security and Software Supply Chains",
+    "title": "Vulnerability Scanning and SBOMs",
+    "path": "book/volumes/18-security-and-software-supply-chains/177-vulnerability-scanning-and-sboms.md",
+    "summary": "book/_ai/chapter-summaries/177-vulnerability-scanning-and-sboms.md",
+    "review": "book/_ai/reviews/177-vulnerability-scanning-and-sboms.md",
+    "sections": [
+      "Package inventory and vulnerability evidence",
+      "Trivy, Grype and SBOM workflows",
+      "Prioritizing fixes by exposure and impact"
+    ],
+    "prerequisites": [
+      176
+    ]
+  },
+  {
+    "chapter": 178,
+    "volume": 18,
+    "volume_title": "Security and Software Supply Chains",
+    "title": "Artifact Signing and Provenance",
+    "path": "book/volumes/18-security-and-software-supply-chains/178-artifact-signing-and-provenance.md",
+    "summary": "book/_ai/chapter-summaries/178-artifact-signing-and-provenance.md",
+    "review": "book/_ai/reviews/178-artifact-signing-and-provenance.md",
+    "sections": [
+      "Signatures, attestations and trust roots",
+      "Cosign and provenance verification",
+      "Verifying an artifact before deployment"
+    ],
+    "prerequisites": [
+      177
+    ]
+  },
+  {
+    "chapter": 179,
+    "volume": 18,
+    "volume_title": "Security and Software Supply Chains",
+    "title": "Policy, Audit and Compliance Evidence",
+    "path": "book/volumes/18-security-and-software-supply-chains/179-policy-audit-and-compliance-evidence.md",
+    "summary": "book/_ai/chapter-summaries/179-policy-audit-and-compliance-evidence.md",
+    "review": "book/_ai/reviews/179-policy-audit-and-compliance-evidence.md",
+    "sections": [
+      "Policies as explicit controls",
+      "OPA and admission evidence",
+      "A reviewable release approval record"
+    ],
+    "prerequisites": [
+      178
+    ]
+  },
+  {
+    "chapter": 180,
+    "volume": 18,
+    "volume_title": "Security and Software Supply Chains",
+    "title": "Security Incidents and Containment",
+    "path": "book/volumes/18-security-and-software-supply-chains/180-security-incidents-and-containment.md",
+    "summary": "book/_ai/chapter-summaries/180-security-incidents-and-containment.md",
+    "review": "book/_ai/reviews/180-security-incidents-and-containment.md",
+    "sections": [
+      "Evidence preservation and isolation",
+      "Credential revocation and clean rebuild",
+      "A compromised-runner response"
+    ],
+    "prerequisites": [
+      179
+    ]
+  },
+  {
+    "chapter": 181,
+    "volume": 19,
+    "volume_title": "Site Reliability and Recovery",
+    "title": "SLIs, SLOs and Error Budgets",
+    "path": "book/volumes/19-site-reliability-and-recovery/181-slis-slos-and-error-budgets.md",
+    "summary": "book/_ai/chapter-summaries/181-slis-slos-and-error-budgets.md",
+    "review": "book/_ai/reviews/181-slis-slos-and-error-budgets.md",
+    "sections": [
+      "User journeys and measurement windows",
+      "Targets and release decisions",
+      "Defining a useful service objective"
+    ],
+    "prerequisites": [
+      180
+    ]
+  },
+  {
+    "chapter": 182,
+    "volume": 19,
+    "volume_title": "Site Reliability and Recovery",
+    "title": "On-call and Operational Readiness",
+    "path": "book/volumes/19-site-reliability-and-recovery/182-on-call-and-operational-readiness.md",
+    "summary": "book/_ai/chapter-summaries/182-on-call-and-operational-readiness.md",
+    "review": "book/_ai/reviews/182-on-call-and-operational-readiness.md",
+    "sections": [
+      "Ownership, escalation and handoff",
+      "Runbooks and response authority",
+      "Preparing a team for production responsibility"
+    ],
+    "prerequisites": [
+      181
+    ]
+  },
+  {
+    "chapter": 183,
+    "volume": 19,
+    "volume_title": "Site Reliability and Recovery",
+    "title": "Incident Command and Communication",
+    "path": "book/volumes/19-site-reliability-and-recovery/183-incident-command-and-communication.md",
+    "summary": "book/_ai/chapter-summaries/183-incident-command-and-communication.md",
+    "review": "book/_ai/reviews/183-incident-command-and-communication.md",
+    "sections": [
+      "Declaration, roles and updates",
+      "Stabilization and uncertainty",
+      "Running a coordinated outage response"
+    ],
+    "prerequisites": [
+      182
+    ]
+  },
+  {
+    "chapter": 184,
+    "volume": 19,
+    "volume_title": "Site Reliability and Recovery",
+    "title": "Troubleshooting Under Pressure",
+    "path": "book/volumes/19-site-reliability-and-recovery/184-troubleshooting-under-pressure.md",
+    "summary": "book/_ai/chapter-summaries/184-troubleshooting-under-pressure.md",
+    "review": "book/_ai/reviews/184-troubleshooting-under-pressure.md",
+    "sections": [
+      "Hypotheses, timelines and safe experiments",
+      "Mitigation versus causal explanation",
+      "An outage investigation with incomplete evidence"
+    ],
+    "prerequisites": [
+      183
+    ]
+  },
+  {
+    "chapter": 185,
+    "volume": 19,
+    "volume_title": "Site Reliability and Recovery",
+    "title": "Postmortems and Corrective Actions",
+    "path": "book/volumes/19-site-reliability-and-recovery/185-postmortems-and-corrective-actions.md",
+    "summary": "book/_ai/chapter-summaries/185-postmortems-and-corrective-actions.md",
+    "review": "book/_ai/reviews/185-postmortems-and-corrective-actions.md",
+    "sections": [
+      "Contributing factors and evidence",
+      "Action ownership and effectiveness",
+      "Turning an incident into engineering work"
+    ],
+    "prerequisites": [
+      184
+    ]
+  },
+  {
+    "chapter": 186,
+    "volume": 19,
+    "volume_title": "Site Reliability and Recovery",
+    "title": "Backup Engineering",
+    "path": "book/volumes/19-site-reliability-and-recovery/186-backup-engineering.md",
+    "summary": "book/_ai/chapter-summaries/186-backup-engineering.md",
+    "review": "book/_ai/reviews/186-backup-engineering.md",
+    "sections": [
+      "Consistency, retention and encryption",
+      "Independent copies and restore evidence",
+      "Testing database and object restoration"
+    ],
+    "prerequisites": [
+      185
+    ]
+  },
+  {
+    "chapter": 187,
+    "volume": 19,
+    "volume_title": "Site Reliability and Recovery",
+    "title": "Disaster Recovery and Failback",
+    "path": "book/volumes/19-site-reliability-and-recovery/187-disaster-recovery-and-failback.md",
+    "summary": "book/_ai/chapter-summaries/187-disaster-recovery-and-failback.md",
+    "review": "book/_ai/reviews/187-disaster-recovery-and-failback.md",
+    "sections": [
+      "RPO, RTO and dependency recovery",
+      "Failover authority and return to normal",
+      "A regional-loss recovery plan"
+    ],
+    "prerequisites": [
+      186
+    ]
+  },
+  {
+    "chapter": 188,
+    "volume": 19,
+    "volume_title": "Site Reliability and Recovery",
+    "title": "Chaos and Resilience Experiments",
+    "path": "book/volumes/19-site-reliability-and-recovery/188-chaos-and-resilience-experiments.md",
+    "summary": "book/_ai/chapter-summaries/188-chaos-and-resilience-experiments.md",
+    "review": "book/_ai/reviews/188-chaos-and-resilience-experiments.md",
+    "sections": [
+      "Hypotheses, blast radius and stop conditions",
+      "Fault injection and recovery evidence",
+      "A bounded service failure experiment"
+    ],
+    "prerequisites": [
+      187
+    ]
+  },
+  {
+    "chapter": 189,
+    "volume": 19,
+    "volume_title": "Site Reliability and Recovery",
+    "title": "Reliability Testing and Game Days",
+    "path": "book/volumes/19-site-reliability-and-recovery/189-reliability-testing-and-game-days.md",
+    "summary": "book/_ai/chapter-summaries/189-reliability-testing-and-game-days.md",
+    "review": "book/_ai/reviews/189-reliability-testing-and-game-days.md",
+    "sections": [
+      "Load, fault and recovery combinations",
+      "Tabletop and technical exercises",
+      "A rehearsal before a major launch"
+    ],
+    "prerequisites": [
+      188
+    ]
+  },
+  {
+    "chapter": 190,
+    "volume": 19,
+    "volume_title": "Site Reliability and Recovery",
+    "title": "Reducing Toil and Improving Operations",
+    "path": "book/volumes/19-site-reliability-and-recovery/190-reducing-toil-and-improving-operations.md",
+    "summary": "book/_ai/chapter-summaries/190-reducing-toil-and-improving-operations.md",
+    "review": "book/_ai/reviews/190-reducing-toil-and-improving-operations.md",
+    "sections": [
+      "Manual work and recurring failure",
+      "Automation, guardrails and maintenance",
+      "A reliability improvement roadmap"
+    ],
+    "prerequisites": [
+      189
+    ]
+  },
+  {
+    "chapter": 191,
+    "volume": 20,
+    "volume_title": "Architecture and Platform Engineering",
+    "title": "Monoliths, Services and Organizational Boundaries",
+    "path": "book/volumes/20-architecture-and-platform-engineering/191-monoliths-services-and-organizational-boundaries.md",
+    "summary": "book/_ai/chapter-summaries/191-monoliths-services-and-organizational-boundaries.md",
+    "review": "book/_ai/reviews/191-monoliths-services-and-organizational-boundaries.md",
+    "sections": [
+      "Deployment and ownership boundaries",
+      "Coupling and operational overhead",
+      "Choosing a service extraction"
+    ],
+    "prerequisites": [
+      190
+    ]
+  },
+  {
+    "chapter": 192,
+    "volume": 20,
+    "volume_title": "Architecture and Platform Engineering",
+    "title": "Platform Teams and Developer Experience",
+    "path": "book/volumes/20-architecture-and-platform-engineering/192-platform-teams-and-developer-experience.md",
+    "summary": "book/_ai/chapter-summaries/192-platform-teams-and-developer-experience.md",
+    "review": "book/_ai/reviews/192-platform-teams-and-developer-experience.md",
+    "sections": [
+      "Internal customers and product thinking",
+      "Golden paths and escape hatches",
+      "A small useful deployment platform"
+    ],
+    "prerequisites": [
+      191
+    ]
+  },
+  {
+    "chapter": 193,
+    "volume": 20,
+    "volume_title": "Architecture and Platform Engineering",
+    "title": "Multi-tenancy and Isolation",
+    "path": "book/volumes/20-architecture-and-platform-engineering/193-multi-tenancy-and-isolation.md",
+    "summary": "book/_ai/chapter-summaries/193-multi-tenancy-and-isolation.md",
+    "review": "book/_ai/reviews/193-multi-tenancy-and-isolation.md",
+    "sections": [
+      "Shared, pooled and dedicated resources",
+      "Noisy neighbors and authorization",
+      "Choosing an isolation boundary"
+    ],
+    "prerequisites": [
+      192
+    ]
+  },
+  {
+    "chapter": 194,
+    "volume": 20,
+    "volume_title": "Architecture and Platform Engineering",
+    "title": "Service Meshes and Traffic Policy",
+    "path": "book/volumes/20-architecture-and-platform-engineering/194-service-meshes-and-traffic-policy.md",
+    "summary": "book/_ai/chapter-summaries/194-service-meshes-and-traffic-policy.md",
+    "review": "book/_ai/reviews/194-service-meshes-and-traffic-policy.md",
+    "sections": [
+      "Identity, routing and telemetry",
+      "Sidecar and ambient tradeoffs",
+      "Deciding whether a mesh earns its cost"
+    ],
+    "prerequisites": [
+      193
+    ]
+  },
+  {
+    "chapter": 195,
+    "volume": 20,
+    "volume_title": "Architecture and Platform Engineering",
+    "title": "Multi-zone and Multi-region Architecture",
+    "path": "book/volumes/20-architecture-and-platform-engineering/195-multi-zone-and-multi-region-architecture.md",
+    "summary": "book/_ai/chapter-summaries/195-multi-zone-and-multi-region-architecture.md",
+    "review": "book/_ai/reviews/195-multi-zone-and-multi-region-architecture.md",
+    "sections": [
+      "Latency, authority and failure domains",
+      "Active-passive and active-active designs",
+      "A regional architecture review"
+    ],
+    "prerequisites": [
+      194
+    ]
+  },
+  {
+    "chapter": 196,
+    "volume": 20,
+    "volume_title": "Architecture and Platform Engineering",
+    "title": "Hybrid and Restricted Environments",
+    "path": "book/volumes/20-architecture-and-platform-engineering/196-hybrid-and-restricted-environments.md",
+    "summary": "book/_ai/chapter-summaries/196-hybrid-and-restricted-environments.md",
+    "review": "book/_ai/reviews/196-hybrid-and-restricted-environments.md",
+    "sections": [
+      "Connectivity, mirrors and artifact trust",
+      "Air-gapped updates and operational access",
+      "Operating with limited external dependencies"
+    ],
+    "prerequisites": [
+      195
+    ]
+  },
+  {
+    "chapter": 197,
+    "volume": 20,
+    "volume_title": "Architecture and Platform Engineering",
+    "title": "Legacy Infrastructure Modernization",
+    "path": "book/volumes/20-architecture-and-platform-engineering/197-legacy-infrastructure-modernization.md",
+    "summary": "book/_ai/chapter-summaries/197-legacy-infrastructure-modernization.md",
+    "review": "book/_ai/reviews/197-legacy-infrastructure-modernization.md",
+    "sections": [
+      "Inventory, constraints and behavior",
+      "Incremental migration and reversibility",
+      "Replacing a fragile deployment process"
+    ],
+    "prerequisites": [
+      196
+    ]
+  },
+  {
+    "chapter": 198,
+    "volume": 20,
+    "volume_title": "Architecture and Platform Engineering",
+    "title": "Architecture Reviews and Decision Records",
+    "path": "book/volumes/20-architecture-and-platform-engineering/198-architecture-reviews-and-decision-records.md",
+    "summary": "book/_ai/chapter-summaries/198-architecture-reviews-and-decision-records.md",
+    "review": "book/_ai/reviews/198-architecture-reviews-and-decision-records.md",
+    "sections": [
+      "Requirements, alternatives and evidence",
+      "Assumptions and reversal triggers",
+      "Reviewing a production proposal"
+    ],
+    "prerequisites": [
+      197
+    ]
+  },
+  {
+    "chapter": 199,
+    "volume": 20,
+    "volume_title": "Architecture and Platform Engineering",
+    "title": "FinOps and Engineering Economics",
+    "path": "book/volumes/20-architecture-and-platform-engineering/199-finops-and-engineering-economics.md",
+    "summary": "book/_ai/chapter-summaries/199-finops-and-engineering-economics.md",
+    "review": "book/_ai/reviews/199-finops-and-engineering-economics.md",
+    "sections": [
+      "Ownership, allocation and unit cost",
+      "Forecasts and optimization evidence",
+      "Choosing between labor and cloud spend"
+    ],
+    "prerequisites": [
+      198
+    ]
+  },
+  {
+    "chapter": 200,
+    "volume": 20,
+    "volume_title": "Architecture and Platform Engineering",
+    "title": "Senior Engineering Judgment",
+    "path": "book/volumes/20-architecture-and-platform-engineering/200-senior-engineering-judgment.md",
+    "summary": "book/_ai/chapter-summaries/200-senior-engineering-judgment.md",
+    "review": "book/_ai/reviews/200-senior-engineering-judgment.md",
+    "sections": [
+      "Uncertainty, prioritization and communication",
+      "Simple designs and justified complexity",
+      "Mentoring through a difficult operational decision"
+    ],
+    "prerequisites": [
+      199
+    ]
+  },
+  {
+    "chapter": 201,
+    "volume": 21,
+    "volume_title": "Projects and Industry Case Studies",
+    "title": "DispatchDesk on a Single VPS",
+    "path": "book/volumes/21-projects-and-industry-case-studies/201-dispatchdesk-on-a-single-vps.md",
+    "summary": "book/_ai/chapter-summaries/201-dispatchdesk-on-a-single-vps.md",
+    "review": "book/_ai/reviews/201-dispatchdesk-on-a-single-vps.md",
+    "sections": [
+      "Initial workload and operational contract",
+      "Native services and first release",
+      "A first failure and measured improvement"
+    ],
+    "prerequisites": [
+      200
+    ]
+  },
+  {
+    "chapter": 202,
+    "volume": 21,
+    "volume_title": "Projects and Industry Case Studies",
+    "title": "The VPS Company Scales Carefully",
+    "path": "book/volumes/21-projects-and-industry-case-studies/202-the-vps-company-scales-carefully.md",
+    "summary": "book/_ai/chapter-summaries/202-the-vps-company-scales-carefully.md",
+    "review": "book/_ai/reviews/202-the-vps-company-scales-carefully.md",
+    "sections": [
+      "Vertical growth and resource evidence",
+      "Second host and managed database choices",
+      "Why the team delays Kubernetes"
+    ],
+    "prerequisites": [
+      201
+    ]
+  },
+  {
+    "chapter": 203,
+    "volume": 21,
+    "volume_title": "Projects and Industry Case Studies",
+    "title": "The Managed AWS Company",
+    "path": "book/volumes/21-projects-and-industry-case-studies/203-the-managed-aws-company.md",
+    "summary": "book/_ai/chapter-summaries/203-the-managed-aws-company.md",
+    "review": "book/_ai/reviews/203-the-managed-aws-company.md",
+    "sections": [
+      "ECS, queues and managed persistence",
+      "Team capacity and service boundaries",
+      "A growth-driven architecture change"
+    ],
+    "prerequisites": [
+      202
+    ]
+  },
+  {
+    "chapter": 204,
+    "volume": 21,
+    "volume_title": "Projects and Industry Case Studies",
+    "title": "The Kubernetes Platform Company",
+    "path": "book/volumes/21-projects-and-industry-case-studies/204-the-kubernetes-platform-company.md",
+    "summary": "book/_ai/chapter-summaries/204-the-kubernetes-platform-company.md",
+    "review": "book/_ai/reviews/204-the-kubernetes-platform-company.md",
+    "sections": [
+      "Several teams and deployment requirements",
+      "Shared platform and workload isolation",
+      "Why Kubernetes becomes justified"
+    ],
+    "prerequisites": [
+      203
+    ]
+  },
+  {
+    "chapter": 205,
+    "volume": 21,
+    "volume_title": "Projects and Industry Case Studies",
+    "title": "Multi-language Services in Production",
+    "path": "book/volumes/21-projects-and-industry-case-studies/205-multi-language-services-in-production.md",
+    "summary": "book/_ai/chapter-summaries/205-multi-language-services-in-production.md",
+    "review": "book/_ai/reviews/205-multi-language-services-in-production.md",
+    "sections": [
+      "Python, PHP, Go and JavaScript lifecycles",
+      "Signals, health, concurrency and telemetry",
+      "Comparable deployment contracts across runtimes"
+    ],
+    "prerequisites": [
+      204
+    ]
+  },
+  {
+    "chapter": 206,
+    "volume": 21,
+    "volume_title": "Projects and Industry Case Studies",
+    "title": "Three Pipelines for One Release Contract",
+    "path": "book/volumes/21-projects-and-industry-case-studies/206-three-pipelines-for-one-release-contract.md",
+    "summary": "book/_ai/chapter-summaries/206-three-pipelines-for-one-release-contract.md",
+    "review": "book/_ai/reviews/206-three-pipelines-for-one-release-contract.md",
+    "sections": [
+      "GitHub Actions implementation",
+      "GitLab CI and Jenkins implementations",
+      "Comparing evidence, credentials and recovery"
+    ],
+    "prerequisites": [
+      205
+    ]
+  },
+  {
+    "chapter": 207,
+    "volume": 21,
+    "volume_title": "Projects and Industry Case Studies",
+    "title": "An End-to-end Observability Investigation",
+    "path": "book/volumes/21-projects-and-industry-case-studies/207-an-end-to-end-observability-investigation.md",
+    "summary": "book/_ai/chapter-summaries/207-an-end-to-end-observability-investigation.md",
+    "review": "book/_ai/reviews/207-an-end-to-end-observability-investigation.md",
+    "sections": [
+      "Instrumentation and user symptoms",
+      "Metrics, logs and traces",
+      "A slow-order incident and resolution"
+    ],
+    "prerequisites": [
+      206
+    ]
+  },
+  {
+    "chapter": 208,
+    "volume": 21,
+    "volume_title": "Projects and Industry Case Studies",
+    "title": "Google SRE Practices in Context",
+    "path": "book/volumes/21-projects-and-industry-case-studies/208-google-sre-practices-in-context.md",
+    "summary": "book/_ai/chapter-summaries/208-google-sre-practices-in-context.md",
+    "review": "book/_ai/reviews/208-google-sre-practices-in-context.md",
+    "sections": [
+      "Published reliability and release practices",
+      "Constraints behind organizational choices",
+      "What a smaller team can reuse"
+    ],
+    "prerequisites": [
+      207
+    ]
+  },
+  {
+    "chapter": 209,
+    "volume": 21,
+    "volume_title": "Projects and Industry Case Studies",
+    "title": "Netflix Container and Delivery Evolution",
+    "path": "book/volumes/21-projects-and-industry-case-studies/209-netflix-container-and-delivery-evolution.md",
+    "summary": "book/_ai/chapter-summaries/209-netflix-container-and-delivery-evolution.md",
+    "review": "book/_ai/reviews/209-netflix-container-and-delivery-evolution.md",
+    "sections": [
+      "Dated container and delivery publications",
+      "Platform decisions and migration context",
+      "Lessons without copying an entire stack"
+    ],
+    "prerequisites": [
+      208
+    ]
+  },
+  {
+    "chapter": 210,
+    "volume": 21,
+    "volume_title": "Projects and Industry Case Studies",
+    "title": "Uber Observability and Alternative Growth Paths",
+    "path": "book/volumes/21-projects-and-industry-case-studies/210-uber-observability-and-alternative-growth-paths.md",
+    "summary": "book/_ai/chapter-summaries/210-uber-observability-and-alternative-growth-paths.md",
+    "review": "book/_ai/reviews/210-uber-observability-and-alternative-growth-paths.md",
+    "sections": [
+      "Documented observability case studies",
+      "Historical scope and architecture constraints",
+      "Comparing real evidence with fictional company decisions"
+    ],
+    "prerequisites": [
+      209
+    ]
+  },
+  {
+    "chapter": 211,
+    "volume": 22,
+    "volume_title": "Operational Reference",
+    "title": "Linux and Shell Command Reference",
+    "path": "book/volumes/22-operational-reference/211-linux-and-shell-command-reference.md",
+    "summary": "book/_ai/chapter-summaries/211-linux-and-shell-command-reference.md",
+    "review": "book/_ai/reviews/211-linux-and-shell-command-reference.md",
+    "sections": [
+      "Inspection, files, processes and services",
+      "Arguments, outcomes and failure clues",
+      "Links to canonical explanations"
+    ],
+    "prerequisites": [
+      210
+    ]
+  },
+  {
+    "chapter": 212,
+    "volume": 22,
+    "volume_title": "Operational Reference",
+    "title": "Networking and VPS Diagnostic Reference",
+    "path": "book/volumes/22-operational-reference/212-networking-and-vps-diagnostic-reference.md",
+    "summary": "book/_ai/chapter-summaries/212-networking-and-vps-diagnostic-reference.md",
+    "review": "book/_ai/reviews/212-networking-and-vps-diagnostic-reference.md",
+    "sections": [
+      "DNS, TLS, routing and sockets",
+      "Layered diagnostic decision trees",
+      "A quick incident evidence checklist"
+    ],
+    "prerequisites": [
+      211
+    ]
+  },
+  {
+    "chapter": 213,
+    "volume": 22,
+    "volume_title": "Operational Reference",
+    "title": "Docker and Podman Command Reference",
+    "path": "book/volumes/22-operational-reference/213-docker-and-podman-command-reference.md",
+    "summary": "book/_ai/chapter-summaries/213-docker-and-podman-command-reference.md",
+    "review": "book/_ai/reviews/213-docker-and-podman-command-reference.md",
+    "sections": [
+      "Lifecycle, images, storage and networks",
+      "Compatibility and rootless differences",
+      "Command-to-chapter lookup"
+    ],
+    "prerequisites": [
+      212
+    ]
+  },
+  {
+    "chapter": 214,
+    "volume": 22,
+    "volume_title": "Operational Reference",
+    "title": "Kubernetes Command and Object Reference",
+    "path": "book/volumes/22-operational-reference/214-kubernetes-command-and-object-reference.md",
+    "summary": "book/_ai/chapter-summaries/214-kubernetes-command-and-object-reference.md",
+    "review": "book/_ai/reviews/214-kubernetes-command-and-object-reference.md",
+    "sections": [
+      "kubectl inspection and change commands",
+      "Objects, ownership and common symptoms",
+      "Safe context and rollout checks"
+    ],
+    "prerequisites": [
+      213
+    ]
+  },
+  {
+    "chapter": 215,
+    "volume": 22,
+    "volume_title": "Operational Reference",
+    "title": "AWS CLI Operational Reference",
+    "path": "book/volumes/22-operational-reference/215-aws-cli-operational-reference.md",
+    "summary": "book/_ai/chapter-summaries/215-aws-cli-operational-reference.md",
+    "review": "book/_ai/reviews/215-aws-cli-operational-reference.md",
+    "sections": [
+      "Identity, networking, compute and data commands",
+      "Pagination, queries and permissions",
+      "Cost-aware resource inspection"
+    ],
+    "prerequisites": [
+      214
+    ]
+  },
+  {
+    "chapter": 216,
+    "volume": 22,
+    "volume_title": "Operational Reference",
+    "title": "Infrastructure and Pipeline Reference",
+    "path": "book/volumes/22-operational-reference/216-infrastructure-and-pipeline-reference.md",
+    "summary": "book/_ai/chapter-summaries/216-infrastructure-and-pipeline-reference.md",
+    "review": "book/_ai/reviews/216-infrastructure-and-pipeline-reference.md",
+    "sections": [
+      "Terraform, OpenTofu and Ansible workflows",
+      "GitHub, GitLab and Jenkins release checks",
+      "Change and credential checklists"
+    ],
+    "prerequisites": [
+      215
+    ]
+  },
+  {
+    "chapter": 217,
+    "volume": 22,
+    "volume_title": "Operational Reference",
+    "title": "Scaling and Architecture Decision Tables",
+    "path": "book/volumes/22-operational-reference/217-scaling-and-architecture-decision-tables.md",
+    "summary": "book/_ai/chapter-summaries/217-scaling-and-architecture-decision-tables.md",
+    "review": "book/_ai/reviews/217-scaling-and-architecture-decision-tables.md",
+    "sections": [
+      "Vertical, horizontal and efficiency options",
+      "Data, tenancy and regional tradeoffs",
+      "Evidence needed before a scaling decision"
+    ],
+    "prerequisites": [
+      216
+    ]
+  },
+  {
+    "chapter": 218,
+    "volume": 22,
+    "volume_title": "Operational Reference",
+    "title": "Observability and Incident Runbooks",
+    "path": "book/volumes/22-operational-reference/218-observability-and-incident-runbooks.md",
+    "summary": "book/_ai/chapter-summaries/218-observability-and-incident-runbooks.md",
+    "review": "book/_ai/reviews/218-observability-and-incident-runbooks.md",
+    "sections": [
+      "Metrics, logs, traces and alert symptoms",
+      "First-response and handoff templates",
+      "An evidence-based diagnostic index"
+    ],
+    "prerequisites": [
+      217
+    ]
+  },
+  {
+    "chapter": 219,
+    "volume": 22,
+    "volume_title": "Operational Reference",
+    "title": "Compatibility Matrix and Glossary",
+    "path": "book/volumes/22-operational-reference/219-compatibility-matrix-and-glossary.md",
+    "summary": "book/_ai/chapter-summaries/219-compatibility-matrix-and-glossary.md",
+    "review": "book/_ai/reviews/219-compatibility-matrix-and-glossary.md",
+    "sections": [
+      "Supported baselines and provider differences",
+      "Terms, abbreviations and conceptual boundaries",
+      "A maintenance and verification ledger"
+    ],
+    "prerequisites": [
+      218
+    ]
+  },
+  {
+    "chapter": 220,
+    "volume": 22,
+    "volume_title": "Operational Reference",
+    "title": "Production Readiness and Recovery Checklists",
+    "path": "book/volumes/22-operational-reference/220-production-readiness-and-recovery-checklists.md",
+    "summary": "book/_ai/chapter-summaries/220-production-readiness-and-recovery-checklists.md",
+    "review": "book/_ai/reviews/220-production-readiness-and-recovery-checklists.md",
+    "sections": [
+      "Release, security and ownership evidence",
+      "Backup, failover and rollback readiness",
+      "A final service review"
+    ],
+    "prerequisites": [
+      219
+    ]
+  }
+]
