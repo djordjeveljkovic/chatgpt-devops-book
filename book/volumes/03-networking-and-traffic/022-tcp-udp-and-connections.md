@@ -5,7 +5,7 @@ volume_title: "Networking and Traffic"
 chapter: 22
 title: "TCP, UDP and Connections"
 slug: tcp-udp-and-connections
-status: draft
+status: complete
 summary: ../../_ai/chapter-summaries/022-tcp-udp-and-connections.md
 ---
 

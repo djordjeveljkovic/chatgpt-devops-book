@@ -1,12 +1,12 @@
 # Chapter 29 continuation
 
-Status: draft
+Status: complete
 
 ## Written material
 Layer 4 and layer 7 balancing; health/readiness contracts and check thresholds; draining and persistence; algorithm choice against work units; annotated loopback HAProxy 3.2-style configuration; uneven traffic diagnosis and exercises.
 
 ## Exact next section
-Independent technical and editorial review.
+None. Independently approved; continue to the next unfinished chapter.
 
 ## Concepts and terminology
 Transport vs HTTP balancing, TLS termination, target membership, active health check, readiness/liveness, hysteresis, persistence/affinity, drain, request vs connection assignment, weighted/round-robin/least-connections/hash.

@@ -5,7 +5,7 @@ volume_title: "Networking and Traffic"
 chapter: 28
 title: "NAT, Proxies and Connection Tracking"
 slug: nat-proxies-and-connection-tracking
-status: draft
+status: complete
 summary: ../../_ai/chapter-summaries/028-nat-proxies-and-connection-tracking.md
 ---
 

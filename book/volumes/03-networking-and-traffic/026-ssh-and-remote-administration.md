@@ -5,7 +5,7 @@ volume_title: "Networking and Traffic"
 chapter: 26
 title: "SSH and Remote Administration"
 slug: ssh-and-remote-administration
-status: draft
+status: complete
 summary: ../../_ai/chapter-summaries/026-ssh-and-remote-administration.md
 ---
 
@@ -41,15 +41,24 @@ An agent can hold decrypted keys in memory to avoid repeated passphrase entry. A
 
 A bastion host is an explicitly managed entry point to otherwise private hosts. `ProxyJump` lets the client open a channel through it while still negotiating the target SSH session with the destination host. The target's host key must still be verified independently. A bastion reduces exposed paths only when network policy, account controls, logging and patching support that role.
 
-A host-specific client configuration can keep connection choices visible. Save the following in `~/.ssh/config` after replacing each placeholder with the approved account, host name, key path and bastion. This example avoids forwarding the local agent and requires the client to reject an unknown host key:
+A host-specific client configuration can keep connection choices visible. Save the following in `~/.ssh/config` after replacing each placeholder with the approved account, host name and key path. OpenSSH does not generally apply the destination host's options to the separate `ProxyJump` connection, so configure the bastion's identity, trust policy and timeout in its own host block. This example avoids agent forwarding and requires both SSH peers to reject an unknown host key:
 
 ```sshconfig
+Host dispatchdesk-bastion
+    HostName bastion.example.net
+    User ops
+    IdentityFile ~/.ssh/dispatchdesk_ops
+    IdentitiesOnly yes
+    ForwardAgent no
+    StrictHostKeyChecking yes
+    ConnectTimeout 10
+
 Host dispatchdesk-prod
     HostName api-prod.example.internal
     User ops
     IdentityFile ~/.ssh/dispatchdesk_ops
     IdentitiesOnly yes
-    ProxyJump ops@bastion.example.net
+    ProxyJump dispatchdesk-bastion
     ForwardAgent no
     StrictHostKeyChecking yes
     ConnectTimeout 10
@@ -79,13 +88,20 @@ Connection multiplexing can reuse one authenticated TCP transport for later sess
 
 Before a production change, confirm the incident owner, host identity, target account, change window, recovery console and rollback command. Capture current service state and the exact configuration being changed. Keep an independent session or console path where feasible; a network change can sever the only connection used to recover it.
 
-A bounded remote command can carry an explicit timeout and avoid allocating an interactive pseudo-terminal unless the command requires one:
+A client-side deadline can bound how long an operator waits for a remote command, while avoiding a pseudo-terminal unless the command requires one. The following read-only example requires GNU `timeout` from coreutils on the client, in addition to the SSH profile above:
 
 ```bash
-ssh -T dispatchdesk-prod 'sudo -n systemctl status dispatchdesk-api.service --no-pager'
+if timeout --signal=TERM --kill-after=5s 60s \
+  ssh -T dispatchdesk-prod \
+  'sudo -n systemctl status dispatchdesk-api.service --no-pager'; then
+  remote_status=0
+else
+  remote_status=$?
+fi
+printf 'ssh_client_status=%s\n' "$remote_status"
 ```
 
-`-T` disables pseudo-terminal allocation. `sudo -n` fails instead of prompting in an automation session. The command is observational, but `systemctl status` may return a nonzero status if the service is unhealthy; preserve both output and exit code. Shell quoting occurs across local and remote command layers, so keep arguments simple or use a controlled script deployed through the normal change process. Avoid pasting an unreviewed multiline shell command into a privileged session.
+GNU `timeout` limits the local command session to 60 seconds, sends `TERM` at the deadline, and escalates to `KILL` five seconds later if the local SSH client remains. It normally returns 124 when the deadline expires; if it sends `KILL`, it can return 137. Those values can also come from a remote command's own exit status, so preserve output and status and reserve these codes if using the pattern in automation ([GNU `timeout` manual](https://www.gnu.org/software/coreutils/manual/html_node/timeout-invocation.html)). This only bounds the local client: losing the SSH channel does not prove that a remote state-changing process stopped. For changes, use a remote job or service manager that records completion and provides a separate status query. Here the remote command is observational; `systemctl status` may return a nonzero status if the service is unhealthy. `-T` disables pseudo-terminal allocation and `sudo -n` fails instead of prompting. Shell quoting crosses local and remote command layers, so keep arguments simple or use a controlled script deployed through the normal change process. Avoid pasting an unreviewed multiline shell command into a privileged session.
 
 For a planned configuration update, first verify the new file against the service's parser, install it atomically with correct ownership, then reload or restart according to the service's supported behavior. Observe the unit and application health afterward. Keep the old configuration until the new behavior is proven, then remove obsolete credentials and temporary access according to policy. SSH command completion does not prove an asynchronous deployment completed successfully; inspect the target's resulting state.
 

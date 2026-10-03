@@ -5,7 +5,7 @@ volume_title: "Networking and Traffic"
 chapter: 21
 title: "Packets, Addresses and Routing"
 slug: packets-addresses-and-routing
-status: draft
+status: complete
 summary: ../../_ai/chapter-summaries/021-packets-addresses-and-routing.md
 ---
 

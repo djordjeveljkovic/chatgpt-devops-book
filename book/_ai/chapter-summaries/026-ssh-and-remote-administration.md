@@ -1,12 +1,12 @@
 # Chapter 26 continuation
 
-Status: draft
+Status: complete
 
 ## Written material
 SSH transport and identities; key creation and permissions; independent server host-key validation; bounded agent use; host-specific client configuration and bastion; local tunnel; session and remote change practice; key rotation and failure recovery; exercises.
 
 ## Exact next section
-Independent technical and editorial review.
+None. Independently approved; continue to the next unfinished chapter.
 
 ## Concepts and terminology
 Private/public key, passphrase, host key, known_hosts, agent, agent forwarding, ProxyJump, local TCP forwarding, SSH control master, recovery console.

@@ -5,7 +5,7 @@ volume_title: "Networking and Traffic"
 chapter: 23
 title: "DNS from Resolver to Authority"
 slug: dns-from-resolver-to-authority
-status: draft
+status: complete
 summary: ../../_ai/chapter-summaries/023-dns-from-resolver-to-authority.md
 ---
 

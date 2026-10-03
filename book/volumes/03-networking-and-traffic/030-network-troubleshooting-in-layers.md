@@ -5,7 +5,7 @@ volume_title: "Networking and Traffic"
 chapter: 30
 title: "Network Troubleshooting in Layers"
 slug: network-troubleshooting-in-layers
-status: draft
+status: complete
 summary: ../../_ai/chapter-summaries/030-network-troubleshooting-in-layers.md
 ---
 

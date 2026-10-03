@@ -5,7 +5,7 @@ volume_title: "Networking and Traffic"
 chapter: 24
 title: "HTTP and API Traffic"
 slug: http-and-api-traffic
-status: draft
+status: complete
 summary: ../../_ai/chapter-summaries/024-http-and-api-traffic.md
 ---
 

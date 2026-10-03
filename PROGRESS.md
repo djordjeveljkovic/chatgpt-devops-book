@@ -1,12 +1,12 @@
 # Book progress and exact continuation
 
-Last refreshed: 2026-10-03 21:37 UTC.
+Last refreshed: 2026-10-03 21:48 UTC.
 
 ## Actual state
 
-Chapters: 220. Approximate written words: 228,774.
+Chapters: 220. Approximate written words: 237,223.
 
-complete: 70, draft: 52, drafting: 1, planned: 97.
+complete: 80, draft: 47, drafting: 1, planned: 92.
 
 Statuses reflect files, not promises. `complete` requires independent approval and validation. References and code contribute to approximate word counts; counts do not measure quality.
 
@@ -16,7 +16,7 @@ Read [AI_AUTHORING_GUIDE.md](AI_AUTHORING_GUIDE.md), [coordinator handoff](book/
 
 ## Earliest unfinished dependency
 
-Chapter 021: [Packets, Addresses and Routing](book/volumes/03-networking-and-traffic/021-packets-addresses-and-routing.md). Exact next step: Independent technical and editorial review..
+Chapter 031: [Choosing and Provisioning a VPS](book/volumes/04-vps-and-server-operations/031-choosing-and-provisioning-a-vps.md). Exact next step: Independent technical and editorial review..
 
 ## Chapter ledger
 
@@ -42,16 +42,16 @@ Chapter 021: [Packets, Addresses and Routing](book/volumes/03-networking-and-tra
 | 018 | 2 | [Shell Automation That Survives Failure](book/volumes/02-linux-and-automation/018-shell-automation-that-survives-failure.md) | complete | approved | 1,881 | [Resume](book/_ai/chapter-summaries/018-shell-automation-that-survives-failure.md) |
 | 019 | 2 | [Git for Operational Changes](book/volumes/02-linux-and-automation/019-git-for-operational-changes.md) | complete | approved | 1,842 | [Resume](book/_ai/chapter-summaries/019-git-for-operational-changes.md) |
 | 020 | 2 | [Scheduling and Resource Limits](book/volumes/02-linux-and-automation/020-scheduling-and-resource-limits.md) | complete | approved | 1,870 | [Resume](book/_ai/chapter-summaries/020-scheduling-and-resource-limits.md) |
-| 021 | 3 | [Packets, Addresses and Routing](book/volumes/03-networking-and-traffic/021-packets-addresses-and-routing.md) | draft | pending | 2,140 | [Resume](book/_ai/chapter-summaries/021-packets-addresses-and-routing.md) |
-| 022 | 3 | [TCP, UDP and Connections](book/volumes/03-networking-and-traffic/022-tcp-udp-and-connections.md) | draft | pending | 2,096 | [Resume](book/_ai/chapter-summaries/022-tcp-udp-and-connections.md) |
-| 023 | 3 | [DNS from Resolver to Authority](book/volumes/03-networking-and-traffic/023-dns-from-resolver-to-authority.md) | draft | pending | 2,213 | [Resume](book/_ai/chapter-summaries/023-dns-from-resolver-to-authority.md) |
-| 024 | 3 | [HTTP and API Traffic](book/volumes/03-networking-and-traffic/024-http-and-api-traffic.md) | draft | pending | 2,087 | [Resume](book/_ai/chapter-summaries/024-http-and-api-traffic.md) |
-| 025 | 3 | [TLS, Certificates and Trust](book/volumes/03-networking-and-traffic/025-tls-certificates-and-trust.md) | draft | pending | 1,582 | [Resume](book/_ai/chapter-summaries/025-tls-certificates-and-trust.md) |
-| 026 | 3 | [SSH and Remote Administration](book/volumes/03-networking-and-traffic/026-ssh-and-remote-administration.md) | draft | pending | 1,700 | [Resume](book/_ai/chapter-summaries/026-ssh-and-remote-administration.md) |
-| 027 | 3 | [Firewalls and Network Policy](book/volumes/03-networking-and-traffic/027-firewalls-and-network-policy.md) | draft | pending | 1,505 | [Resume](book/_ai/chapter-summaries/027-firewalls-and-network-policy.md) |
-| 028 | 3 | [NAT, Proxies and Connection Tracking](book/volumes/03-networking-and-traffic/028-nat-proxies-and-connection-tracking.md) | draft | pending | 1,482 | [Resume](book/_ai/chapter-summaries/028-nat-proxies-and-connection-tracking.md) |
-| 029 | 3 | [Load Balancers and Traffic Distribution](book/volumes/03-networking-and-traffic/029-load-balancers-and-traffic-distribution.md) | draft | pending | 1,538 | [Resume](book/_ai/chapter-summaries/029-load-balancers-and-traffic-distribution.md) |
-| 030 | 3 | [Network Troubleshooting in Layers](book/volumes/03-networking-and-traffic/030-network-troubleshooting-in-layers.md) | draft | pending | 1,835 | [Resume](book/_ai/chapter-summaries/030-network-troubleshooting-in-layers.md) |
+| 021 | 3 | [Packets, Addresses and Routing](book/volumes/03-networking-and-traffic/021-packets-addresses-and-routing.md) | complete | approved | 2,140 | [Resume](book/_ai/chapter-summaries/021-packets-addresses-and-routing.md) |
+| 022 | 3 | [TCP, UDP and Connections](book/volumes/03-networking-and-traffic/022-tcp-udp-and-connections.md) | complete | approved | 2,096 | [Resume](book/_ai/chapter-summaries/022-tcp-udp-and-connections.md) |
+| 023 | 3 | [DNS from Resolver to Authority](book/volumes/03-networking-and-traffic/023-dns-from-resolver-to-authority.md) | complete | approved | 2,213 | [Resume](book/_ai/chapter-summaries/023-dns-from-resolver-to-authority.md) |
+| 024 | 3 | [HTTP and API Traffic](book/volumes/03-networking-and-traffic/024-http-and-api-traffic.md) | complete | approved | 2,087 | [Resume](book/_ai/chapter-summaries/024-http-and-api-traffic.md) |
+| 025 | 3 | [TLS, Certificates and Trust](book/volumes/03-networking-and-traffic/025-tls-certificates-and-trust.md) | complete | approved | 1,582 | [Resume](book/_ai/chapter-summaries/025-tls-certificates-and-trust.md) |
+| 026 | 3 | [SSH and Remote Administration](book/volumes/03-networking-and-traffic/026-ssh-and-remote-administration.md) | complete | approved | 1,894 | [Resume](book/_ai/chapter-summaries/026-ssh-and-remote-administration.md) |
+| 027 | 3 | [Firewalls and Network Policy](book/volumes/03-networking-and-traffic/027-firewalls-and-network-policy.md) | complete | approved | 1,642 | [Resume](book/_ai/chapter-summaries/027-firewalls-and-network-policy.md) |
+| 028 | 3 | [NAT, Proxies and Connection Tracking](book/volumes/03-networking-and-traffic/028-nat-proxies-and-connection-tracking.md) | complete | approved | 1,482 | [Resume](book/_ai/chapter-summaries/028-nat-proxies-and-connection-tracking.md) |
+| 029 | 3 | [Load Balancers and Traffic Distribution](book/volumes/03-networking-and-traffic/029-load-balancers-and-traffic-distribution.md) | complete | approved | 1,650 | [Resume](book/_ai/chapter-summaries/029-load-balancers-and-traffic-distribution.md) |
+| 030 | 3 | [Network Troubleshooting in Layers](book/volumes/03-networking-and-traffic/030-network-troubleshooting-in-layers.md) | complete | approved | 1,835 | [Resume](book/_ai/chapter-summaries/030-network-troubleshooting-in-layers.md) |
 | 031 | 4 | [Choosing and Provisioning a VPS](book/volumes/04-vps-and-server-operations/031-choosing-and-provisioning-a-vps.md) | draft | pending | 1,900 | [Resume](book/_ai/chapter-summaries/031-choosing-and-provisioning-a-vps.md) |
 | 032 | 4 | [Host Hardening and Access](book/volumes/04-vps-and-server-operations/032-host-hardening-and-access.md) | draft | pending | 1,680 | [Resume](book/_ai/chapter-summaries/032-host-hardening-and-access.md) |
 | 033 | 4 | [Disks, Filesystems and Mounts](book/volumes/04-vps-and-server-operations/033-disks-filesystems-and-mounts.md) | draft | pending | 2,000 | [Resume](book/_ai/chapter-summaries/033-disks-filesystems-and-mounts.md) |
@@ -82,11 +82,11 @@ Chapter 021: [Packets, Addresses and Routing](book/volumes/03-networking-and-tra
 | 058 | 6 | [Inspecting and Debugging Docker](book/volumes/06-docker-in-practice/058-inspecting-and-debugging-docker.md) | complete | approved | 2,557 | [Resume](book/_ai/chapter-summaries/058-inspecting-and-debugging-docker.md) |
 | 059 | 6 | [Publishing and Promoting Images](book/volumes/06-docker-in-practice/059-publishing-and-promoting-images.md) | complete | approved | 2,172 | [Resume](book/_ai/chapter-summaries/059-publishing-and-promoting-images.md) |
 | 060 | 6 | [Docker Production Operations](book/volumes/06-docker-in-practice/060-docker-production-operations.md) | complete | approved | 2,913 | [Resume](book/_ai/chapter-summaries/060-docker-production-operations.md) |
-| 061 | 7 | [Installing and Understanding Podman](book/volumes/07-podman-and-the-rootless-host/061-installing-and-understanding-podman.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/061-installing-and-understanding-podman.md) |
-| 062 | 7 | [The Podman Container Lifecycle](book/volumes/07-podman-and-the-rootless-host/062-the-podman-container-lifecycle.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/062-the-podman-container-lifecycle.md) |
-| 063 | 7 | [Rootless Identity and Volume Ownership](book/volumes/07-podman-and-the-rootless-host/063-rootless-identity-and-volume-ownership.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/063-rootless-identity-and-volume-ownership.md) |
-| 064 | 7 | [Podman Networking and Ports](book/volumes/07-podman-and-the-rootless-host/064-podman-networking-and-ports.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/064-podman-networking-and-ports.md) |
-| 065 | 7 | [Podman Pods and Kubernetes YAML](book/volumes/07-podman-and-the-rootless-host/065-podman-pods-and-kubernetes-yaml.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/065-podman-pods-and-kubernetes-yaml.md) |
+| 061 | 7 | [Installing and Understanding Podman](book/volumes/07-podman-and-the-rootless-host/061-installing-and-understanding-podman.md) | draft | pending | 1,622 | [Resume](book/_ai/chapter-summaries/061-installing-and-understanding-podman.md) |
+| 062 | 7 | [The Podman Container Lifecycle](book/volumes/07-podman-and-the-rootless-host/062-the-podman-container-lifecycle.md) | draft | pending | 1,624 | [Resume](book/_ai/chapter-summaries/062-the-podman-container-lifecycle.md) |
+| 063 | 7 | [Rootless Identity and Volume Ownership](book/volumes/07-podman-and-the-rootless-host/063-rootless-identity-and-volume-ownership.md) | draft | pending | 1,606 | [Resume](book/_ai/chapter-summaries/063-rootless-identity-and-volume-ownership.md) |
+| 064 | 7 | [Podman Networking and Ports](book/volumes/07-podman-and-the-rootless-host/064-podman-networking-and-ports.md) | draft | pending | 1,606 | [Resume](book/_ai/chapter-summaries/064-podman-networking-and-ports.md) |
+| 065 | 7 | [Podman Pods and Kubernetes YAML](book/volumes/07-podman-and-the-rootless-host/065-podman-pods-and-kubernetes-yaml.md) | draft | pending | 1,548 | [Resume](book/_ai/chapter-summaries/065-podman-pods-and-kubernetes-yaml.md) |
 | 066 | 7 | [Quadlet and Systemd Integration](book/volumes/07-podman-and-the-rootless-host/066-quadlet-and-systemd-integration.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/066-quadlet-and-systemd-integration.md) |
 | 067 | 7 | [SELinux and Container Mounts](book/volumes/07-podman-and-the-rootless-host/067-selinux-and-container-mounts.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/067-selinux-and-container-mounts.md) |
 | 068 | 7 | [Buildah and Skopeo Workflows](book/volumes/07-podman-and-the-rootless-host/068-buildah-and-skopeo-workflows.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/068-buildah-and-skopeo-workflows.md) |

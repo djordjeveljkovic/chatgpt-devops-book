@@ -5,7 +5,7 @@ volume_title: "Networking and Traffic"
 chapter: 25
 title: "TLS, Certificates and Trust"
 slug: tls-certificates-and-trust
-status: draft
+status: complete
 summary: ../../_ai/chapter-summaries/025-tls-certificates-and-trust.md
 ---
 

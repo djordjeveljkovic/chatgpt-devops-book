@@ -5,7 +5,7 @@ volume_title: "Networking and Traffic"
 chapter: 27
 title: "Firewalls and Network Policy"
 slug: firewalls-and-network-policy
-status: draft
+status: complete
 summary: ../../_ai/chapter-summaries/027-firewalls-and-network-policy.md
 ---
 
@@ -77,15 +77,31 @@ sudo ufw delete NUMBER
 
 `NUMBER` is a placeholder, not literal input. Avoid enabling UFW remotely until you have verified its default policies and the SSH allowance it will apply. On an already active production host, an unintended default-deny or wrong source range can cut off operations.
 
-For a Fedora/RHEL host using firewalld, first determine the active zone and whether SSH is already permitted. A temporary runtime allowance in the confirmed zone can be tested with:
+For a Fedora/RHEL host using firewalld, first determine the active zone and whether SSH is already permitted. `--add-service=ssh` permits SSH for traffic matching the zone; it is broader than the UFW example's source-scoped rule. Prefer a reviewed source-scoped rich rule when only a management CIDR should connect. If the service-level example is appropriate for a disposable host, record whether SSH was already enabled before changing anything. Run this setup in one shell and keep it open through the independent connection test:
 
 ```bash
-sudo firewall-cmd --zone=public --add-service=ssh
-sudo firewall-cmd --zone=public --query-service=ssh
-sudo firewall-cmd --zone=public --remove-service=ssh
+zone=public
+if sudo firewall-cmd --zone="$zone" --query-service=ssh; then
+  ssh_was_allowed=yes
+  printf '%s\n' 'SSH was already allowed; this test will preserve that rule.'
+else
+  ssh_was_allowed=no
+  sudo firewall-cmd --zone="$zone" --add-service=ssh
+fi
+sudo firewall-cmd --zone="$zone" --query-service=ssh
 ```
 
-This example changes runtime policy and immediately removes it after verification; do not remove it if it is required for the current session. If the intended policy is to be permanent, apply the matching `--permanent` change only after the runtime behavior and rollback path are verified. Runtime and permanent calls are separate. A reload replaces runtime configuration with permanent configuration, so an unpersisted allowance can disappear. `--complete-reload` can terminate active connections and is not routine rollback.
+Do not run cleanup until an independent SSH session from the approved management path succeeds. In the same shell, remove the allowance only if this test observed it was initially absent; do not remove policy another operator or service may have added in the meantime. Recheck the rule and current change ownership immediately before cleanup:
+
+```bash
+if [ "$ssh_was_allowed" = no ]; then
+  sudo firewall-cmd --zone="$zone" --query-service=ssh
+  sudo firewall-cmd --zone="$zone" --remove-service=ssh
+fi
+sudo firewall-cmd --zone="$zone" --list-services
+```
+
+This runtime-only example does not modify permanent policy. If the intended policy is to be permanent, apply the matching `--permanent` change only after runtime behavior and rollback are verified. Runtime and permanent calls are separate. A reload replaces runtime configuration with permanent configuration, so an unpersisted allowance can disappear. `--complete-reload` can terminate active connections and is not routine rollback.
 
 These are host-firewall examples, not complete provider policies. A security group or organizational ACL may also need a reviewed source-scoped allowance. Confirm the actual client source as seen at each layer; VPN, NAT and proxy boundaries can change it. Do not open SSH to the whole Internet merely because an example elsewhere uses port 22.
 

@@ -5,7 +5,7 @@ volume_title: "Networking and Traffic"
 chapter: 29
 title: "Load Balancers and Traffic Distribution"
 slug: load-balancers-and-traffic-distribution
-status: draft
+status: complete
 summary: ../../_ai/chapter-summaries/029-load-balancers-and-traffic-distribution.md
 ---
 
@@ -23,7 +23,7 @@ A layer-four load balancer makes decisions using transport metadata such as prot
 
 A layer-seven HTTP balancer parses HTTP and can route by host, path, header or other request properties. It may terminate TLS, authenticate or filter requests, enforce body limits, and reuse upstream connections. It can make per-request decisions on a persistent client connection, depending on protocol and configuration. That capability adds application-specific policy and parsing work; it also creates another service endpoint whose certificates, timeouts and logs must be operated.
 
-A direct server return design can let a layer-four director choose a backend while response packets bypass it. This can reduce load on the director, but it requires deliberate address advertisement and routing symmetry. It complicates source identity and troubleshooting. Treat it as a distinct network design, not a toggle that preserves every proxy property.
+A direct server return (DSR) design can let a layer-four director choose a backend while response packets bypass it. This can reduce load on the director, but it intentionally makes request and response paths asymmetric. Each backend must be able to return traffic directly to clients while using the service's virtual IP as the response source; the VIP and neighbor/ARP behavior must be configured so clients send requests through the director without competing backends claiming the address. Routing and network policy must permit this designed return path. Validate packet flow from client to director to backend and directly back to client. DSR complicates source identity, firewall state and troubleshooting; it is a distinct network architecture, not a toggle that preserves every proxy property.
 
 Cloud load balancers add managed health checks, listeners, target groups and service-specific behaviors. Their source addresses, proxy-protocol support, idle timeouts, health thresholds and cross-zone rules vary. Check current provider documentation and costs before adopting exact settings. The service still needs healthy backends, safe migrations and an incident path that understands the managed boundary.
 
@@ -72,7 +72,7 @@ backend dispatchdesk_nodes
     server api_b 10.42.8.22:8080 check inter 2s fall 3 rise 2
 ```
 
-The listener is bound to loopback so this fragment cannot expose a public service by itself. The fictional backends use the project's port 8080 convention. Health succeeds only for an HTTP 200 from `/readyz`, with three consecutive failures to mark a server down and two successes to restore it. A real readiness endpoint should have an explicit dependency policy and the check's `Host` value must match the application's routing. The request and response timeouts bound different legs; choose them using observed latency distributions and the client deadline.
+The listener is bound to loopback so this fragment cannot expose a public service by itself. The fictional backends use the project's port 8080 convention. Health succeeds only for an HTTP 200 from `/readyz`, with three consecutive failures to mark a server down and two successes to restore it. A real readiness endpoint should have an explicit dependency policy and the check's `Host` value must match the application's routing. `timeout connect 2s` bounds establishing a backend connection. `timeout client 15s` and `timeout server 15s` are inactivity timers for the client-facing and server-facing legs: continuous data can keep a stream active longer than 15 seconds, and neither setting is an end-to-end request deadline. Configure any overall application/client deadline separately, and make each proxy hop's idle limits compatible with that policy.
 
 HAProxy documentation describes the available balancing algorithms and health-check behavior; defaults vary by version, so set the intended policy explicitly. [HAProxy 3.2 configuration manual](https://docs.haproxy.org/3.2/configuration.html), [backend algorithms](https://www.haproxy.com/documentation/haproxy-configuration-tutorials/proxying-essentials/configuration-basics/backends/) and [health checks](https://www.haproxy.com/documentation/haproxy-configuration-tutorials/reliability/health-checks/).
 

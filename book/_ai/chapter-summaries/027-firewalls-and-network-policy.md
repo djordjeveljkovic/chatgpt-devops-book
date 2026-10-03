@@ -1,12 +1,12 @@
 # Chapter 27 continuation
 
-Status: draft
+Status: complete
 
 ## Written material
 Host/network policy layers; state tracking and rule placement; inspection through nftables, UFW and firewalld; manager-specific runtime/permanent workflows; safe source-scoped SSH access change and rollback; path diagnosis; exercises.
 
 ## Exact next section
-Independent technical and editorial review.
+None. Independently approved; continue to the next unfinished chapter.
 
 ## Concepts and terminology
 Stateful/stateless filter, hook, chain/rule ordering, zone, source prefix, runtime and permanent state, host/provider policy, conntrack.
