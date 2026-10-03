@@ -9,6 +9,8 @@ Only the coordinator updates this index. Agent IDs are session-local; file owner
 | Writer operations | 141–190 and 201–210, Volumes 15–19 and 21 | Chapters and matching summaries | Assigned |
 | Coordinator architecture and references | 191–200 and 211–220, Volumes 20 and 22 | Chapters and matching summaries | References drafted; architecture writing |
 
+The assigned foundations writer is not available in this session. The coordinator assumes correction ownership for Chapters 050–052 to resolve their existing independent review findings; those changes require fresh review before promotion.
+
 Writers report completed volumes to the coordinator and continue their assignment. After drafting, independent review is assigned to a different worker. A reviewer writes review records only until explicitly assigned correction ownership. No worker edits another active writer's chapters or shared state.
 
 ## Rolling independent review

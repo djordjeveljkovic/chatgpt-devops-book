@@ -1,29 +1,41 @@
 # Independent review — Chapter 050
 
-Verdict: changes required
-Review date: 2026-10-02
-Scope: chapter body, summary, Chapter 49 prerequisite, Chapter 45 storage explanation, prerequisite/canonical summaries, manifest and authoring contract.
+Reviewer: review_054
+Verdict: approved
+Review date: 2026-10-03
+Reviewed body SHA256: 7b7fa2e687a60e7bd17044db48620f44901785bf2517ca7411a63c86e3b6815f
+Scope: revised chapter body, summary, previous findings, chapter brief, authoring contract and linked canonical topics.
 
-## Factual summary
+## Resolved previous findings
 
-The chapter defines a replaceable application instance through signal handling, stdout/stderr logging, external configuration, readiness, durable-state ownership and restart-safe processing. It includes a fictional DispatchDesk shell entrypoint, a data-lifetime table and five assessment questions. Its core recommendations are generally sound, and the prose is clear with little unnecessary repetition. It does not yet supply an operational procedure or assessment answer guidance.
+- Replaced the incorrect Chapter 74 shutdown pointer with the relative Chapter 107 probes/termination link.
+- Replaced the undefined application wrapper with a generic `exec "$@"` entrypoint and supplied a complete Python program, Dockerfile, build/run/stop/inspect/log workflow and cleanup. Host, daemon authorization, directory and synthetic-drain assumptions are explicit. Configurable stop signals and forced deadline behavior are explained.
+- Added compact answer guidance for every assessment question, covering PID 1, durable state, permission/policy diagnosis, dependency readiness and expand/backfill/contract migrations.
+- Converted prerequisite/canonical pointers to relative links and separately explained Unix identity/mode, rootless mapping, Fedora/RHEL SELinux and Ubuntu AppArmor.
+- Split `TimeoutStopSec` and `KillSignal` source links and explicitly withheld systemd fetches as Docker evidence. Docker stop behavior now has a direct primary reference.
 
-## Unresolved findings
+## Startup-race resolution and residual findings
 
-1. **Medium — wrong canonical reference; chapter line 36, “Chapter 74 covers graceful application shutdown.”** Chapter 74 is *Modules and Infrastructure Boundaries* and concerns Terraform. Replace this with the appropriate application/process shutdown explanation, or a correctly scoped link such as Chapter 107 for Kubernetes probes and termination. The present reference sends readers to unrelated material.
+No unresolved material findings remain.
 
-2. **Medium — missing practical procedure and inspectable recovery evidence; lines 22–36 and 64–80.** The sole script assumes a nonexistent-for-the-reader `/usr/local/bin/dispatchdesk` binary and its `serve --listen` interface, without identifying it as an illustrative application contract beside the example or showing how it becomes the container entrypoint. There is no runnable, self-contained procedure to observe PID 1, send a stop signal, measure the grace period, inspect logs/exit state, provoke a failed assumption and verify recovery. Add a small disposable lab with an inline application or explicit prerequisites, execution host/user/directory, stop timeout, expected evidence, failure diagnosis and cleanup. Explain that the configured stop signal can differ from SIGTERM. Keep runtime documentation inspection distinct from execution. For mount failure diagnosis, distinguish Unix UID/GID/mode or rootless mappings from SELinux on Fedora/RHEL and AppArmor on Ubuntu, with correctly scoped canonical links rather than treating Linux policy as a single permission mechanism.
+The revised `wait_for_started` helper is called before both stop demonstrations. Its marker is printed only after Python registers the SIGTERM handler, so a successful observation establishes the relevant startup boundary rather than relying on elapsed time or an unrelated `docker exec`. A missing marker triggers a bounded twenty-attempt loop with quarter-second pauses; an observed stopped container breaks the loop early. Failure prints state and logs and returns nonzero, and both call sites exit before sending the experimental signal. The logging-driver readability assumption is explicit.
 
-3. **Medium — assessment lacks answer guidance; lines 82–88.** All five items are questions only. Add compact expected reasoning, including shell PID 1 versus `exec`, measured shutdown versus forced SIGKILL, reconstructible versus authoritative state, permission/policy inspection before changes, dependency readiness versus restart loops, and the expand/backfill/contract migration sequence. This is explicitly required by the chapter brief and authoring guide.
+The five-second description represents the configured polling/sleep budget, not a hard wall-clock deadline: Docker CLI/daemon round trips and diagnostics add latency and could block if the daemon is unresponsive. This does not undermine the controlled disposable-host signal experiment or its finite retry count, but it should not be reused as an incident deadline guarantee without per-command timeouts.
 
-4. **Low — internal references are not relative links; lines 14, 36, 58 and 60.** The prerequisite and canonical pointers to Chapters 49, 74, 36/37 and 45 are plain text. Provide correct relative links and link the rootless identity/security explanations where the mount discussion depends on them. The link checker cannot detect an incorrect plain-text chapter number, which explains why finding 1 passes structural validation.
+The earlier incorrect chapter pointer, undefined app, absent practical procedure, assessment guidance, relative links and combined systemd source attribution are all resolved. No additional material issue was found in the revised examples, answers or claims.
 
-5. **Low — source attribution joins directives from different manuals; line 92.** `TimeoutStopSec` is documented by systemd.service, while `KillSignal` is documented by systemd.kill. Split the citations. For container stop behavior cite Docker's stop CLI reference directly, rather than relying on a systemd service timeout to substantiate an engine lifecycle policy.
+## Factual assessment
 
-## Actual validation evidence and limits
+The runtime contract, logging/configuration boundaries, disposable versus durable state, readiness/liveness distinction and restart-safe schema/processing advice remain sound. Python registers its handler in the main thread, raises `SystemExit(0)` after the synthetic wait and flushes observable output. Dockerfile exec form, wrapper replacement, stop-signal selection, timeout flags, inspection templates and named cleanup are correct. Python's `time.sleep` can be interrupted by a Python signal handler; the stop mechanism is not forced to wait for the normal sixty-second sleep to end. The lab accurately limits its purpose to synthetic process shutdown rather than real HTTP request draining.
 
-- Read `AI_AUTHORING_GUIDE.md`, `PROGRESS.md`, Chapter 050's skeleton brief and manifest entry, the chapter and summary, Chapter 049 and its summary, Chapter 045 and its summary, and summaries for Chapters 036, 037, 041 and 074. The manifest confirms Chapter 107's probes/termination topic and Chapter 074's Terraform module topic.
-- Ran `python tools/check_book.py --chapters 50-50`: exit 0; one chapter checked, one shell-syntax block checked, 1,226 repository local links checked, no errors or warnings. This is syntax/link evidence, not runtime evidence; the tool's local-link count covers the repository, not 1,226 links in this chapter.
-- Inspected official [Docker run documentation](https://docs.docker.com/engine/containers/run/), [Dockerfile reference](https://docs.docker.com/reference/dockerfile/#entrypoint), [Docker stop reference](https://docs.docker.com/reference/cli/docker/container/stop/) and [logging documentation](https://docs.docker.com/engine/logging/) on 2026-10-02. These support disposable layer/mount distinctions, exec-form entrypoint concerns, configurable stop signal and timeout, and stdout/stderr collection with logging-driver caveats.
-- Attempts to retrieve the freedesktop systemd.service and systemd.kill pages failed (internal fetch error/403); their contents were not successfully independently inspected in this review.
-- No application binary, Docker/Podman engine, signal-delivery test, health endpoint, volume, logging backend or database recovery was executed or inspected. No package or cloud resources were changed. No approval hash is recorded because material findings remain unresolved.
+Exit 137 is appropriately qualified and correlated with timing and OOM state instead of treated as unique diagnosis. Local execution prerequisites avoid remote PID/path confusion. No distribution-specific installation is introduced; security-policy differences are explained separately and linked. Questions and answers are aligned, navigation resolves, and prose repetition is modest.
+
+## Validation evidence and limitations
+
+Re-read the revised manuscript, existing review and chapter summary against the authoring guide and Chapter 050 skeleton brief. Inspected canonical link targets and kept earlier review context for Chapters 49, 45, 36/37, 47/48 and 107.
+
+Inspected official primary documentation on 2026-10-03: [Docker run](https://docs.docker.com/reference/cli/docker/container/run/), [Docker stop](https://docs.docker.com/reference/cli/docker/container/stop/), [Dockerfile entrypoint](https://docs.docker.com/reference/dockerfile/#entrypoint), [Docker logging](https://docs.docker.com/engine/logging/), [OCI runtime lifecycle](https://github.com/opencontainers/runtime-spec/blob/main/runtime.md), [Python 3.12 signal](https://docs.python.org/3.12/library/signal.html) and [Python 3.12 time](https://docs.python.org/3.12/library/time.html). The manuscript reports failed systemd documentation access and makes no Docker claim depend on it; those manuals were not independently successfully fetched in this review.
+
+Ran `python tools/check_book.py --chapters 50-50`: five shell syntax checks, one Python syntax check and 1,271 repository local-link checks passed with no errors or warnings. Computed the inspected body hash with `tools.promote_reviewed.body_hash` after stripping opening YAML. Independently traced the startup-marker ordering and both helper call sites; syntax checks alone cannot establish runtime signal readiness. Inspected the actual single continuation escapes and current body-hash match.
+
+No Docker/Podman build or operation occurred. No image was pulled, container started/stopped, handler signaled, logging backend inspected, volume changed or database recovery performed. The Python application was not run. Approval is based on primary-documentation review, static command/control-flow inspection and the repository checks above. No measured process-drain result is asserted.
