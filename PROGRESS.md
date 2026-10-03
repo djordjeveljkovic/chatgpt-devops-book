@@ -1,12 +1,12 @@
 # Book progress and exact continuation
 
-Last refreshed: 2026-10-03 20:47 UTC.
+Last refreshed: 2026-10-03 21:37 UTC.
 
 ## Actual state
 
-Chapters: 220. Approximate written words: 212,247.
+Chapters: 220. Approximate written words: 228,774.
 
-complete: 61, draft: 56, drafting: 1, planned: 102.
+complete: 70, draft: 52, drafting: 1, planned: 97.
 
 Statuses reflect files, not promises. `complete` requires independent approval and validation. References and code contribute to approximate word counts; counts do not measure quality.
 
@@ -71,17 +71,17 @@ Chapter 021: [Packets, Addresses and Routing](book/volumes/03-networking-and-tra
 | 047 | 5 | [Rootless Containers and User Mapping](book/volumes/05-container-internals-and-oci/047-rootless-containers-and-user-mapping.md) | draft | pending | 1,287 | [Resume](book/_ai/chapter-summaries/047-rootless-containers-and-user-mapping.md) |
 | 048 | 5 | [Capabilities and Security Boundaries](book/volumes/05-container-internals-and-oci/048-capabilities-and-security-boundaries.md) | draft | pending | 1,286 | [Resume](book/_ai/chapter-summaries/048-capabilities-and-security-boundaries.md) |
 | 049 | 5 | [Registries and Image Distribution](book/volumes/05-container-internals-and-oci/049-registries-and-image-distribution.md) | draft | pending | 1,354 | [Resume](book/_ai/chapter-summaries/049-registries-and-image-distribution.md) |
-| 050 | 5 | [The Container Contract](book/volumes/05-container-internals-and-oci/050-the-container-contract.md) | draft | pending | 1,645 | [Resume](book/_ai/chapter-summaries/050-the-container-contract.md) |
-| 051 | 6 | [Installing and Inspecting Docker](book/volumes/06-docker-in-practice/051-installing-and-inspecting-docker.md) | draft | pending | 1,372 | [Resume](book/_ai/chapter-summaries/051-installing-and-inspecting-docker.md) |
-| 052 | 6 | [Running and Managing Containers](book/volumes/06-docker-in-practice/052-running-and-managing-containers.md) | draft | pending | 1,428 | [Resume](book/_ai/chapter-summaries/052-running-and-managing-containers.md) |
+| 050 | 5 | [The Container Contract](book/volumes/05-container-internals-and-oci/050-the-container-contract.md) | complete | approved | 3,002 | [Resume](book/_ai/chapter-summaries/050-the-container-contract.md) |
+| 051 | 6 | [Installing and Inspecting Docker](book/volumes/06-docker-in-practice/051-installing-and-inspecting-docker.md) | complete | approved | 2,163 | [Resume](book/_ai/chapter-summaries/051-installing-and-inspecting-docker.md) |
+| 052 | 6 | [Running and Managing Containers](book/volumes/06-docker-in-practice/052-running-and-managing-containers.md) | complete | approved | 1,906 | [Resume](book/_ai/chapter-summaries/052-running-and-managing-containers.md) |
 | 053 | 6 | [Dockerfiles and Build Contexts](book/volumes/06-docker-in-practice/053-dockerfiles-and-build-contexts.md) | complete | approved | 1,443 | [Resume](book/_ai/chapter-summaries/053-dockerfiles-and-build-contexts.md) |
 | 054 | 6 | [BuildKit, Caching and Multi-stage Builds](book/volumes/06-docker-in-practice/054-buildkit-caching-and-multi-stage-builds.md) | complete | approved | 2,866 | [Resume](book/_ai/chapter-summaries/054-buildkit-caching-and-multi-stage-builds.md) |
-| 055 | 6 | [Docker Networking](book/volumes/06-docker-in-practice/055-docker-networking.md) | draft | pending | 1,510 | [Resume](book/_ai/chapter-summaries/055-docker-networking.md) |
-| 056 | 6 | [Docker Volumes and Persistent Data](book/volumes/06-docker-in-practice/056-docker-volumes-and-persistent-data.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/056-docker-volumes-and-persistent-data.md) |
-| 057 | 6 | [Docker Compose for Multi-service Applications](book/volumes/06-docker-in-practice/057-docker-compose-for-multi-service-applications.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/057-docker-compose-for-multi-service-applications.md) |
-| 058 | 6 | [Inspecting and Debugging Docker](book/volumes/06-docker-in-practice/058-inspecting-and-debugging-docker.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/058-inspecting-and-debugging-docker.md) |
-| 059 | 6 | [Publishing and Promoting Images](book/volumes/06-docker-in-practice/059-publishing-and-promoting-images.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/059-publishing-and-promoting-images.md) |
-| 060 | 6 | [Docker Production Operations](book/volumes/06-docker-in-practice/060-docker-production-operations.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/060-docker-production-operations.md) |
+| 055 | 6 | [Docker Networking](book/volumes/06-docker-in-practice/055-docker-networking.md) | complete | approved | 1,528 | [Resume](book/_ai/chapter-summaries/055-docker-networking.md) |
+| 056 | 6 | [Docker Volumes and Persistent Data](book/volumes/06-docker-in-practice/056-docker-volumes-and-persistent-data.md) | complete | approved | 3,021 | [Resume](book/_ai/chapter-summaries/056-docker-volumes-and-persistent-data.md) |
+| 057 | 6 | [Docker Compose for Multi-service Applications](book/volumes/06-docker-in-practice/057-docker-compose-for-multi-service-applications.md) | complete | approved | 3,220 | [Resume](book/_ai/chapter-summaries/057-docker-compose-for-multi-service-applications.md) |
+| 058 | 6 | [Inspecting and Debugging Docker](book/volumes/06-docker-in-practice/058-inspecting-and-debugging-docker.md) | complete | approved | 2,557 | [Resume](book/_ai/chapter-summaries/058-inspecting-and-debugging-docker.md) |
+| 059 | 6 | [Publishing and Promoting Images](book/volumes/06-docker-in-practice/059-publishing-and-promoting-images.md) | complete | approved | 2,172 | [Resume](book/_ai/chapter-summaries/059-publishing-and-promoting-images.md) |
+| 060 | 6 | [Docker Production Operations](book/volumes/06-docker-in-practice/060-docker-production-operations.md) | complete | approved | 2,913 | [Resume](book/_ai/chapter-summaries/060-docker-production-operations.md) |
 | 061 | 7 | [Installing and Understanding Podman](book/volumes/07-podman-and-the-rootless-host/061-installing-and-understanding-podman.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/061-installing-and-understanding-podman.md) |
 | 062 | 7 | [The Podman Container Lifecycle](book/volumes/07-podman-and-the-rootless-host/062-the-podman-container-lifecycle.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/062-the-podman-container-lifecycle.md) |
 | 063 | 7 | [Rootless Identity and Volume Ownership](book/volumes/07-podman-and-the-rootless-host/063-rootless-identity-and-volume-ownership.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/063-rootless-identity-and-volume-ownership.md) |

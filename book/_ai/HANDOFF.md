@@ -2,24 +2,20 @@
 
 ## Objective
 
-Finish the original 220-chapter DevOps manuscript, independently review every chapter, repair findings, and validate the book. The user authorized writing and proofreading agents using `gpt-6.1-sol` with low reasoning. Preserve the requested full scope and do not stop at scaffolding.
+Complete and independently review the full 220-chapter DevOps manuscript. Preserve the user's requirements for detailed, technically grounded prose; Ubuntu and Fedora/RHEL coverage; multiple languages; GitHub Actions, GitLab CI and Jenkins; observability; the growing DispatchDesk project; and sourced industry examples.
 
 ## Current phase
 
-The user's requested 220-chapter manuscript is still unfinished. Chapters 021–055 are substantive drafts except chapter 053, which is independently approved and promoted. Reviews found material changes required in chapters 050–052; those findings still need resolution. Chapter 054 was revised after review and is undergoing final re-review. Chapter 055 needs independent review. The full checker last passed before the latest chapter 054 edits; rerun it before committing. The only new application build evidence is a local Go test/static build; Docker builds and network labs were not run. Read `PROGRESS.md` for authoritative counts.
+Volume 6, Docker in Practice, Chapters 51–60 is complete and approved. Chapters 50–60 are current and independently approved; Chapter 50 belongs to volume 5. Full-book validation passes: 220 chapter records; 309 shell, 35 Python, 26 YAML, 2 Go, 12 JSON and 2 JavaScript syntax/parsing checks; 1,294 local links; no errors or warnings. These checks do not execute Docker or establish runtime behavior. Docker labs, registry operations and host changes were not run because this workspace has no Docker daemon or production host.
 
 ## Exact next action
 
-Commit and push the accumulated manuscript work now, as the user explicitly requested. Then continue writing from chapter 056. Preserve the full 220-chapter scope. Resolve review findings before approval; at each completed volume, independently review and promote only validated bodies whose review hashes match, then commit and push that volume. Never mark self-reviewed prose independently approved. The authoring guide records the user's authorization for writing and proofreading agents; reviewers own separate review records and do not edit chapters.
+Review repository state, verify promotion hashes for Chapters 50–60, and create a focused approved Chapter 50 repair commit plus the requested Volume 6 commit. Push is requested for the accumulated work, but a prior push of local commit `0b31686` was rejected by automatic approval review because remote ownership and destination trust were not established. The configured origin is `github.com/djordjeveljkovic/chatgpt-devops-book`; do not retry through a workaround. Ask the user to confirm this exact trusted remote or provide trusted provenance before another push attempt.
 
-## Important decisions
+After this volume, the whole manuscript remains unfinished. Resume from the earliest unfinished dependency in `PROGRESS.md`; do not stop after Volume 6. At each later volume completion, independently review and promote only validated bodies whose review hashes match, commit that volume, and push it.
 
-English Markdown, inline reader examples, equal Ubuntu and Fedora/RHEL coverage, 22 volumes, stable global numbering, fictional DispatchDesk project with VPS/AWS/Kubernetes company paths, several languages, all three CI platforms in depth, observability and sourced industry cases. No website or exports in this version.
+## Important decisions and safeguards
 
-## Repository state
+English Markdown; 22 volumes and stable numbering; fictional DispatchDesk project with VPS/AWS/Kubernetes paths; no website/export scope. The PHP reference repository in sibling `chatgpt-php-book` is separate. Do not run `tools/bootstrap.py` during authoring because it rewrites shared indexes and manifest.
 
-The PHP reference was cloned using SSH into sibling `chatgpt-php-book`. It is separate from the original manuscript. `tools/bootstrap.py` created the initial structure; do not run it during worker activity because it rewrites shared indexes and manifest.
-
-## Completion rule
-
-Only independently approved and validated substantive chapters may be marked complete. Unavailable live integrations remain recorded limitations, never fabricated evidence. Promotion uses tools/promote_reviewed.py and requires an approved review of the exact body SHA256. Only the coordinator updates shared progress, indexes and manifest. Do not rewrite already approved bodies without refreshing independent review. Before final delivery remove any transient review-status sentences from chapter prose and obtain updated hashes.
+Only independently approved chapters may be promoted with `tools/promote_reviewed.py`. Reviewers own only separate review records; the coordinator owns summaries, progress, manifest and handoff. Keep unavailable runtime integrations visible rather than inventing evidence. Do not rewrite approved manuscript bodies without obtaining a fresh independent review hash.

@@ -5,7 +5,7 @@ volume_title: "Docker in Practice"
 chapter: 55
 title: "Docker Networking"
 slug: docker-networking
-status: draft
+status: complete
 summary: ../../_ai/chapter-summaries/055-docker-networking.md
 ---
 
@@ -27,10 +27,9 @@ List the networks and inspect the bridge selected by a container:
 
 ```bash
 docker network ls
-docker inspect dispatchdesk-api-lab --format '{{json .NetworkSettings.Networks}}'
 ```
 
-An address in `NetworkSettings` is private network metadata, not a stable service endpoint. Container IP addresses can change when the container is recreated. Use a DNS name or alias on a user-defined bridge for service-to-service discovery, and use a managed discovery mechanism outside the one-host Docker domain.
+An address in `NetworkSettings` is private network metadata, not a stable service endpoint. Container IP addresses can change when the container is recreated. Use a DNS name or alias on a user-defined bridge for service-to-service discovery, and use a managed discovery mechanism outside the one-host Docker domain. The inspection command appears after the lab creates its container below.
 
 ## Service naming and published ports
 
@@ -46,14 +45,20 @@ On the disposable Docker host, create a uniquely named network and a small Nginx
 
 ```bash
 docker network create dispatchdesk-lab-net
-docker run --detach --name dispatchdesk-lab-web \\
+docker run --detach --name dispatchdesk-lab-web \
   --network dispatchdesk-lab-net nginx:alpine
+```
+
+Inspect its network attachment after creation:
+
+```bash
+docker inspect dispatchdesk-lab-web --format '{{json .NetworkSettings.Networks}}'
 ```
 
 Test from a short-lived client container on the same user-defined bridge:
 
 ```bash
-docker run --rm --network dispatchdesk-lab-net busybox:1.36 \\
+docker run --rm --network dispatchdesk-lab-net busybox:1.36 \
   wget -qO- http://dispatchdesk-lab-web/
 ```
 
