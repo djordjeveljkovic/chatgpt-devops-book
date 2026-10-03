@@ -5,7 +5,7 @@ volume_title: "AWS Foundations"
 chapter: 90
 title: "AWS Budgets, Tags and Inventory"
 slug: aws-budgets-tags-and-inventory
-status: draft
+status: complete
 summary: ../../_ai/chapter-summaries/090-aws-budgets-tags-and-inventory.md
 ---
 
@@ -97,7 +97,25 @@ Suppose an EC2 lab instance was terminated but the next bill still shows EBS sto
 
 The Resource Groups Tagging API can find supported tagged or previously tagged resources in the selected region, but it is not a complete inventory of every untagged resource. [GetResources documentation](https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/API_GetResources.html) describes its scope. Pair tagging queries with service-specific inventory and repeat the process for authorized accounts and regions, including services with different regional or global behavior.
 
-The following read-only capture inspects all EBS volumes visible to this caller in one selected region. Keep JSON output restricted and avoid disabling pagination:
+Run the inventory independently of the optional budget workflow. Use a dedicated, empty working directory for its output. The profile must have permission to call `sts:GetCallerIdentity`, `ec2:DescribeVolumes` and `tag:GetResources` in the selected account and region. This preflight makes no budget, notification or resource changes:
+
+```bash
+set -euo pipefail
+umask 077
+lab_profile=dispatchdesk-sandbox
+lab_region=eu-west-1
+read -r -p 'Expected authorized inventory account ID: ' lab_account
+: "${lab_account:?account required}"
+lab_actual_account=$(aws --profile "$lab_profile" --region "$lab_region" \
+  --no-cli-pager sts get-caller-identity --query Account --output text)
+[[ "$lab_actual_account" == "$lab_account" ]] || {
+  printf 'Selected profile resolved to account %s, not expected account %s\n' \
+    "$lab_actual_account" "$lab_account" >&2
+  exit 1
+}
+```
+
+This explicitly selects and verifies the profile, region and account without depending on budget creation or a recipient email. The following read-only capture inspects all EBS volumes visible to this caller in that selected region. `umask 077` keeps the generated JSON private to the current user; retain complete CLI pagination and the capture's account, region and time:
 
 ```bash
 aws --profile "$lab_profile" --region "$lab_region" --no-cli-pager   ec2 describe-volumes --output json > lab-volumes.json

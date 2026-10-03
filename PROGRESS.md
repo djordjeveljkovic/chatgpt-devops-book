@@ -1,12 +1,12 @@
 # Book progress and exact continuation
 
-Last refreshed: 2026-10-03 22:22 UTC.
+Last refreshed: 2026-10-03 22:27 UTC.
 
 ## Actual state
 
-Chapters: 220. Approximate written words: 250,476.
+Chapters: 220. Approximate written words: 250,610.
 
-complete: 109, draft: 23, drafting: 1, planned: 87.
+complete: 110, draft: 22, drafting: 1, planned: 87.
 
 Statuses reflect files, not promises. `complete` requires independent approval and validation. References and code contribute to approximate word counts; counts do not measure quality.
 
@@ -16,7 +16,7 @@ Read [AI_AUTHORING_GUIDE.md](AI_AUTHORING_GUIDE.md), [coordinator handoff](book/
 
 ## Earliest unfinished dependency
 
-Chapter 090: [AWS Budgets, Tags and Inventory](book/volumes/09-aws-foundations/090-aws-budgets-tags-and-inventory.md). Exact next step: Resolve independent review findings when supplied..
+Chapter 091: [EC2 Auto Scaling and Launch Templates](book/volumes/10-aws-production-services/091-ec2-auto-scaling-and-launch-templates.md). Exact next step: Resolve independent review findings when supplied..
 
 ## Chapter ledger
 
@@ -111,7 +111,7 @@ Chapter 090: [AWS Budgets, Tags and Inventory](book/volumes/09-aws-foundations/0
 | 087 | 9 | [EBS and Cloud Storage Choices](book/volumes/09-aws-foundations/087-ebs-and-cloud-storage-choices.md) | complete | approved | 1,917 | [Resume](book/_ai/chapter-summaries/087-ebs-and-cloud-storage-choices.md) |
 | 088 | 9 | [S3 from the CLI](book/volumes/09-aws-foundations/088-s3-from-the-cli.md) | complete | approved | 1,831 | [Resume](book/_ai/chapter-summaries/088-s3-from-the-cli.md) |
 | 089 | 9 | [Route 53, Certificates and Load Balancers](book/volumes/09-aws-foundations/089-route-53-certificates-and-load-balancers.md) | complete | approved | 1,853 | [Resume](book/_ai/chapter-summaries/089-route-53-certificates-and-load-balancers.md) |
-| 090 | 9 | [AWS Budgets, Tags and Inventory](book/volumes/09-aws-foundations/090-aws-budgets-tags-and-inventory.md) | draft | pending | 1,823 | [Resume](book/_ai/chapter-summaries/090-aws-budgets-tags-and-inventory.md) |
+| 090 | 9 | [AWS Budgets, Tags and Inventory](book/volumes/09-aws-foundations/090-aws-budgets-tags-and-inventory.md) | complete | approved | 1,957 | [Resume](book/_ai/chapter-summaries/090-aws-budgets-tags-and-inventory.md) |
 | 091 | 10 | [EC2 Auto Scaling and Launch Templates](book/volumes/10-aws-production-services/091-ec2-auto-scaling-and-launch-templates.md) | draft | pending | 1,917 | [Resume](book/_ai/chapter-summaries/091-ec2-auto-scaling-and-launch-templates.md) |
 | 092 | 10 | [ECR and Container Artifact Promotion](book/volumes/10-aws-production-services/092-ecr-and-container-artifact-promotion.md) | draft | pending | 2,132 | [Resume](book/_ai/chapter-summaries/092-ecr-and-container-artifact-promotion.md) |
 | 093 | 10 | [ECS and Fargate Services](book/volumes/10-aws-production-services/093-ecs-and-fargate-services.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/093-ecs-and-fargate-services.md) |

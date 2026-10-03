@@ -1,21 +1,21 @@
 # Chapter 90 continuation
 
-Status: draft
+Status: complete
 
 ## Written material
-Tagcontract/allocationactivation; budgetdelay/quota distinction; complete monthlybudgetJSON/recipientJSONgenerator/create/read/delete; service-specific EBS/taggedinventory; complete nonmutating candidate report; retainedvolume diagnosis; exercises/limits.
+Tag contract and allocation activation; budget delay and quota distinction; monthly budget JSON and recipient generation/create/read/delete; service-specific EBS and tagged inventory; nonmutating candidate report; retained-volume diagnosis; exercises and answer guidance.
 
 ## Concepts and terminology
-Ownership not deletion authority, resource versus allocation tags, budget not realtime cap, pagination/region/account coverage, unattached review candidate.
+Ownership is not deletion authority, resource versus allocation tags, budget is not a real-time cap, pagination and region/account coverage, unattached review candidate.
 
 ## Examples and cross-references
-Fictional USD25 threshold/80percent actual alert, authorized real recipient prompted; no email sent. Pythonhelper no deletion, preserved records. Links082/087.
+Fictional USD 25 budget and 80-percent actual alert; authorized recipient prompted, no email sent. Python helper makes no deletions. Independent inventory preflight selects profile and region, verifies account identity, and sets restrictive file permissions without creating a budget. Links 82 and 87.
 
 ## Open threads
-Independent review; AWS billing/budget/notification/inventory integrations unrun.
+Independent review approved against the current body hash; AWS billing, budget, notification and inventory integrations remain unrun.
 
 ## Exact next section
-Resolve independent review findings when supplied.
+Approved review hash matches the promoted chapter body; scoped and full book checks passed.
 
 ## Verification
-Primary AWS docs inspected2026-10-01. Validation81-90 passed JSON5/shell28/YAML1/Python1/global links with no warnings/errors. No cloud execution performed.
+Primary AWS documentation inspected 2026-10-04. Chapter 90 JSON, shell and Python syntax plus book links checked; full book validation passed. No cloud execution performed.
