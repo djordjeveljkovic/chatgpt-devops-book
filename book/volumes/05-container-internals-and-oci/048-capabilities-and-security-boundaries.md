@@ -5,7 +5,7 @@ volume_title: "Container Internals and OCI"
 chapter: 48
 title: "Capabilities and Security Boundaries"
 slug: capabilities-and-security-boundaries
-status: draft
+status: complete
 summary: ../../_ai/chapter-summaries/048-capabilities-and-security-boundaries.md
 ---
 
@@ -43,7 +43,7 @@ Replace the image placeholder with an image whose entry point and writable paths
 
 Linux seccomp filters restrict which system calls a process may make and can filter selected arguments. Docker's default profile is an allowlist that denies some calls; replacing it with an unconfined profile expands kernel attack surface. Seccomp is one control rather than a complete sandbox. Application authorization, namespaces, credentials, cgroups and Linux Security Modules still matter.
 
-AppArmor and SELinux can restrict a process according to host policy. A denial may occur even when Unix file mode bits allow the operation. Keep the host's distribution policy enabled and use the supported profile tooling to understand denials. Do not disable SELinux or AppArmor to make a container start. Instead, verify the path label/profile, required access and the intended service identity, then make the narrowest policy correction.
+AppArmor and SELinux can restrict a process according to host policy, but their policy models and diagnostic tools differ. Ubuntu commonly uses AppArmor profiles and records denials in its audit/kernel logs; inspect the matching profile and Ubuntu's AppArmor tooling. Fedora and RHEL commonly use SELinux labels and AVC records; inspect labels and recent AVCs with the distribution's SELinux tools. A denial may occur even when Unix file mode bits allow the operation. Keep the host's distribution policy enabled and use its supported profile tooling to understand denials. Do not disable SELinux or AppArmor to make a container start. Instead, verify the path label/profile, required access and the intended service identity, then make the narrowest policy correction. [Chapter 67](../07-podman-and-the-rootless-host/067-selinux-and-container-mounts.md) develops Fedora/RHEL SELinux container-mount diagnosis.
 
 A read-only root filesystem can make a compromised process less able to alter its own executable or configuration, but it needs carefully chosen writable locations for temporary files, sockets, caches and database state. Mount each writable path with the minimum scope and ownership required. Secrets mounted read-only remain readable to the process and can leak through logs, crash dumps or command output. Do not pass secrets in image layers or broad environment dumps.
 
@@ -69,8 +69,10 @@ Containers also share the host kernel and kernel drivers. Keep the host patched 
 4. What host authority can be granted by mounting the Docker Engine socket into a container?
 5. Design a minimal writable-path list for an API with no local database and a temporary upload buffer.
 
+**Answer guidance:** For exercise 1, port 8080 is unprivileged, so the API can bind without `CAP_NET_BIND_SERVICE`; a reverse proxy can own the public listener. For exercise 2, record the container UID/GID, effective user-namespace map, host owner/group, ACL and mount/LSM rules; a non-root image user can still read a host-readable mounted secret. For exercise 3, seccomp denial evidence is a failed syscall under the active filter and runtime/audit diagnostics; SELinux/AppArmor denials appear in the corresponding host audit records; ordinary DAC failure follows UID/GID, mode and ACL checks. Correlate timestamps and do not disable the policy to test. For exercise 4, a rootful Docker socket can grant control sufficient to create privileged containers and mount host paths, effectively yielding host-root authority. For exercise 5, list only application-required temporary and upload paths, mount them with bounded size and appropriate ownership, and keep code/configuration read-only; exclude database, host sockets and arbitrary host directories.
+
 Capabilities, seccomp, identity mapping, mount policy and LSM enforcement reduce different kinds of authority. Test the combined configuration against the real application and keep exceptions small. Next, [Registries and Image Distribution](049-registries-and-image-distribution.md) follows artifacts and credentials across the publishing boundary.
 
 ## Sources and verification
 
-The Linux [`capabilities(7)`](https://man7.org/linux/man-pages/man7/capabilities.7.html) manual, kernel [seccomp filter documentation](https://docs.kernel.org/userspace-api/seccomp_filter.html), Docker [seccomp](https://docs.docker.com/engine/security/seccomp/) and [security](https://docs.docker.com/engine/security/) documentation were inspected on 2026-10-02. The illustrative Docker command passed shell syntax checks but was not run; its image placeholder must be replaced and writable paths verified. Engine defaults are version-specific. Independent review is pending.
+The Linux [`capabilities(7)`](https://man7.org/linux/man-pages/man7/capabilities.7.html) manual, kernel [seccomp filter documentation](https://docs.kernel.org/userspace-api/seccomp_filter.html), Ubuntu [AppArmor documentation](https://documentation.ubuntu.com/server/how-to/security/apparmor/index.html), Docker [seccomp](https://docs.docker.com/engine/security/seccomp/) and [security](https://docs.docker.com/engine/security/) documentation were inspected on 2026-10-04. The illustrative Docker command passed shell syntax checks but was not run; its image placeholder must be replaced and writable paths verified. Engine defaults are version-specific.

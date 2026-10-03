@@ -5,7 +5,7 @@ volume_title: "Container Internals and OCI"
 chapter: 42
 title: "Linux Namespaces"
 slug: linux-namespaces
-status: draft
+status: complete
 summary: ../../_ai/chapter-summaries/042-linux-namespaces.md
 ---
 
@@ -55,7 +55,7 @@ for namespace_path in /proc/"$inspect_pid"/ns/*; do
 done
 ```
 
-PID 1 in this example refers to the host's initial process as seen by the current shell, not a container init process. Replace it with a known host PID after checking that it still identifies the intended workload. Namespace link comparison is evidence about membership, not a complete security audit. Also inspect the process's cgroup, capabilities, mounts, credentials, open file descriptors and security policy as appropriate.
+This example is host-oriented only when run from a shell in the host's initial PID namespace with a `/proc` mount that exposes that namespace. Under that prerequisite, PID 1 is the host's initial process. A shell inside a container, PID namespace or restricted sandbox may see its own namespace's init process as PID 1 instead. Check `/proc/self/ns/pid` and the execution context before interpreting the result, and replace `1` with a known host PID after confirming its command and start time. Namespace-link comparison is evidence about membership, not a complete security audit. Also inspect the process's cgroup, capabilities, mounts, credentials, open file descriptors and security policy as appropriate.
 
 To inspect a process's mount view, `/proc/<pid>/mountinfo` records mounts visible through that process's mount namespace. To inspect network interfaces and routes, use tools inside the relevant network namespace or an authorized `nsenter` operation. Entering a namespace changes the operator's context and may grant access to sensitive resources; start with read-only inspection and confirm the PID and namespace type. Do not run a broad host command from a container namespace and assume its output describes the host.
 
@@ -72,8 +72,10 @@ Namespace APIs are also not a complete container runtime. Correctly preparing a 
 3. A container sees `/data` because the host mounted it into the container. Which security and durability properties still depend on the host mount and filesystem?
 4. Why does a cgroup namespace not by itself restrict memory consumption?
 
+**Answer guidance:** For exercise 1, the process is PID 1 in a child PID namespace but has a different host PID; signal it using the host PID only after verifying identity and authorization. For exercise 2, inspect the container's interface/address/route and namespace, the host veth/bridge or routing/NAT path, host and provider firewall rules, listener binding, DNS and upstream path; seeing `eth0` and resolving a name prove only part of the path. For exercise 3, host ownership, mode bits, ACLs, user-namespace mapping, SELinux/AppArmor labels, mount flags, backing filesystem and backup/restore process all remain host-controlled. For exercise 4, a cgroup namespace changes which hierarchy is visible; the cgroup controllers and ancestor limits must be configured separately to account for or limit memory.
+
 Namespaces provide process-scoped views of kernel resources. Diagnose the specific view involved and then check the independent authority, resource and network controls around it. [Chapter 43](043-cgroups-and-resource-accounting.md) turns to CPU, memory, I/O and process-count control.
 
 ## Sources and verification
 
-The Linux `namespaces(7)`, `mount_namespaces(7)`, `pid_namespaces(7)`, `user_namespaces(7)` and `network_namespaces(7)` manuals and OCI [Linux runtime configuration](https://specs.opencontainers.org/runtime-spec/config-linux/) were inspected on 2026-10-02. The host inspection snippet passed shell syntax checks but was not used to enter or inspect another process namespace. Independent review is pending.
+The Linux `namespaces(7)`, `mount_namespaces(7)`, `pid_namespaces(7)`, `user_namespaces(7)` and `network_namespaces(7)` manuals and OCI [Linux runtime configuration](https://raw.githubusercontent.com/opencontainers/runtime-spec/main/config-linux.md) were inspected on 2026-10-04. The host inspection snippet passed shell syntax checks but was not used to enter or inspect another process namespace.

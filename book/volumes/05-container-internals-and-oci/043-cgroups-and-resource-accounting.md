@@ -5,7 +5,7 @@ volume_title: "Container Internals and OCI"
 chapter: 43
 title: "Cgroups and Resource Accounting"
 slug: cgroups-and-resource-accounting
-status: draft
+status: complete
 summary: ../../_ai/chapter-summaries/043-cgroups-and-resource-accounting.md
 ---
 
@@ -70,7 +70,7 @@ Not every property is available on every systemd version, and an empty or infini
 
 Suppose DispatchDesk's API latency rises while the host CPU remains available. Its cgroup `cpu.stat` shows rapidly increasing throttling. The service may be constrained by `cpu.max` or a parent quota. Compare its configured quota, sibling workloads, request rate and per-request CPU before increasing the quota. If another process is consuming the host, changing the API quota may worsen contention. If the limit was set deliberately to protect the database, scale or reduce work with an explicit capacity decision.
 
-Suppose one container restarts while host memory looks acceptable. Check the cgroup's `memory.events`, peak memory, exit reason and engine event history. A local `oom_kill` counter can reveal a scoped OOM event hidden by a healthy host average. Confirm whether the application committed accepted orders before termination and whether its retry behavior preserves the acceptance invariant. Raising the limit may be appropriate, but first identify a leak, unbounded cache or workload surge.
+Suppose one container restarts while host memory looks acceptable. Check the cgroup's `memory.events` and, where available, `memory.events.local`, its parent and ancestor groups, peak memory, exit reason, engine event history and kernel OOM logs for the same interval. The `oom_kill` counter counts processes belonging to that cgroup that were killed by any OOM killer; by itself it does not prove this cgroup's `memory.max` caused the kill. Correlate `max` and `oom` events with the configured local and ancestor limits and kernel/engine details to distinguish a local memory-limit event, an ancestor limit or global host OOM. Confirm whether the application committed accepted orders before termination and whether its retry behavior preserves the acceptance invariant. Raising a limit may be appropriate, but first identify a leak, unbounded cache or workload surge.
 
 Suppose worker creation fails after adding concurrency. Compare thread count with `pids.current` and inspect `pids.events`. The issue may be a task limit, not an operating-system-wide process shortage. Reduce concurrency or adjust the intended cgroup policy after validating host capacity. Do not remove a limit without considering the other workloads it protects.
 
@@ -82,8 +82,10 @@ Suppose worker creation fails after adding concurrency. Compare thread count wit
 4. A container has no memory limit while its parent slice has one. Which effective boundary matters?
 5. Design an alert that combines cgroup OOM or throttling evidence with DispatchDesk request latency instead of paging on a cumulative counter alone.
 
+**Answer guidance:** For exercise 1, `cpu.weight` affects relative shares under contention; `cpu.max` enforces a bandwidth ceiling that can cause quota throttling. Compare the appropriate counter deltas with latency and peer activity. For exercise 2, `memory.high` can trigger direct reclaim and slower allocations even below `memory.max`; users may see higher tail latency or timeouts without a process kill. For exercise 3, Linux task accounting includes threads, so a program with few process leaders can still reach `pids.max`; inspect task counts and `pids.events`. For exercise 4, a child remains constrained by the most restrictive ancestor, so inspect the parent hierarchy and host capacity rather than only the container's configured value. For exercise 5, alert on increases over a bounded interval in `max`, `oom`, `oom_kill` or throttling counters alongside request latency/errors, then inspect ancestor counters and kernel OOM records; cumulative totals alone do not identify a new incident or its cause.
+
 Cgroups explain how a process group consumes shared host resources and how the host can apply limits. Read the effective hierarchy and correlate counters with customer impact before tuning. The next chapter turns to container images, whose content can be identified and promoted independently of these runtime controls.
 
 ## Sources and verification
 
-The Linux kernel's [cgroup v2 documentation](https://docs.kernel.org/admin-guide/cgroup-v2.html) and OCI [Linux configuration](https://specs.opencontainers.org/runtime-spec/config-linux/) were inspected on 2026-10-02. The shell snippet passed syntax checks but was not pointed at a live DispatchDesk process; no cgroup files were changed. Kernel controllers, mount layout and systemd property support depend on the target host. Independent review is pending.
+The Linux kernel's [cgroup v2 documentation](https://docs.kernel.org/admin-guide/cgroup-v2.html) and OCI [Linux configuration](https://raw.githubusercontent.com/opencontainers/runtime-spec/main/config-linux.md) were inspected on 2026-10-04. The shell snippet passed syntax checks but was not pointed at a live DispatchDesk process; no cgroup files were changed. Kernel controllers, mount layout and systemd property support depend on the target host.

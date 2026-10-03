@@ -5,7 +5,7 @@ volume_title: "Container Internals and OCI"
 chapter: 44
 title: "Images, Layers and Content Identity"
 slug: images-layers-and-content-identity
-status: draft
+status: complete
 summary: ../../_ai/chapter-summaries/044-images-layers-and-content-identity.md
 ---
 
@@ -70,8 +70,10 @@ Registry cleanup should follow retention policy. Deleting a tag can remove a hum
 4. A release manifest digest differs after copying to a registry. Which content and metadata should be compared before deployment?
 5. What should be recorded to connect a running DispatchDesk image to reviewed source code?
 
+**Answer guidance:** For exercise 1, a tag is a mutable name that a publisher can move; a digest is computed over exact bytes, so changing those bytes produces a different digest. For exercise 2, record the index digest, the selected `linux/arm64` child manifest digest, platform/variant and runtime-reported image identity; confirm the child descriptor is referenced by the index. For exercise 3, image layers are separate content-addressed changesets, so deleting a secret in a later layer hides it in the merged filesystem but leaves its bytes in the earlier layer. Rebuild without the secret and rotate it. For exercise 4, compare source and destination index and child-manifest descriptors, config digests, layer digests/sizes and media types; a conversion or recompression can change representations, so require a documented equivalence and revalidate signatures/provenance instead of assuming the old digest applies. For exercise 5, retain the reviewed commit, build inputs and builder/pipeline identity, base-image digests, target platform, provenance/signature, promoted manifest or index digest, deployment reference and runtime-resolved identity.
+
 Image layers make distribution efficient and content hashes make artifacts addressable, but trusted delivery needs evidence that connects bytes to source and policy. Next, [Container Filesystems and Storage](045-container-filesystems-and-storage.md) follows writes from the image's read-only layers to mutable container and persistent storage.
 
 ## Sources and verification
 
-The OCI [Image Specification](https://specs.opencontainers.org/image-spec/), [manifest](https://specs.opencontainers.org/image-spec/manifest/), [configuration](https://specs.opencontainers.org/image-spec/config/) and [descriptor](https://specs.opencontainers.org/image-spec/descriptor/) specifications were inspected on 2026-10-02. This chapter contains no registry push, image build or platform selection claim from an executed container. Independent review is pending.
+The OCI [Image Specification](https://raw.githubusercontent.com/opencontainers/image-spec/main/spec.md), [manifest](https://raw.githubusercontent.com/opencontainers/image-spec/main/manifest.md), [configuration](https://raw.githubusercontent.com/opencontainers/image-spec/main/config.md) and [layer](https://raw.githubusercontent.com/opencontainers/image-spec/main/layer.md) specifications were inspected on 2026-10-04. This chapter contains no registry push, image build or platform-selection result from an executed container.

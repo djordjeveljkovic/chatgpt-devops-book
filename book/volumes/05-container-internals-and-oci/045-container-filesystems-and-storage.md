@@ -5,7 +5,7 @@ volume_title: "Container Internals and OCI"
 chapter: 45
 title: "Container Filesystems and Storage"
 slug: container-filesystems-and-storage
-status: draft
+status: complete
 summary: ../../_ai/chapter-summaries/045-container-filesystems-and-storage.md
 ---
 
@@ -27,8 +27,10 @@ Copy-on-write can make image distribution efficient, but a write to a large exis
 | Container writable layer | One container instance; often removed with it | Temporary application output | Can every write be discarded when the instance is replaced? |
 | Named volume | Container engine on a host, independent of a single container | Persistent or shared files | Who backs it up, migrates it and restores it on another host? |
 | Bind mount | A specific host path projected into the container | Explicit host integration or development source | Does the host path exist with safe ownership and access? |
-| tmpfs | Memory-backed temporary filesystem | Ephemeral scratch data or selected secrets | Is the content expected to vanish at stop or reboot, and is memory bounded? |
+| tmpfs | Memory-backed temporary filesystem | Ephemeral scratch data or selected secrets | Is the content expected to vanish at stop or reboot, is memory bounded, and could pages be swapped to persistent storage? |
 | Network filesystem | External storage service or server | Shared files with a network lifecycle | What are its consistency, availability, latency and credential contracts? |
+
+A tmpfs can keep scratch data out of the container's image and writable layers, but its pages may be swapped to persistent storage. “Memory-backed” therefore does not guarantee that sensitive bytes never reach disk. Bound its size, use the host's approved swap-encryption and secret-management policy, and consider whether the workload can avoid writing sensitive material to temporary files at all.
 
 A named volume is more independent of an individual container than its writable layer, but it is not automatically independent of the engine host. If that VPS is lost, the volume may be lost with it unless a separate backup or replication system protects it. A bind mount can provide an explicit path and make host backup easier, but it exposes the container to host files under the mount and couples deployment to host path layout. Read-only mounts reduce write capability where the workload permits it.
 
@@ -63,7 +65,7 @@ df -i
 
 Check the filesystem that actually holds the data, not only the container's apparent root. Watch bytes, inodes, thin-pool capacity where applicable, volume quota, backend capacity, latency and backup staging. Container log files may also consume engine storage. Configure log retention and monitor the engine's storage root according to its own documentation.
 
-Docker storage details change across releases. Docker Engine 29 and later uses a containerd image store by default for fresh installations, which uses snapshotters rather than the classic `overlay2` storage-driver path. Existing installations may retain another storage mode. The general layering and persistence concepts still apply, but commands and directory layouts differ. Podman and other engines also use their own storage configuration and rootless paths. Record the actual runtime and storage backend before troubleshooting disk use.
+Host filesystem commands such as `findmnt` and `df` must run on the host that owns the engine's storage. With a remote Docker context, running them on the CLI client inspects the client's filesystems, not the daemon host; connect through the authorized host-management path before drawing conclusions. Docker storage details change across releases. Docker Engine 29 and later uses a containerd image store by default for fresh installations, which uses snapshotters rather than the classic `overlay2` storage-driver path. Existing installations may retain another storage mode. The general layering and persistence concepts still apply, but commands and directory layouts differ. Podman and other engines also use their own storage configuration and rootless paths. Record the actual runtime and storage backend before troubleshooting disk use.
 
 ## Plan data migration deliberately
 
@@ -79,8 +81,10 @@ Before deleting a volume, identify every container and service that references i
 4. The engine reports ample container-root space but a mounted volume is full. Which filesystem and quota should you inspect?
 5. A team wants two database containers to mount the same directory for availability. Which concurrency and failure guarantees are missing from that plan?
 
+**Answer guidance:** For exercise 1, the file lived only in the disposable container writable layer; accepted orders belong in an external database or deliberately managed persistent authority with tested backups. For exercise 2, a first write to a lower-layer file may copy the file into the upper writable layer, so the changed copy and other generated data can consume more space than the small logical edit suggests; use actual backend metrics. For exercise 3, a named volume is engine-managed and easier to preserve across container replacement but remains host/engine-specific; a bind mount names a host path and exposes host ownership/ACL/LSM policy directly. Both need explicit backup, migration and restore plans. For exercise 4, identify the mounted host/backend filesystem, quota or storage class and the actual daemon host; with a remote engine, client-local `df` is the wrong observation point. For exercise 5, shared filesystems do not supply database locking semantics, write fencing, replication, leader election, consistent recovery or split-brain prevention; use the database's supported HA protocol.
+
 Follow data through the actual mount and storage implementation before choosing a backup or migration procedure. Next, [OCI Runtimes and Container Engines](046-oci-runtimes-and-container-engines.md) explains how a user-facing engine coordinates the image, storage and process lifecycle.
 
 ## Sources and verification
 
-The Linux kernel's [OverlayFS documentation](https://docs.kernel.org/filesystems/overlayfs.html), OCI image and runtime specifications, and Docker's [storage-driver](https://docs.docker.com/engine/storage/drivers/) and [volume](https://docs.docker.com/engine/storage/volumes/) documentation were inspected on 2026-10-02. Docker's containerd image-store default in Engine 29 is called out as version-sensitive. Inspection commands passed shell syntax checks but no container or volume was inspected or changed. Independent review is pending.
+The Linux kernel's [OverlayFS documentation](https://docs.kernel.org/filesystems/overlayfs.html), OCI image and runtime specifications, and Docker's [storage-driver](https://docs.docker.com/engine/storage/drivers/), [volume](https://docs.docker.com/engine/storage/volumes/) and [containerd image-store](https://docs.docker.com/engine/storage/containerd/) documentation were inspected on 2026-10-04. Docker's containerd image-store default in Engine 29 is called out as version-sensitive. Inspection commands passed shell syntax checks but no container or volume was inspected or changed.

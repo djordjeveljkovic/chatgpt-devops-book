@@ -5,7 +5,7 @@ volume_title: "Container Internals and OCI"
 chapter: 49
 title: "Registries and Image Distribution"
 slug: registries-and-image-distribution
-status: draft
+status: complete
 summary: ../../_ai/chapter-summaries/049-registries-and-image-distribution.md
 ---
 
@@ -45,7 +45,7 @@ docker image inspect "$image_ref" --format '{{.Id}} {{.Os}}/{{.Architecture}}'
 
 The pull selects exact manifest content rather than resolving a moving tag at deployment time. If the digest identifies a multi-platform index, the engine selects the child manifest matching the host platform. Record the platform and selected manifest as well as the index digest when incident analysis requires exact deployed bytes. The local image `.Id` commonly describes the image configuration and is not necessarily the registry manifest digest. Do not mistake one identifier for another.
 
-An image pull can fail because DNS cannot resolve the registry, TLS validation fails, authentication is missing, repository scope is denied, the manifest has no matching platform, or a layer transfer is interrupted. Diagnose each boundary from client output and engine logs. A certificate failure should be repaired by using the correct trust chain and hostname, not by marking a production registry as insecure. A 401 challenge and a 403 repository denial point to different authentication or authorization problems.
+An image pull can fail because DNS cannot resolve the registry, TLS validation fails, authentication is missing, repository scope is denied, the manifest has no matching platform, or a layer transfer is interrupted. Diagnose each boundary from client output and engine logs. A certificate failure should be repaired by using the correct trust chain and hostname, not by marking a production registry as insecure. In the documented bearer-token flow, an initial HTTP 401 with `WWW-Authenticate` is the normal challenge that tells the client how to request a scoped token; a 401 that persists after the client obtains and presents that token suggests an authentication/token problem. A 403 commonly indicates authorization or scope denial, but registries can vary in how they report private-resource failures.
 
 ## Manage repository and retention boundaries
 
@@ -59,7 +59,7 @@ Signing and provenance systems attach trust evidence to image content, often key
 
 ## Debug distribution failures safely
 
-If a pull says “not found,” confirm the fully qualified registry, namespace, repository and digest. Some registries avoid revealing whether an unauthorized private repository exists, so an authorization failure may look like absence. If authentication succeeds but pull is denied, inspect repository-level scope and the identity used by the engine. A successful `docker login` only stores credentials; it does not prove access to every repository.
+If a pull says “not found,” confirm the fully qualified registry, namespace, repository and digest. Some registries avoid revealing whether an unauthorized private repository exists, so an authorization failure may look like absence. A successful `docker login` authenticates the supplied identity to the registry and stores or retrieves its credentials using the configured helper or client mechanism. That identity may still lack authorization for a particular repository, action or tag; inspect its scope and the identity used by the engine.
 
 If a deployment unexpectedly runs older code, compare the requested reference, resolved manifest digest, selected platform, node-local cache and runtime's actual image ID. Tags may point to different digests on different hosts. Record the digest at build, promotion, deployment and runtime inspection points so the mismatch can be located.
 
@@ -73,8 +73,10 @@ If registry credentials leak, revoke them at the issuing authority, remove them 
 4. What happens to availability when a registry is down and a node has never pulled the requested digest?
 5. Design a rollback retention rule that protects deployed digests without keeping every experimental build forever.
 
+**Answer guidance:** For exercise 1, login establishes the registry identity, but repository pull authorization is a separate scoped decision; verify the identity has read access to that exact repository and action. For exercise 2, distinguish the mutable human tag, top-level index digest, platform-specific child manifest digest and local image configuration ID; record the selected child for the target platform. For exercise 3, use a short-lived identity scoped to push the intended repository/build and deny production deletion or unrelated repositories; separate promotion/deployment credentials. For exercise 4, the node cannot fetch uncached content until the registry or an approved mirror/cache becomes reachable, so maintain an already-pulled rollback digest or alternate approved artifact path. For exercise 5, retain all currently deployed digests plus the tested rollback window and release evidence, and remove only artifacts proven outside deployment/retention references under a reviewed cleanup policy.
+
 Registries distribute content and enforce access; a secure release process binds an approved digest to trusted source and build evidence. The next chapter defines the container contract that application teams should keep stable across Docker, Podman and production platforms.
 
 ## Sources and verification
 
-The OCI [Distribution Specification](https://specs.opencontainers.org/distribution-spec/), Docker [`login`](https://docs.docker.com/reference/cli/docker/login/), [registry authentication](https://docs.docker.com/reference/api/registry/auth/) and [credential configuration](https://docs.docker.com/reference/cli/docker/) documentation were inspected on 2026-10-02. The login and pull examples use fictional values and were not run. Registry-specific quotas, retention, credential helpers and policy vary by provider and client version. Independent review is pending.
+The OCI [Distribution Specification](https://specs.opencontainers.org/distribution-spec/), Docker [`login`](https://docs.docker.com/reference/cli/docker/login/), [registry authentication](https://docs.docker.com/reference/api/registry/auth/) and [credential configuration](https://docs.docker.com/reference/cli/docker/) documentation were inspected on 2026-10-04. The login and pull examples use fictional values and were not run. Registry-specific quotas, retention, credential helpers and policy vary by provider and client version.

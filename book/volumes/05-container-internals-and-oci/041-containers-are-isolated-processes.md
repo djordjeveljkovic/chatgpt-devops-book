@@ -5,7 +5,7 @@ volume_title: "Container Internals and OCI"
 chapter: 41
 title: "Containers Are Isolated Processes"
 slug: containers-are-isolated-processes
-status: draft
+status: complete
 summary: ../../_ai/chapter-summaries/041-containers-are-isolated-processes.md
 ---
 
@@ -68,8 +68,10 @@ The image also carries software supply-chain risk. A base image can be outdated,
 3. List the effective isolation boundaries you would inspect before running untrusted code: identity mapping, namespaces, mounts, capabilities, seccomp, LSM policy and network exposure.
 4. Design a termination test for DispatchDesk that verifies an accepted order and notification intent survive process shutdown.
 
+**Answer guidance:** For exercise 1, a container restart replaces a process and its runtime state, while containers on one host still share the host kernel and hardware failure domain; a host kernel panic, power loss or exhausted host resource can affect all of them. For exercise 2, the lost file lived only in the container's disposable writable layer; authoritative orders belong in a database or explicitly managed persistent service with tested backups, not in the API container. For exercise 3, verify all listed controls together and ask which host identity owns each accessible resource; a namespace alone neither limits resources nor makes a host mount safe. For exercise 4, use an isolated test database, submit a synthetic order, send the configured graceful termination signal, wait within the service's stop bound, restart a separate process, retrieve the order and confirm its notification intent remains paired; repeat the client request with the same idempotency key to validate reconciliation.
+
 A container is a process launched with a specific environment and a collection of kernel controls. Inspect those controls rather than treating the word “container” as a security or durability guarantee. The next chapter studies Linux namespaces, the kernel mechanism behind several of these isolated views.
 
 ## Sources and verification
 
-The Open Container Initiative's [Runtime Specification](https://specs.opencontainers.org/runtime-spec/) and [Linux configuration](https://specs.opencontainers.org/runtime-spec/config-linux/) were inspected on 2026-10-02. The Linux namespace and cgroup interfaces are developed in Chapters 42 and 43. The process-inspection commands passed shell syntax checks; they were not used to inspect a running container. Independent review is pending.
+The Open Container Initiative's [Runtime Specification](https://specs.opencontainers.org/runtime-spec/) and [Linux configuration](https://raw.githubusercontent.com/opencontainers/runtime-spec/main/config-linux.md) were inspected on 2026-10-04. The Linux namespace and cgroup interfaces are developed in Chapters 42 and 43. The process-inspection commands passed shell syntax checks; they were not used to inspect a running container.

@@ -5,7 +5,7 @@ volume_title: "Container Internals and OCI"
 chapter: 46
 title: "OCI Runtimes and Container Engines"
 slug: oci-runtimes-and-container-engines
-status: draft
+status: complete
 summary: ../../_ai/chapter-summaries/046-oci-runtimes-and-container-engines.md
 ---
 
@@ -48,6 +48,8 @@ Docker and Podman often consume OCI image artifacts, but their flags, defaults, 
 
 An OCI runtime receives a bundle describing the process and Linux-specific configuration, including root filesystem and namespace, cgroup, capability and security settings. It creates and starts the process according to the runtime's contract. Runtimes such as `runc` and `crun` implement OCI runtime behavior. Alternative sandboxes such as gVisor or Kata Containers change the isolation architecture and may use a compatible integration layer; they bring different compatibility, performance and operational tradeoffs.
 
+For Kubernetes, distinguish the kubelet-facing Container Runtime Interface (CRI) from the OCI Runtime Specification. `containerd` can provide a CRI implementation and delegate workload creation to an OCI runtime such as `runc` or `crun`. `CRI-O` is another Kubernetes-focused CRI implementation; it also uses OCI runtime components to create containers. CRI-O and containerd therefore sit at the container-runtime integration layer, while `runc` and `crun` implement the lower-level OCI lifecycle. These components are related parts of a stack, not interchangeable names for the same layer. A single-host Docker or Podman lesson does not require installing Kubernetes to understand the distinction.
+
 When startup fails, trace the owning component rather than repeating `run` blindly. Check whether the client reaches the intended daemon, whether the image manifest supports the host platform, whether storage has space and compatible backing filesystems, whether the runtime can create required namespaces and cgroups, and whether the application process exits with a useful log. Engine events and daemon logs can expose the stage where creation stopped. Preserve the container ID and error text so a cleanup operation does not remove useful evidence.
 
 If a container starts but networking fails, distinguish runtime network setup from application binding and host firewall policy. If a volume is missing, inspect engine mount configuration and host path ownership. If a cgroup limit appears ineffective, identify the cgroup version, controller availability and parent limits. If a rootless workload fails on a mount or port, check user namespace mappings and rootless networking behavior. Chapters 42–45 develop those individual boundaries.
@@ -56,7 +58,7 @@ If a container starts but networking fails, distinguish runtime network setup fr
 
 The DispatchDesk application should implement its HTTP and persistence contracts without depending on one particular engine's CLI. A systemd unit, Docker container, Podman container or orchestrator workload can all launch the same program with explicit configuration. Deployment tools own container lifecycle; the application owns request validation, durable order/intent commit, graceful shutdown and meaningful health/readiness behavior.
 
-An engine is an important host control plane. Restrict administrative access, patch it with the host, monitor its storage and lifecycle events, and document how its objects are backed up or recreated. A container engine is not itself a scheduler across a fleet unless paired with an orchestration layer. The next volume compares Docker and Podman workflows directly, then deploys workloads with each tool.
+An engine is an important host control plane. Restrict administrative access, patch it with the host, monitor its storage and lifecycle events, and document how its objects are backed up or recreated. A container engine is not itself a scheduler across a fleet unless paired with an orchestration layer. [Volume 6](../06-docker-in-practice/051-installing-and-inspecting-docker.md) develops Docker operations, and [Volume 7](../07-podman-and-the-rootless-host/061-installing-and-understanding-podman.md) develops Podman and rootless-host operations; compare behavior against the needs of each deployment rather than expecting identical defaults.
 
 ## Exercises and review questions
 
@@ -66,8 +68,10 @@ An engine is an important host control plane. Restrict administrative access, pa
 4. What does OCI compatibility guarantee, and which operational differences between Docker and Podman still need testing?
 5. A Podman host uses a remote API. Which authority and network controls should be reviewed before allowing another client?
 
+**Answer guidance:** For exercise 1, the CLI/API and engine resolve the image and manage objects; containerd or another lifecycle manager coordinates creation, an OCI runtime such as `runc`/`crun` creates the process, and the kernel enforces namespaces, cgroups and security policy. Inspect registry/client/engine logs for pull failures and runtime/kernel details for namespace-creation failures. For exercise 2, a rootful socket grants control over container creation, host mounts and privilege, which can yield host-root authority even without `sudo`; protect its file permissions and all remote credentials accordingly. For exercise 3, check Docker context/API endpoint, rootful versus rootless service, user identity, namespace, object store and daemon state before concluding the process is absent. For exercise 4, OCI covers standardized image/runtime interfaces, not matching CLI flags, networking, storage, logging, security defaults or lifecycle; test those on the selected versions. For exercise 5, identify which user's rootless or rootful service is exposed, authenticate the client, restrict the network path, limit credential holders, audit access and confirm the API's authority over host files and workloads.
+
 Container engines turn image and runtime specifications into an operational lifecycle. Verify which engine, identity, endpoint and storage configuration a command targets before drawing conclusions from it. Chapter 47 examines rootless execution and UID/GID mapping more closely.
 
 ## Sources and verification
 
-The OCI [Runtime Specification](https://specs.opencontainers.org/runtime-spec/), Docker's [architecture overview](https://docs.docker.com/get-started/docker-overview), [alternative runtime documentation](https://docs.docker.com/engine/daemon/alternative-runtimes/) and [engine security guidance](https://docs.docker.com/engine/security/) and Podman's [manual](https://docs.podman.io/en/stable/markdown/podman.1.html) were inspected on 2026-10-02. Engine inspection commands passed shell syntax checks but no Docker or Podman engine was contacted. Version-specific claims should be verified against the installed release. Independent review is pending.
+The OCI [Runtime Specification](https://specs.opencontainers.org/runtime-spec/), Kubernetes [Container Runtime Interface](https://kubernetes.io/docs/concepts/containers/cri/), [CRI-O project](https://github.com/cri-o/cri-o), Docker's [architecture overview](https://docs.docker.com/get-started/docker-overview), [alternative runtime documentation](https://docs.docker.com/engine/daemon/alternative-runtimes/) and [engine security guidance](https://docs.docker.com/engine/security/), and Podman's [manual](https://docs.podman.io/en/stable/markdown/podman.1.html) were inspected on 2026-10-04. Engine inspection commands passed shell syntax checks but no Docker or Podman engine was contacted. Version-specific claims should be verified against the installed release.

@@ -5,7 +5,7 @@ volume_title: "Container Internals and OCI"
 chapter: 47
 title: "Rootless Containers and User Mapping"
 slug: rootless-containers-and-user-mapping
-status: draft
+status: complete
 summary: ../../_ai/chapter-summaries/047-rootless-containers-and-user-mapping.md
 ---
 
@@ -21,7 +21,18 @@ Rootless Podman containers belong to the invoking user's object store and are ge
 
 ## Understand UID and GID maps
 
-A user namespace defines mappings between IDs visible inside the namespace and IDs in its parent namespace. A mapping line has three values: the first ID inside the namespace, the corresponding starting ID outside it, and the number of consecutive IDs in the range. For example, a map might make container UID 0 appear as host UID 231072 and map the next 65,535 container IDs to the following host IDs. The concrete range is assigned by host policy and must not overlap another user's range.
+A user namespace defines mappings between IDs visible inside the namespace and IDs in its parent namespace. A mapping line has three values: the first ID inside the namespace, the corresponding starting ID outside it, and the number of consecutive IDs in the range. These are two distinct hypothetical layouts, not a universal engine default:
+
+```text
+# custom/remapped range: container UIDs 0–65535 map to host 231072–296607
+0 231072 65536
+
+# common rootless shape for a host login UID 1000 with a subordinate range
+0 1000 1
+1 231072 65536
+```
+
+In the first mapping, container UID 1000 maps to host UID 232072. In the second, container UID 0 maps to the invoking host account (UID 1000), while container UID 1000 maps to host UID 232071. The concrete subordinate range is assigned by host policy and must not overlap another user's range; inspect the effective runtime map instead of assuming either example.
 
 Root inside the user namespace can have capabilities in that namespace, but those capabilities do not automatically grant authority in the initial host user namespace. Access to a bind-mounted host directory still follows the mapped host credentials, filesystem permissions, ACLs and security policy. A file owned by container UID 1000 may appear as a high subordinate ID on the host. Operators need to understand the mapping before interpreting `ls -l` or repairing ownership.
 
@@ -45,7 +56,7 @@ Rootless networking may use user-space forwarding or another backend, so through
 
 Rootless operation also consumes resources. The process runs inside the user's cgroup hierarchy and may be constrained by a user slice or parent scope. Check whether the user service survives logout or reboot under the configured systemd user manager and linger policy. A non-root daemon that stops when the user session ends is not a durable production service unless that lifecycle is intended. Rootless workloads can still fill their user's storage, exhaust configured task limits or compete with other processes.
 
-Bind mounts are a frequent source of confusion. If the container maps UID 1000 to subordinate host ID 231072, a host directory owned by UID 1000 may not be writable from inside the container as expected. Use a deliberate ownership or idmapped-mount strategy supported by the engine and kernel. Avoid broad recursive ownership changes on host paths; they can affect unrelated services and are difficult to reverse safely.
+Bind mounts are a frequent source of confusion. Under the second example mapping, container UID 1000 maps to subordinate host UID 232071, so a host directory owned by UID 1000 may not be writable from inside the container as expected. Other engines and options can produce different maps. Use a deliberate ownership or idmapped-mount strategy supported by the engine and kernel. Avoid broad recursive ownership changes on host paths; they can affect unrelated services and are difficult to reverse safely.
 
 ## Validate the effective mode
 
@@ -67,8 +78,10 @@ For production, document which account owns the engine, how its service starts, 
 4. A rootless container stops after logout. Which systemd user-service and linger settings would you investigate?
 5. Which workload requirements would make rootless networking or storage unsuitable for a particular host?
 
+**Answer guidance:** For exercise 1, read the process's `uid_map` and translate the container ID through each range; under the common example above, UID 0 maps to the invoking host UID and UID 1000 maps into the subordinate range. For exercise 2, identify the owning process map, host owner/group, mode bits, ACL, mount options and SELinux/AppArmor policy; numeric ownership alone does not explain access. For exercise 3, rootless Docker runs the daemon and containers without host-root authority, whereas `userns-remap` maps container IDs while `dockerd` remains rootful. For exercise 4, check whether a user systemd unit is enabled, the user manager's linger setting, unit logs and whether the command targeted the same rootless engine/store after logout and reboot. For exercise 5, compare required throughput, port binding, devices, filesystem semantics, subordinate-ID availability, user-slice limits and service lifetime with the actual engine/kernel; select another deployment model when a necessary requirement cannot be met and tested.
+
 Rootless execution changes the engine identity and maps workload IDs into a constrained host range. Verify both before changing ownership or granting access. The next chapter examines the capability and syscall controls that complement user mapping.
 
 ## Sources and verification
 
-The Linux [`user_namespaces(7)`](https://man7.org/linux/man-pages/man7/user_namespaces.7.html) manual, Docker [rootless mode](https://docs.docker.com/engine/security/rootless/) and [user namespace remapping](https://docs.docker.com/engine/security/userns-remap) documentation, and Podman's [stable manual](https://docs.podman.io/en/stable/markdown/podman.1.html) were inspected on 2026-10-02. ID-map inspection commands passed shell syntax checks; no engine or host mapping was changed. Rootless prerequisites and networking details are version and distribution specific. Independent review is pending.
+The Linux [`user_namespaces(7)`](https://man7.org/linux/man-pages/man7/user_namespaces.7.html) manual, Docker [rootless mode](https://docs.docker.com/engine/security/rootless/) and [user namespace remapping](https://docs.docker.com/engine/security/userns-remap) documentation, and Podman's [stable manual](https://docs.podman.io/en/stable/markdown/podman.1.html) were inspected on 2026-10-04. ID-map inspection commands passed shell syntax checks; no engine or host mapping was changed. Rootless prerequisites and networking details are version and distribution specific.

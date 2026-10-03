@@ -1,12 +1,12 @@
 # Book progress and exact continuation
 
-Last refreshed: 2026-10-03 22:08 UTC.
+Last refreshed: 2026-10-03 22:22 UTC.
 
 ## Actual state
 
-Chapters: 220. Approximate written words: 248,518.
+Chapters: 220. Approximate written words: 250,476.
 
-complete: 100, draft: 32, drafting: 1, planned: 87.
+complete: 109, draft: 23, drafting: 1, planned: 87.
 
 Statuses reflect files, not promises. `complete` requires independent approval and validation. References and code contribute to approximate word counts; counts do not measure quality.
 
@@ -16,7 +16,7 @@ Read [AI_AUTHORING_GUIDE.md](AI_AUTHORING_GUIDE.md), [coordinator handoff](book/
 
 ## Earliest unfinished dependency
 
-Chapter 041: [Containers Are Isolated Processes](book/volumes/05-container-internals-and-oci/041-containers-are-isolated-processes.md). Exact next step: None. Begin Chapter 42, then request independent review before claiming completion..
+Chapter 090: [AWS Budgets, Tags and Inventory](book/volumes/09-aws-foundations/090-aws-budgets-tags-and-inventory.md). Exact next step: Resolve independent review findings when supplied..
 
 ## Chapter ledger
 
@@ -62,15 +62,15 @@ Chapter 041: [Containers Are Isolated Processes](book/volumes/05-container-inter
 | 038 | 4 | [Patching and Maintenance Windows](book/volumes/04-vps-and-server-operations/038-patching-and-maintenance-windows.md) | complete | approved | 1,510 | [Resume](book/_ai/chapter-summaries/038-patching-and-maintenance-windows.md) |
 | 039 | 4 | [Adding a Second Server](book/volumes/04-vps-and-server-operations/039-adding-a-second-server.md) | complete | approved | 1,550 | [Resume](book/_ai/chapter-summaries/039-adding-a-second-server.md) |
 | 040 | 4 | [VPS Incidents and Capacity](book/volumes/04-vps-and-server-operations/040-vps-incidents-and-capacity.md) | complete | approved | 2,306 | [Resume](book/_ai/chapter-summaries/040-vps-incidents-and-capacity.md) |
-| 041 | 5 | [Containers Are Isolated Processes](book/volumes/05-container-internals-and-oci/041-containers-are-isolated-processes.md) | draft | pending | 1,350 | [Resume](book/_ai/chapter-summaries/041-containers-are-isolated-processes.md) |
-| 042 | 5 | [Linux Namespaces](book/volumes/05-container-internals-and-oci/042-linux-namespaces.md) | draft | pending | 1,150 | [Resume](book/_ai/chapter-summaries/042-linux-namespaces.md) |
-| 043 | 5 | [Cgroups and Resource Accounting](book/volumes/05-container-internals-and-oci/043-cgroups-and-resource-accounting.md) | draft | pending | 1,456 | [Resume](book/_ai/chapter-summaries/043-cgroups-and-resource-accounting.md) |
-| 044 | 5 | [Images, Layers and Content Identity](book/volumes/05-container-internals-and-oci/044-images-layers-and-content-identity.md) | draft | pending | 1,198 | [Resume](book/_ai/chapter-summaries/044-images-layers-and-content-identity.md) |
-| 045 | 5 | [Container Filesystems and Storage](book/volumes/05-container-internals-and-oci/045-container-filesystems-and-storage.md) | draft | pending | 1,343 | [Resume](book/_ai/chapter-summaries/045-container-filesystems-and-storage.md) |
-| 046 | 5 | [OCI Runtimes and Container Engines](book/volumes/05-container-internals-and-oci/046-oci-runtimes-and-container-engines.md) | draft | pending | 1,242 | [Resume](book/_ai/chapter-summaries/046-oci-runtimes-and-container-engines.md) |
-| 047 | 5 | [Rootless Containers and User Mapping](book/volumes/05-container-internals-and-oci/047-rootless-containers-and-user-mapping.md) | draft | pending | 1,287 | [Resume](book/_ai/chapter-summaries/047-rootless-containers-and-user-mapping.md) |
-| 048 | 5 | [Capabilities and Security Boundaries](book/volumes/05-container-internals-and-oci/048-capabilities-and-security-boundaries.md) | draft | pending | 1,286 | [Resume](book/_ai/chapter-summaries/048-capabilities-and-security-boundaries.md) |
-| 049 | 5 | [Registries and Image Distribution](book/volumes/05-container-internals-and-oci/049-registries-and-image-distribution.md) | draft | pending | 1,354 | [Resume](book/_ai/chapter-summaries/049-registries-and-image-distribution.md) |
+| 041 | 5 | [Containers Are Isolated Processes](book/volumes/05-container-internals-and-oci/041-containers-are-isolated-processes.md) | complete | approved | 1,505 | [Resume](book/_ai/chapter-summaries/041-containers-are-isolated-processes.md) |
+| 042 | 5 | [Linux Namespaces](book/volumes/05-container-internals-and-oci/042-linux-namespaces.md) | complete | approved | 1,319 | [Resume](book/_ai/chapter-summaries/042-linux-namespaces.md) |
+| 043 | 5 | [Cgroups and Resource Accounting](book/volumes/05-container-internals-and-oci/043-cgroups-and-resource-accounting.md) | complete | approved | 1,670 | [Resume](book/_ai/chapter-summaries/043-cgroups-and-resource-accounting.md) |
+| 044 | 5 | [Images, Layers and Content Identity](book/volumes/05-container-internals-and-oci/044-images-layers-and-content-identity.md) | complete | approved | 1,375 | [Resume](book/_ai/chapter-summaries/044-images-layers-and-content-identity.md) |
+| 045 | 5 | [Container Filesystems and Storage](book/volumes/05-container-internals-and-oci/045-container-filesystems-and-storage.md) | complete | approved | 1,630 | [Resume](book/_ai/chapter-summaries/045-container-filesystems-and-storage.md) |
+| 046 | 5 | [OCI Runtimes and Container Engines](book/volumes/05-container-internals-and-oci/046-oci-runtimes-and-container-engines.md) | complete | approved | 1,545 | [Resume](book/_ai/chapter-summaries/046-oci-runtimes-and-container-engines.md) |
+| 047 | 5 | [Rootless Containers and User Mapping](book/volumes/05-container-internals-and-oci/047-rootless-containers-and-user-mapping.md) | complete | approved | 1,515 | [Resume](book/_ai/chapter-summaries/047-rootless-containers-and-user-mapping.md) |
+| 048 | 5 | [Capabilities and Security Boundaries](book/volumes/05-container-internals-and-oci/048-capabilities-and-security-boundaries.md) | complete | approved | 1,511 | [Resume](book/_ai/chapter-summaries/048-capabilities-and-security-boundaries.md) |
+| 049 | 5 | [Registries and Image Distribution](book/volumes/05-container-internals-and-oci/049-registries-and-image-distribution.md) | complete | approved | 1,554 | [Resume](book/_ai/chapter-summaries/049-registries-and-image-distribution.md) |
 | 050 | 5 | [The Container Contract](book/volumes/05-container-internals-and-oci/050-the-container-contract.md) | complete | approved | 3,002 | [Resume](book/_ai/chapter-summaries/050-the-container-contract.md) |
 | 051 | 6 | [Installing and Inspecting Docker](book/volumes/06-docker-in-practice/051-installing-and-inspecting-docker.md) | complete | approved | 2,163 | [Resume](book/_ai/chapter-summaries/051-installing-and-inspecting-docker.md) |
 | 052 | 6 | [Running and Managing Containers](book/volumes/06-docker-in-practice/052-running-and-managing-containers.md) | complete | approved | 1,906 | [Resume](book/_ai/chapter-summaries/052-running-and-managing-containers.md) |
