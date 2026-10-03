@@ -1,21 +1,21 @@
 # Chapter 106 continuation
 
-Status: planned
+Status: complete
 
 ## Written material
-None.
+ConfigMap environment/file consumption and propagation; Secret exposure boundaries and handling; versioned, observable configuration and credential changes; exercises with answer guidance.
 
 ## Exact next section
-Why this matters
+None. Independently approved; continue to the next unfinished chapter.
 
 ## Concepts and terminology
-None introduced yet.
+ConfigMap, Secret, `data`, `binaryData`, `stringData`, environment snapshot, projected volume, `subPath`, immutable object, Secret RBAC and encryption at rest.
 
 ## Examples and cross-references
-None written yet.
+DispatchDesk v1 ConfigMap, Deployment excerpt, and local Secret creation from a fictitious secured-file path; links to Chapters 104, 105 and 109. No secret or cluster operation used.
 
 ## Open threads
-Write and independently review the chapter.
+None known. Secret encryption, RBAC, credential lifecycle and application reload remain cluster/application responsibilities described in the chapter.
 
 ## Verification
-Not performed.
+Official Kubernetes ConfigMap, Secret, security and encryption docs inspected 2026-10-04. No cluster or credential operation performed.

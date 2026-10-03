@@ -1,21 +1,21 @@
 # Chapter 110 continuation
 
-Status: planned
+Status: complete
 
 ## Written material
-None.
+Object identity/spec/status and controllers; `get`, `describe`, `logs`, `exec`, events, label and field selectors; scoped incident diagnosis with evidence and recovery; exercises with answer guidance.
 
 ## Exact next section
-Why this matters
+None. Independently approved; continue to the next unfinished chapter.
 
 ## Concepts and terminology
-None introduced yet.
+UID, namespace, spec/status, owner reference, label selector, field selector, event retention, previous container logs, ephemeral debug container.
 
 ## Examples and cross-references
-None written yet.
+Read-only DispatchDesk diagnostics assume `kind-dispatchdesk`/`production`; targeted output/redaction warnings; direct links to Chapters 102, 103, 104, 105, 107 and 109. No API reads or mutations executed.
 
 ## Open threads
-Write and independently review the chapter.
+None known. Live state, RBAC, event/log retention and sensitive output remain environment-specific as described in the chapter.
 
 ## Verification
-Not performed.
+Official Kubernetes object, selector, kubectl and Pod debug docs inspected 2026-10-04. No cluster interaction performed.

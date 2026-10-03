@@ -1,12 +1,12 @@
 # Book progress and exact continuation
 
-Last refreshed: 2026-10-03 23:06 UTC.
+Last refreshed: 2026-10-03 23:42 UTC.
 
 ## Actual state
 
-Chapters: 220. Approximate written words: 266,978.
+Chapters: 220. Approximate written words: 287,747.
 
-complete: 120, draft: 20, drafting: 1, planned: 79.
+complete: 130, draft: 20, drafting: 1, planned: 69.
 
 Statuses reflect files, not promises. `complete` requires independent approval and validation. References and code contribute to approximate word counts; counts do not measure quality.
 
@@ -16,7 +16,7 @@ Read [AI_AUTHORING_GUIDE.md](AI_AUTHORING_GUIDE.md), [coordinator handoff](book/
 
 ## Earliest unfinished dependency
 
-Chapter 101: [Kubernetes Architecture and Reconciliation](book/volumes/11-kubernetes-foundations/101-kubernetes-architecture-and-reconciliation.md). Exact next step: Why this matters.
+Chapter 111: [Cluster Provisioning and Ownership](book/volumes/12-kubernetes-production-engineering/111-cluster-provisioning-and-ownership.md). Exact next step: Why this matters.
 
 ## Chapter ledger
 
@@ -122,16 +122,16 @@ Chapter 101: [Kubernetes Architecture and Reconciliation](book/volumes/11-kubern
 | 098 | 10 | [Lambda and Serverless Tradeoffs](book/volumes/10-aws-production-services/098-lambda-and-serverless-tradeoffs.md) | complete | approved | 1,804 | [Resume](book/_ai/chapter-summaries/098-lambda-and-serverless-tradeoffs.md) |
 | 099 | 10 | [CloudFront and Edge Delivery](book/volumes/10-aws-production-services/099-cloudfront-and-edge-delivery.md) | complete | approved | 1,623 | [Resume](book/_ai/chapter-summaries/099-cloudfront-and-edge-delivery.md) |
 | 100 | 10 | [Secrets, CloudWatch and Cloud Resilience](book/volumes/10-aws-production-services/100-secrets-cloudwatch-and-cloud-resilience.md) | complete | approved | 2,133 | [Resume](book/_ai/chapter-summaries/100-secrets-cloudwatch-and-cloud-resilience.md) |
-| 101 | 11 | [Kubernetes Architecture and Reconciliation](book/volumes/11-kubernetes-foundations/101-kubernetes-architecture-and-reconciliation.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/101-kubernetes-architecture-and-reconciliation.md) |
-| 102 | 11 | [Local Clusters and kubectl Contexts](book/volumes/11-kubernetes-foundations/102-local-clusters-and-kubectl-contexts.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/102-local-clusters-and-kubectl-contexts.md) |
-| 103 | 11 | [Pods and Application Lifecycles](book/volumes/11-kubernetes-foundations/103-pods-and-application-lifecycles.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/103-pods-and-application-lifecycles.md) |
-| 104 | 11 | [Deployments, ReplicaSets and Jobs](book/volumes/11-kubernetes-foundations/104-deployments-replicasets-and-jobs.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/104-deployments-replicasets-and-jobs.md) |
-| 105 | 11 | [Services and Cluster DNS](book/volumes/11-kubernetes-foundations/105-services-and-cluster-dns.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/105-services-and-cluster-dns.md) |
-| 106 | 11 | [ConfigMaps, Secrets and Configuration](book/volumes/11-kubernetes-foundations/106-configmaps-secrets-and-configuration.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/106-configmaps-secrets-and-configuration.md) |
-| 107 | 11 | [Probes and Graceful Termination](book/volumes/11-kubernetes-foundations/107-probes-and-graceful-termination.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/107-probes-and-graceful-termination.md) |
-| 108 | 11 | [Resource Requests, Limits and Scheduling](book/volumes/11-kubernetes-foundations/108-resource-requests-limits-and-scheduling.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/108-resource-requests-limits-and-scheduling.md) |
-| 109 | 11 | [Persistent Volumes and Stateful Workloads](book/volumes/11-kubernetes-foundations/109-persistent-volumes-and-stateful-workloads.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/109-persistent-volumes-and-stateful-workloads.md) |
-| 110 | 11 | [kubectl Diagnostics and API Objects](book/volumes/11-kubernetes-foundations/110-kubectl-diagnostics-and-api-objects.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/110-kubectl-diagnostics-and-api-objects.md) |
+| 101 | 11 | [Kubernetes Architecture and Reconciliation](book/volumes/11-kubernetes-foundations/101-kubernetes-architecture-and-reconciliation.md) | complete | approved | 2,235 | [Resume](book/_ai/chapter-summaries/101-kubernetes-architecture-and-reconciliation.md) |
+| 102 | 11 | [Local Clusters and kubectl Contexts](book/volumes/11-kubernetes-foundations/102-local-clusters-and-kubectl-contexts.md) | complete | approved | 1,884 | [Resume](book/_ai/chapter-summaries/102-local-clusters-and-kubectl-contexts.md) |
+| 103 | 11 | [Pods and Application Lifecycles](book/volumes/11-kubernetes-foundations/103-pods-and-application-lifecycles.md) | complete | approved | 1,820 | [Resume](book/_ai/chapter-summaries/103-pods-and-application-lifecycles.md) |
+| 104 | 11 | [Deployments, ReplicaSets and Jobs](book/volumes/11-kubernetes-foundations/104-deployments-replicasets-and-jobs.md) | complete | approved | 2,075 | [Resume](book/_ai/chapter-summaries/104-deployments-replicasets-and-jobs.md) |
+| 105 | 11 | [Services and Cluster DNS](book/volumes/11-kubernetes-foundations/105-services-and-cluster-dns.md) | complete | approved | 2,240 | [Resume](book/_ai/chapter-summaries/105-services-and-cluster-dns.md) |
+| 106 | 11 | [ConfigMaps, Secrets and Configuration](book/volumes/11-kubernetes-foundations/106-configmaps-secrets-and-configuration.md) | complete | approved | 2,100 | [Resume](book/_ai/chapter-summaries/106-configmaps-secrets-and-configuration.md) |
+| 107 | 11 | [Probes and Graceful Termination](book/volumes/11-kubernetes-foundations/107-probes-and-graceful-termination.md) | complete | approved | 2,192 | [Resume](book/_ai/chapter-summaries/107-probes-and-graceful-termination.md) |
+| 108 | 11 | [Resource Requests, Limits and Scheduling](book/volumes/11-kubernetes-foundations/108-resource-requests-limits-and-scheduling.md) | complete | approved | 2,187 | [Resume](book/_ai/chapter-summaries/108-resource-requests-limits-and-scheduling.md) |
+| 109 | 11 | [Persistent Volumes and Stateful Workloads](book/volumes/11-kubernetes-foundations/109-persistent-volumes-and-stateful-workloads.md) | complete | approved | 1,973 | [Resume](book/_ai/chapter-summaries/109-persistent-volumes-and-stateful-workloads.md) |
+| 110 | 11 | [kubectl Diagnostics and API Objects](book/volumes/11-kubernetes-foundations/110-kubectl-diagnostics-and-api-objects.md) | complete | approved | 2,063 | [Resume](book/_ai/chapter-summaries/110-kubectl-diagnostics-and-api-objects.md) |
 | 111 | 12 | [Cluster Provisioning and Ownership](book/volumes/12-kubernetes-production-engineering/111-cluster-provisioning-and-ownership.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/111-cluster-provisioning-and-ownership.md) |
 | 112 | 12 | [Cluster Networking and CNI](book/volumes/12-kubernetes-production-engineering/112-cluster-networking-and-cni.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/112-cluster-networking-and-cni.md) |
 | 113 | 12 | [Ingress and Gateway API](book/volumes/12-kubernetes-production-engineering/113-ingress-and-gateway-api.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/113-ingress-and-gateway-api.md) |
