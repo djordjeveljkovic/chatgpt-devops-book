@@ -1,12 +1,12 @@
 # Book progress and exact continuation
 
-Last refreshed: 2026-10-03 22:03 UTC.
+Last refreshed: 2026-10-03 22:08 UTC.
 
 ## Actual state
 
-Chapters: 220. Approximate written words: 248,356.
+Chapters: 220. Approximate written words: 248,518.
 
-complete: 93, draft: 39, drafting: 1, planned: 87.
+complete: 100, draft: 32, drafting: 1, planned: 87.
 
 Statuses reflect files, not promises. `complete` requires independent approval and validation. References and code contribute to approximate word counts; counts do not measure quality.
 
@@ -16,7 +16,7 @@ Read [AI_AUTHORING_GUIDE.md](AI_AUTHORING_GUIDE.md), [coordinator handoff](book/
 
 ## Earliest unfinished dependency
 
-Chapter 034: [Deploying a Service with Systemd](book/volumes/04-vps-and-server-operations/034-deploying-a-service-with-systemd.md). Exact next step: Request a fresh hash-bound review of the revised body and promote only after approval and validation..
+Chapter 041: [Containers Are Isolated Processes](book/volumes/05-container-internals-and-oci/041-containers-are-isolated-processes.md). Exact next step: None. Begin Chapter 42, then request independent review before claiming completion..
 
 ## Chapter ledger
 
@@ -55,13 +55,13 @@ Chapter 034: [Deploying a Service with Systemd](book/volumes/04-vps-and-server-o
 | 031 | 4 | [Choosing and Provisioning a VPS](book/volumes/04-vps-and-server-operations/031-choosing-and-provisioning-a-vps.md) | complete | approved | 1,900 | [Resume](book/_ai/chapter-summaries/031-choosing-and-provisioning-a-vps.md) |
 | 032 | 4 | [Host Hardening and Access](book/volumes/04-vps-and-server-operations/032-host-hardening-and-access.md) | complete | approved | 1,680 | [Resume](book/_ai/chapter-summaries/032-host-hardening-and-access.md) |
 | 033 | 4 | [Disks, Filesystems and Mounts](book/volumes/04-vps-and-server-operations/033-disks-filesystems-and-mounts.md) | complete | approved | 2,000 | [Resume](book/_ai/chapter-summaries/033-disks-filesystems-and-mounts.md) |
-| 034 | 4 | [Deploying a Service with Systemd](book/volumes/04-vps-and-server-operations/034-deploying-a-service-with-systemd.md) | draft | pending | 1,980 | [Resume](book/_ai/chapter-summaries/034-deploying-a-service-with-systemd.md) |
-| 035 | 4 | [Reverse Proxies on a VPS](book/volumes/04-vps-and-server-operations/035-reverse-proxies-on-a-vps.md) | draft | pending | 1,792 | [Resume](book/_ai/chapter-summaries/035-reverse-proxies-on-a-vps.md) |
-| 036 | 4 | [Database and Cache Operations on One Host](book/volumes/04-vps-and-server-operations/036-database-and-cache-operations-on-one-host.md) | draft | pending | 2,763 | [Resume](book/_ai/chapter-summaries/036-database-and-cache-operations-on-one-host.md) |
-| 037 | 4 | [Server Backups and Restore](book/volumes/04-vps-and-server-operations/037-server-backups-and-restore.md) | draft | pending | 1,830 | [Resume](book/_ai/chapter-summaries/037-server-backups-and-restore.md) |
-| 038 | 4 | [Patching and Maintenance Windows](book/volumes/04-vps-and-server-operations/038-patching-and-maintenance-windows.md) | draft | pending | 1,510 | [Resume](book/_ai/chapter-summaries/038-patching-and-maintenance-windows.md) |
-| 039 | 4 | [Adding a Second Server](book/volumes/04-vps-and-server-operations/039-adding-a-second-server.md) | draft | pending | 1,519 | [Resume](book/_ai/chapter-summaries/039-adding-a-second-server.md) |
-| 040 | 4 | [VPS Incidents and Capacity](book/volumes/04-vps-and-server-operations/040-vps-incidents-and-capacity.md) | draft | pending | 2,306 | [Resume](book/_ai/chapter-summaries/040-vps-incidents-and-capacity.md) |
+| 034 | 4 | [Deploying a Service with Systemd](book/volumes/04-vps-and-server-operations/034-deploying-a-service-with-systemd.md) | complete | approved | 1,980 | [Resume](book/_ai/chapter-summaries/034-deploying-a-service-with-systemd.md) |
+| 035 | 4 | [Reverse Proxies on a VPS](book/volumes/04-vps-and-server-operations/035-reverse-proxies-on-a-vps.md) | complete | approved | 1,923 | [Resume](book/_ai/chapter-summaries/035-reverse-proxies-on-a-vps.md) |
+| 036 | 4 | [Database and Cache Operations on One Host](book/volumes/04-vps-and-server-operations/036-database-and-cache-operations-on-one-host.md) | complete | approved | 2,763 | [Resume](book/_ai/chapter-summaries/036-database-and-cache-operations-on-one-host.md) |
+| 037 | 4 | [Server Backups and Restore](book/volumes/04-vps-and-server-operations/037-server-backups-and-restore.md) | complete | approved | 1,830 | [Resume](book/_ai/chapter-summaries/037-server-backups-and-restore.md) |
+| 038 | 4 | [Patching and Maintenance Windows](book/volumes/04-vps-and-server-operations/038-patching-and-maintenance-windows.md) | complete | approved | 1,510 | [Resume](book/_ai/chapter-summaries/038-patching-and-maintenance-windows.md) |
+| 039 | 4 | [Adding a Second Server](book/volumes/04-vps-and-server-operations/039-adding-a-second-server.md) | complete | approved | 1,550 | [Resume](book/_ai/chapter-summaries/039-adding-a-second-server.md) |
+| 040 | 4 | [VPS Incidents and Capacity](book/volumes/04-vps-and-server-operations/040-vps-incidents-and-capacity.md) | complete | approved | 2,306 | [Resume](book/_ai/chapter-summaries/040-vps-incidents-and-capacity.md) |
 | 041 | 5 | [Containers Are Isolated Processes](book/volumes/05-container-internals-and-oci/041-containers-are-isolated-processes.md) | draft | pending | 1,350 | [Resume](book/_ai/chapter-summaries/041-containers-are-isolated-processes.md) |
 | 042 | 5 | [Linux Namespaces](book/volumes/05-container-internals-and-oci/042-linux-namespaces.md) | draft | pending | 1,150 | [Resume](book/_ai/chapter-summaries/042-linux-namespaces.md) |
 | 043 | 5 | [Cgroups and Resource Accounting](book/volumes/05-container-internals-and-oci/043-cgroups-and-resource-accounting.md) | draft | pending | 1,456 | [Resume](book/_ai/chapter-summaries/043-cgroups-and-resource-accounting.md) |

@@ -5,7 +5,7 @@ volume_title: "VPS and Server Operations"
 chapter: 38
 title: "Patching and Maintenance Windows"
 slug: patching-and-maintenance-windows
-status: draft
+status: complete
 summary: ../../_ai/chapter-summaries/038-patching-and-maintenance-windows.md
 ---
 
@@ -30,17 +30,17 @@ On Ubuntu, refresh package metadata and inspect updates before applying a planne
 ```bash
 sudo apt update
 apt list --upgradable
-sudo apt-get -s upgrade
+apt -s upgrade
 ```
 
-The simulation is evidence about the proposed transaction at that moment; it does not reserve package versions or guarantee a later identical result. Ubuntu may phase some non-security updates, so packages can remain held temporarily. Do not force them through without understanding why. Security updates have a different phasing policy. For RHEL and Fedora systems using DNF, inspect the available transaction first:
+The simulation uses the same `apt upgrade` selection behavior as the apply command below, including its policy about newly required dependencies; it does not reserve package versions or guarantee a later identical result because repository metadata can change. Ubuntu may phase some non-security updates, so packages can remain held temporarily. Do not force them through without understanding why. Security updates have a different phasing policy. For RHEL and Fedora systems using DNF, inspect the available transaction first:
 
 ```bash
 sudo dnf check-update
 sudo dnf upgrade --assumeno
 ```
 
-`dnf check-update` can return a nonzero status when updates are available, so automation must interpret its documented exit behavior instead of treating every nonzero result as a network failure. Package metadata and repositories vary by release. Review removals and dependency changes before accepting an update. When policy requires staging, reproduce the transaction on a test host with the same release, repositories and application dependencies.
+`dnf check-update` returns status 100 when updates are available; other nonzero statuses indicate an error. Automation should distinguish those documented cases instead of treating every nonzero result as a network failure. Package metadata and repositories vary by release. Review removals and dependency changes before accepting an update. When policy requires staging, reproduce the transaction on a test host with the same release, repositories and application dependencies.
 
 ## Apply the planned update
 
@@ -71,8 +71,10 @@ Use a maintenance record with the planned time, risk, owner, backup verification
 3. Design a low-risk maintenance window for a single-host database application. Include console access, data backup, notification drain, validation and escalation.
 4. An update restarts OpenSSH while you are connected. What access evidence should you establish before closing the maintenance window?
 
+**Answer guidance:** For exercise 1, compare the simulation's proposed package set with the apply step and remember that repository metadata or phasing may change before execution; capture and re-review the final transaction. For exercise 2, the new kernel is only active after reboot, so confirm console/recovery access first, reboot normally, and compare `uname -r` with the intended installed kernel. For exercise 3, name the owner, customer interruption, restore test, notification drain, console path, package set, validation and escalation condition; if recovery fails, stop unrelated changes and preserve the current evidence. For exercise 4, verify the updated SSH daemon's service state and logs, then establish a fresh authenticated session using the intended key and policy before closing the old one; keep console recovery available until that test passes.
+
 Patching is complete only when the host runs the intended packages and the service's important behavior has been checked. Chapter 39 adds a second server and shows why two machines require shared state, traffic management and a more careful failure model.
 
 ## Sources and verification
 
-Ubuntu Server's official [APT and phased-updates](https://documentation.ubuntu.com/server/explanation/software/about-apt-upgrade-and-phased-updates/index.html) and [release-upgrade](https://documentation.ubuntu.com/server/how-to/software/upgrade-your-release/index.html) documentation, Red Hat's [RHEL 9 DNF guide](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/managing_software_with_the_dnf_tool/index) and Fedora's [system-upgrade guidance](https://docs.fedoraproject.org/en-US/quick-docs/upgrading-fedora-offline/) were inspected on 2026-10-02. Commands that apply package changes were not run. Package versions, currently supported releases and reboot requirements must be checked for the target host. Independent review is pending.
+Ubuntu Server's official [APT and phased-updates](https://documentation.ubuntu.com/server/explanation/software/about-apt-upgrade-and-phased-updates/index.html) and [release-upgrade](https://documentation.ubuntu.com/server/how-to/software/upgrade-your-release/index.html) documentation, Red Hat's [RHEL 9 DNF guide](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/managing_software_with_the_dnf_tool/index) and Fedora's [system-upgrade guidance](https://docs.fedoraproject.org/en-US/quick-docs/upgrading-fedora-offline/) were inspected on 2026-10-04. Commands that apply package changes were not run. Package versions, currently supported releases and reboot requirements must be checked for the target host.

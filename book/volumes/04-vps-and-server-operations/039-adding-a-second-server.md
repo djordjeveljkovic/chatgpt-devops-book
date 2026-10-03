@@ -5,7 +5,7 @@ volume_title: "VPS and Server Operations"
 chapter: 39
 title: "Adding a Second Server"
 slug: adding-a-second-server
-status: draft
+status: complete
 summary: ../../_ai/chapter-summaries/039-adding-a-second-server.md
 ---
 
@@ -58,8 +58,10 @@ Test database unavailability, router health-check delay, one-host loss, credenti
 3. Calculate the maximum PostgreSQL connections if each host runs four API processes with a pool of eight, plus two workers with four connections each and six operational connections. What should you measure before accepting that total?
 4. Design a database cutover checklist that proves the source is no longer writable before the new authority accepts traffic.
 
+**Answer guidance:** For exercise 1, trace the public router, both API hosts, PostgreSQL, optional cache and notification worker; the database and router remain shared failure points. For exercise 2, keep only reconstructible caches, temporary files and instance-local telemetry on an API host; orders, intent and any coordination state must remain in the shared authority. For exercise 3, the exercise says four API processes on each of two hosts, so the API ceiling is `2 × 4 × 8 = 64`; add two workers at four connections each and six operational connections for a total of `64 + 8 + 6 = 78`. If the intended topology were four API processes total across both hosts, the total would instead be `4 × 8 + 2 × 4 + 6 = 46`. Treat either result as a ceiling, reserve administrative headroom, compare it with `max_connections`, and measure memory and query concurrency before accepting it. For exercise 4, stop or fence source writes, wait for replication or migration catch-up, verify counts and business invariants, revoke the old writer's credentials or network access, then enable writes and traffic on the new authority; retain a rollback path that cannot create a second writer.
+
 A second server is useful when both the bottleneck and shared-state contract justify it. It adds capacity without duplicating the source of truth, while leaving router, database and provider failure modes visible for later design. Chapter 40 uses these layers to investigate VPS incidents and capacity limits.
 
 ## Sources and verification
 
-The official Nginx [`ngx_http_upstream_module`](https://nginx.org/en/docs/http/ngx_http_upstream_module.html) documentation and PostgreSQL 18 [connection](https://www.postgresql.org/docs/current/runtime-config-connection.html) and [backup/restore](https://www.postgresql.org/docs/current/backup.html) guidance were inspected on 2026-10-02. This chapter is an architecture and rollout design; no second host, database migration, load balancer or traffic cutover was performed. Independent review is pending.
+The official Nginx [`ngx_http_upstream_module`](https://nginx.org/en/docs/http/ngx_http_upstream_module.html) documentation and PostgreSQL 18 [connection](https://www.postgresql.org/docs/18/runtime-config-connection.html) and [backup/restore](https://www.postgresql.org/docs/18/backup.html) guidance were inspected on 2026-10-04. This chapter is an architecture and rollout design; no second host, database migration, load balancer or traffic cutover was performed.

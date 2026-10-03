@@ -5,7 +5,7 @@ volume_title: "VPS and Server Operations"
 chapter: 37
 title: "Server Backups and Restore"
 slug: server-backups-and-restore
-status: draft
+status: complete
 summary: ../../_ai/chapter-summaries/037-server-backups-and-restore.md
 ---
 
@@ -39,13 +39,15 @@ restic snapshots --latest 1
 restic backup \
   --host harbor-dispatchdesk \
   --tag host-config-and-releases \
+  --exclude /etc/dispatchdesk/restic-password \
   /etc/dispatchdesk \
   /etc/systemd/system/dispatchdesk.service \
-  /srv/dispatchdesk/releases
+  /srv/dispatchdesk/releases \
+  /var/backups/dispatchdesk
 restic check
 ```
 
-The repository address is fictional and contains no password. Set up the SFTP account and key through the provider's supported process, restrict it to the required repository, and verify host-key identity. The password file must be readable only by the intended backup identity and included in a separately protected recovery procedure; do not casually include it in its own repository. For a production scheduled job, provide repository variables through a restricted service environment and alert on nonzero exit, missed schedules and stale snapshots. The `snapshots` line is an inspection command; it is not a retention policy. Apply retention only after deciding what recovery dates must remain and testing the effect in the selected repository.
+The repository address is fictional and contains no password. Set up the SFTP account and key through the provider's supported process, restrict it to the required repository, and verify host-key identity. Here the password file sits below `/etc/dispatchdesk`, so the explicit `--exclude` is essential: Restic otherwise backs up every selected path recursively and would retain the repository credential inside its own repository, including after later password rotation. Inspect the snapshot's path listing and verify that `restic-password` is absent before considering the job valid; the content must not be printed or copied into logs. Keep a separate protected recovery copy of the password available through the credential-recovery procedure. For a production scheduled job, provide repository variables through a restricted service environment and alert on nonzero exit, missed schedules and stale snapshots. The `snapshots` line is an inspection command; it is not a retention policy. Apply retention only after deciding what recovery dates must remain and testing the effect in the selected repository.
 
 Back up active data using its consistency mechanism. PostgreSQL's logical dump, base backup and continuous-archive methods have different recovery properties. An ordinary file walk over a running database directory can capture files from different moments and is not a supported substitute. A filesystem or provider snapshot is valid only when the database and storage procedure make it consistent, including write-ahead logs. SQLite also has online backup mechanisms; copying only the main database file while it is being written can miss journal or WAL state. Either coordinate an application-safe snapshot, stop the writer in a controlled window, or use the database's supported backup tool.
 
@@ -60,12 +62,13 @@ export RESTIC_REPOSITORY='sftp:backup-user@backup.example.net:/srv/restic/dispat
 export RESTIC_PASSWORD_FILE='/etc/dispatchdesk/restic-password'
 
 restic snapshots --host harbor-dispatchdesk
+restic ls latest /etc/dispatchdesk
 restore_dir=$(mktemp -d)
 restic restore SNAPSHOT_ID --target "$restore_dir"
 find "$restore_dir" -maxdepth 5 -type f -print
 ```
 
-Replace `SNAPSHOT_ID` only after reviewing the snapshot listing. Restic recreates the paths recorded in the snapshot under the target directory. Inspect the resulting tree, compare expected configuration and release files, verify checksums where recorded, and confirm permissions and ownership requirements before using anything. Never point this isolated rehearsal at `/` or the live application's release path. The `find` command is an inventory, not proof of file correctness.
+Replace `SNAPSHOT_ID` only after reviewing the snapshot listing. `restic ls` shows recorded names; confirm that `/etc/dispatchdesk/restic-password` is absent and that the expected configuration, releases and staged PostgreSQL dump are present. Avoid saving a listing containing sensitive path names in a broadly visible ticket. Restic recreates the paths recorded in the snapshot under the target directory. Inspect the resulting tree, compare expected files, verify checksums where recorded, and confirm permissions and ownership requirements before using anything. Never point this isolated rehearsal at `/` or the live application's release path. The `find` command is an inventory, not proof of file correctness.
 
 For a full application recovery, provision a clean replacement host, apply its hardening baseline, restore configuration through a controlled secret path, deploy the verified artifact, restore PostgreSQL with the chosen procedure and verify the application against the restored data. Keep the replacement isolated from real customers and external notification providers until validation is complete. Synthetic checks should confirm that accepted orders and notification intents remain paired, readiness behaves correctly and the restored service can start. Then measure elapsed time and compare actual recovery point with RPO and RTO. Document every manual action that consumed time.
 
@@ -90,8 +93,10 @@ If a restore is slow, record data volume, backend throughput, host provisioning 
 3. Restore one non-sensitive sample directory from a disposable Restic repository into a temporary path. Verify file contents and capture the duration. Do not use a production repository for the exercise.
 4. Your database snapshot is recent but the decryption password is unavailable. How should the recovery plan detect and prevent this failure?
 
+**Answer guidance:** For exercise 1, distinguish reproducible code/configuration from secrets and PostgreSQL's authoritative orders and notification intents; give database-specific RPO/RTO and validate the paired records after restore. For exercise 2, a provider snapshot may help with host loss but may share account, region, deletion, encryption-key and crash-consistency failures; verify database consistency and preserve an independent off-account copy. For exercise 3, restore to a new temporary target, compare a known checksum and file list, record elapsed time, then remove the temporary data under a reviewed retention procedure; never target `/` or a live service path. For exercise 4, a scheduled recovery drill must retrieve the password from its independent protected copy and decrypt/read a test snapshot; alert on missing access before an incident and rotate/re-test both copies after credential changes.
+
 The test of a backup is a controlled restore with the application-level invariants checked. Continue to [Patching and Maintenance Windows](038-patching-and-maintenance-windows.md), where preserving a recoverable baseline makes routine change safer.
 
 ## Sources and verification
 
-Restic 0.19.1's official [backup](https://restic.readthedocs.io/en/stable/040_backup.html), [restore](https://restic.readthedocs.io/en/stable/050_restore.html), [repository check](https://restic.readthedocs.io/en/stable/045_working_with_repos.html) and [quickstart](https://restic.readthedocs.io/en/stable/010_introduction.html) documentation was inspected on 2026-10-02. PostgreSQL backup and SQLite online-backup boundaries are covered in Chapter 36 and its primary-source links. This chapter's shell samples passed syntax checks, but Restic, an SFTP backend, database restore and replacement-host recovery were not run. Independent review is pending.
+Restic 0.19.1's official [backup](https://restic.readthedocs.io/en/stable/040_backup.html), [restore](https://restic.readthedocs.io/en/stable/050_restore.html), [repository check](https://restic.readthedocs.io/en/stable/045_working_with_repos.html) and [quickstart](https://restic.readthedocs.io/en/stable/010_introduction.html) documentation, PostgreSQL's [backup/restore](https://www.postgresql.org/docs/18/backup.html) guidance, and SQLite's [online backup API](https://www.sqlite.org/backup.html) documentation were inspected on 2026-10-04. This chapter's shell samples passed syntax checks, but Restic, an SFTP backend, database restore and replacement-host recovery were not run.

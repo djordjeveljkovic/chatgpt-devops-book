@@ -5,7 +5,7 @@ volume_title: "VPS and Server Operations"
 chapter: 34
 title: "Deploying a Service with Systemd"
 slug: deploying-a-service-with-systemd
-status: draft
+status: complete
 summary: ../../_ai/chapter-summaries/034-deploying-a-service-with-systemd.md
 ---
 
@@ -70,6 +70,8 @@ WantedBy=multi-user.target
 
 The unit's filesystem settings reduce accidental access, but are not a substitute for correct ownership or a security review. `ProtectSystem=strict` makes most of the filesystem read-only from the service's view; `ReadWritePaths` grants a writable state path. Test such restrictions against the real application, including temporary files, certificate access, DNS, database sockets and runtime libraries. Sandboxing options vary by systemd version and kernel. Check `systemd-analyze security dispatchdesk.service` as an inspection aid, not as a proof or a score to optimize blindly.
 
+The environment file is read when the service starts. When a variable appears in both `Environment=` and `EnvironmentFile=`, the file value takes precedence even if its directive appears earlier in the unit. Keep deployment-controlled values such as `PORT` and `DISPATCHDESK_DATA_DIR` out of the file, or deliberately put them only in the file and validate the effective configuration through the application's own startup diagnostics. Do not print the full environment to a shared log: it may contain credentials.
+
 There is intentionally no `After=postgresql.service` dependency here. Starting after a unit does not by itself establish application readiness, and a separate database unit name varies by distribution and installation. The application needs bounded connection attempts and a clear readiness policy. If the service is deliberately coupled to a local mount or another local unit, encode the actual dependency and verify boot and recovery ordering. Do not make `/readyz` succeed merely because the process exists.
 
 ## Install, inspect and operate the unit
@@ -91,8 +93,8 @@ Check the local listener and application endpoints from the host:
 
 ```bash
 sudo ss -ltnp
-curl --fail --show-error http://127.0.0.1:8080/healthz
-curl --fail --show-error http://127.0.0.1:8080/readyz
+curl --connect-timeout 2 --max-time 5 --fail --show-error http://127.0.0.1:8080/healthz
+curl --connect-timeout 2 --max-time 5 --fail --show-error http://127.0.0.1:8080/readyz
 ```
 
 Confirm the listener is loopback-only for this deployment. `healthz` should indicate whether the process can respond; `readyz` should reflect whether it can safely accept routed orders under the documented dependency and drain policy. A 200 response from both endpoints does not prove an order is durable. Send a synthetic order only in a test environment, retrieve it in a separate request, and confirm its notification intent exists. Avoid using real customer data for a deployment smoke test.
@@ -126,8 +128,10 @@ A restart count that rises after each release suggests a bad artifact or incompa
 2. Design a graceful shutdown sequence for a request that has committed an order but has not yet returned its HTTP response. Which retry behavior makes the outcome safe?
 3. Propose a release rollback where the new binary expects a new database column. Guidance: identify whether the schema change is backward compatible and what evidence is needed before switching code back.
 
+**Answer guidance:** For exercise 1, trace `User=`, `Group=`, `ReadWritePaths=`, the journal unit name and the configured `Restart=`/`RestartSec=` values; distinguish restart-on-failure from readiness or dependency recovery. For exercise 2, stop accepting new requests, let the in-flight transaction reach a known commit or rollback result, stop new notification claims, and let the client retry with the same idempotency key so it can retrieve the original result. For exercise 3, require an expand-and-contract migration or a tested database restore, prove the prior binary can read the resulting schema, and verify readiness plus order/intent invariants before routing traffic back.
+
 The key questions are whether the unit has explicit inputs, whether runtime access is limited to required paths, whether readiness measures useful capability, and whether shutdown preserves durable work. Next, [Reverse Proxies on a VPS](035-reverse-proxies-on-a-vps.md) places a public HTTP boundary in front of this private service.
 
 ## Sources and verification
 
-The upstream [`systemd.service`](https://man7.org/linux/man-pages/man5/systemd.service.5.html), [`systemd.exec`](https://man7.org/linux/man-pages/man5/systemd.exec.5.html) and [`systemd-analyze`](https://man7.org/linux/man-pages/man1/systemd-analyze.1.html) manuals and the host's installed unit manuals were inspected on 2026-10-02. The example unit is a template and was syntax-reviewed, but not installed or started on a production host; the application interface names are assumptions from the DispatchDesk contract and must be matched to a concrete implementation. No database migration, customer request or provider notification was run. Independent review is pending.
+The upstream [`systemd.service`](https://man7.org/linux/man-pages/man5/systemd.service.5.html), [`systemd.exec`](https://man7.org/linux/man-pages/man5/systemd.exec.5.html) and [`systemd-analyze`](https://man7.org/linux/man-pages/man1/systemd-analyze.1.html) manuals and the host's installed unit manuals were inspected on 2026-10-04. The example unit is a template and was syntax-reviewed, but not installed or started on a production host; the application interface names are assumptions from the DispatchDesk contract and must be matched to a concrete implementation. No database migration, customer request or provider notification was run.

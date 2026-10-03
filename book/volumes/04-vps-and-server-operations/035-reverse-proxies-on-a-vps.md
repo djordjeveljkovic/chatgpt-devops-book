@@ -5,7 +5,7 @@ volume_title: "VPS and Server Operations"
 chapter: 35
 title: "Reverse Proxies on a VPS"
 slug: reverse-proxies-on-a-vps
-status: draft
+status: complete
 summary: ../../_ai/chapter-summaries/035-reverse-proxies-on-a-vps.md
 ---
 
@@ -19,7 +19,7 @@ This chapter uses Nginx on the Harbor VPS. It assumes Chapter 34's DispatchDesk 
 
 ## Route to the loopback upstream
 
-On distributions that package Nginx, install and operate it using that distribution's supported package and service procedure. Configuration paths vary. In the appropriate `http` context, define an upstream and a server block; the file below illustrates the directives, not a portable drop-in location. Replace `orders.example.test` with the hostname you control and enable the file using your distribution's documented include mechanism.
+On Ubuntu Server 24.04, install Nginx with `sudo apt update && sudo apt install nginx`; place the site in `/etc/nginx/sites-available/dispatchdesk` and enable it with a symlink under `/etc/nginx/sites-enabled/` after confirming the packaged `nginx.conf` includes that directory. On Fedora or RHEL 9, check the supported Nginx package or module stream for that exact release (`dnf module list nginx` on modular systems; on RHEL, confirm the required subscription and AppStream access), then install `nginx`; place a server fragment under `/etc/nginx/conf.d/` after checking `nginx -T` for the active include. Both families use the `nginx` systemd unit in these examples. Package availability and stream names can change, so follow the release-specific distribution guide. These commands change host packages and service state; do not run them on production without the Chapter 31 access, backup and maintenance plan. In the appropriate `http` context, define an upstream and a server block. Replace `orders.example.test` with the hostname you control.
 
 ```nginx
 upstream dispatchdesk_app {
@@ -46,7 +46,33 @@ server {
         client_max_body_size 64k;
     }
 }
+
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+    server_name _;
+    return 444;
+}
 ```
+
+Use exactly one `default_server` for each address and port. Ubuntu's packaged `sites-enabled/default` commonly already declares one, so do not enable this catch-all unchanged alongside it. Before enabling the site, inspect the loaded configuration with `sudo nginx -T` and the enabled-site symlinks with `ls -l /etc/nginx/sites-enabled/`. Either edit the existing default server to reject unmatched Host values, or preserve its configuration and disable only that known vendor-default symlink after confirming it is not serving another site; then enable the catch-all above. Keep the previous file and link target so rollback can restore the original site, remove the new catch-all, and re-run `nginx -t` before reload. On Fedora/RHEL, perform the same inventory under `conf.d`; merge the rejection into an existing default block instead of creating a duplicate listener.
+
+After placing and enabling the fragment, check the complete configuration and start the service if it is not already running:
+
+```bash
+sudo nginx -t
+sudo systemctl enable --now nginx
+sudo systemctl status --no-pager nginx
+```
+
+On an enforcing Fedora/RHEL host, SELinux can deny Nginx's connection to the loopback application even when the app is listening correctly. Check for a matching AVC denial and inspect the current boolean before changing policy:
+
+```bash
+sudo ausearch -m AVC -ts recent
+getsebool httpd_can_network_connect
+```
+
+If evidence confirms this denial and the security owner approves the broader permission, `sudo setsebool -P httpd_can_network_connect on` persists a policy allowing the web-server domain to initiate network connections. That permission is broader than this one upstream; a narrowly scoped local policy may be more appropriate on a hardened host. Preserve the prior value. If it was off and the approved change must be rolled back, use `sudo setsebool -P httpd_can_network_connect off`; do not disable SELinux. A 502 without a corresponding AVC can have other causes, so check Nginx's error log, the upstream address, service state and local request path too.
 
 An `upstream` group gives a stable name to the backend set; here it contains one local process. `proxy_pass` forwards requests. The headers preserve host and forwarding context, but the application must trust them only when they arrive from a known proxy. A client can send its own `X-Forwarded-For` header. If the application accepts that value blindly, callers can forge their apparent address. Configure trusted proxy hops explicitly in the application and any log pipeline.
 
@@ -94,8 +120,10 @@ If the client sees the wrong scheme or address in application logs, inspect ever
 3. An endpoint emits a heartbeat every 20 seconds and runs for three minutes. How would the read timeout behave? What separate overall deadline should the client and service enforce?
 4. Add a second fictional hostname without making either app listen publicly. Identify how an unmatched Host is handled.
 
+**Answer guidance:** Keep the application on loopback and allow the host firewall only the intended public proxy ports. Rebuild or trust `X-Forwarded-For` only from a known proxy hop; strip untrusted incoming values so callers cannot invent their source address. `proxy_read_timeout` measures the idle interval between upstream reads, not total elapsed request time, so a streaming response can run longer; apply an absolute deadline in the application or an outer request policy. For a 502, correlate Nginx's error log with the local socket, systemd journal and SELinux AVC records before changing policy; the enforcing-mode boolean is broader than a single backend and should be enabled only under approved policy. The default server block should reject unknown Host values instead of forwarding them to DispatchDesk, then be tested with both valid and unrelated names.
+
 Reliable proxying depends on an explicit upstream, trusted forwarding metadata and limits aligned with application behavior. The next chapter examines the database and cache on the same constrained host, where network isolation alone is not enough to manage resource contention.
 
 ## Sources and verification
 
-Nginx's official [`ngx_http_proxy_module`](https://nginx.org/en/docs/http/ngx_http_proxy_module.html) and [`ngx_http_upstream_module`](https://nginx.org/en/docs/http/ngx_http_upstream_module.html) documentation was inspected on 2026-10-02, including header inheritance, upstream keepalive, buffering and timeout semantics. The Nginx example is syntax-structured but was not installed or tested against a particular distribution package; certificate issuance, public firewall behavior and an actual DispatchDesk server were not exercised. Independent review is pending.
+Nginx's official [`ngx_http_proxy_module`](https://nginx.org/en/docs/http/ngx_http_proxy_module.html) and [`ngx_http_upstream_module`](https://nginx.org/en/docs/http/ngx_http_upstream_module.html) documentation and Red Hat's [RHEL 9 reverse-proxy procedure](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/deploying_web_servers_and_reverse_proxies/setting-up-and-configuring-nginx_deploying-web-servers-and-reverse-proxies) were inspected on 2026-10-04. Nginx is absent, so `nginx -t` and live proxy exchanges were not performed. No package was installed, certificate issued, public firewall opened or application started.

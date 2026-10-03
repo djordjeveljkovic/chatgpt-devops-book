@@ -5,7 +5,7 @@ volume_title: "VPS and Server Operations"
 chapter: 36
 title: "Database and Cache Operations on One Host"
 slug: database-and-cache-operations-on-one-host
-status: draft
+status: complete
 summary: ../../_ai/chapter-summaries/036-database-and-cache-operations-on-one-host.md
 ---
 
@@ -17,7 +17,18 @@ Putting the application, PostgreSQL and Redis on one VPS can reduce early infras
 
 For this Harbor scenario, PostgreSQL owns accepted orders and notification intent. The application must preserve the Chapter 10 invariant by committing both records together before acknowledging acceptance. Redis is an optional cache for reconstructible results. It is not the authority for orders, pending notifications, locks whose loss would break correctness, or retry state. If cache loss changes whether an order exists or whether work is delivered, it is no longer merely a cache and needs a separate contract.
 
-Install PostgreSQL and Redis from maintained distribution packages or another reviewed source. Package names, service units, configuration paths and supported versions vary. Before changing a live host, record installed versions, configuration source, active service state, data directory, backup status and available disk. Avoid copying a data directory between major PostgreSQL versions; use the supported upgrade or logical migration process for that version.
+Choose the database and cache packages for a named distribution release instead of assuming their names or service units match. On Ubuntu Server 24.04, the distribution packages are `postgresql`, `postgresql-client` and `redis-server`; install them only after reviewing the repository and maintenance plan. `postgresql.service` may report the cluster-manager unit rather than prove a particular cluster is ready. Use `pg_lsclusters` to identify the actual version/name/port and inspect its `postgresql@<version>-<cluster>.service` unit. On Fedora 42, PostgreSQL is packaged as `postgresql-server` and `postgresql`; the server requires the release's documented one-time initialization before its `postgresql.service` is useful, and Fedora's cache-compatible service may be Valkey. On RHEL 9, confirm entitlement and AppStream access, inspect `dnf module list postgresql` and `dnf module list redis`, and select a supported stream; releases may also provide Valkey. Never silently substitute Redis and Valkey for a compatibility promise without testing the client protocol and behavior. Check `dnf list postgresql-server redis valkey` and `systemctl list-unit-files 'postgresql*' 'redis*' 'valkey*'` on the actual host. Before changing a live host, record installed versions, configuration source, active service state, data directory, backup status and available disk. Avoid copying a data directory between major PostgreSQL versions; use the supported upgrade or logical migration process for that version.
+
+For example, the Ubuntu cluster inventory and service checks are:
+
+```bash
+pg_lsclusters
+systemctl list-units --type=service 'postgresql*'
+systemctl is-active postgresql@16-main.service
+sudo -u postgres pg_isready -h /var/run/postgresql -p 5432
+```
+
+The `16-main` name and port are examples; use the values reported by `pg_lsclusters`. For a modular RHEL installation, first inspect the selected cluster and unit files instead of assuming the Ubuntu cluster-unit naming convention. An active umbrella unit is not proof that the intended cluster accepts connections.
 
 ## Keep the data services private
 
@@ -59,7 +70,31 @@ Redis eviction is a policy decision, not a generic fix for memory pressure. For 
 
 PostgreSQL supports logical dumps, filesystem-level backups and continuous archiving for point-in-time recovery. They have different consistency and recovery properties. A copied live data directory is not automatically a valid backup. An off-host copy protects against VPS loss; a snapshot on the same provider account may still share deletion or account failure risks. Define recovery point and recovery time objectives, retention, encryption, access control and who tests restoration.
 
-A logical dump is useful for selected database objects and portable restoration, but its completion is not proof that a whole service can recover within its target. For a small application database, a controlled dump can be produced with the PostgreSQL client tools and sent to protected off-host storage. Keep credentials out of shell arguments and logs. Ensure backup commands fail visibly, record timestamps and database identity, alert on missed runs, and regularly restore into an isolated environment. The restored application must pass integrity and business-invariant checks, including order-to-intent pairing.
+A logical dump is useful for selected database objects and portable restoration, but its completion is not proof that a whole service can recover within its target. For a small application database, this bounded example stages one custom-format dump on a protected local directory before the file backup in Chapter 37 sends it off-host. It assumes a current PostgreSQL client, an existing `dispatchdesk` database, local peer authentication for the `postgres` OS account and an operator-approved schedule. `pg_dump` produces a transaction-consistent view while the database remains in use; it backs up one database, not cluster-wide roles or tablespaces. Its client major version must be at least the server major version, and restore compatibility still depends on the destination version and extensions.
+
+```bash
+sudo install -d -o postgres -g postgres -m 0700 /var/backups/dispatchdesk
+backup_id=$(date -u +%Y%m%dT%H%M%SZ)
+sudo -u postgres pg_dump --format=custom \
+  --file="/var/backups/dispatchdesk/dispatchdesk-${backup_id}.dump" \
+  dispatchdesk
+sudo -u postgres pg_restore --list \
+  "/var/backups/dispatchdesk/dispatchdesk-${backup_id}.dump" >/dev/null
+```
+
+The directory mode limits local access; after the dump succeeds, copy it into the protected Restic selection and verify that it appears in an off-host snapshot. Check the command status and stderr, filename timestamp and database identity; a zero exit code and archive listing catch different classes of failure. Do not pipe through a command that hides `pg_dump`'s status. Do not add production credentials to command-line flags. The sample relies on local peer authentication; remote connections need a separately protected credential method.
+
+To rehearse restoration, create a new empty database in an isolated PostgreSQL cluster or disposable host, then restore as a role permitted to create the objects:
+
+```bash
+sudo -u postgres createdb --template=template0 dispatchdesk_restore
+sudo -u postgres pg_restore --exit-on-error \
+  --no-owner --no-acl \
+  --dbname=dispatchdesk_restore \
+  /var/backups/dispatchdesk/dispatchdesk-REPLACE_WITH_REVIEWED_ID.dump
+```
+
+Use a separate target: restoring over the live database can replace or duplicate production state. Recreate reviewed extensions and grants through the deployment procedure, run schema and application checks, and submit a synthetic order only in the isolated test. Verify both retrieval and the application's actual order-to-notification-intent invariant. A logical dump does not by itself provide point-in-time recovery between dump intervals; use base backups plus continuous WAL archiving when the required RPO demands it.
 
 Redis persistence should match its role. If Redis contains only derived cache entries, the application should tolerate an empty cache after restart and safely repopulate it. Disabling persistence may be reasonable after verifying that assumption and accepting cold-cache load. If Redis holds authoritative or queued work, explicitly select and test persistence, replication and recovery behavior; an RDB snapshot or append-only file alone does not provide off-host backup or high availability. See [Chapter 163](../17-distributed-systems-and-data-operations/163-queues-and-backpressure.md) for durable queue ownership and delivery semantics.
 
@@ -81,7 +116,7 @@ df -h /var/lib /var/log
 free -h
 ```
 
-Some distributions use `redis` as the unit name; query the package's service definition rather than guessing. `pg_isready` reports connection acceptance, not successful application authentication or query health. The statistics query exposes database-level backend counts, subject to the observing role's permissions. `PING` confirms a Redis response but not correct ACLs, key availability or application behavior. `INFO memory` may expose operational details and should be handled according to access policy. Compare outputs over time and against the service's own latency and error metrics.
+Ubuntu's cluster manager, Fedora/RHEL package streams and Redis-compatible cache packages can use different unit names. Discover the actual service and selected PostgreSQL cluster instead of treating `systemctl is-active postgresql` as a data-health check. `pg_isready` reports connection acceptance, not successful application authentication or query health. The statistics query exposes database-level backend counts, subject to the observing role's permissions. For a view of other users' full activity, use a dedicated monitoring login and have a DBA grant PostgreSQL's predefined `pg_monitor` role only after reviewing its broader statistics/configuration visibility; do not grant it to the application role. A Redis-compatible `PING` confirms a response but not successful ACL authentication, key availability or application behavior. With ACLs enabled, use a named least-privilege user through a protected credential mechanism; distinguish `NOAUTH`/`WRONGPASS` from a successful `PONG`. `INFO memory` may expose operational details and should be handled according to access policy. Compare outputs over time and against the service's own latency and error metrics.
 
 For an end-to-end acceptance test in a staging environment, submit a synthetic order through the application, retrieve it using a new request, and verify its pending intent in PostgreSQL. Restarting a database or clearing a cache is not part of this read-only check. Any recovery rehearsal should use an isolated destination and a written plan.
 
@@ -98,8 +133,10 @@ If the application reports connection refused, check the actual socket or addres
 3. The Redis cache is empty after reboot and database latency rises. What does the application do? How will you protect the database from a thundering herd while rebuilding derived values?
 4. Determine whether the application uses TCP or Unix sockets for each service, then trace the least-privilege permissions that allow it.
 
+**Answer guidance:** For exercise 1, add API, worker, PostgreSQL, cache, kernel/page-cache and backup/recovery headroom; sum simultaneous connection pools and query-memory consumers, then use measured peak pressure and latency to decide whether to reduce concurrency, resize or separate a service. For exercise 2, choose logical dump/restore for a portable periodic copy when its tested RPO/RTO suffice; choose base backup plus WAL archiving for point-in-time recovery, and state which recovery points are lost if archiving stops. For exercise 3, use jittered bounded retries, request coalescing and a concurrency limit around cache regeneration so a cold cache cannot stampede PostgreSQL. For exercise 4, TCP requires the intended listener and narrow HBA rule; a Unix socket requires the correct socket directory and OS/group permissions. In either case, do not broaden access until logs and the service identity show which boundary denied it.
+
 On a small VPS, simplicity is useful only while resource ownership and recovery remain explicit. PostgreSQL owns accepted business records here; Redis is expendable because its contents can be rebuilt. As Harbor grows, measurements and recovery requirements decide whether that arrangement should change.
 
 ## Sources and verification
 
-The official PostgreSQL 18 [connection](https://www.postgresql.org/docs/current/runtime-config-connection.html), [resource consumption](https://www.postgresql.org/docs/current/runtime-config-resource.html) and [backup](https://www.postgresql.org/docs/current/backup.html) documentation and Redis [security](https://redis.io/docs/latest/operate/oss_and_stack/management/security/), [ACL](https://redis.io/docs/latest/operate/oss_and_stack/management/security/acl/) and [persistence](https://redis.io/docs/latest/operate/oss_and_stack/management/persistence/) documentation were inspected on 2026-10-02. The commands shown are read-only examples and were not run against a database host; distro service names and paths must be verified on the target image. No database, credential, firewall or cache was changed, and no backup restoration is claimed. Independent review is pending.
+The official PostgreSQL 18 [connection](https://www.postgresql.org/docs/18/runtime-config-connection.html), [resource consumption](https://www.postgresql.org/docs/18/runtime-config-resource.html), [logical dump](https://www.postgresql.org/docs/18/app-pgdump.html), [restore](https://www.postgresql.org/docs/18/app-pgrestore.html), [backup methods](https://www.postgresql.org/docs/18/backup.html) and [monitoring roles](https://www.postgresql.org/docs/18/predefined-roles.html) documentation; Canonical's [Ubuntu PostgreSQL guide](https://documentation.ubuntu.com/server/how-to/databases/install-postgresql/); Red Hat's [RHEL 9 PostgreSQL](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_and_using_database_servers/using-postgresql_configuring-and-using-database-servers), [RHEL module installation](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/managing_software_with_the_dnf_tool/assembly_installing-rhel-9-content_managing-software-with-the-dnf-tool) and [Redis stream release notes](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/9.3_release_notes/new-features) documentation; Fedora's [Valkey package metadata](https://packages.fedoraproject.org/pkgs/valkey/valkey/fedora-42.html); and Redis [security](https://redis.io/docs/latest/operate/oss_and_stack/management/security/), [ACL](https://redis.io/docs/latest/operate/oss_and_stack/management/security/acl/) and [persistence](https://redis.io/docs/latest/operate/oss_and_stack/management/persistence/) documentation were inspected on 2026-10-04. These links identify named releases and examples, not a guarantee that every VPS image enables the same repository or service unit. The commands were syntax-checked but not run against a database host; distro service names and paths must be verified on the target image. No database, credential, firewall or cache was changed, and no restore rehearsal is claimed.

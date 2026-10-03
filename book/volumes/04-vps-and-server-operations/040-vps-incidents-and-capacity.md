@@ -5,7 +5,7 @@ volume_title: "VPS and Server Operations"
 chapter: 40
 title: "VPS Incidents and Capacity"
 slug: vps-incidents-and-capacity
-status: draft
+status: complete
 summary: ../../_ai/chapter-summaries/040-vps-incidents-and-capacity.md
 ---
 
@@ -45,6 +45,8 @@ cat /proc/pressure/io
 
 The first `vmstat` report summarizes activity since boot; later reports describe each interval. `iostat` similarly presents an initial since-boot view before interval reports on common versions. Check tool availability and local manual pages. High device utilization alone does not prove the disk is saturated for this workload; correlate throughput, latency, queueing and application waits. Pressure Stall Information (PSI), when available, reports time tasks spend stalled on CPU, memory or I/O. Trends and interval changes matter more than a single sample.
 
+On Ubuntu, `vmstat` is supplied by `procps` and `iostat` by `sysstat`; on Fedora/RHEL the corresponding packages are `procps-ng` and `sysstat`. Confirm availability with the package manager for the target release before the incident. For PostgreSQL's complete activity details across other users' sessions, use an approved monitoring login with membership in the predefined `pg_monitor` role (which includes `pg_read_all_stats`); this role can see privileged monitoring information and must not be given to the application. A database owner or administrator should grant it only after reviewing local policy. Without that role, query text and some activity fields for other users may appear null, while session existence and general attributes remain visible.
+
 Inspect application logs for the same period and compare request rate, error rate, latency percentiles, readiness transitions, database pool wait and notification backlog. For a PostgreSQL system, a bounded view of active sessions and wait events can help distinguish query execution from lock, I/O or client waits:
 
 ```sql
@@ -66,6 +68,14 @@ If Nginx returns upstream errors, inspect its error log, listener address and ap
 If a filesystem is nearly full, identify which mount and directory are growing. Logs, database WAL, temporary files and backup staging have different owners and cleanup procedures. Do not remove PostgreSQL WAL, database files, unknown files in `/var/lib` or the only recovery copy. Rotate or truncate logs only through the owning service's supported procedure after confirming where data is stored. If bytes are available but inodes are exhausted, find the source of many small files and fix its lifecycle.
 
 If load average is high but CPU is mostly idle, tasks may be blocked on I/O or another uninterruptible wait. If CPU is saturated but request rate is unchanged, compare process-level CPU, background jobs, query plans and recent code changes. If the provider reports low host utilization while customers see errors, examine the application pool and database constraints; virtual machine averages can hide a short saturation period. Correlate independent signals before assigning a cause.
+
+## Distinguish provider limits from shared-host contention
+
+A virtual machine can be healthy inside the guest and still hit a limit enforced by its provider. Depending on the product, inspect documented CPU-credit balance or throttling, storage burst balance and IOPS caps, network throughput limits, API request quotas and scheduled maintenance events. Compare the provider's time-series metrics and event history with guest observations for the same interval. Do not assume a particular threshold or included allowance; instance families and plans differ, and limits can change.
+
+Shared-host contention is harder to prove from inside the guest. `vmstat` reports CPU steal time as `st`; `mpstat` from `sysstat` can show `%steal`. Sustained steal time that rises with application latency, while the guest is not CPU-saturated and the provider reports host contention, is evidence to investigate. A single sample, high load average or one slow request does not identify a noisy neighbor. Correlate interval samples, workload changes, provider telemetry and service impact. The hypervisor controls what the guest can observe, so some contention remains hidden.
+
+When evidence points to a provider cap, reduce the triggering workload or move to a plan whose documented limits fit the measured peak; resizing may require a restart or host migration and must follow the provider's recovery procedure. When sustained steal or unexplained storage/network contention persists, preserve timestamps, instance/region identity, relevant guest metrics and provider telemetry, then open a support case through the authorized account. Avoid sending customer data or secrets. If the provider cannot resolve a demonstrated constraint within the service's objective, compare migration to a different host class or provider using tested backup, restore and cutover plans. Do not attribute every resource incident to provider contention before ruling out the application's own demand.
 
 ## Stabilize before optimizing
 
@@ -95,8 +105,10 @@ After stabilization, build a timeline from alerts, requests, deployments and ope
 4. Write a short customer update that distinguishes known impact, unknown data risk, mitigation and next update time.
 5. Estimate when a filesystem will reach its recovery reserve from a month of observed growth. List assumptions that make the estimate uncertain.
 
+**Answer guidance:** For exercise 1, a successful loopback health check proves the local app path only; inspect Nginx error logs, upstream address, readiness dependencies, provider ingress and host policy. For exercise 2, inode exhaustion points to many small files such as temporary or rotated files; identify the owner and supported lifecycle, and never remove unknown database/WAL or the only backup. For exercise 3, inspect wait events, transaction age and blocking relationships with a suitably privileged monitoring role, then ask the transaction owner before canceling or terminating work. For exercise 4, state the verified impact and data status, current mitigation owner, what remains unknown, and the next update time; do not invent an ETA. For exercise 5, divide free capacity above the protected reserve by measured net growth, then state that steady growth, WAL/index/temp files, backup staging, cleanup and workload changes can invalidate the estimate.
+
 Good incident response protects customer data while reducing impact, and good capacity planning turns repeated pressure into an intentional architecture decision. Harbor can remain on a VPS while its measured workload and recovery contract fit; the next volume compares container workflows that can support this service on several hosting paths.
 
 ## Sources and verification
 
-The Linux kernel's [PSI documentation](https://docs.kernel.org/accounting/psi.html), upstream `vmstat` and `iostat` manuals, and PostgreSQL 18 [monitoring](https://www.postgresql.org/docs/current/monitoring.html) and [statistics](https://www.postgresql.org/docs/current/monitoring-stats.html) documentation were inspected on 2026-10-02. The SQL query is read-only and was syntax-reviewed but not run against a database. Operational commands are observational; no VPS incident or resource change was performed. Independent review is pending.
+The Linux kernel's [PSI documentation](https://docs.kernel.org/accounting/psi.html), upstream [`vmstat`](https://man7.org/linux/man-pages/man8/vmstat.8.html) and [`iostat`](https://github.com/sysstat/sysstat/blob/master/man/iostat.in) manuals, PostgreSQL 18 [monitoring](https://www.postgresql.org/docs/18/monitoring.html), [statistics visibility](https://www.postgresql.org/docs/18/monitoring-stats.html) and [monitoring roles](https://www.postgresql.org/docs/18/predefined-roles.html) documentation, and AWS's [burstable performance credit](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-credits-baseline-concepts.html) example were inspected on 2026-10-04. Ubuntu package indexes list [`procps`](https://packages.ubuntu.com/noble/procps) and [`sysstat`](https://packages.ubuntu.com/noble/sysstat); Fedora metadata lists [`procps-ng`](https://packages.fedoraproject.org/pkgs/procps-ng/procps-ng/) and [`sysstat`](https://packages.fedoraproject.org/pkgs/sysstat/sysstat/); Red Hat documents the RHEL 9 AppStream requirement for `sysstat` in its [performance monitoring guidance](https://access.redhat.com/solutions/276533). The SQL query is read-only and was syntax-reviewed but not run against a database. Operational commands are observational; no VPS incident, provider limit or resource change was tested.
