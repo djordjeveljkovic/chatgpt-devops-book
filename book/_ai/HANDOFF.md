@@ -6,11 +6,11 @@ Finish the original 220-chapter DevOps manuscript, independently review every ch
 
 ## Current phase
 
-Writing and rolling independent review are active. As of 2026-10-01 11:43 UTC, 41 chapters are independently approved and complete, with further drafts in progress. Counts are snapshots; read actual chapter statuses and `PROGRESS.md` before resuming.
+The user's requested 220-chapter manuscript is still unfinished. Chapters 021–055 are substantive drafts except chapter 053, which is independently approved and promoted. Reviews found material changes required in chapters 050–052; those findings still need resolution. Chapter 054 was revised after review and is undergoing final re-review. Chapter 055 needs independent review. The full checker last passed before the latest chapter 054 edits; rerun it before committing. The only new application build evidence is a local Go test/static build; Docker builds and network labs were not run. Read `PROGRESS.md` for authoritative counts.
 
 ## Exact next action
 
-Continue the assigned writer batches; collect completed drafts by volume; independently review them; resolve findings; refresh progress. Writer foundations owns001–070; delivery071–140; operations141–190 and201–210; coordinator191–200 and211–220. Reviewer cycle: delivery reviews001–070; operations071–140; foundations141–220. Coordinator references211/214 are complete; all other references are substantive drafts awaiting independent review. Coordinator now writes191–200 architecture volume. If no agents remain active, recover their exact summaries and assign the earliest unfinished chapters with explicit exclusive ownership.
+Commit and push the accumulated manuscript work now, as the user explicitly requested. Then continue writing from chapter 056. Preserve the full 220-chapter scope. Resolve review findings before approval; at each completed volume, independently review and promote only validated bodies whose review hashes match, then commit and push that volume. Never mark self-reviewed prose independently approved. The authoring guide records the user's authorization for writing and proofreading agents; reviewers own separate review records and do not edit chapters.
 
 ## Important decisions
 

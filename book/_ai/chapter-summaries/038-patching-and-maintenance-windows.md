@@ -1,21 +1,21 @@
 # Chapter 38 continuation
 
-Status: planned
+Status: draft; independent review pending.
 
 ## Written material
-None.
-
-## Exact next section
-Why this matters
+Maintenance as production change; pre-change record; Ubuntu apt and Fedora/RHEL dnf review commands; staged package update; reboot/service restart and validation; automation boundaries; exercises.
 
 ## Concepts and terminology
-None introduced yet.
+Routine package updates vs release upgrade, transaction review, phased updates, maintenance window, process vs kernel update, post-change validation, rollback limits.
 
 ## Examples and cross-references
-None written yet.
+Illustrative Ubuntu and DNF commands are explicitly not executed. Harbor single-host outage includes PostgreSQL data and DispatchDesk drain. Links to chapters 31, 32, 34, 36, 37 and 40.
 
 ## Open threads
-Write and independently review the chapter.
+Package/release lifecycle and reboot behavior change; verify exact target release and repositories. Do not treat apt/dnf simulation as guarantee. Independent review pending.
+
+## Exact next section
+None. Begin Chapter 40, then request independent review before claiming completion.
 
 ## Verification
-Not performed.
+Book syntax/links checks pending for the final volume batch. Ubuntu APT/phased-update and release-upgrade docs, RHEL 9 DNF guide, and Fedora upgrade docs inspected 2026-10-02. No package transaction performed.

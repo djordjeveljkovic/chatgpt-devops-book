@@ -1,21 +1,21 @@
 # Chapter 41 continuation
 
-Status: planned
+Status: draft; independent review pending.
 
 ## Written material
-None.
-
-## Exact next section
-Why this matters
+Container process model; OCI/runtime/engine/orchestrator layers; runtime assembly and PID 1 lifecycle; isolation limitations; process namespace inspection; DispatchDesk consequences and exercises.
 
 ## Concepts and terminology
-None introduced yet.
+Container vs VM, OCI image/runtime specs, foreground process, writable layer, PID 1, namespace, cgroup, mount, capability, published port, durable external state.
 
 ## Examples and cross-references
-None written yet.
+Read-only /proc namespace and cgroup inspection of current shell. Later inspect known test container. DispatchDesk state remains durable/external. Links chapters 10, 42–43, 45, 48, 55 and 56.
 
 ## Open threads
-Write and independently review the chapter.
+No container runtime used or runtime isolation claim tested. Runtime and host configurations differ. Independent review pending.
+
+## Exact next section
+None. Begin Chapter 42, then request independent review before claiming completion.
 
 ## Verification
-Not performed.
+Shell syntax and local links checked. OCI Runtime Spec and Linux config pages inspected 2026-10-02.

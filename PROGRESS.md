@@ -1,12 +1,12 @@
 # Book progress and exact continuation
 
-Last refreshed: 2026-10-01 11:49 UTC.
+Last refreshed: 2026-10-03 20:47 UTC.
 
 ## Actual state
 
-Chapters: 220. Approximate written words: 151,733.
+Chapters: 220. Approximate written words: 212,247.
 
-complete: 58, draft: 23, drafting: 1, planned: 138.
+complete: 61, draft: 56, drafting: 1, planned: 102.
 
 Statuses reflect files, not promises. `complete` requires independent approval and validation. References and code contribute to approximate word counts; counts do not measure quality.
 
@@ -16,7 +16,7 @@ Read [AI_AUTHORING_GUIDE.md](AI_AUTHORING_GUIDE.md), [coordinator handoff](book/
 
 ## Earliest unfinished dependency
 
-Chapter 021: [Packets, Addresses and Routing](book/volumes/03-networking-and-traffic/021-packets-addresses-and-routing.md). Exact next step: Why this matters.
+Chapter 021: [Packets, Addresses and Routing](book/volumes/03-networking-and-traffic/021-packets-addresses-and-routing.md). Exact next step: Independent technical and editorial review..
 
 ## Chapter ledger
 
@@ -42,41 +42,41 @@ Chapter 021: [Packets, Addresses and Routing](book/volumes/03-networking-and-tra
 | 018 | 2 | [Shell Automation That Survives Failure](book/volumes/02-linux-and-automation/018-shell-automation-that-survives-failure.md) | complete | approved | 1,881 | [Resume](book/_ai/chapter-summaries/018-shell-automation-that-survives-failure.md) |
 | 019 | 2 | [Git for Operational Changes](book/volumes/02-linux-and-automation/019-git-for-operational-changes.md) | complete | approved | 1,842 | [Resume](book/_ai/chapter-summaries/019-git-for-operational-changes.md) |
 | 020 | 2 | [Scheduling and Resource Limits](book/volumes/02-linux-and-automation/020-scheduling-and-resource-limits.md) | complete | approved | 1,870 | [Resume](book/_ai/chapter-summaries/020-scheduling-and-resource-limits.md) |
-| 021 | 3 | [Packets, Addresses and Routing](book/volumes/03-networking-and-traffic/021-packets-addresses-and-routing.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/021-packets-addresses-and-routing.md) |
-| 022 | 3 | [TCP, UDP and Connections](book/volumes/03-networking-and-traffic/022-tcp-udp-and-connections.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/022-tcp-udp-and-connections.md) |
-| 023 | 3 | [DNS from Resolver to Authority](book/volumes/03-networking-and-traffic/023-dns-from-resolver-to-authority.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/023-dns-from-resolver-to-authority.md) |
-| 024 | 3 | [HTTP and API Traffic](book/volumes/03-networking-and-traffic/024-http-and-api-traffic.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/024-http-and-api-traffic.md) |
-| 025 | 3 | [TLS, Certificates and Trust](book/volumes/03-networking-and-traffic/025-tls-certificates-and-trust.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/025-tls-certificates-and-trust.md) |
-| 026 | 3 | [SSH and Remote Administration](book/volumes/03-networking-and-traffic/026-ssh-and-remote-administration.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/026-ssh-and-remote-administration.md) |
-| 027 | 3 | [Firewalls and Network Policy](book/volumes/03-networking-and-traffic/027-firewalls-and-network-policy.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/027-firewalls-and-network-policy.md) |
-| 028 | 3 | [NAT, Proxies and Connection Tracking](book/volumes/03-networking-and-traffic/028-nat-proxies-and-connection-tracking.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/028-nat-proxies-and-connection-tracking.md) |
-| 029 | 3 | [Load Balancers and Traffic Distribution](book/volumes/03-networking-and-traffic/029-load-balancers-and-traffic-distribution.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/029-load-balancers-and-traffic-distribution.md) |
-| 030 | 3 | [Network Troubleshooting in Layers](book/volumes/03-networking-and-traffic/030-network-troubleshooting-in-layers.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/030-network-troubleshooting-in-layers.md) |
-| 031 | 4 | [Choosing and Provisioning a VPS](book/volumes/04-vps-and-server-operations/031-choosing-and-provisioning-a-vps.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/031-choosing-and-provisioning-a-vps.md) |
-| 032 | 4 | [Host Hardening and Access](book/volumes/04-vps-and-server-operations/032-host-hardening-and-access.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/032-host-hardening-and-access.md) |
-| 033 | 4 | [Disks, Filesystems and Mounts](book/volumes/04-vps-and-server-operations/033-disks-filesystems-and-mounts.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/033-disks-filesystems-and-mounts.md) |
-| 034 | 4 | [Deploying a Service with Systemd](book/volumes/04-vps-and-server-operations/034-deploying-a-service-with-systemd.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/034-deploying-a-service-with-systemd.md) |
-| 035 | 4 | [Reverse Proxies on a VPS](book/volumes/04-vps-and-server-operations/035-reverse-proxies-on-a-vps.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/035-reverse-proxies-on-a-vps.md) |
-| 036 | 4 | [Database and Cache Operations on One Host](book/volumes/04-vps-and-server-operations/036-database-and-cache-operations-on-one-host.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/036-database-and-cache-operations-on-one-host.md) |
-| 037 | 4 | [Server Backups and Restore](book/volumes/04-vps-and-server-operations/037-server-backups-and-restore.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/037-server-backups-and-restore.md) |
-| 038 | 4 | [Patching and Maintenance Windows](book/volumes/04-vps-and-server-operations/038-patching-and-maintenance-windows.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/038-patching-and-maintenance-windows.md) |
-| 039 | 4 | [Adding a Second Server](book/volumes/04-vps-and-server-operations/039-adding-a-second-server.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/039-adding-a-second-server.md) |
-| 040 | 4 | [VPS Incidents and Capacity](book/volumes/04-vps-and-server-operations/040-vps-incidents-and-capacity.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/040-vps-incidents-and-capacity.md) |
-| 041 | 5 | [Containers Are Isolated Processes](book/volumes/05-container-internals-and-oci/041-containers-are-isolated-processes.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/041-containers-are-isolated-processes.md) |
-| 042 | 5 | [Linux Namespaces](book/volumes/05-container-internals-and-oci/042-linux-namespaces.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/042-linux-namespaces.md) |
-| 043 | 5 | [Cgroups and Resource Accounting](book/volumes/05-container-internals-and-oci/043-cgroups-and-resource-accounting.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/043-cgroups-and-resource-accounting.md) |
-| 044 | 5 | [Images, Layers and Content Identity](book/volumes/05-container-internals-and-oci/044-images-layers-and-content-identity.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/044-images-layers-and-content-identity.md) |
-| 045 | 5 | [Container Filesystems and Storage](book/volumes/05-container-internals-and-oci/045-container-filesystems-and-storage.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/045-container-filesystems-and-storage.md) |
-| 046 | 5 | [OCI Runtimes and Container Engines](book/volumes/05-container-internals-and-oci/046-oci-runtimes-and-container-engines.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/046-oci-runtimes-and-container-engines.md) |
-| 047 | 5 | [Rootless Containers and User Mapping](book/volumes/05-container-internals-and-oci/047-rootless-containers-and-user-mapping.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/047-rootless-containers-and-user-mapping.md) |
-| 048 | 5 | [Capabilities and Security Boundaries](book/volumes/05-container-internals-and-oci/048-capabilities-and-security-boundaries.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/048-capabilities-and-security-boundaries.md) |
-| 049 | 5 | [Registries and Image Distribution](book/volumes/05-container-internals-and-oci/049-registries-and-image-distribution.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/049-registries-and-image-distribution.md) |
-| 050 | 5 | [The Container Contract](book/volumes/05-container-internals-and-oci/050-the-container-contract.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/050-the-container-contract.md) |
-| 051 | 6 | [Installing and Inspecting Docker](book/volumes/06-docker-in-practice/051-installing-and-inspecting-docker.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/051-installing-and-inspecting-docker.md) |
-| 052 | 6 | [Running and Managing Containers](book/volumes/06-docker-in-practice/052-running-and-managing-containers.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/052-running-and-managing-containers.md) |
-| 053 | 6 | [Dockerfiles and Build Contexts](book/volumes/06-docker-in-practice/053-dockerfiles-and-build-contexts.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/053-dockerfiles-and-build-contexts.md) |
-| 054 | 6 | [BuildKit, Caching and Multi-stage Builds](book/volumes/06-docker-in-practice/054-buildkit-caching-and-multi-stage-builds.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/054-buildkit-caching-and-multi-stage-builds.md) |
-| 055 | 6 | [Docker Networking](book/volumes/06-docker-in-practice/055-docker-networking.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/055-docker-networking.md) |
+| 021 | 3 | [Packets, Addresses and Routing](book/volumes/03-networking-and-traffic/021-packets-addresses-and-routing.md) | draft | pending | 2,140 | [Resume](book/_ai/chapter-summaries/021-packets-addresses-and-routing.md) |
+| 022 | 3 | [TCP, UDP and Connections](book/volumes/03-networking-and-traffic/022-tcp-udp-and-connections.md) | draft | pending | 2,096 | [Resume](book/_ai/chapter-summaries/022-tcp-udp-and-connections.md) |
+| 023 | 3 | [DNS from Resolver to Authority](book/volumes/03-networking-and-traffic/023-dns-from-resolver-to-authority.md) | draft | pending | 2,213 | [Resume](book/_ai/chapter-summaries/023-dns-from-resolver-to-authority.md) |
+| 024 | 3 | [HTTP and API Traffic](book/volumes/03-networking-and-traffic/024-http-and-api-traffic.md) | draft | pending | 2,087 | [Resume](book/_ai/chapter-summaries/024-http-and-api-traffic.md) |
+| 025 | 3 | [TLS, Certificates and Trust](book/volumes/03-networking-and-traffic/025-tls-certificates-and-trust.md) | draft | pending | 1,582 | [Resume](book/_ai/chapter-summaries/025-tls-certificates-and-trust.md) |
+| 026 | 3 | [SSH and Remote Administration](book/volumes/03-networking-and-traffic/026-ssh-and-remote-administration.md) | draft | pending | 1,700 | [Resume](book/_ai/chapter-summaries/026-ssh-and-remote-administration.md) |
+| 027 | 3 | [Firewalls and Network Policy](book/volumes/03-networking-and-traffic/027-firewalls-and-network-policy.md) | draft | pending | 1,505 | [Resume](book/_ai/chapter-summaries/027-firewalls-and-network-policy.md) |
+| 028 | 3 | [NAT, Proxies and Connection Tracking](book/volumes/03-networking-and-traffic/028-nat-proxies-and-connection-tracking.md) | draft | pending | 1,482 | [Resume](book/_ai/chapter-summaries/028-nat-proxies-and-connection-tracking.md) |
+| 029 | 3 | [Load Balancers and Traffic Distribution](book/volumes/03-networking-and-traffic/029-load-balancers-and-traffic-distribution.md) | draft | pending | 1,538 | [Resume](book/_ai/chapter-summaries/029-load-balancers-and-traffic-distribution.md) |
+| 030 | 3 | [Network Troubleshooting in Layers](book/volumes/03-networking-and-traffic/030-network-troubleshooting-in-layers.md) | draft | pending | 1,835 | [Resume](book/_ai/chapter-summaries/030-network-troubleshooting-in-layers.md) |
+| 031 | 4 | [Choosing and Provisioning a VPS](book/volumes/04-vps-and-server-operations/031-choosing-and-provisioning-a-vps.md) | draft | pending | 1,900 | [Resume](book/_ai/chapter-summaries/031-choosing-and-provisioning-a-vps.md) |
+| 032 | 4 | [Host Hardening and Access](book/volumes/04-vps-and-server-operations/032-host-hardening-and-access.md) | draft | pending | 1,680 | [Resume](book/_ai/chapter-summaries/032-host-hardening-and-access.md) |
+| 033 | 4 | [Disks, Filesystems and Mounts](book/volumes/04-vps-and-server-operations/033-disks-filesystems-and-mounts.md) | draft | pending | 2,000 | [Resume](book/_ai/chapter-summaries/033-disks-filesystems-and-mounts.md) |
+| 034 | 4 | [Deploying a Service with Systemd](book/volumes/04-vps-and-server-operations/034-deploying-a-service-with-systemd.md) | draft | pending | 1,802 | [Resume](book/_ai/chapter-summaries/034-deploying-a-service-with-systemd.md) |
+| 035 | 4 | [Reverse Proxies on a VPS](book/volumes/04-vps-and-server-operations/035-reverse-proxies-on-a-vps.md) | draft | pending | 1,368 | [Resume](book/_ai/chapter-summaries/035-reverse-proxies-on-a-vps.md) |
+| 036 | 4 | [Database and Cache Operations on One Host](book/volumes/04-vps-and-server-operations/036-database-and-cache-operations-on-one-host.md) | draft | pending | 1,917 | [Resume](book/_ai/chapter-summaries/036-database-and-cache-operations-on-one-host.md) |
+| 037 | 4 | [Server Backups and Restore](book/volumes/04-vps-and-server-operations/037-server-backups-and-restore.md) | draft | pending | 1,599 | [Resume](book/_ai/chapter-summaries/037-server-backups-and-restore.md) |
+| 038 | 4 | [Patching and Maintenance Windows](book/volumes/04-vps-and-server-operations/038-patching-and-maintenance-windows.md) | draft | pending | 1,370 | [Resume](book/_ai/chapter-summaries/038-patching-and-maintenance-windows.md) |
+| 039 | 4 | [Adding a Second Server](book/volumes/04-vps-and-server-operations/039-adding-a-second-server.md) | draft | pending | 1,367 | [Resume](book/_ai/chapter-summaries/039-adding-a-second-server.md) |
+| 040 | 4 | [VPS Incidents and Capacity](book/volumes/04-vps-and-server-operations/040-vps-incidents-and-capacity.md) | draft | pending | 1,661 | [Resume](book/_ai/chapter-summaries/040-vps-incidents-and-capacity.md) |
+| 041 | 5 | [Containers Are Isolated Processes](book/volumes/05-container-internals-and-oci/041-containers-are-isolated-processes.md) | draft | pending | 1,350 | [Resume](book/_ai/chapter-summaries/041-containers-are-isolated-processes.md) |
+| 042 | 5 | [Linux Namespaces](book/volumes/05-container-internals-and-oci/042-linux-namespaces.md) | draft | pending | 1,150 | [Resume](book/_ai/chapter-summaries/042-linux-namespaces.md) |
+| 043 | 5 | [Cgroups and Resource Accounting](book/volumes/05-container-internals-and-oci/043-cgroups-and-resource-accounting.md) | draft | pending | 1,456 | [Resume](book/_ai/chapter-summaries/043-cgroups-and-resource-accounting.md) |
+| 044 | 5 | [Images, Layers and Content Identity](book/volumes/05-container-internals-and-oci/044-images-layers-and-content-identity.md) | draft | pending | 1,198 | [Resume](book/_ai/chapter-summaries/044-images-layers-and-content-identity.md) |
+| 045 | 5 | [Container Filesystems and Storage](book/volumes/05-container-internals-and-oci/045-container-filesystems-and-storage.md) | draft | pending | 1,343 | [Resume](book/_ai/chapter-summaries/045-container-filesystems-and-storage.md) |
+| 046 | 5 | [OCI Runtimes and Container Engines](book/volumes/05-container-internals-and-oci/046-oci-runtimes-and-container-engines.md) | draft | pending | 1,242 | [Resume](book/_ai/chapter-summaries/046-oci-runtimes-and-container-engines.md) |
+| 047 | 5 | [Rootless Containers and User Mapping](book/volumes/05-container-internals-and-oci/047-rootless-containers-and-user-mapping.md) | draft | pending | 1,287 | [Resume](book/_ai/chapter-summaries/047-rootless-containers-and-user-mapping.md) |
+| 048 | 5 | [Capabilities and Security Boundaries](book/volumes/05-container-internals-and-oci/048-capabilities-and-security-boundaries.md) | draft | pending | 1,286 | [Resume](book/_ai/chapter-summaries/048-capabilities-and-security-boundaries.md) |
+| 049 | 5 | [Registries and Image Distribution](book/volumes/05-container-internals-and-oci/049-registries-and-image-distribution.md) | draft | pending | 1,354 | [Resume](book/_ai/chapter-summaries/049-registries-and-image-distribution.md) |
+| 050 | 5 | [The Container Contract](book/volumes/05-container-internals-and-oci/050-the-container-contract.md) | draft | pending | 1,645 | [Resume](book/_ai/chapter-summaries/050-the-container-contract.md) |
+| 051 | 6 | [Installing and Inspecting Docker](book/volumes/06-docker-in-practice/051-installing-and-inspecting-docker.md) | draft | pending | 1,372 | [Resume](book/_ai/chapter-summaries/051-installing-and-inspecting-docker.md) |
+| 052 | 6 | [Running and Managing Containers](book/volumes/06-docker-in-practice/052-running-and-managing-containers.md) | draft | pending | 1,428 | [Resume](book/_ai/chapter-summaries/052-running-and-managing-containers.md) |
+| 053 | 6 | [Dockerfiles and Build Contexts](book/volumes/06-docker-in-practice/053-dockerfiles-and-build-contexts.md) | complete | approved | 1,443 | [Resume](book/_ai/chapter-summaries/053-dockerfiles-and-build-contexts.md) |
+| 054 | 6 | [BuildKit, Caching and Multi-stage Builds](book/volumes/06-docker-in-practice/054-buildkit-caching-and-multi-stage-builds.md) | complete | approved | 2,866 | [Resume](book/_ai/chapter-summaries/054-buildkit-caching-and-multi-stage-builds.md) |
+| 055 | 6 | [Docker Networking](book/volumes/06-docker-in-practice/055-docker-networking.md) | draft | pending | 1,510 | [Resume](book/_ai/chapter-summaries/055-docker-networking.md) |
 | 056 | 6 | [Docker Volumes and Persistent Data](book/volumes/06-docker-in-practice/056-docker-volumes-and-persistent-data.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/056-docker-volumes-and-persistent-data.md) |
 | 057 | 6 | [Docker Compose for Multi-service Applications](book/volumes/06-docker-in-practice/057-docker-compose-for-multi-service-applications.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/057-docker-compose-for-multi-service-applications.md) |
 | 058 | 6 | [Inspecting and Debugging Docker](book/volumes/06-docker-in-practice/058-inspecting-and-debugging-docker.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/058-inspecting-and-debugging-docker.md) |
@@ -188,7 +188,7 @@ Chapter 021: [Packets, Addresses and Routing](book/volumes/03-networking-and-tra
 | 164 | 17 | [Database Connections and Concurrency](book/volumes/17-distributed-systems-and-data-operations/164-database-connections-and-concurrency.md) | draft | pending | 2,001 | [Resume](book/_ai/chapter-summaries/164-database-connections-and-concurrency.md) |
 | 165 | 17 | [Replication and Failover](book/volumes/17-distributed-systems-and-data-operations/165-replication-and-failover.md) | draft | pending | 1,813 | [Resume](book/_ai/chapter-summaries/165-replication-and-failover.md) |
 | 166 | 17 | [Consistency and Consensus Concepts](book/volumes/17-distributed-systems-and-data-operations/166-consistency-and-consensus-concepts.md) | draft | pending | 1,834 | [Resume](book/_ai/chapter-summaries/166-consistency-and-consensus-concepts.md) |
-| 167 | 17 | [Cache Design and Invalidation](book/volumes/17-distributed-systems-and-data-operations/167-cache-design-and-invalidation.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/167-cache-design-and-invalidation.md) |
+| 167 | 17 | [Cache Design and Invalidation](book/volumes/17-distributed-systems-and-data-operations/167-cache-design-and-invalidation.md) | drafting | pending | 1,832 | [Resume](book/_ai/chapter-summaries/167-cache-design-and-invalidation.md) |
 | 168 | 17 | [Database Scaling and Partitioning](book/volumes/17-distributed-systems-and-data-operations/168-database-scaling-and-partitioning.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/168-database-scaling-and-partitioning.md) |
 | 169 | 17 | [Messaging and Event-driven Architecture](book/volumes/17-distributed-systems-and-data-operations/169-messaging-and-event-driven-architecture.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/169-messaging-and-event-driven-architecture.md) |
 | 170 | 17 | [Stateful Recovery and Data Migration](book/volumes/17-distributed-systems-and-data-operations/170-stateful-recovery-and-data-migration.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/170-stateful-recovery-and-data-migration.md) |
@@ -215,7 +215,7 @@ Chapter 021: [Packets, Addresses and Routing](book/volumes/03-networking-and-tra
 | 191 | 20 | [Monoliths, Services and Organizational Boundaries](book/volumes/20-architecture-and-platform-engineering/191-monoliths-services-and-organizational-boundaries.md) | draft | pending | 1,929 | [Resume](book/_ai/chapter-summaries/191-monoliths-services-and-organizational-boundaries.md) |
 | 192 | 20 | [Platform Teams and Developer Experience](book/volumes/20-architecture-and-platform-engineering/192-platform-teams-and-developer-experience.md) | draft | pending | 1,878 | [Resume](book/_ai/chapter-summaries/192-platform-teams-and-developer-experience.md) |
 | 193 | 20 | [Multi-tenancy and Isolation](book/volumes/20-architecture-and-platform-engineering/193-multi-tenancy-and-isolation.md) | draft | pending | 1,743 | [Resume](book/_ai/chapter-summaries/193-multi-tenancy-and-isolation.md) |
-| 194 | 20 | [Service Meshes and Traffic Policy](book/volumes/20-architecture-and-platform-engineering/194-service-meshes-and-traffic-policy.md) | drafting | pending | 44 | [Resume](book/_ai/chapter-summaries/194-service-meshes-and-traffic-policy.md) |
+| 194 | 20 | [Service Meshes and Traffic Policy](book/volumes/20-architecture-and-platform-engineering/194-service-meshes-and-traffic-policy.md) | draft | pending | 1,954 | [Resume](book/_ai/chapter-summaries/194-service-meshes-and-traffic-policy.md) |
 | 195 | 20 | [Multi-zone and Multi-region Architecture](book/volumes/20-architecture-and-platform-engineering/195-multi-zone-and-multi-region-architecture.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/195-multi-zone-and-multi-region-architecture.md) |
 | 196 | 20 | [Hybrid and Restricted Environments](book/volumes/20-architecture-and-platform-engineering/196-hybrid-and-restricted-environments.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/196-hybrid-and-restricted-environments.md) |
 | 197 | 20 | [Legacy Infrastructure Modernization](book/volumes/20-architecture-and-platform-engineering/197-legacy-infrastructure-modernization.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/197-legacy-infrastructure-modernization.md) |
@@ -234,7 +234,7 @@ Chapter 021: [Packets, Addresses and Routing](book/volumes/03-networking-and-tra
 | 210 | 21 | [Uber Observability and Alternative Growth Paths](book/volumes/21-projects-and-industry-case-studies/210-uber-observability-and-alternative-growth-paths.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/210-uber-observability-and-alternative-growth-paths.md) |
 | 211 | 22 | [Linux and Shell Command Reference](book/volumes/22-operational-reference/211-linux-and-shell-command-reference.md) | complete | approved | 1,835 | [Resume](book/_ai/chapter-summaries/211-linux-and-shell-command-reference.md) |
 | 212 | 22 | [Networking and VPS Diagnostic Reference](book/volumes/22-operational-reference/212-networking-and-vps-diagnostic-reference.md) | complete | approved | 1,748 | [Resume](book/_ai/chapter-summaries/212-networking-and-vps-diagnostic-reference.md) |
-| 213 | 22 | [Docker and Podman Command Reference](book/volumes/22-operational-reference/213-docker-and-podman-command-reference.md) | draft | approved | 2,074 | [Resume](book/_ai/chapter-summaries/213-docker-and-podman-command-reference.md) |
+| 213 | 22 | [Docker and Podman Command Reference](book/volumes/22-operational-reference/213-docker-and-podman-command-reference.md) | complete | approved | 2,074 | [Resume](book/_ai/chapter-summaries/213-docker-and-podman-command-reference.md) |
 | 214 | 22 | [Kubernetes Command and Object Reference](book/volumes/22-operational-reference/214-kubernetes-command-and-object-reference.md) | complete | approved | 1,632 | [Resume](book/_ai/chapter-summaries/214-kubernetes-command-and-object-reference.md) |
 | 215 | 22 | [AWS CLI Operational Reference](book/volumes/22-operational-reference/215-aws-cli-operational-reference.md) | complete | approved | 1,717 | [Resume](book/_ai/chapter-summaries/215-aws-cli-operational-reference.md) |
 | 216 | 22 | [Infrastructure and Pipeline Reference](book/volumes/22-operational-reference/216-infrastructure-and-pipeline-reference.md) | complete | approved | 1,846 | [Resume](book/_ai/chapter-summaries/216-infrastructure-and-pipeline-reference.md) |

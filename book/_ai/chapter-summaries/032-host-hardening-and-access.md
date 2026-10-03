@@ -1,21 +1,21 @@
 # Chapter 32 continuation
 
-Status: planned
+Status: draft
 
 ## Written material
-None.
+Administrative identities and sudo; Ubuntu APT vs Fedora/RHEL DNF patch workflow; update/reboot ownership; SSH key-only transition and effective-setting checks; host firewall/MAC controls; SELinux/AppArmor distinction; lockout diagnosis; exercises.
 
 ## Exact next section
-Why this matters
+Independent technical and editorial review.
 
 ## Concepts and terminology
-None introduced yet.
+Individual identity, least privilege, sudo elevation, patch cadence, unattended updates, SSH daemon include precedence, host firewall, SELinux label/policy, AppArmor profile, recovery console.
 
 ## Examples and cross-references
-None written yet.
+Separate APT and DNF command examples; OpenSSH setting block and parse/effective checks; links to Chapters 26, 27 and 31. Settings are not applied to this host.
 
 ## Open threads
-Write and independently review the chapter.
+Independent review; no host identities, package updates, SSH daemon or MAC policy changed. Audit SSH settings against target release and cloud-init defaults before use.
 
 ## Verification
-Not performed.
+Inspected Canonical Ubuntu server update and OpenSSH docs; Red Hat RHEL 9 DNF and SELinux docs on 2026-10-02. No host command with persistent side effects was executed. Commands remain guidance for a reader's intended distribution.

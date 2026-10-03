@@ -1,21 +1,21 @@
 # Chapter 54 continuation
 
-Status: planned
+Status: complete
 
 ## Written material
-None.
-
-## Exact next section
-Why this matters
+Cache invalidation and layer ordering; BuildKit cache mounts; multi-stage Go build; BuildKit secret mount; registry-backed external cache; failure diagnosis; exercises with answer guidance, takeaways and further reading.
 
 ## Concepts and terminology
-None introduced yet.
+BuildKit frontend, cache key/reuse, cache mount, named stage, scratch image, build secret mount, external registry cache, `mode=max`.
 
 ## Examples and cross-references
-None written yet.
+Fictional DispatchDesk Go HTTP build/runtime stages, secret template, registry cache template; Docker build, secret and cache commands not executed. Go module/program source was extracted and passed local `go test` and static build. Relative links to chapters 52, 53 and 59.
 
 ## Open threads
-Write and independently review the chapter.
+Base image tags and builder/backend support vary. No build, secret use or registry cache test. Independent review pending.
+
+## Exact next section
+None. Independently approved; continue to the next unfinished chapter.
 
 ## Verification
-Not performed.
+Docker official cache optimization/invalidation, multi-stage, cache backends, builder drivers, Buildx CLI, secrets and Dockerfile docs plus Go modules reference inspected 2026-10-02. Extracted Go program passed `go test ./...` and `CGO_ENABLED=0 go build -buildvcs=false -trimpath`; no Docker image build, container run, secret use or registry/cache operation. Full `tools/check_book.py` passed 220 chapter checks, including 2 Go syntax blocks, 264 shell syntax checks and 1,240 local-link checks, no errors/warnings. Checker does not validate runtime semantics.

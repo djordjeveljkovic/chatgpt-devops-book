@@ -1,21 +1,21 @@
 # Chapter 40 continuation
 
-Status: planned
+Status: draft; independent review pending.
 
 ## Written material
-None.
-
-## Exact next section
-Why this matters
+Incident roles, read-only Linux triage, PostgreSQL activity query, symptom-to-layer paths, stabilization choices, capacity forecasting, post-incident review and exercises.
 
 ## Concepts and terminology
-None introduced yet.
+Customer impact, timeline, load average, reclaimable memory, inode exhaustion, interval metrics, PSI, DB wait events, reversible mitigation, capacity reserve, incident action.
 
 ## Examples and cross-references
-None written yet.
+Observational host commands; read-only `pg_stat_activity` query omits SQL text; hypothetical filesystem growth arithmetic. Links chapters 30, 33, 36, 37, 39 and volume 5.
 
 ## Open threads
-Write and independently review the chapter.
+No VPS/database query or incident was run. Tool and kernel support vary. Example SQL must be run using an authorized monitoring role and reviewed for local permissions. Independent review pending.
+
+## Exact next section
+None. Begin Chapter 41, then request independent review before claiming completion.
 
 ## Verification
-Not performed.
+Book shell syntax and local links checked. Linux PSI, vmstat/iostat, and PostgreSQL monitoring sources inspected 2026-10-02. No capacity action is claimed.
