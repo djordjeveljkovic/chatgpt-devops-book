@@ -5,7 +5,7 @@ volume_title: "VPS and Server Operations"
 chapter: 33
 title: "Disks, Filesystems and Mounts"
 slug: disks-filesystems-and-mounts
-status: draft
+status: complete
 summary: ../../_ai/chapter-summaries/033-disks-filesystems-and-mounts.md
 ---
 

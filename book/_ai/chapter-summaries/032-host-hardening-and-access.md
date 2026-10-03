@@ -1,12 +1,12 @@
 # Chapter 32 continuation
 
-Status: draft
+Status: complete
 
 ## Written material
 Administrative identities and sudo; Ubuntu APT vs Fedora/RHEL DNF patch workflow; update/reboot ownership; SSH key-only transition and effective-setting checks; host firewall/MAC controls; SELinux/AppArmor distinction; lockout diagnosis; exercises.
 
 ## Exact next section
-Independent technical and editorial review.
+None. Independently approved; continue to the next unfinished chapter.
 
 ## Concepts and terminology
 Individual identity, least privilege, sudo elevation, patch cadence, unattended updates, SSH daemon include precedence, host firewall, SELinux label/policy, AppArmor profile, recovery console.

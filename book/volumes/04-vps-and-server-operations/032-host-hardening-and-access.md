@@ -5,7 +5,7 @@ volume_title: "VPS and Server Operations"
 chapter: 32
 title: "Host Hardening and Access"
 slug: host-hardening-and-access
-status: draft
+status: complete
 summary: ../../_ai/chapter-summaries/032-host-hardening-and-access.md
 ---
 

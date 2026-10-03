@@ -1,21 +1,30 @@
-# Chapter 63 continuation
+# Chapter 63 — Rootless Identity and Volume Ownership
 
-Status: planned
+Status: complete
 
 ## Written material
-None.
-
-## Exact next section
-Why this matters
+Subordinate IDs and mappings; Keep-id, unshare and file ownership; Repairing persistent-volume access; Diagnose before broadening access; Exercises and review questions; Takeaways and further reading.
 
 ## Concepts and terminology
-None introduced yet.
+Subordinate UID/GID arithmetic; keep-id mapped runtime user; default namespace versus container mapping; U ownership mutation; SELinux separate layer; account restore identity
 
-## Examples and cross-references
-None written yet.
+## Examples and assumptions
+Disposable Linux rootless labs executed by the owning ordinary account unless an administrator command is explicitly marked. Ubuntu 24.04 LTS, Fedora 44 and supported RHEL 9/10 package versions require local confirmation. Examples use fully qualified illustrative tags; production requires measured digests. No container runtime, package installation, registry transfer, systemd activation or host mutation was executed.
+
+## Cross-references
+Relative canonical links embedded in chapter; prerequisite Chapter 62.
 
 ## Open threads
-Write and independently review the chapter.
+Independent technical/editorial review required. Validate commands on target distribution and installed Podman version; run bounded labs on disposable authorized hosts. Confirm digest/platform, rootless mappings, security policy and restart behavior before production use.
 
-## Verification
-Not performed.
+## Exact next section
+None. Independently approved; continue to the next unfinished chapter.
+
+## Technical sources and dates
+Official primary documentation inspected 2026-10-03: Podman unshare(1), system-migrate(1), volume-inspect(1), run(1) identity and mount sections.
+
+## Actual checks performed
+Primary-source inspection and author inspection of examples. `python3 tools/check_book.py --chapters 61-70` passed: 10 draft chapters, 53 shell syntax checks, 2 YAML parses and 1,333 local links; no errors or warnings. Chapter 68 embedded Python compiled separately without execution. These are static checks, not runtime acceptance.
+
+## Checks not performed
+No runtime, network, volume, boot, upgrade, restore or registry test. Syntax parsing cannot establish runtime behavior.

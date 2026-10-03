@@ -1,12 +1,12 @@
 # Chapter 33 continuation
 
-Status: draft
+Status: complete
 
 ## Written material
 Block devices, partitions, LVM/LUKS/filesystem/mount layers; UUID-based persistent mounts; fstab and systemd dependency; provider-to-filesystem growth order; ext4/XFS behavior; block/inode/deleted-open/I/O diagnosis; bounded destructive lab; exercises.
 
 ## Exact next section
-Independent technical and editorial review.
+None. Independently approved; continue to the next unfinished chapter.
 
 ## Concepts and terminology
 Block device, GPT/partition, device mapper/LUKS/LVM, ext4/XFS, filesystem UUID, mount point, inode, deleted-open file, grow vs shrink, provider volume.

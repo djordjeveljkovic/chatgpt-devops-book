@@ -1,12 +1,12 @@
 # Book progress and exact continuation
 
-Last refreshed: 2026-10-03 21:48 UTC.
+Last refreshed: 2026-10-03 22:03 UTC.
 
 ## Actual state
 
-Chapters: 220. Approximate written words: 237,223.
+Chapters: 220. Approximate written words: 248,356.
 
-complete: 80, draft: 47, drafting: 1, planned: 92.
+complete: 93, draft: 39, drafting: 1, planned: 87.
 
 Statuses reflect files, not promises. `complete` requires independent approval and validation. References and code contribute to approximate word counts; counts do not measure quality.
 
@@ -16,7 +16,7 @@ Read [AI_AUTHORING_GUIDE.md](AI_AUTHORING_GUIDE.md), [coordinator handoff](book/
 
 ## Earliest unfinished dependency
 
-Chapter 031: [Choosing and Provisioning a VPS](book/volumes/04-vps-and-server-operations/031-choosing-and-provisioning-a-vps.md). Exact next step: Independent technical and editorial review..
+Chapter 034: [Deploying a Service with Systemd](book/volumes/04-vps-and-server-operations/034-deploying-a-service-with-systemd.md). Exact next step: Request a fresh hash-bound review of the revised body and promote only after approval and validation..
 
 ## Chapter ledger
 
@@ -52,16 +52,16 @@ Chapter 031: [Choosing and Provisioning a VPS](book/volumes/04-vps-and-server-op
 | 028 | 3 | [NAT, Proxies and Connection Tracking](book/volumes/03-networking-and-traffic/028-nat-proxies-and-connection-tracking.md) | complete | approved | 1,482 | [Resume](book/_ai/chapter-summaries/028-nat-proxies-and-connection-tracking.md) |
 | 029 | 3 | [Load Balancers and Traffic Distribution](book/volumes/03-networking-and-traffic/029-load-balancers-and-traffic-distribution.md) | complete | approved | 1,650 | [Resume](book/_ai/chapter-summaries/029-load-balancers-and-traffic-distribution.md) |
 | 030 | 3 | [Network Troubleshooting in Layers](book/volumes/03-networking-and-traffic/030-network-troubleshooting-in-layers.md) | complete | approved | 1,835 | [Resume](book/_ai/chapter-summaries/030-network-troubleshooting-in-layers.md) |
-| 031 | 4 | [Choosing and Provisioning a VPS](book/volumes/04-vps-and-server-operations/031-choosing-and-provisioning-a-vps.md) | draft | pending | 1,900 | [Resume](book/_ai/chapter-summaries/031-choosing-and-provisioning-a-vps.md) |
-| 032 | 4 | [Host Hardening and Access](book/volumes/04-vps-and-server-operations/032-host-hardening-and-access.md) | draft | pending | 1,680 | [Resume](book/_ai/chapter-summaries/032-host-hardening-and-access.md) |
-| 033 | 4 | [Disks, Filesystems and Mounts](book/volumes/04-vps-and-server-operations/033-disks-filesystems-and-mounts.md) | draft | pending | 2,000 | [Resume](book/_ai/chapter-summaries/033-disks-filesystems-and-mounts.md) |
-| 034 | 4 | [Deploying a Service with Systemd](book/volumes/04-vps-and-server-operations/034-deploying-a-service-with-systemd.md) | draft | pending | 1,802 | [Resume](book/_ai/chapter-summaries/034-deploying-a-service-with-systemd.md) |
-| 035 | 4 | [Reverse Proxies on a VPS](book/volumes/04-vps-and-server-operations/035-reverse-proxies-on-a-vps.md) | draft | pending | 1,368 | [Resume](book/_ai/chapter-summaries/035-reverse-proxies-on-a-vps.md) |
-| 036 | 4 | [Database and Cache Operations on One Host](book/volumes/04-vps-and-server-operations/036-database-and-cache-operations-on-one-host.md) | draft | pending | 1,917 | [Resume](book/_ai/chapter-summaries/036-database-and-cache-operations-on-one-host.md) |
-| 037 | 4 | [Server Backups and Restore](book/volumes/04-vps-and-server-operations/037-server-backups-and-restore.md) | draft | pending | 1,599 | [Resume](book/_ai/chapter-summaries/037-server-backups-and-restore.md) |
-| 038 | 4 | [Patching and Maintenance Windows](book/volumes/04-vps-and-server-operations/038-patching-and-maintenance-windows.md) | draft | pending | 1,370 | [Resume](book/_ai/chapter-summaries/038-patching-and-maintenance-windows.md) |
-| 039 | 4 | [Adding a Second Server](book/volumes/04-vps-and-server-operations/039-adding-a-second-server.md) | draft | pending | 1,367 | [Resume](book/_ai/chapter-summaries/039-adding-a-second-server.md) |
-| 040 | 4 | [VPS Incidents and Capacity](book/volumes/04-vps-and-server-operations/040-vps-incidents-and-capacity.md) | draft | pending | 1,661 | [Resume](book/_ai/chapter-summaries/040-vps-incidents-and-capacity.md) |
+| 031 | 4 | [Choosing and Provisioning a VPS](book/volumes/04-vps-and-server-operations/031-choosing-and-provisioning-a-vps.md) | complete | approved | 1,900 | [Resume](book/_ai/chapter-summaries/031-choosing-and-provisioning-a-vps.md) |
+| 032 | 4 | [Host Hardening and Access](book/volumes/04-vps-and-server-operations/032-host-hardening-and-access.md) | complete | approved | 1,680 | [Resume](book/_ai/chapter-summaries/032-host-hardening-and-access.md) |
+| 033 | 4 | [Disks, Filesystems and Mounts](book/volumes/04-vps-and-server-operations/033-disks-filesystems-and-mounts.md) | complete | approved | 2,000 | [Resume](book/_ai/chapter-summaries/033-disks-filesystems-and-mounts.md) |
+| 034 | 4 | [Deploying a Service with Systemd](book/volumes/04-vps-and-server-operations/034-deploying-a-service-with-systemd.md) | draft | pending | 1,980 | [Resume](book/_ai/chapter-summaries/034-deploying-a-service-with-systemd.md) |
+| 035 | 4 | [Reverse Proxies on a VPS](book/volumes/04-vps-and-server-operations/035-reverse-proxies-on-a-vps.md) | draft | pending | 1,792 | [Resume](book/_ai/chapter-summaries/035-reverse-proxies-on-a-vps.md) |
+| 036 | 4 | [Database and Cache Operations on One Host](book/volumes/04-vps-and-server-operations/036-database-and-cache-operations-on-one-host.md) | draft | pending | 2,763 | [Resume](book/_ai/chapter-summaries/036-database-and-cache-operations-on-one-host.md) |
+| 037 | 4 | [Server Backups and Restore](book/volumes/04-vps-and-server-operations/037-server-backups-and-restore.md) | draft | pending | 1,830 | [Resume](book/_ai/chapter-summaries/037-server-backups-and-restore.md) |
+| 038 | 4 | [Patching and Maintenance Windows](book/volumes/04-vps-and-server-operations/038-patching-and-maintenance-windows.md) | draft | pending | 1,510 | [Resume](book/_ai/chapter-summaries/038-patching-and-maintenance-windows.md) |
+| 039 | 4 | [Adding a Second Server](book/volumes/04-vps-and-server-operations/039-adding-a-second-server.md) | draft | pending | 1,519 | [Resume](book/_ai/chapter-summaries/039-adding-a-second-server.md) |
+| 040 | 4 | [VPS Incidents and Capacity](book/volumes/04-vps-and-server-operations/040-vps-incidents-and-capacity.md) | draft | pending | 2,306 | [Resume](book/_ai/chapter-summaries/040-vps-incidents-and-capacity.md) |
 | 041 | 5 | [Containers Are Isolated Processes](book/volumes/05-container-internals-and-oci/041-containers-are-isolated-processes.md) | draft | pending | 1,350 | [Resume](book/_ai/chapter-summaries/041-containers-are-isolated-processes.md) |
 | 042 | 5 | [Linux Namespaces](book/volumes/05-container-internals-and-oci/042-linux-namespaces.md) | draft | pending | 1,150 | [Resume](book/_ai/chapter-summaries/042-linux-namespaces.md) |
 | 043 | 5 | [Cgroups and Resource Accounting](book/volumes/05-container-internals-and-oci/043-cgroups-and-resource-accounting.md) | draft | pending | 1,456 | [Resume](book/_ai/chapter-summaries/043-cgroups-and-resource-accounting.md) |
@@ -82,16 +82,16 @@ Chapter 031: [Choosing and Provisioning a VPS](book/volumes/04-vps-and-server-op
 | 058 | 6 | [Inspecting and Debugging Docker](book/volumes/06-docker-in-practice/058-inspecting-and-debugging-docker.md) | complete | approved | 2,557 | [Resume](book/_ai/chapter-summaries/058-inspecting-and-debugging-docker.md) |
 | 059 | 6 | [Publishing and Promoting Images](book/volumes/06-docker-in-practice/059-publishing-and-promoting-images.md) | complete | approved | 2,172 | [Resume](book/_ai/chapter-summaries/059-publishing-and-promoting-images.md) |
 | 060 | 6 | [Docker Production Operations](book/volumes/06-docker-in-practice/060-docker-production-operations.md) | complete | approved | 2,913 | [Resume](book/_ai/chapter-summaries/060-docker-production-operations.md) |
-| 061 | 7 | [Installing and Understanding Podman](book/volumes/07-podman-and-the-rootless-host/061-installing-and-understanding-podman.md) | draft | pending | 1,622 | [Resume](book/_ai/chapter-summaries/061-installing-and-understanding-podman.md) |
-| 062 | 7 | [The Podman Container Lifecycle](book/volumes/07-podman-and-the-rootless-host/062-the-podman-container-lifecycle.md) | draft | pending | 1,624 | [Resume](book/_ai/chapter-summaries/062-the-podman-container-lifecycle.md) |
-| 063 | 7 | [Rootless Identity and Volume Ownership](book/volumes/07-podman-and-the-rootless-host/063-rootless-identity-and-volume-ownership.md) | draft | pending | 1,606 | [Resume](book/_ai/chapter-summaries/063-rootless-identity-and-volume-ownership.md) |
-| 064 | 7 | [Podman Networking and Ports](book/volumes/07-podman-and-the-rootless-host/064-podman-networking-and-ports.md) | draft | pending | 1,606 | [Resume](book/_ai/chapter-summaries/064-podman-networking-and-ports.md) |
-| 065 | 7 | [Podman Pods and Kubernetes YAML](book/volumes/07-podman-and-the-rootless-host/065-podman-pods-and-kubernetes-yaml.md) | draft | pending | 1,548 | [Resume](book/_ai/chapter-summaries/065-podman-pods-and-kubernetes-yaml.md) |
-| 066 | 7 | [Quadlet and Systemd Integration](book/volumes/07-podman-and-the-rootless-host/066-quadlet-and-systemd-integration.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/066-quadlet-and-systemd-integration.md) |
-| 067 | 7 | [SELinux and Container Mounts](book/volumes/07-podman-and-the-rootless-host/067-selinux-and-container-mounts.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/067-selinux-and-container-mounts.md) |
-| 068 | 7 | [Buildah and Skopeo Workflows](book/volumes/07-podman-and-the-rootless-host/068-buildah-and-skopeo-workflows.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/068-buildah-and-skopeo-workflows.md) |
-| 069 | 7 | [Migrating Docker Workflows to Podman](book/volumes/07-podman-and-the-rootless-host/069-migrating-docker-workflows-to-podman.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/069-migrating-docker-workflows-to-podman.md) |
-| 070 | 7 | [Podman Host Operations and Incidents](book/volumes/07-podman-and-the-rootless-host/070-podman-host-operations-and-incidents.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/070-podman-host-operations-and-incidents.md) |
+| 061 | 7 | [Installing and Understanding Podman](book/volumes/07-podman-and-the-rootless-host/061-installing-and-understanding-podman.md) | complete | approved | 1,622 | [Resume](book/_ai/chapter-summaries/061-installing-and-understanding-podman.md) |
+| 062 | 7 | [The Podman Container Lifecycle](book/volumes/07-podman-and-the-rootless-host/062-the-podman-container-lifecycle.md) | complete | approved | 1,624 | [Resume](book/_ai/chapter-summaries/062-the-podman-container-lifecycle.md) |
+| 063 | 7 | [Rootless Identity and Volume Ownership](book/volumes/07-podman-and-the-rootless-host/063-rootless-identity-and-volume-ownership.md) | complete | approved | 1,606 | [Resume](book/_ai/chapter-summaries/063-rootless-identity-and-volume-ownership.md) |
+| 064 | 7 | [Podman Networking and Ports](book/volumes/07-podman-and-the-rootless-host/064-podman-networking-and-ports.md) | complete | approved | 1,606 | [Resume](book/_ai/chapter-summaries/064-podman-networking-and-ports.md) |
+| 065 | 7 | [Podman Pods and Kubernetes YAML](book/volumes/07-podman-and-the-rootless-host/065-podman-pods-and-kubernetes-yaml.md) | complete | approved | 1,548 | [Resume](book/_ai/chapter-summaries/065-podman-pods-and-kubernetes-yaml.md) |
+| 066 | 7 | [Quadlet and Systemd Integration](book/volumes/07-podman-and-the-rootless-host/066-quadlet-and-systemd-integration.md) | complete | approved | 1,624 | [Resume](book/_ai/chapter-summaries/066-quadlet-and-systemd-integration.md) |
+| 067 | 7 | [SELinux and Container Mounts](book/volumes/07-podman-and-the-rootless-host/067-selinux-and-container-mounts.md) | complete | approved | 1,609 | [Resume](book/_ai/chapter-summaries/067-selinux-and-container-mounts.md) |
+| 068 | 7 | [Buildah and Skopeo Workflows](book/volumes/07-podman-and-the-rootless-host/068-buildah-and-skopeo-workflows.md) | complete | approved | 1,670 | [Resume](book/_ai/chapter-summaries/068-buildah-and-skopeo-workflows.md) |
+| 069 | 7 | [Migrating Docker Workflows to Podman](book/volumes/07-podman-and-the-rootless-host/069-migrating-docker-workflows-to-podman.md) | complete | approved | 1,744 | [Resume](book/_ai/chapter-summaries/069-migrating-docker-workflows-to-podman.md) |
+| 070 | 7 | [Podman Host Operations and Incidents](book/volumes/07-podman-and-the-rootless-host/070-podman-host-operations-and-incidents.md) | complete | approved | 1,870 | [Resume](book/_ai/chapter-summaries/070-podman-host-operations-and-incidents.md) |
 | 071 | 8 | [Declarative Infrastructure and Reconciliation](book/volumes/08-infrastructure-as-code/071-declarative-infrastructure-and-reconciliation.md) | complete | approved | 2,194 | [Resume](book/_ai/chapter-summaries/071-declarative-infrastructure-and-reconciliation.md) |
 | 072 | 8 | [Terraform and OpenTofu CLI Foundations](book/volumes/08-infrastructure-as-code/072-terraform-and-opentofu-cli-foundations.md) | complete | approved | 1,851 | [Resume](book/_ai/chapter-summaries/072-terraform-and-opentofu-cli-foundations.md) |
 | 073 | 8 | [State, Locking and Remote Backends](book/volumes/08-infrastructure-as-code/073-state-locking-and-remote-backends.md) | complete | approved | 2,004 | [Resume](book/_ai/chapter-summaries/073-state-locking-and-remote-backends.md) |

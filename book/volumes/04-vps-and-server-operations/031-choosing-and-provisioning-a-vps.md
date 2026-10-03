@@ -5,7 +5,7 @@ volume_title: "VPS and Server Operations"
 chapter: 31
 title: "Choosing and Provisioning a VPS"
 slug: choosing-and-provisioning-a-vps
-status: draft
+status: complete
 summary: ../../_ai/chapter-summaries/031-choosing-and-provisioning-a-vps.md
 ---
 

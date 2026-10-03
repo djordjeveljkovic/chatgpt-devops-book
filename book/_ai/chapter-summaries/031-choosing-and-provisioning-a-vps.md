@@ -1,12 +1,12 @@
 # Chapter 31 continuation
 
-Status: draft
+Status: complete
 
 ## Written material
 VPS selection based on workload, recovery objective, provider resources/region/billing/recovery path; image and cloud-init ownership; key-only bootstrap; auditable, non-executed first-server sequence; SSH timeout failure diagnosis; exercises.
 
 ## Exact next section
-Independent technical and editorial review.
+None. Independently approved; continue to the next unfinished chapter.
 
 ## Concepts and terminology
 Resource contract, shared/dedicated CPU, headroom, volume vs snapshot vs backup, provider control plane and recovery console, image lineage, cloud-init datasource/user-data and module frequency, root-equivalent sudo.
