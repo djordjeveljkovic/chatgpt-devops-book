@@ -5,7 +5,7 @@ volume_title: "AWS Production Services"
 chapter: 92
 title: "ECR and Container Artifact Promotion"
 slug: ecr-and-container-artifact-promotion
-status: draft
+status: complete
 summary: ../../_ai/chapter-summaries/092-ecr-and-container-artifact-promotion.md
 ---
 
@@ -31,9 +31,16 @@ Current basic scanning results must be read through `DescribeImageScanFindings`;
 
 Retention must preserve deployed and rollback digests. An image can become untagged yet remain referenced by a running deployment or its rollback record. Deleting every untagged image is therefore not automatically safe. Compare registry candidates against live deployment and retained release inventories, including multi-platform references and associated evidence. Storage cost is real, but a failed recovery due to deleted artifacts can be more expensive than retaining the approved rollback window.
 
-For a dedicated expendable repository, this complete review-only `lab-retention.json` policy would retain the newest three untagged images and expire older untagged candidates:
+For a dedicated expendable repository, this complete review-only `lab-retention.json` policy would retain the newest three untagged images and expire older untagged candidates. Create it inside the lab's fresh private working directory before continuing. Run this setup once and keep the same shell open through the later lab steps; it creates only a local directory and file:
 
-```json
+```bash
+set -euo pipefail
+umask 077
+lab_workdir=$(mktemp -d "${TMPDIR:-/tmp}/dispatchdesk-ecr.XXXXXXXX")
+cd "$lab_workdir"
+lab_workdir=$PWD
+printf 'Keep this shell in the private lab directory: %s\n' "$lab_workdir"
+cat > lab-retention.json <<'JSON'
 {
   "rules": [
     {
@@ -48,9 +55,10 @@ For a dedicated expendable repository, this complete review-only `lab-retention.
     }
   ]
 }
+JSON
 ```
 
-Three is an arbitrary lab count, not a production release policy. Preview it before application, inspect selected digests and compare with the required retention set. [Lifecycle-policy documentation](https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html) explains evaluation and reference constraints. This chapter previews but does not apply this policy. A preview success is useful only if its status is complete and its population matches the current intended repository; images can change after the preview.
+Keep subsequent commands in this same shell and directory so local files stay isolated; if a new terminal is needed, `cd` to the exact path printed above. Three is an arbitrary lab count, not a production release policy. Preview it before application, inspect selected digests and compare with the required retention set. [Lifecycle-policy documentation](https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html) explains evaluation and reference constraints. This chapter previews but does not apply this policy. A preview success is useful only if its status is complete and its population matches the current intended repository; images can change after the preview.
 
 Cross-account promotion can mean authorizing a deployment role to pull the same source image, or copying an approved image to a destination registry under separate ownership. Retagging in one repository does not create a second independently governed artifact store. If copying is required, retain manifests and platform content and verify destination identity rather than assuming a human-readable tag preserved it. Record the policy and account boundary as part of release evidence.
 
@@ -58,7 +66,7 @@ Cross-account promotion can mean authorizing a deployment role to pull the same 
 
 The optional lab creates a new dedicated ECR repository, uploads an already built single-platform image using rootless Podman, captures its destination digest and retrieves it by that digest. It creates no compute deployment. You must already have a nonsecret, approved local image and its source/build evidence from the container chapters. This chapter does not rebuild DispatchDesk or pretend an image tag is a complete application implementation.
 
-Run from an ordinary Bash workstation user with AWS CLI v2, Python 3 and a working rootless Podman installation. Ubuntu 24.04 LTS, Fedora 44 and RHEL 9 use the same AWS commands; use [Podman installation](../07-podman-and-the-rootless-host/061-installing-and-understanding-podman.md) for host-specific runtime prerequisites. On an approved Docker workstation, the corresponding login/tag/push/pull operations can implement the same registry protocol, but credential-file flags differ; do not paste Podman's `--authfile` into Docker commands.
+Run the following steps from the same shell opened in the fresh private `lab_workdir` above, as an ordinary Bash workstation user with AWS CLI v2, Python 3 and a working rootless Podman installation. Ubuntu 24.04 LTS, Fedora 44 and RHEL 9 use the same AWS commands; use [Podman installation](../07-podman-and-the-rootless-host/061-installing-and-understanding-podman.md) for host-specific runtime prerequisites. On an approved Docker workstation, the corresponding login/tag/push/pull operations can implement the same registry protocol, but credential-file flags differ; do not paste Podman's `--authfile` into Docker commands.
 
 Complete [Chapter 82's account preflight](../09-aws-foundations/082-aws-cli-and-identity-sessions.md). Required permissions cover repository creation/inspection/deletion, authentication and image/layer publication/retrieval; optional scans/previews need additional operations. Review [ECR pricing](https://aws.amazon.com/ecr/pricing/) and chosen scan/encryption features. Image storage, transfer and scanning can incur costs. Establish teardown ownership before pushing. No AWS or registry operations were executed during authoring.
 
@@ -119,9 +127,11 @@ aws --profile "$lab_profile" --region "$lab_region" --no-cli-pager   ecr delete-
 podman untag "$lab_source" "$lab_uri:$lab_tag"
 rm -f -- "$lab_auth" lab-pushed-digest.txt lab-retention.json
 rmdir -- "$lab_auth_dir"
+cd "$(dirname "$lab_workdir")"
+rmdir -- "$lab_workdir"
 ```
 
-`--force` permanently removes the repository and its images; it is appropriate only for this recorded expendable repository. Confirm absence through inventory in the original account/region. Local untagging removes the lab name while retaining the original source reference; pulled content may remain in local image storage under digest identity, so inspect it before any further removal. Do not prune unrelated images or credential stores. Partial failures retain cleanup responsibility for both cloud repository and local authentication file.
+`--force` permanently removes the repository and its images; it is appropriate only for this recorded expendable repository. Confirm absence through inventory in the original account/region. Local untagging removes the lab name while retaining the original source reference; pulled content may remain in local image storage under digest identity, so inspect it before any further removal. The local `rm` paths are inside the fresh lab directory; `rmdir` removes that directory only if it is empty, preserving any unexpected evidence for inspection. Do not prune unrelated images or credential stores. Partial failures retain cleanup responsibility for both cloud repository and local authentication file.
 
 ## A promotion that changed the artifact
 

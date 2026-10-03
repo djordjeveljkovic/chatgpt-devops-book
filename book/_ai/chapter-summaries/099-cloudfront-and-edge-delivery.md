@@ -1,21 +1,21 @@
 # Chapter 99 continuation
 
-Status: planned
+Status: complete
 
 ## Written material
-None.
+Origins, cache keys and TTL; invalidation and immutable assets; cache/origin/viewer policy separation; OAC and viewer authorization; CORS; stale data diagnosis; release/rollback; exercises with answers.
 
 ## Exact next section
-Why this matters
+None. Independently approved; continue to the next unfinished chapter.
 
 ## Concepts and terminology
-None introduced yet.
+Distribution, cache behavior, cache key, cache/origin request/response headers policies, TTL, OAC, signed URL/cookie, cache hit, invalidation.
 
 ## Examples and cross-references
-None written yet.
+DispatchDesk public menu freshness and personalized order endpoint. No AWS command or distribution operation executed.
 
 ## Open threads
-Write and independently review the chapter.
+Review required. Actual distribution behavior, browser CORS, origin capacity, edge propagation and acceptable staleness need environment-specific testing.
 
 ## Verification
-Not performed.
+AWS primary CloudFront docs inspected 2026-10-04. Scoped checker still required; no live request or policy change performed.

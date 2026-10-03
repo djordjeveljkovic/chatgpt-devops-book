@@ -1,12 +1,12 @@
 # Book progress and exact continuation
 
-Last refreshed: 2026-10-03 22:27 UTC.
+Last refreshed: 2026-10-03 23:06 UTC.
 
 ## Actual state
 
-Chapters: 220. Approximate written words: 250,610.
+Chapters: 220. Approximate written words: 266,978.
 
-complete: 110, draft: 22, drafting: 1, planned: 87.
+complete: 120, draft: 20, drafting: 1, planned: 79.
 
 Statuses reflect files, not promises. `complete` requires independent approval and validation. References and code contribute to approximate word counts; counts do not measure quality.
 
@@ -16,7 +16,7 @@ Read [AI_AUTHORING_GUIDE.md](AI_AUTHORING_GUIDE.md), [coordinator handoff](book/
 
 ## Earliest unfinished dependency
 
-Chapter 091: [EC2 Auto Scaling and Launch Templates](book/volumes/10-aws-production-services/091-ec2-auto-scaling-and-launch-templates.md). Exact next step: Resolve independent review findings when supplied..
+Chapter 101: [Kubernetes Architecture and Reconciliation](book/volumes/11-kubernetes-foundations/101-kubernetes-architecture-and-reconciliation.md). Exact next step: Why this matters.
 
 ## Chapter ledger
 
@@ -112,16 +112,16 @@ Chapter 091: [EC2 Auto Scaling and Launch Templates](book/volumes/10-aws-product
 | 088 | 9 | [S3 from the CLI](book/volumes/09-aws-foundations/088-s3-from-the-cli.md) | complete | approved | 1,831 | [Resume](book/_ai/chapter-summaries/088-s3-from-the-cli.md) |
 | 089 | 9 | [Route 53, Certificates and Load Balancers](book/volumes/09-aws-foundations/089-route-53-certificates-and-load-balancers.md) | complete | approved | 1,853 | [Resume](book/_ai/chapter-summaries/089-route-53-certificates-and-load-balancers.md) |
 | 090 | 9 | [AWS Budgets, Tags and Inventory](book/volumes/09-aws-foundations/090-aws-budgets-tags-and-inventory.md) | complete | approved | 1,957 | [Resume](book/_ai/chapter-summaries/090-aws-budgets-tags-and-inventory.md) |
-| 091 | 10 | [EC2 Auto Scaling and Launch Templates](book/volumes/10-aws-production-services/091-ec2-auto-scaling-and-launch-templates.md) | draft | pending | 1,917 | [Resume](book/_ai/chapter-summaries/091-ec2-auto-scaling-and-launch-templates.md) |
-| 092 | 10 | [ECR and Container Artifact Promotion](book/volumes/10-aws-production-services/092-ecr-and-container-artifact-promotion.md) | draft | pending | 2,132 | [Resume](book/_ai/chapter-summaries/092-ecr-and-container-artifact-promotion.md) |
-| 093 | 10 | [ECS and Fargate Services](book/volumes/10-aws-production-services/093-ecs-and-fargate-services.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/093-ecs-and-fargate-services.md) |
-| 094 | 10 | [EKS and AWS Integration](book/volumes/10-aws-production-services/094-eks-and-aws-integration.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/094-eks-and-aws-integration.md) |
-| 095 | 10 | [RDS and Managed Database Operations](book/volumes/10-aws-production-services/095-rds-and-managed-database-operations.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/095-rds-and-managed-database-operations.md) |
-| 096 | 10 | [ElastiCache and Managed Caching](book/volumes/10-aws-production-services/096-elasticache-and-managed-caching.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/096-elasticache-and-managed-caching.md) |
-| 097 | 10 | [SQS, SNS and EventBridge](book/volumes/10-aws-production-services/097-sqs-sns-and-eventbridge.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/097-sqs-sns-and-eventbridge.md) |
-| 098 | 10 | [Lambda and Serverless Tradeoffs](book/volumes/10-aws-production-services/098-lambda-and-serverless-tradeoffs.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/098-lambda-and-serverless-tradeoffs.md) |
-| 099 | 10 | [CloudFront and Edge Delivery](book/volumes/10-aws-production-services/099-cloudfront-and-edge-delivery.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/099-cloudfront-and-edge-delivery.md) |
-| 100 | 10 | [Secrets, CloudWatch and Cloud Resilience](book/volumes/10-aws-production-services/100-secrets-cloudwatch-and-cloud-resilience.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/100-secrets-cloudwatch-and-cloud-resilience.md) |
+| 091 | 10 | [EC2 Auto Scaling and Launch Templates](book/volumes/10-aws-production-services/091-ec2-auto-scaling-and-launch-templates.md) | complete | approved | 1,917 | [Resume](book/_ai/chapter-summaries/091-ec2-auto-scaling-and-launch-templates.md) |
+| 092 | 10 | [ECR and Container Artifact Promotion](book/volumes/10-aws-production-services/092-ecr-and-container-artifact-promotion.md) | complete | approved | 2,270 | [Resume](book/_ai/chapter-summaries/092-ecr-and-container-artifact-promotion.md) |
+| 093 | 10 | [ECS and Fargate Services](book/volumes/10-aws-production-services/093-ecs-and-fargate-services.md) | complete | approved | 2,830 | [Resume](book/_ai/chapter-summaries/093-ecs-and-fargate-services.md) |
+| 094 | 10 | [EKS and AWS Integration](book/volumes/10-aws-production-services/094-eks-and-aws-integration.md) | complete | approved | 1,901 | [Resume](book/_ai/chapter-summaries/094-eks-and-aws-integration.md) |
+| 095 | 10 | [RDS and Managed Database Operations](book/volumes/10-aws-production-services/095-rds-and-managed-database-operations.md) | complete | approved | 2,014 | [Resume](book/_ai/chapter-summaries/095-rds-and-managed-database-operations.md) |
+| 096 | 10 | [ElastiCache and Managed Caching](book/volumes/10-aws-production-services/096-elasticache-and-managed-caching.md) | complete | approved | 2,057 | [Resume](book/_ai/chapter-summaries/096-elasticache-and-managed-caching.md) |
+| 097 | 10 | [SQS, SNS and EventBridge](book/volumes/10-aws-production-services/097-sqs-sns-and-eventbridge.md) | complete | approved | 1,868 | [Resume](book/_ai/chapter-summaries/097-sqs-sns-and-eventbridge.md) |
+| 098 | 10 | [Lambda and Serverless Tradeoffs](book/volumes/10-aws-production-services/098-lambda-and-serverless-tradeoffs.md) | complete | approved | 1,804 | [Resume](book/_ai/chapter-summaries/098-lambda-and-serverless-tradeoffs.md) |
+| 099 | 10 | [CloudFront and Edge Delivery](book/volumes/10-aws-production-services/099-cloudfront-and-edge-delivery.md) | complete | approved | 1,623 | [Resume](book/_ai/chapter-summaries/099-cloudfront-and-edge-delivery.md) |
+| 100 | 10 | [Secrets, CloudWatch and Cloud Resilience](book/volumes/10-aws-production-services/100-secrets-cloudwatch-and-cloud-resilience.md) | complete | approved | 2,133 | [Resume](book/_ai/chapter-summaries/100-secrets-cloudwatch-and-cloud-resilience.md) |
 | 101 | 11 | [Kubernetes Architecture and Reconciliation](book/volumes/11-kubernetes-foundations/101-kubernetes-architecture-and-reconciliation.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/101-kubernetes-architecture-and-reconciliation.md) |
 | 102 | 11 | [Local Clusters and kubectl Contexts](book/volumes/11-kubernetes-foundations/102-local-clusters-and-kubectl-contexts.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/102-local-clusters-and-kubectl-contexts.md) |
 | 103 | 11 | [Pods and Application Lifecycles](book/volumes/11-kubernetes-foundations/103-pods-and-application-lifecycles.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/103-pods-and-application-lifecycles.md) |

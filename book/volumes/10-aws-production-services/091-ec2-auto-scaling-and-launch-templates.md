@@ -5,7 +5,7 @@ volume_title: "AWS Production Services"
 chapter: 91
 title: "EC2 Auto Scaling and Launch Templates"
 slug: ec2-auto-scaling-and-launch-templates
-status: draft
+status: complete
 summary: ../../_ai/chapter-summaries/091-ec2-auto-scaling-and-launch-templates.md
 ---
 

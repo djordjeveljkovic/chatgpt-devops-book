@@ -1,6 +1,6 @@
 # Chapter 91 continuation
 
-Status: draft
+Status: complete
 
 ## Written material
 Immutable template/capacityownership/metrics; health/readiness/drain/hooks/refresh; complete zero-capacity CloudFormation private launchtemplate+ASG; changeset/execute/output/manualonecapacity/activities/zero/delete; launchfailure diagnosis; exercises/limits.
@@ -15,7 +15,7 @@ Approved real image/type/profile/group/two privatezonesubnets prompted. Noapplic
 Independent review; all AWS/CFschema/launch/scale/hook/refresh/runtime integration unrun.
 
 ## Exact next section
-Resolve independent review findings when supplied.
+None. Independently approved; continue to the next unfinished chapter.
 
 ## Verification
 Official AWS docs inspected2026-10-01. Validation91-91 passed YAML1/shell4/global links with no errors/warnings. No cloud execution performed.
