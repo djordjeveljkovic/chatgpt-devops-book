@@ -1,12 +1,12 @@
 # Book progress and exact continuation
 
-Last refreshed: 2026-10-03 23:42 UTC.
+Last refreshed: 2026-10-04 00:06 UTC.
 
 ## Actual state
 
-Chapters: 220. Approximate written words: 287,747.
+Chapters: 220. Approximate written words: 308,141.
 
-complete: 130, draft: 20, drafting: 1, planned: 69.
+complete: 140, draft: 20, drafting: 1, planned: 59.
 
 Statuses reflect files, not promises. `complete` requires independent approval and validation. References and code contribute to approximate word counts; counts do not measure quality.
 
@@ -16,7 +16,7 @@ Read [AI_AUTHORING_GUIDE.md](AI_AUTHORING_GUIDE.md), [coordinator handoff](book/
 
 ## Earliest unfinished dependency
 
-Chapter 111: [Cluster Provisioning and Ownership](book/volumes/12-kubernetes-production-engineering/111-cluster-provisioning-and-ownership.md). Exact next step: Why this matters.
+Chapter 121: [CI Architecture and Trust Boundaries](book/volumes/13-continuous-integration-platforms/121-ci-architecture-and-trust-boundaries.md). Exact next step: Why this matters.
 
 ## Chapter ledger
 
@@ -132,16 +132,16 @@ Chapter 111: [Cluster Provisioning and Ownership](book/volumes/12-kubernetes-pro
 | 108 | 11 | [Resource Requests, Limits and Scheduling](book/volumes/11-kubernetes-foundations/108-resource-requests-limits-and-scheduling.md) | complete | approved | 2,187 | [Resume](book/_ai/chapter-summaries/108-resource-requests-limits-and-scheduling.md) |
 | 109 | 11 | [Persistent Volumes and Stateful Workloads](book/volumes/11-kubernetes-foundations/109-persistent-volumes-and-stateful-workloads.md) | complete | approved | 1,973 | [Resume](book/_ai/chapter-summaries/109-persistent-volumes-and-stateful-workloads.md) |
 | 110 | 11 | [kubectl Diagnostics and API Objects](book/volumes/11-kubernetes-foundations/110-kubectl-diagnostics-and-api-objects.md) | complete | approved | 2,063 | [Resume](book/_ai/chapter-summaries/110-kubectl-diagnostics-and-api-objects.md) |
-| 111 | 12 | [Cluster Provisioning and Ownership](book/volumes/12-kubernetes-production-engineering/111-cluster-provisioning-and-ownership.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/111-cluster-provisioning-and-ownership.md) |
-| 112 | 12 | [Cluster Networking and CNI](book/volumes/12-kubernetes-production-engineering/112-cluster-networking-and-cni.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/112-cluster-networking-and-cni.md) |
-| 113 | 12 | [Ingress and Gateway API](book/volumes/12-kubernetes-production-engineering/113-ingress-and-gateway-api.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/113-ingress-and-gateway-api.md) |
-| 114 | 12 | [CSI and Production Storage](book/volumes/12-kubernetes-production-engineering/114-csi-and-production-storage.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/114-csi-and-production-storage.md) |
-| 115 | 12 | [RBAC and Workload Identity](book/volumes/12-kubernetes-production-engineering/115-rbac-and-workload-identity.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/115-rbac-and-workload-identity.md) |
-| 116 | 12 | [Placement, Disruption and Availability](book/volumes/12-kubernetes-production-engineering/116-placement-disruption-and-availability.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/116-placement-disruption-and-availability.md) |
-| 117 | 12 | [Horizontal, Vertical and Node Autoscaling](book/volumes/12-kubernetes-production-engineering/117-horizontal-vertical-and-node-autoscaling.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/117-horizontal-vertical-and-node-autoscaling.md) |
-| 118 | 12 | [Helm and Kustomize](book/volumes/12-kubernetes-production-engineering/118-helm-and-kustomize.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/118-helm-and-kustomize.md) |
-| 119 | 12 | [Operators and Admission Policy](book/volumes/12-kubernetes-production-engineering/119-operators-and-admission-policy.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/119-operators-and-admission-policy.md) |
-| 120 | 12 | [Upgrades, etcd and Cluster Recovery](book/volumes/12-kubernetes-production-engineering/120-upgrades-etcd-and-cluster-recovery.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/120-upgrades-etcd-and-cluster-recovery.md) |
+| 111 | 12 | [Cluster Provisioning and Ownership](book/volumes/12-kubernetes-production-engineering/111-cluster-provisioning-and-ownership.md) | complete | approved | 2,321 | [Resume](book/_ai/chapter-summaries/111-cluster-provisioning-and-ownership.md) |
+| 112 | 12 | [Cluster Networking and CNI](book/volumes/12-kubernetes-production-engineering/112-cluster-networking-and-cni.md) | complete | approved | 2,174 | [Resume](book/_ai/chapter-summaries/112-cluster-networking-and-cni.md) |
+| 113 | 12 | [Ingress and Gateway API](book/volumes/12-kubernetes-production-engineering/113-ingress-and-gateway-api.md) | complete | approved | 2,149 | [Resume](book/_ai/chapter-summaries/113-ingress-and-gateway-api.md) |
+| 114 | 12 | [CSI and Production Storage](book/volumes/12-kubernetes-production-engineering/114-csi-and-production-storage.md) | complete | approved | 2,046 | [Resume](book/_ai/chapter-summaries/114-csi-and-production-storage.md) |
+| 115 | 12 | [RBAC and Workload Identity](book/volumes/12-kubernetes-production-engineering/115-rbac-and-workload-identity.md) | complete | approved | 1,982 | [Resume](book/_ai/chapter-summaries/115-rbac-and-workload-identity.md) |
+| 116 | 12 | [Placement, Disruption and Availability](book/volumes/12-kubernetes-production-engineering/116-placement-disruption-and-availability.md) | complete | approved | 1,682 | [Resume](book/_ai/chapter-summaries/116-placement-disruption-and-availability.md) |
+| 117 | 12 | [Horizontal, Vertical and Node Autoscaling](book/volumes/12-kubernetes-production-engineering/117-horizontal-vertical-and-node-autoscaling.md) | complete | approved | 2,075 | [Resume](book/_ai/chapter-summaries/117-horizontal-vertical-and-node-autoscaling.md) |
+| 118 | 12 | [Helm and Kustomize](book/volumes/12-kubernetes-production-engineering/118-helm-and-kustomize.md) | complete | approved | 1,920 | [Resume](book/_ai/chapter-summaries/118-helm-and-kustomize.md) |
+| 119 | 12 | [Operators and Admission Policy](book/volumes/12-kubernetes-production-engineering/119-operators-and-admission-policy.md) | complete | approved | 1,940 | [Resume](book/_ai/chapter-summaries/119-operators-and-admission-policy.md) |
+| 120 | 12 | [Upgrades, etcd and Cluster Recovery](book/volumes/12-kubernetes-production-engineering/120-upgrades-etcd-and-cluster-recovery.md) | complete | approved | 2,105 | [Resume](book/_ai/chapter-summaries/120-upgrades-etcd-and-cluster-recovery.md) |
 | 121 | 13 | [CI Architecture and Trust Boundaries](book/volumes/13-continuous-integration-platforms/121-ci-architecture-and-trust-boundaries.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/121-ci-architecture-and-trust-boundaries.md) |
 | 122 | 13 | [GitHub Actions Workflows](book/volumes/13-continuous-integration-platforms/122-github-actions-workflows.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/122-github-actions-workflows.md) |
 | 123 | 13 | [GitHub Actions Runners and Security](book/volumes/13-continuous-integration-platforms/123-github-actions-runners-and-security.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/123-github-actions-runners-and-security.md) |

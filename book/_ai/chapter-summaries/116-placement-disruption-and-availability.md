@@ -1,21 +1,21 @@
 # Chapter 116 continuation
 
-Status: planned
+Status: complete
 
 ## Written material
-None.
+Failure domains and scheduler placement; affinity and topology spread; readiness/liveness/startup probes; PDB scope and limits; rollout and maintenance capacity; DispatchDesk drain stall; read-only diagnostics and exercises.
 
 ## Exact next section
-Why this matters
+None. Independently approved; continue to the next unfinished chapter.
 
 ## Concepts and terminology
-None introduced yet.
+Failure domain, node and Pod affinity, topology spread, taint/toleration, readiness, PDB, Eviction API, allowed disruptions, rollout surge/unavailability.
 
 ## Examples and cross-references
-None written yet.
+DispatchDesk zone-capacity and node-image drain scenario; read-only placement and PDB inspection; links to Chapters 114 and 117.
 
 ## Open threads
-Write and independently review the chapter.
+Validate workload-specific probes, topology and PDB choices in a real cluster before adoption; no cluster testing performed.
 
 ## Verification
-Not performed.
+Scoped checker and local-link validation pending; official Kubernetes placement and disruption docs inspected 2026-10-04.

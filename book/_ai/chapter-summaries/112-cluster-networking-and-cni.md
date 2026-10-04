@@ -1,21 +1,21 @@
 # Chapter 112 continuation
 
-Status: planned
+Status: complete
 
 ## Written material
-None.
+Draft covers the Kubernetes network model, CNI responsibilities, Pod and Service traffic paths, CIDR and MTU planning, NetworkPolicy behavior, read-only diagnostics, an incident scenario and exercises.
 
 ## Exact next section
-Why this matters
+None. Independently approved; continue to the next unfinished chapter.
 
 ## Concepts and terminology
-None introduced yet.
+CNI plugin, Pod network, Service virtual IP, kube-proxy or replacement, cluster and service CIDRs, MTU, ingress/egress policy, network path.
 
 ## Examples and cross-references
-None written yet.
+DispatchDesk cross-node connectivity incident; read-only `kubectl` inspection; links to Chapter 105 on Services and Chapter 111 on cluster ownership.
 
 ## Open threads
-Write and independently review the chapter.
+Verify current network behavior and source links during independent review; no runtime cluster test has been performed.
 
 ## Verification
-Not performed.
+Scoped static checker and link validation pending.

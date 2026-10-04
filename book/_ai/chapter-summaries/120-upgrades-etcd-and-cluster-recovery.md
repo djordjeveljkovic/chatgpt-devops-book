@@ -1,21 +1,21 @@
 # Chapter 120 continuation
 
-Status: planned
+Status: complete
 
 ## Written material
-None.
+Version-skew and staged upgrade planning; kubeadm versus managed process; etcd responsibility and sensitive snapshots; quorum repair versus disaster restore; application data recovery; DispatchDesk upgrade incident; read-only checks and rehearsals.
 
 ## Exact next section
-Why this matters
+None. Independently approved; continue to the next unfinished chapter.
 
 ## Concepts and terminology
-None introduced yet.
+Version skew, etcd quorum, API-state snapshot, disaster restore, CRD/API compatibility, recovery point and recovery time.
 
 ## Examples and cross-references
-None written yet.
+DispatchDesk kubeadm upgrade with a failed etcd member that retains quorum; read-only API baseline; links to Chapters 114 and 186.
 
 ## Open threads
-Write and independently review the chapter.
+Validate exact restore and upgrade procedures against target Kubernetes, etcd and provider versions before execution; no cluster operation performed.
 
 ## Verification
-Not performed.
+Scoped checker and local-link validation pending; official Kubernetes and etcd documentation inspected 2026-10-04.

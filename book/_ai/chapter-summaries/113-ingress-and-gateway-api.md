@@ -1,21 +1,21 @@
 # Chapter 113 continuation
 
-Status: planned
+Status: complete
 
 ## Written material
-None.
+External request path, LoadBalancer/Ingress/Gateway API distinctions, controller and conformance ownership, listener/route/TLS design, operations and observability, migration scenario, read-only diagnostics and exercises.
 
 ## Exact next section
-Why this matters
+None. Independently approved; continue to the next unfinished chapter.
 
 ## Concepts and terminology
-None introduced yet.
+IngressClass, GatewayClass, Gateway, HTTPRoute, controller, Standard/Experimental channel, conformance, listener, backend, route attachment.
 
 ## Examples and cross-references
-None written yet.
+DispatchDesk Ingress-to-Gateway migration; read-only Kubernetes diagnostics; links to Chapters 105 and 112.
 
 ## Open threads
-Write and independently review the chapter.
+Confirm current controller and Gateway API behavior against selected implementation documentation during review; no cluster test performed.
 
 ## Verification
-Not performed.
+Static checker and local-link validation pending; primary Kubernetes and Gateway API docs inspected 2026-10-04.

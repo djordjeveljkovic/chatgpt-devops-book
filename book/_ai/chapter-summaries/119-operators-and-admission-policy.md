@@ -1,21 +1,21 @@
 # Chapter 119 continuation
 
-Status: planned
+Status: complete
 
 ## Written material
-None.
+CRD and controller/operator contracts; finalizers and API lifecycle; PSA, VAP/CEL and webhook admission differences; staged policy rollout and failure modes; operator evaluation scenario; read-only diagnostics and exercises.
 
 ## Exact next section
-Why this matters
+None. Independently approved; continue to the next unfinished chapter.
 
 ## Concepts and terminology
-None introduced yet.
+CRD, custom resource, controller, operator, reconciliation, status condition, finalizer, PSA, VAP, CEL, validating/mutating webhook, failurePolicy.
 
 ## Examples and cross-references
-None written yet.
+DispatchDesk database-operator evaluation and staged privileged-Pod policy; read-only cluster policy/controller queries; links to Chapters 115, 118 and 120.
 
 ## Open threads
-Write and independently review the chapter.
+Check target operator contracts, installed API versions, and webhook failure behavior against cluster-specific documentation; no live test performed.
 
 ## Verification
-Not performed.
+Scoped checker and local-link validation pending; official Kubernetes API extension and admission docs inspected 2026-10-04.
