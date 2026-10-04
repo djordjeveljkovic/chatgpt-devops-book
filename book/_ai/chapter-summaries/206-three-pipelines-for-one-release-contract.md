@@ -1,21 +1,21 @@
 # Chapter 206 continuation
 
-Status: planned
+Status: complete
 
 ## Written material
-None.
+Compares GitHub Actions, GitLab CI and Jenkins against a shared release contract. Includes intentionally incomplete teaching fragments and calls out provider-specific identity, runner trust, approvals, immutable artifact promotion and recovery configuration. Official provider docs checked 2026-10-04. Pipelines were not executed.
 
 ## Exact next section
-Why this matters
+None. Independently approved; continue to the next unfinished chapter.
 
 ## Concepts and terminology
-None introduced yet.
+See chapter body for terms, decision boundaries and scoped examples.
 
 ## Examples and cross-references
-None written yet.
+Fictional DispatchDesk or sourced dated industry examples as indicated in body.
 
 ## Open threads
-Write and independently review the chapter.
+Independent review and focused validation pending.
 
 ## Verification
-Not performed.
+No production environment or provider resources were accessed.

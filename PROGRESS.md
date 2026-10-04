@@ -1,12 +1,12 @@
 # Book progress and exact continuation
 
-Last refreshed: 2026-10-04 13:04 UTC.
+Last refreshed: 2026-10-04 13:08 UTC.
 
 ## Actual state
 
-Chapters: 220. Approximate written words: 415,049.
+Chapters: 220. Approximate written words: 415,125.
 
-complete: 210, draft: 10.
+complete: 220.
 
 Statuses reflect files, not promises. `complete` requires independent approval and validation. References and code contribute to approximate word counts; counts do not measure quality.
 
@@ -16,7 +16,7 @@ Read [AI_AUTHORING_GUIDE.md](AI_AUTHORING_GUIDE.md), [coordinator handoff](book/
 
 ## Earliest unfinished dependency
 
-Chapter 201: [DispatchDesk on a Single VPS](book/volumes/21-projects-and-industry-case-studies/201-dispatchdesk-on-a-single-vps.md). Exact next step: Independent review at Volume 21 boundary..
+All chapter files report complete; verify the final acceptance report before delivery.
 
 ## Chapter ledger
 
@@ -222,16 +222,16 @@ Chapter 201: [DispatchDesk on a Single VPS](book/volumes/21-projects-and-industr
 | 198 | 20 | [Architecture Reviews and Decision Records](book/volumes/20-architecture-and-platform-engineering/198-architecture-reviews-and-decision-records.md) | complete | approved | 1,086 | [Resume](book/_ai/chapter-summaries/198-architecture-reviews-and-decision-records.md) |
 | 199 | 20 | [FinOps and Engineering Economics](book/volumes/20-architecture-and-platform-engineering/199-finops-and-engineering-economics.md) | complete | approved | 1,036 | [Resume](book/_ai/chapter-summaries/199-finops-and-engineering-economics.md) |
 | 200 | 20 | [Senior Engineering Judgment](book/volumes/20-architecture-and-platform-engineering/200-senior-engineering-judgment.md) | complete | approved | 1,042 | [Resume](book/_ai/chapter-summaries/200-senior-engineering-judgment.md) |
-| 201 | 21 | [DispatchDesk on a Single VPS](book/volumes/21-projects-and-industry-case-studies/201-dispatchdesk-on-a-single-vps.md) | draft | pending | 1,073 | [Resume](book/_ai/chapter-summaries/201-dispatchdesk-on-a-single-vps.md) |
-| 202 | 21 | [The VPS Company Scales Carefully](book/volumes/21-projects-and-industry-case-studies/202-the-vps-company-scales-carefully.md) | draft | pending | 1,056 | [Resume](book/_ai/chapter-summaries/202-the-vps-company-scales-carefully.md) |
-| 203 | 21 | [The Managed AWS Company](book/volumes/21-projects-and-industry-case-studies/203-the-managed-aws-company.md) | draft | pending | 1,048 | [Resume](book/_ai/chapter-summaries/203-the-managed-aws-company.md) |
-| 204 | 21 | [The Kubernetes Platform Company](book/volumes/21-projects-and-industry-case-studies/204-the-kubernetes-platform-company.md) | draft | pending | 1,000 | [Resume](book/_ai/chapter-summaries/204-the-kubernetes-platform-company.md) |
-| 205 | 21 | [Multi-language Services in Production](book/volumes/21-projects-and-industry-case-studies/205-multi-language-services-in-production.md) | draft | pending | 1,047 | [Resume](book/_ai/chapter-summaries/205-multi-language-services-in-production.md) |
-| 206 | 21 | [Three Pipelines for One Release Contract](book/volumes/21-projects-and-industry-case-studies/206-three-pipelines-for-one-release-contract.md) | draft | pending | 1,235 | [Resume](book/_ai/chapter-summaries/206-three-pipelines-for-one-release-contract.md) |
-| 207 | 21 | [An End-to-end Observability Investigation](book/volumes/21-projects-and-industry-case-studies/207-an-end-to-end-observability-investigation.md) | draft | pending | 1,037 | [Resume](book/_ai/chapter-summaries/207-an-end-to-end-observability-investigation.md) |
-| 208 | 21 | [Google SRE Practices in Context](book/volumes/21-projects-and-industry-case-studies/208-google-sre-practices-in-context.md) | draft | pending | 1,035 | [Resume](book/_ai/chapter-summaries/208-google-sre-practices-in-context.md) |
-| 209 | 21 | [Netflix Container and Delivery Evolution](book/volumes/21-projects-and-industry-case-studies/209-netflix-container-and-delivery-evolution.md) | draft | pending | 1,027 | [Resume](book/_ai/chapter-summaries/209-netflix-container-and-delivery-evolution.md) |
-| 210 | 21 | [Uber Observability and Alternative Growth Paths](book/volumes/21-projects-and-industry-case-studies/210-uber-observability-and-alternative-growth-paths.md) | draft | pending | 1,078 | [Resume](book/_ai/chapter-summaries/210-uber-observability-and-alternative-growth-paths.md) |
+| 201 | 21 | [DispatchDesk on a Single VPS](book/volumes/21-projects-and-industry-case-studies/201-dispatchdesk-on-a-single-vps.md) | complete | approved | 1,073 | [Resume](book/_ai/chapter-summaries/201-dispatchdesk-on-a-single-vps.md) |
+| 202 | 21 | [The VPS Company Scales Carefully](book/volumes/21-projects-and-industry-case-studies/202-the-vps-company-scales-carefully.md) | complete | approved | 1,056 | [Resume](book/_ai/chapter-summaries/202-the-vps-company-scales-carefully.md) |
+| 203 | 21 | [The Managed AWS Company](book/volumes/21-projects-and-industry-case-studies/203-the-managed-aws-company.md) | complete | approved | 1,048 | [Resume](book/_ai/chapter-summaries/203-the-managed-aws-company.md) |
+| 204 | 21 | [The Kubernetes Platform Company](book/volumes/21-projects-and-industry-case-studies/204-the-kubernetes-platform-company.md) | complete | approved | 1,000 | [Resume](book/_ai/chapter-summaries/204-the-kubernetes-platform-company.md) |
+| 205 | 21 | [Multi-language Services in Production](book/volumes/21-projects-and-industry-case-studies/205-multi-language-services-in-production.md) | complete | approved | 1,047 | [Resume](book/_ai/chapter-summaries/205-multi-language-services-in-production.md) |
+| 206 | 21 | [Three Pipelines for One Release Contract](book/volumes/21-projects-and-industry-case-studies/206-three-pipelines-for-one-release-contract.md) | complete | approved | 1,289 | [Resume](book/_ai/chapter-summaries/206-three-pipelines-for-one-release-contract.md) |
+| 207 | 21 | [An End-to-end Observability Investigation](book/volumes/21-projects-and-industry-case-studies/207-an-end-to-end-observability-investigation.md) | complete | approved | 1,037 | [Resume](book/_ai/chapter-summaries/207-an-end-to-end-observability-investigation.md) |
+| 208 | 21 | [Google SRE Practices in Context](book/volumes/21-projects-and-industry-case-studies/208-google-sre-practices-in-context.md) | complete | approved | 1,046 | [Resume](book/_ai/chapter-summaries/208-google-sre-practices-in-context.md) |
+| 209 | 21 | [Netflix Container and Delivery Evolution](book/volumes/21-projects-and-industry-case-studies/209-netflix-container-and-delivery-evolution.md) | complete | approved | 1,038 | [Resume](book/_ai/chapter-summaries/209-netflix-container-and-delivery-evolution.md) |
+| 210 | 21 | [Uber Observability and Alternative Growth Paths](book/volumes/21-projects-and-industry-case-studies/210-uber-observability-and-alternative-growth-paths.md) | complete | approved | 1,078 | [Resume](book/_ai/chapter-summaries/210-uber-observability-and-alternative-growth-paths.md) |
 | 211 | 22 | [Linux and Shell Command Reference](book/volumes/22-operational-reference/211-linux-and-shell-command-reference.md) | complete | approved | 1,835 | [Resume](book/_ai/chapter-summaries/211-linux-and-shell-command-reference.md) |
 | 212 | 22 | [Networking and VPS Diagnostic Reference](book/volumes/22-operational-reference/212-networking-and-vps-diagnostic-reference.md) | complete | approved | 1,748 | [Resume](book/_ai/chapter-summaries/212-networking-and-vps-diagnostic-reference.md) |
 | 213 | 22 | [Docker and Podman Command Reference](book/volumes/22-operational-reference/213-docker-and-podman-command-reference.md) | complete | approved | 2,074 | [Resume](book/_ai/chapter-summaries/213-docker-and-podman-command-reference.md) |
