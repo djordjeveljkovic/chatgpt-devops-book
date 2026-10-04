@@ -5,7 +5,7 @@ volume_title: "Architecture and Platform Engineering"
 chapter: 193
 title: "Multi-tenancy and Isolation"
 slug: multi-tenancy-and-isolation
-status: draft
+status: complete
 summary: ../../_ai/chapter-summaries/193-multi-tenancy-and-isolation.md
 ---
 

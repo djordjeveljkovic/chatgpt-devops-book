@@ -1,12 +1,12 @@
 # Chapter193 continuation
 
-Status: draft
+Status: complete
 
 ## Written material
 Identity/data/cache/resource/admin/recovery boundary matrix; pooled/dedicated tradeoffs; full original tenant SQLite lab; RLS role bypass/context limits; cache/message attribution; fairness arithmetic; cluster enforcement and selective recovery; exercises.
 
 ## Exact next section
-Independent review of isolation claims, lab authorization scope, quotas/network enforcement and recovery.
+None. Independently approved; continue to the next unfinished chapter.
 
 ## Concepts and terminology
 Tenant claim versus authenticated authority; parameter binding versus authorization; namespace versus kernel/control-plane boundary; fair sharing versus throughput; role RLS bypass.

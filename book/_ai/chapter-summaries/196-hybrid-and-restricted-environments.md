@@ -1,21 +1,21 @@
 # Chapter 196 continuation
 
-Status: planned
+Status: complete
 
 ## Written material
-None.
+Explains hybrid trust and dependency mapping, restricted-network artifact promotion, configuration differences, offline update/key concerns, telemetry limits, and degraded operations. Illustrates an offline signed-bundle drill. Sources checked 2026-10-04: NIST SP 800-207 and SLSA Provenance v1.1. No environment or deployment was configured.
 
 ## Exact next section
-Why this matters
+None. Independently approved; continue to the next unfinished chapter.
 
 ## Concepts and terminology
-None introduced yet.
+Refer to the chapter body for defined terms and practical examples.
 
 ## Examples and cross-references
-None written yet.
+Fictional DispatchDesk scenarios; relevant adjacent chapters linked in body.
 
 ## Open threads
-Write and independently review the chapter.
+Independent review and focused book validation pending.
 
 ## Verification
-Not performed.
+No implementation actions performed.

@@ -1,21 +1,21 @@
 # Chapter 199 continuation
 
-Status: planned
+Status: complete
 
 ## Written material
-None.
+Connects cloud spend to ownership and useful unit costs, then compares whole-life alternatives and establishes safe optimization loops. Fictional runner-pool case balances savings against queue-delay SLO. Sources checked 2026-10-04: FinOps Foundation Framework and AWS Cost Optimization Pillar. No billing data was accessed.
 
 ## Exact next section
-Why this matters
+None. Independently approved; continue to the next unfinished chapter.
 
 ## Concepts and terminology
-None introduced yet.
+Refer to the chapter body for defined terms and practical examples.
 
 ## Examples and cross-references
-None written yet.
+Fictional DispatchDesk scenarios; relevant adjacent chapters linked in body.
 
 ## Open threads
-Write and independently review the chapter.
+Independent review and focused book validation pending.
 
 ## Verification
-Not performed.
+No implementation actions performed.

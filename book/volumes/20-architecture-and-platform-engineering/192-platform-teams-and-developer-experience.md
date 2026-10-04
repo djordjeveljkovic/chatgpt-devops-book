@@ -5,7 +5,7 @@ volume_title: "Architecture and Platform Engineering"
 chapter: 192
 title: "Platform Teams and Developer Experience"
 slug: platform-teams-and-developer-experience
-status: draft
+status: complete
 summary: ../../_ai/chapter-summaries/192-platform-teams-and-developer-experience.md
 ---
 

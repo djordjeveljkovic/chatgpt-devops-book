@@ -5,7 +5,7 @@ volume_title: "Architecture and Platform Engineering"
 chapter: 194
 title: "Service Meshes and Traffic Policy"
 slug: service-meshes-and-traffic-policy
-status: draft
+status: complete
 summary: ../../_ai/chapter-summaries/194-service-meshes-and-traffic-policy.md
 ---
 
@@ -52,7 +52,7 @@ Assess installed-version support, resource use, upgrade strategy, network plugin
 
 Mutual TLS authenticates workload peers and protects their transport within its scope. It does not prove that a human caller may read a specific order. Likewise an HTTP authorization policy at the mesh can constrain which service account may call `POST /orders`; the API still needs to authorize the end-user, tenant and business operation.
 
-The following scoped Istio resources are complete examples for a **staging** namespace named `dispatchdesk-mesh`. They assume both API and client workloads are already enrolled in the same Istio control plane, that their Pods carry the shown labels and that the workload port uses HTTP as expected by the policy. `cluster.local` is the usual example trust domain in upstream documentation; substitute the actual trust domain and inspect issued identities before applying.
+The following scoped Istio resources are complete examples for a **staging sidecar-mode** namespace named `dispatchdesk-mesh`. Both API and client workloads must be sidecar-enrolled in the same Istio control plane, their Pods must carry the shown labels, and the workload port must use HTTP as expected by the method/path policy. These selector-based L7 rules are not ambient-mode policy examples. In ambient mode, define the appropriate waypoint and use `targetRefs` for waypoint-enforced L7 policy; separately test the ztunnel/L4 boundary, waypoint absence, direct Pod-IP access and other bypass paths. `cluster.local` is the usual example trust domain in upstream documentation; substitute the actual trust domain and inspect issued identities before applying.
 
 ```yaml
 apiVersion: security.istio.io/v1

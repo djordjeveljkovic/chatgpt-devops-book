@@ -1,12 +1,12 @@
 # Chapter194 continuation
 
-Status: draft
+Status: complete
 
 ## Written material
-Requirement-to-mesh capability table, sidecar/ambient ownership/failure matrix, full scoped PeerAuthentication and AuthorizationPolicy example, read-only CLI analysis and staging change path, bypass/security nuance, ordered symptom table, rollout/recovery, resource/latency/retry and exercises.
+Requirement-to-mesh capability table, sidecar/ambient ownership/failure matrix, full scoped sidecar-only PeerAuthentication and AuthorizationPolicy example, explicit ambient waypoint `targetRefs` distinction and L4/bypass tests, read-only CLI analysis and staging change path, bypass/security nuance, ordered symptom table, rollout/recovery, resource/latency/retry and exercises.
 
 ## Exact next section
-Independent Istio-version/API/identity-policy review and manifest parse.
+None. Independently approved; continue to the next unfinished chapter.
 
 ## Concepts and terminology
 Workload mTLS versus user/tenant authorization; sidecar versus node tunnel/optional waypoint; L4/L7; proxy selection versus API persistence; policy denial versus business outcome.

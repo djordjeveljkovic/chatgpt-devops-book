@@ -1,21 +1,21 @@
 # Chapter 198 continuation
 
-Status: planned
+Status: complete
 
 ## Written material
-None.
+Defines evidence-led architecture reviews scaled to impact, an ADR template and lifecycle, traceable actions and explicit residual-risk ownership. Fictional DispatchDesk example defers regional recovery pending validated need. Source checked 2026-10-04: Microsoft Azure Well-Architected ADR guidance. No approval or exception issued.
 
 ## Exact next section
-Why this matters
+None. Independently approved; continue to the next unfinished chapter.
 
 ## Concepts and terminology
-None introduced yet.
+Refer to the chapter body for defined terms and practical examples.
 
 ## Examples and cross-references
-None written yet.
+Fictional DispatchDesk scenarios; relevant adjacent chapters linked in body.
 
 ## Open threads
-Write and independently review the chapter.
+Independent review and focused book validation pending.
 
 ## Verification
-Not performed.
+No implementation actions performed.

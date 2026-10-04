@@ -5,147 +5,79 @@ volume_title: "Architecture and Platform Engineering"
 chapter: 191
 title: "Monoliths, Services and Organizational Boundaries"
 slug: monoliths-services-and-organizational-boundaries
-status: draft
+status: complete
 summary: ../../_ai/chapter-summaries/191-monoliths-services-and-organizational-boundaries.md
 ---
 
 # Chapter 191 — Monoliths, Services and Organizational Boundaries
 
-An architecture boundary decides who can change what independently and which failures must be handled across that boundary. Counting repositories or containers does not answer either question. Two processes can remain tightly coupled through a shared table and a coordinated release. One process can contain well-separated modules owned by different people, with deliberate interfaces and a straightforward operating model.
+**Section outline:** distinguish deployment units from module and team boundaries; identify operational cost and coupling in a service architecture; evaluate a service extraction using domain, data, ownership and rollback criteria.
 
-Harbor initially has two developers and a low-volume order service. A single deployable application with an asynchronous notification worker can fit its responsibilities. Summit's managed AWS path and Atlas's platform path introduce different staffing and scaling constraints; neither requires splitting every application function into a separate service. This chapter teaches how to choose an extraction, including the option of improving the existing boundary first.
+## Choose boundaries for change and ownership
 
-## Four boundaries that are often confused
+DispatchDesk starts with one application and a small team. As the product grows, checkout changes require coordination with billing and fulfillment, and one shared deployment creates risk for unrelated work. The architecture group proposes ten microservices so every team can deploy independently. Six months later, order creation requires synchronous calls across five services and a distributed database transaction that nobody owns. The number of deployables increased; the system's ability to change independently did not.
 
-| Boundary | What it controls | What it does not guarantee |
-|---|---|---|
-| Code module | Dependencies, interfaces and implementation visibility | Independent deployment or failure isolation. |
-| Repository | Source access and contribution workflow | A coherent business capability or independent release. |
-| Process/deployment | Runtime resources and release lifecycle | Independent state ownership or a tolerable remote failure. |
-| Team responsibility | Decisions, support, service contract and operating work | That all technical dependencies can be removed. |
+A monolith packages several capabilities into one deployable application. It can still have strong internal module boundaries and separate owners. A modular monolith makes these boundaries explicit in code and data access while retaining an in-process runtime and often one release unit. A service architecture splits capabilities into independently running processes that communicate across network boundaries. These are choices about deployment, failure and operational ownership, not a ranking from old to modern.
 
-A modular monolith is a single deployable application organized around deliberate internal boundaries. Modules can prohibit direct access to another module's private tables or types even while sharing a transaction and process. This can reduce accidental coupling without introducing remote communication. The limitation is that release and process failure still affect the application together; scaling one CPU-heavy function independently may be awkward.
+Keep three boundaries distinct when designing the system:
 
-A service extraction moves a capability into an independently operated deployment with an explicit contract. It introduces network, identity, timeout, telemetry and partial-failure behavior. Independent operation is an outcome to establish through data and release contracts, not a benefit obtained merely by moving files.
+- **Domain/module boundary:** which concepts, rules and data belong together, and which interfaces other areas use.
+- **Deployment/runtime boundary:** what is built, released, scaled, monitored and failed independently.
+- **Ownership boundary:** which team can make changes, operate the component, manage its data and answer for its reliability.
 
-AWS describes decomposition by business capability as organizing around what the business does, with domain understanding needed to identify useful divisions. That can be a helpful starting point, but it does not decide this fictional system's boundaries for us. See [AWS business-capability decomposition](https://docs.aws.amazon.com/prescriptive-guidance/latest/modernization-decomposing-monoliths/decompose-business-capability.html).
+The boundaries should support a coherent capability. A strong module boundary can exist inside one deployable; a service boundary can exist without independent ownership, creating handoffs rather than autonomy. Conway's Law is a useful prompt to examine how team communication affects system structure, not a deterministic rule that organization charts automatically produce good architecture.
 
-## Follow a customer operation before drawing boxes
+## Compare coupling and operational cost
 
-DispatchDesk accepts an order only after persisting the order and notification intent. Notification delivery is asynchronous and has a different provider-related failure path. The durable boundary therefore matters more than a visual distinction between “API” and “worker.” A new notification service cannot make the acceptance path depend on an unbounded provider call without changing the customer's contract.
+A monolith can offer one process boundary, simpler local calls and easier transactional changes. A poorly structured monolith may make safe changes hard because modules share tables, global state and assumptions. Service decomposition can isolate releases, scale a hot workload separately and give teams clearer ownership. It also turns local calls into network dependencies that can time out, fail partially, return stale data, introduce serialization/version compatibility and require operational systems for deployment, discovery, telemetry, identity, retries and incident response.
 
-Trace the capability through input validation, authorization, durable state, asynchronous transitions and query responses. List which invariants need to be true together. If order acceptance and creation of the intent currently share one transaction, extraction must preserve that invariant through an explicitly designed integration. [Volume17](../17-distributed-systems-and-data-operations/README.md) owns outbox, delivery and idempotency mechanisms; an architectural diagram is not a substitute for them.
+Service count is not a measure of autonomy. A distributed monolith has multiple deployables but changes that must ship together, chatty call chains, shared mutable databases or circular dependencies. It inherits network failure modes without receiving independent change boundaries. Conversely, a modular monolith with stable interfaces and ownership rules may let teams ship their modules frequently even though they share a process.
 
-Also trace change. Who changes notification templates? Who approves retry policy? Does changing an order field require simultaneous updates to the worker, dashboard, support tool and reporting query? These are release dependencies. Observe actual revisions and incidents instead of asking teams to guess whether they are loosely coupled.
+Map a user journey and its dependencies before choosing a split. Record call count and critical-path latency, shared data reads/writes, transaction invariants, failure handling, release coordination, scaling profile, security boundary, team ownership and support burden. Consider whether the capability has a bounded vocabulary and rules, whether one team can operate it end to end, and whether callers can tolerate asynchronous or eventually consistent behavior. Split where concepts and change patterns cohere; do not divide simply by database table or screen.
 
-For a real repository, inspect a bounded period of history and the relevant module directories. Commands such as `git log --since=30.days --name-only --format=oneline -- modules/orders modules/notifications` can reveal co-changing files, but co-change is evidence to investigate rather than proof of bad design. A feature legitimately touching both modules can explain it. Review the actual change intent, tests and release consequences. A low co-change rate can also hide manually synchronized configuration outside the repository.
+Data ownership is a central boundary. If two services both write each other's tables, schema changes and recovery become coupled. Prefer a clear owner and published interface, with other components consuming APIs or events. A separate datastore is not a universal requirement for a domain module, but a service that claims independent ownership should not rely on arbitrary writes to shared tables. Cross-service transactions require explicit consistency and compensation decisions; an HTTP call chain does not preserve a local ACID transaction automatically.
 
-## A complete boundary-mapping lab
+Operational ownership includes more than on-call. A team needs deployment automation, observability, security updates, capacity planning, backup/recovery where it owns state, dependency management and support expectations. A service that nobody can safely release or troubleshoot adds organizational load. Chapters 181–190 cover reliability practices; use their SLO, on-call, backup and incident costs when estimating whether a boundary makes the whole product easier to operate.
 
-This original local exercise models synchronous call dependencies. Create a disposable directory and save the following as `dependencies.json`. It is a hypothetical future proposal, not an observed DispatchDesk topology.
+## Decide whether to extract a service
 
-```json
-{
-  "orders": ["inventory", "notifications"],
-  "inventory": ["pricing"],
-  "pricing": [],
-  "notifications": ["orders"]
-}
-```
+Extract when a distinct capability has a demonstrated reason for independent release, scaling, security isolation or team ownership, and the organization can support its distributed-systems costs. Gather evidence from recurring coordination delays, risk coupling, module dependencies, load profile, security/compliance scope, deployment frequency and incident impact. If the problem is tangled internal dependencies, first enforce module interfaces and ownership inside the existing deployable; a network hop may make the coupling harder to see rather than remove it.
 
-Save this program as `boundary_check.py` in the same directory:
+Treat extraction as a staged migration, not a rewrite. Establish a bounded API or event contract and the target team's operating responsibilities. Move code behind the interface while keeping behavior comparable. Decide which component is authoritative for each piece of data, how state moves, how duplicate events are handled and how reads/writes are verified. Avoid uncontrolled dual writes; use a staged ownership transfer, outbox/event strategy or a temporary reconciled copy with a clear termination date. Preserve a way to route traffic or data back while compatibility permits it.
 
-```python
-import json
-import sys
-from pathlib import Path
+Measure success against the original reason for extraction: teams deploy without synchronized releases, scaling cost/latency improves, failure is contained, security boundary is clearer, or lead time and incident load fall. Also track newly introduced network failures, duplicate/out-of-order events, operational overhead, latency and recovery work. A boundary that reduces one team's work but adds two other teams' interrupts has moved cost rather than removed it.
 
-def reachable(graph, start):
-    found = set()
-    pending = list(graph[start])
-    while pending:
-        node = pending.pop()
-        if node in found:
-            continue
-        found.add(node)
-        pending.extend(graph[node])
-    return found
+For DispatchDesk, billing and fulfillment are tightly coupled to order status and change together frequently, so the architecture group first adds explicit domain modules and stops direct cross-module database writes. Payments has a separate scaling profile and a named team with an operational rota, so it is selected as a candidate for extraction. The team defines the payment authorization API, timeout/idempotency semantics, data owner, event contract and degraded checkout behavior. They compare old and new results in shadow mode without sending duplicate provider charges, then migrate a small traffic cohort with a rollback route and clear stop signals. The extraction is considered successful only when the payment team can deploy and recover independently and the checkout SLO remains within target; creating a new repository alone is not evidence of autonomy.
 
-def main():
-    if len(sys.argv) != 2:
-        raise ValueError("usage: boundary_check.py dependencies.json")
-    graph = json.loads(Path(sys.argv[1]).read_text(encoding="utf-8"))
-    if not isinstance(graph, dict) or not graph:
-        raise ValueError("graph must be a nonempty JSON object")
-    for node, targets in graph.items():
-        if not isinstance(targets, list) or not all(isinstance(t, str) for t in targets):
-            raise ValueError(f"invalid target list for {node}")
-        unknown = set(targets) - set(graph)
-        if unknown:
-            raise ValueError(f"unknown targets for {node}: {sorted(unknown)}")
-    for node in sorted(graph):
-        dependencies = reachable(graph, node)
-        cycle = node in dependencies
-        print(f"{node}: reachable={','.join(sorted(dependencies)) or '-'} cycle={cycle}")
+Exercises:
 
-if __name__ == "__main__":
-    try:
-        main()
-    except (OSError, ValueError) as error:
-        print(error, file=sys.stderr)
-        sys.exit(1)
-```
+1. A service has its own container and repository but requires five teams to approve each release. Which boundary is independent, and which is still coupled?
+2. A monolith has a hot image-resize module that needs different scaling. What options should be evaluated before creating a service?
+3. Two proposed services update the same order tables. What ownership and consistency decisions are missing?
+4. A service extraction increases deployment frequency but raises on-call work and user-visible latency. How should the team judge success?
 
-Run:
+Answer guidance: deployment is separated but organizational/release ownership remains coupled; clarify authority and remove synchronized change dependencies. Compare process-level scaling, queue workers, resource isolation or a service split while weighing operational cost and interface coupling. Assign one system of record per data element and define API/event consistency, duplicate handling, migration and recovery. Evaluate the original business rationale together with reliability, latency, on-call burden and end-to-end change independence; adjust or reverse the design if net autonomy did not improve.
 
-```bash
-python3 boundary_check.py dependencies.json
-```
+Review questions:
 
-With this exact input, orders and notifications participate in a cycle. Inventory reaches pricing without cycling; pricing reaches nothing. Remove the synchronous notifications-to-orders edge in a second copy and compare the output. This simulates a proposed interface change only: it does not prove an asynchronous replacement is correct.
+- How do domain, deployment and ownership boundaries differ?
+- Which costs accompany a move from local calls to remote services?
+- What conditions make a service extraction operationally plausible?
+- Which evidence would show the extraction improved autonomy rather than only increasing deployables?
 
-The script computes graph reachability, not distributed availability. The actual consequence of a dependency failing depends on whether the call is mandatory, cached, optional, bounded or already completed durably. A cycle is a review signal: it can complicate startup, retries and independent release, but graph shape alone does not identify the business contract. Unknown-node input intentionally fails so a mistyped dependency cannot quietly disappear from the analysis. No network, cloud account or container engine is required for the lab; cleanup consists of deleting only this disposable directory after retaining your notes.
+Takeaways:
 
-## Choose the first extraction with evidence
+- Monoliths can be modular and service architectures can remain tightly coupled.
+- Draw boundaries around coherent domain rules, data ownership and teams able to operate a capability.
+- Account for network failure, consistency, security and on-call costs before extraction.
+- Migrate incrementally and measure success against the reason for creating the new service.
 
-| Candidate evidence | Why it may justify extraction | Question that could reverse the decision |
-|---|---|---|
-| Different load/capacity profile | Independent replicas/resources can improve efficiency | Can a separate worker in the same codebase meet the need? |
-| Distinct change cadence and responsible team | Independent releases can reduce coordination | Do data/API changes still require synchronized deployment? |
-| Strong isolation need | Separate permission/runtime/storage boundary may limit impact | Does shared state or administration still defeat the intended isolation? |
-| Slow external provider path | Asynchronous ownership may isolate retries and quotas | Is durable delivery correctness established, including replay? |
-| Clear capability and stable contract | A boundary can survive internal implementation change | Is the domain sufficiently understood, or is the interface still changing weekly? |
+## Sources checked 2026-10-04
 
-For Harbor, improving module interfaces and keeping notification work off the synchronous path can be enough. Two developers taking on multiple independent release pipelines, credentials, dashboards and on-call obligations may lose more time than independent deployment saves. For Summit, a managed queue and distinct notification deployment can fit a measured workload split without a large bespoke platform. Atlas may have several teams whose release and access needs justify stronger isolation, but it still needs compatible contracts.
+- [Martin Fowler: Microservice Trade-Offs](https://martinfowler.com/articles/microservice-trade-offs.html) — benefits/costs and modular monolith comparison.
+- [Martin Fowler: Monolith First](https://martinfowler.com/bliki/MonolithFirst.html) — boundary discovery and prerequisites before decomposition.
+- [Microsoft Azure Architecture Center: Domain Analysis](https://learn.microsoft.com/azure/architecture/microservices/model/domain-analysis) — bounded contexts and domain-driven boundary modeling.
+- [Martin Fowler: Microservices](https://martinfowler.com/articles/microservices.html) — independent deployment, services and distributed transaction tradeoffs.
+- [Chapter 190 — Reducing Toil and Improving Operations](../19-site-reliability-and-recovery/190-reducing-toil-and-improving-operations.md) — operating and toil costs in ownership decisions.
 
-Do not choose a service because its table count or directory size exceeds an arbitrary threshold. If every request requires synchronous calls to several services, a slow dependency can hold connection/thread resources upstream. The timeout and retry choices must fit one end-to-end deadline rather than each service consuming the full customer budget. Distributed failure handling is the cost of the boundary and belongs in its acceptance criteria.
-
-## Data ownership and independent release
-
-A service needs an authority model for its state. Giving another service direct writes to its private table couples both to storage schema and transaction behavior. Read access can still create hidden availability and schema dependencies. A service contract or deliberate read model can reduce that coupling, with explicit freshness and consistency limits.
-
-Shared storage can be a temporary migration tactic, provided the allowed operations, owners and exit criteria are clear. It is risky to advertise independent deployment while every schema change coordinates all clients. Inventory the actual readers/writers, including maintenance scripts and reports, before moving authority. Maintain a compatibility matrix for old/new versions during the transition.
-
-Consider an extraction in which the new notification worker first consumes the same durable intent format. It can compare decisions in shadow mode without making external deliveries. When authority changes, fence the previous consumer so both do not send. Preserve idempotency and reconciliation evidence. An external side effect makes naive shadowing dangerous: “send from both implementations and compare” is not an acceptable parity test for real notifications.
-
-AWS's [strangler fig guidance](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/strangler-fig.html) describes gradual routing from an existing application to extracted capabilities and warns about migration dependencies and proxy behavior. The useful principle here is controlled replacement with compatibility evidence; it does not require adopting the guide's particular cloud implementation. The migration should remain capable of preserving current customer behavior while the team learns.
-
-## Test the claimed independence
-
-Use a rehearsal in a disposable/staging environment with representative data. Deploy a backward-compatible worker while the previous API remains active; confirm durable acceptance and notification processing. Delay or stop the notification path and verify the acceptance path's stated behavior. Reintroduce processing and check backlog age, provider quota and duplicate protection. If the new boundary changes those contracts, record that change explicitly instead of labeling it isolation.
-
-Test a malformed or newer event and establish whether it blocks all work or moves to an owned terminal/recovery path. Test old/new API and worker combinations within the promised window. Confirm that telemetry can correlate a request and its asynchronous work without using per-order metric labels. Record controller and credential ownership, including how the receiving team actually handles a page.
-
-Each extra deployable adds recurring work: builds, dependency patches, secret rotation, release verification, runbooks and recovery. Google discusses simplicity as an operational goal in its [SRE simplicity chapter](https://sre.google/sre-book/simplicity/). For our design, the practical test is whether the boundary removes a specific costly coupling or risk while remaining operable by its owners.
-
-## Failure investigation and exercises
-
-**The service was extracted, but releases still stop for a coordinated database change.** Map private-schema readers and writers. The deployment boundary changed, but authority and compatibility did not. Improve the contract/read model or accept the shared-release constraint honestly; adding more processes does not solve it.
-
-**The orders API becomes slow when notification providers time out.** Trace whether the new design introduced a mandatory synchronous dependency, blocked publish path or exhausted shared pool. Preserve durable acceptance semantics; diagnose the bounded integration rather than simply increasing every timeout.
-
-1. Compare Harbor's modular monolith with Summit's independent notification deployment. Name the specific load/team evidence that would justify switching, and the operating work it introduces. A strong answer considers workload and ownership rather than company prestige.
-2. Alter the graph lab to add a pricing-to-orders edge. Explain which nodes then participate in cycles and what contract evidence you still need. The program can detect structural reachability but cannot infer whether calls are mandatory.
-3. Design a shadow comparison for notification logic. Answer guidance: compare generated decisions against controlled fixtures or an isolated sink; ensure one authority makes real deliveries and retain reconciliation before changing it.
-
-Primary architecture sources were inspected on2026-10-01. The graph exercise was executed with Python3.14.7: the initial cycle, cycle removal and unknown-node failure produced the stated results; its temporary directory was removed. These local checks do not verify a staging migration or failure rehearsal. No service boundary or production deployment was changed during writing.
+The architectural story is fictional. No production architecture, team structure, service extraction, migration or performance test was performed.
