@@ -1,12 +1,12 @@
 # Book progress and exact continuation
 
-Last refreshed: 2026-10-04 08:36 UTC.
+Last refreshed: 2026-10-04 09:16 UTC.
 
 ## Actual state
 
-Chapters: 220. Approximate written words: 353,353.
+Chapters: 220. Approximate written words: 354,392.
 
-complete: 160, draft: 20, drafting: 1, planned: 39.
+complete: 170, draft: 10, drafting: 1, planned: 39.
 
 Statuses reflect files, not promises. `complete` requires independent approval and validation. References and code contribute to approximate word counts; counts do not measure quality.
 
@@ -16,7 +16,7 @@ Read [AI_AUTHORING_GUIDE.md](AI_AUTHORING_GUIDE.md), [coordinator handoff](book/
 
 ## Earliest unfinished dependency
 
-Chapter 151: [Workload Models and Measurement](book/volumes/16-performance-and-capacity-engineering/151-workload-models-and-measurement.md). Exact next step: Independent review of complete intended sections, CLI arguments, workload arithmetic, Linux scope and failure/recovery. No live execution claimed..
+Chapter 161: [Partial Failure and Timeouts](book/volumes/17-distributed-systems-and-data-operations/161-partial-failure-and-timeouts.md). Exact next step: Independent review of complete prose and inline examples. Python syntax3 and local links passed for161–162. No socket/provider execution..
 
 ## Chapter ledger
 
@@ -172,16 +172,16 @@ Chapter 151: [Workload Models and Measurement](book/volumes/16-performance-and-c
 | 148 | 15 | [Tempo, Jaeger and Trace Investigation](book/volumes/15-observability-and-telemetry/148-tempo-jaeger-and-trace-investigation.md) | complete | approved | 1,838 | [Resume](book/_ai/chapter-summaries/148-tempo-jaeger-and-trace-investigation.md) |
 | 149 | 15 | [Elastic, OpenSearch and CloudWatch](book/volumes/15-observability-and-telemetry/149-elastic-opensearch-and-cloudwatch.md) | complete | approved | 1,883 | [Resume](book/_ai/chapter-summaries/149-elastic-opensearch-and-cloudwatch.md) |
 | 150 | 15 | [Observability at Scale](book/volumes/15-observability-and-telemetry/150-observability-at-scale.md) | complete | approved | 1,802 | [Resume](book/_ai/chapter-summaries/150-observability-at-scale.md) |
-| 151 | 16 | [Workload Models and Measurement](book/volumes/16-performance-and-capacity-engineering/151-workload-models-and-measurement.md) | draft | pending | 1,651 | [Resume](book/_ai/chapter-summaries/151-workload-models-and-measurement.md) |
-| 152 | 16 | [CPU, Memory and Scheduler Diagnosis](book/volumes/16-performance-and-capacity-engineering/152-cpu-memory-and-scheduler-diagnosis.md) | draft | pending | 1,869 | [Resume](book/_ai/chapter-summaries/152-cpu-memory-and-scheduler-diagnosis.md) |
-| 153 | 16 | [Disk, Network and Connection Bottlenecks](book/volumes/16-performance-and-capacity-engineering/153-disk-network-and-connection-bottlenecks.md) | draft | pending | 1,783 | [Resume](book/_ai/chapter-summaries/153-disk-network-and-connection-bottlenecks.md) |
-| 154 | 16 | [Load Testing with k6 and Locust](book/volumes/16-performance-and-capacity-engineering/154-load-testing-with-k6-and-locust.md) | draft | pending | 1,615 | [Resume](book/_ai/chapter-summaries/154-load-testing-with-k6-and-locust.md) |
-| 155 | 16 | [Vertical Scaling Decisions](book/volumes/16-performance-and-capacity-engineering/155-vertical-scaling-decisions.md) | draft | pending | 1,805 | [Resume](book/_ai/chapter-summaries/155-vertical-scaling-decisions.md) |
-| 156 | 16 | [Horizontal Scaling Decisions](book/volumes/16-performance-and-capacity-engineering/156-horizontal-scaling-decisions.md) | draft | pending | 1,941 | [Resume](book/_ai/chapter-summaries/156-horizontal-scaling-decisions.md) |
-| 157 | 16 | [Autoscaling as a Feedback System](book/volumes/16-performance-and-capacity-engineering/157-autoscaling-as-a-feedback-system.md) | draft | pending | 1,847 | [Resume](book/_ai/chapter-summaries/157-autoscaling-as-a-feedback-system.md) |
-| 158 | 16 | [Capacity Planning and Forecasting](book/volumes/16-performance-and-capacity-engineering/158-capacity-planning-and-forecasting.md) | draft | pending | 1,862 | [Resume](book/_ai/chapter-summaries/158-capacity-planning-and-forecasting.md) |
-| 159 | 16 | [Caching, Batching and Efficiency](book/volumes/16-performance-and-capacity-engineering/159-caching-batching-and-efficiency.md) | draft | pending | 1,989 | [Resume](book/_ai/chapter-summaries/159-caching-batching-and-efficiency.md) |
-| 160 | 16 | [Cost and Performance Tradeoffs](book/volumes/16-performance-and-capacity-engineering/160-cost-and-performance-tradeoffs.md) | draft | pending | 1,925 | [Resume](book/_ai/chapter-summaries/160-cost-and-performance-tradeoffs.md) |
+| 151 | 16 | [Workload Models and Measurement](book/volumes/16-performance-and-capacity-engineering/151-workload-models-and-measurement.md) | complete | approved | 1,806 | [Resume](book/_ai/chapter-summaries/151-workload-models-and-measurement.md) |
+| 152 | 16 | [CPU, Memory and Scheduler Diagnosis](book/volumes/16-performance-and-capacity-engineering/152-cpu-memory-and-scheduler-diagnosis.md) | complete | approved | 1,932 | [Resume](book/_ai/chapter-summaries/152-cpu-memory-and-scheduler-diagnosis.md) |
+| 153 | 16 | [Disk, Network and Connection Bottlenecks](book/volumes/16-performance-and-capacity-engineering/153-disk-network-and-connection-bottlenecks.md) | complete | approved | 1,840 | [Resume](book/_ai/chapter-summaries/153-disk-network-and-connection-bottlenecks.md) |
+| 154 | 16 | [Load Testing with k6 and Locust](book/volumes/16-performance-and-capacity-engineering/154-load-testing-with-k6-and-locust.md) | complete | approved | 1,881 | [Resume](book/_ai/chapter-summaries/154-load-testing-with-k6-and-locust.md) |
+| 155 | 16 | [Vertical Scaling Decisions](book/volumes/16-performance-and-capacity-engineering/155-vertical-scaling-decisions.md) | complete | approved | 1,837 | [Resume](book/_ai/chapter-summaries/155-vertical-scaling-decisions.md) |
+| 156 | 16 | [Horizontal Scaling Decisions](book/volumes/16-performance-and-capacity-engineering/156-horizontal-scaling-decisions.md) | complete | approved | 2,012 | [Resume](book/_ai/chapter-summaries/156-horizontal-scaling-decisions.md) |
+| 157 | 16 | [Autoscaling as a Feedback System](book/volumes/16-performance-and-capacity-engineering/157-autoscaling-as-a-feedback-system.md) | complete | approved | 2,029 | [Resume](book/_ai/chapter-summaries/157-autoscaling-as-a-feedback-system.md) |
+| 158 | 16 | [Capacity Planning and Forecasting](book/volumes/16-performance-and-capacity-engineering/158-capacity-planning-and-forecasting.md) | complete | approved | 1,979 | [Resume](book/_ai/chapter-summaries/158-capacity-planning-and-forecasting.md) |
+| 159 | 16 | [Caching, Batching and Efficiency](book/volumes/16-performance-and-capacity-engineering/159-caching-batching-and-efficiency.md) | complete | approved | 2,046 | [Resume](book/_ai/chapter-summaries/159-caching-batching-and-efficiency.md) |
+| 160 | 16 | [Cost and Performance Tradeoffs](book/volumes/16-performance-and-capacity-engineering/160-cost-and-performance-tradeoffs.md) | complete | approved | 1,964 | [Resume](book/_ai/chapter-summaries/160-cost-and-performance-tradeoffs.md) |
 | 161 | 17 | [Partial Failure and Timeouts](book/volumes/17-distributed-systems-and-data-operations/161-partial-failure-and-timeouts.md) | draft | pending | 1,923 | [Resume](book/_ai/chapter-summaries/161-partial-failure-and-timeouts.md) |
 | 162 | 17 | [Retries, Idempotency and Backoff](book/volumes/17-distributed-systems-and-data-operations/162-retries-idempotency-and-backoff.md) | draft | pending | 2,082 | [Resume](book/_ai/chapter-summaries/162-retries-idempotency-and-backoff.md) |
 | 163 | 17 | [Queues and Backpressure](book/volumes/17-distributed-systems-and-data-operations/163-queues-and-backpressure.md) | draft | pending | 1,912 | [Resume](book/_ai/chapter-summaries/163-queues-and-backpressure.md) |

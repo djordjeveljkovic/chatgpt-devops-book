@@ -1,6 +1,6 @@
 # Chapter 155 continuation
 
-Status: draft
+Status: complete
 
 ## Written material
 Headroom, larger machines and limits; Downtime, cost and diminishing returns; A measured VPS resize decision. Chapter-specific practical procedure, diagnosis, recovery, exercises and answer guidance exist.
@@ -12,10 +12,10 @@ Usable resource headroom; host versus cgroup allocation; parallel versus serial 
 DispatchDesk fictional examples; inline commands/configuration. Prerequisite chapter 154 is context, not assumed executed setup.
 
 ## Open threads
-Independent review and resolution of findings are required before complete.
+Independent review approved the final body hash. No provider resize, restore or performance test was run.
 
 ## Exact next section
-Independent review of the completed resize procedure and arithmetic assumptions. No provider resize, restore or performance test was performed.
+None. Independently approved; continue to the next unfinished chapter.
 
 ## Verification
-Primary documentation inspected 2026-10-01: Linux kernel cgroup v2; AWS EC2 instance type change compatibility. Text and inline examples authored; no cloud provisioning, service execution, or load test performed. Installed-release compatibility remains a reader validation requirement.
+Body is 1,804 words. Focused checker passed one JSON parse, one Python and one shell syntax check, and 1,446 local links with no warnings/errors. Linux kernel cgroup v2 and AWS EC2 resize documentation were independently reviewed on 2026-10-04. No provider resize, restore, cloud provisioning, or performance test was performed. Installed-release compatibility remains a reader validation requirement.

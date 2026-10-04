@@ -5,7 +5,7 @@ volume_title: "Performance and Capacity Engineering"
 chapter: 154
 title: "Load Testing with k6 and Locust"
 slug: load-testing-with-k6-and-locust
-status: draft
+status: complete
 summary: ../../_ai/chapter-summaries/154-load-testing-with-k6-and-locust.md
 ---
 
@@ -92,7 +92,7 @@ export default function () {
 
 The scenario requests five iterations per second for thirty seconds. One iteration performs one request, making iteration and request rate comparable in this specific script. Preallocated users provide execution capacity; the maximum bounds further allocation. They are not five simultaneous users. The timeout bounds each client attempt, and the name tag gives statistics a stable operation label.
 
-The checks inspect status and body, while thresholds turn aggregate requirements into the tool's pass/fail outcome. A failed check alone and a failed threshold are different mechanisms; keep both their meanings visible. The dropped-iterations threshold prevents a green latency report from hiding that the generator failed to start the requested schedule. The latency threshold is a fictional lab requirement of 500 milliseconds at p95, not a production objective.
+The checks inspect status and body, while thresholds turn aggregate requirements into the tool's pass/fail outcome. A failed check alone and a failed threshold are different mechanisms; keep both their meanings visible. These thresholds normally determine the final test result after metrics are collected; they do not stop this run immediately when a limit is crossed. If a production-like test needs a fast safety abort, k6 supports `abortOnFail: true` on a threshold, optionally with `delayAbortEval` so startup samples do not trigger premature abort. Retain an independent wall-clock limit and operator stop path. The dropped-iterations threshold prevents a green latency report from hiding that the generator failed to start the requested schedule. The latency threshold is a fictional lab requirement of 500 milliseconds at p95, not a production objective.
 
 From the lab directory run `./k6 run health-arrivals.js` using the unpacked executable named `k6`. Inspect the exit status and summary. Expected evidence includes started/completed iterations, failed requests, check results, latency distribution and dropped iterations. Do not infer exact request count merely from rate multiplied by duration; inspect actual completion, interruption and scheduling evidence. This integration was not executed during authoring.
 
@@ -139,7 +139,7 @@ Run a bounded headless experiment:
   --host http://127.0.0.1:8080 --csv locust-health
 ```
 
-The file flag selects the complete script. Headless mode avoids the UI; user count targets five concurrent user objects; spawn rate introduces one per second; run time bounds the test; host selects the loopback target; CSV prefix writes result artifacts in the current lab directory. Review the installed release's output and exit behavior before making a CI gate depend on it. Do not assume that the k6 and Locust commands generate the same rate: one schedules five arrivals per second, while the other schedules five waiting users.
+The file flag selects the complete script. Headless mode avoids the UI; user count targets five concurrent user objects; spawn rate introduces one per second; run time bounds the test from its start; host selects the loopback target; CSV prefix writes result artifacts in the current lab directory. At timeout, Locust stops running tasks immediately by default, without waiting for in-flight requests. Add `--stop-timeout 5s` when the experiment needs a bounded grace period for active task iterations to finish; verify the installed release's behavior and choose the grace period to fit the task. Review output and exit behavior before making a CI gate depend on them. Do not assume that the k6 and Locust commands generate the same rate: one schedules five arrivals per second, while the other schedules five waiting users.
 
 ## Warmup, test data and correctness
 
@@ -161,5 +161,19 @@ If correctness fails, stop new work immediately and preserve evidence. Drain or 
 
 Exercises: compare the two scripts' offered-work mechanisms; break the body assertion and inspect failure evidence; explain why dropped iterations invalidate a fixed-rate capacity claim; design an idempotent retry check for staging. Answer guidance: independent arrivals versus waiting users, content validation must affect recorded failure, unstarted work never reached the target, and repeated use of one key must preserve one logical order/intent.
 
-Sources inspected 2026-10-01: [k6 installation](https://grafana.com/docs/k6/latest/set-up/install-k6/), [arrival executor](https://grafana.com/docs/k6/latest/using-k6/scenarios/executors/constant-arrival-rate/), [thresholds](https://grafana.com/docs/k6/latest/using-k6/thresholds/), [Locust script model](https://docs.locust.io/en/stable/writing-a-locustfile.html) and [headless execution](https://docs.locust.io/en/stable/running-without-web-ui.html), the latter pages showing Locust 2.46.6. No tool installation, load execution, staging order or provider integration was performed during authoring.
+## Review questions
 
+- Does the chosen executor preserve the real arrival process when the target slows down?
+- What makes a response an accepted order rather than merely an HTTP success?
+- How can dropped iterations, generator saturation or early threshold abort distort a capacity claim?
+- Which staging data and external effects must be reconciled after test shutdown?
+
+## Takeaways
+
+- Match the load model to the question: k6 arrival-rate scenarios schedule offered work independently, while this Locust user model waits between tasks.
+- A test script must assert response meaning and business correctness; a successful HTTP status alone is insufficient.
+- k6 thresholds report whether criteria passed, and only abort early when configured to do so; keep separate run-time and operator stop controls.
+- Locust headless duration bounds the run, but its default shutdown interrupts tasks; use a bounded stop timeout when an iteration needs grace to finish.
+- Protect staging, bound test data, inspect generator health and dropped work, then drain and reconcile generated records after the run.
+
+Sources inspected 2026-10-04: [k6 installation](https://grafana.com/docs/k6/latest/set-up/install-k6/), [arrival executor](https://grafana.com/docs/k6/latest/using-k6/scenarios/executors/constant-arrival-rate/), [thresholds](https://grafana.com/docs/k6/latest/using-k6/thresholds/), [Locust script model](https://docs.locust.io/en/stable/writing-a-locustfile.html) and [headless execution](https://docs.locust.io/en/stable/running-without-web-ui.html), the latter pages showing Locust 2.46.6. No tool installation, load execution, staging order or provider integration was performed during authoring.

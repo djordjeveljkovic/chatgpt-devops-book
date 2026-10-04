@@ -5,11 +5,13 @@ volume_title: "Performance and Capacity Engineering"
 chapter: 155
 title: "Vertical Scaling Decisions"
 slug: vertical-scaling-decisions
-status: draft
+status: complete
 summary: ../../_ai/chapter-summaries/155-vertical-scaling-decisions.md
 ---
 
 # Chapter 155 — Vertical Scaling Decisions
+
+**Section outline:** identify a measurable capacity constraint; inspect limits below the machine; prepare a resize record; plan downtime, durability and rollback; compare diminishing returns and make the Harbor decision.
 
 ## A bigger machine must relieve a named constraint
 
@@ -27,7 +29,7 @@ Memory headroom needs a different model. Imagine a deliberately fictional measur
 
 A cloud console can report eight cores while a service cgroup is permitted only one core of CPU time. A container memory limit can remain at 512 MiB after its host doubles in size. In that situation, buying capacity changes the invoice before it changes the application's allocation. The Linux kernel's [cgroup v2 documentation](https://docs.kernel.org/admin-guide/cgroup-v2.html) describes hierarchical controls: a child's allocation remains constrained by its ancestors. A local limit cannot escape a restrictive parent.
 
-Use the read-only process and cgroup inspection procedure from chapter152 to discover the actual service path, then inspect its CPU and memory controls before planning a resize. Do not assume that a path copied from another host names this service. Likewise inspect application worker counts, thread pools and database connection caps. Increasing a worker count is a separate change with its own memory and connection consequences. A PHP-FPM pool with more children can exhaust database connections sooner; a Node.js process with a blocked event loop needs a code or process-concurrency decision; Go goroutines waiting on a tiny database pool do not become useful merely because the host has more cores.
+Use the read-only process and cgroup inspection procedure from [Chapter 152](152-cpu-memory-and-scheduler-diagnosis.md) to discover the actual service path, then inspect its CPU and memory controls before planning a resize. Do not assume that a path copied from another host names this service. Likewise inspect application worker counts, thread pools and database connection caps. Increasing a worker count is a separate change with its own memory and connection consequences. A PHP-FPM pool with more children can exhaust database connections sooner; a Node.js process with a blocked event loop needs a code or process-concurrency decision; Go goroutines waiting on a tiny database pool do not become useful merely because the host has more cores.
 
 A single-thread bottleneck suggests faster per-core performance or less work per request. Parallel CPU saturation suggests more cores and an appropriate worker model. Memory pressure suggests more memory, smaller working sets, or corrected retention. A leak suggests a repair and bounded restart strategy; a larger machine only lengthens the time to the next failure. Storage queueing suggests investigating the volume and query path before choosing a CPU-heavy machine. These alternatives should appear beside the proposed resize, so the decision remains falsifiable.
 
@@ -110,4 +112,3 @@ Write Harbor's rollback acceptance criteria. Include preserved durable orders, m
 ## Takeaways and verification
 
 Vertical scaling is strongest when the team can name a resource constraint and demonstrate that the application can use the added resource. Preserve durable state, distinguish host allocation from service limits, and judge success by the same workload and customer result used to justify the change. Primary kernel and AWS compatibility documentation were inspected on 2026-10-01. The arithmetic lab is inline; no VPS resize, provider operation, restore or performance test was executed while authoring.
-

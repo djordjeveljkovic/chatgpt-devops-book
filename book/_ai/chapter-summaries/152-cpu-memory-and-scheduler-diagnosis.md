@@ -1,9 +1,9 @@
 # Chapter 152 continuation
 
-Status: draft
+Status: complete
 
 ## Written material
-Utilization, contention and pressure; Profiling and working-set evidence; Distinguishing CPU saturation from waiting. Chapter-specific practical procedure, diagnosis, recovery, exercises and answer guidance exist.
+Utilization, contention and pressure; bounded host inspection; resource limits and working-set evidence; profiling CPU work versus waiting; diagnosis, recovery and verification; exercises with answer guidance; review questions and explicit takeaways.
 
 ## Concepts and terminology
 Utilization versus contention/pressure; scope-specific CPU and memory; bounded procps inspection; cgroup limits; complete CPU-versus-wait Python program
@@ -12,10 +12,10 @@ Utilization versus contention/pressure; scope-specific CPU and memory; bounded p
 DispatchDesk fictional examples; inline commands/configuration. Prerequisite chapter 151 is context, not assumed executed setup.
 
 ## Open threads
-Independent review and resolution of findings are required before complete.
+Independent review approved the final body hash. No live host or service diagnostic was executed.
 
 ## Exact next section
-Independent review of complete intended sections, CLI arguments, workload arithmetic, Linux scope and failure/recovery. No live execution claimed.
+None. Independently approved; continue to the next unfinished chapter.
 
 ## Verification
-Primary documentation inspected 2026-10-01: kernel PSI/cgroupv2; procps top/vmstat manuals; Python profile page retrieval failed. Text and inline examples authored; no cloud provisioning, service execution, or load test performed. Installed-release compatibility remains a reader validation requirement.
+Body is 1,873 words. Focused checker passed one YAML parse, two Python syntax examples, three shell examples and 1,445 local links with no warnings/errors. Linux kernel PSI/cgroup v2, procps `top`/`vmstat`, and Python time documentation were reviewed by an independent reviewer on 2026-10-04. No profile-specific CLI was added after the author's Python profile-document retrieval failed. No service diagnostic, profile attachment, cgroup mutation or load test was performed. Installed-release compatibility remains a reader validation requirement.

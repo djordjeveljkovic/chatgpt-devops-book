@@ -5,11 +5,13 @@ volume_title: "Performance and Capacity Engineering"
 chapter: 157
 title: "Autoscaling as a Feedback System"
 slug: autoscaling-as-a-feedback-system
-status: draft
+status: complete
 summary: ../../_ai/chapter-summaries/157-autoscaling-as-a-feedback-system.md
 ---
 
 # Chapter 157 — Autoscaling as a Feedback System
+
+**Section outline:** model feedback delay; choose actionable signals; simulate a delayed controller; configure bounded Kubernetes and ECS examples; diagnose oscillation and stalled growth.
 
 ## Scaling reacts after demand has already changed
 
@@ -112,7 +114,9 @@ spec:
           periodSeconds: 60
 ```
 
-The sixty-five-percent target is relative to CPU requests, not host CPU capacity or necessarily the container's limit. The explicit replica boundaries must fit database connections and node capacity. The policies constrain changes; they do not promise a usable new pod in sixty seconds. The [official HPA documentation](https://kubernetes.io/docs/concepts/workloads/autoscaling/horizontal-pod-autoscale/) explains metric handling and downscale stabilization. The example avoids newer optional tolerance and scale-to-zero fields to keep its compatibility assumptions narrower; confirm the server's API schema rather than relying on a current webpage for an older cluster.
+This manifest uses the Pod-level CPU resource metric, so CPU requests must be set for every container in each measured Pod. A sidecar's usage and request contribute to aggregate utilization; an unrequested container can leave Pod CPU utilization undefined, so the HPA will not scale on that metric. When the application container should drive scaling independently, Kubernetes offers `ContainerResource` metrics in supported releases; verify API support before changing the metric type. The sixty-five-percent target is relative to CPU requests, not host CPU capacity or necessarily the container's limit. The explicit replica boundaries must fit database connections and node capacity. The policies constrain changes; they do not promise a usable new pod in sixty seconds. The [official HPA documentation](https://kubernetes.io/docs/concepts/workloads/autoscaling/horizontal-pod-autoscale/) explains metric handling and downscale stabilization. The example avoids newer optional tolerance and scale-to-zero fields to keep its compatibility assumptions narrower; confirm the server's API schema rather than relying on a current webpage for an older cluster.
+
+Here the 300-second downscale stabilization window uses the highest desired replica recommendation from the preceding five minutes, preventing a brief low signal from immediately removing capacity. The `Pods` policy's `periodSeconds: 60` limits removal to one pod over its rolling one-minute policy window. This is separate from the stabilization window. If multiple policies are configured for one direction, Kubernetes defaults to the policy that permits the largest change unless `selectPolicy` overrides it. Scale-up here has no stabilization delay but remains limited to two pod additions per one-minute window.
 
 Use these commands only from an authorized operator workstation with an existing staging kubeconfig. They are distribution-neutral; installation of kubectl and cluster access follows the book's Kubernetes prerequisites. Save the YAML as `hpa.yaml`.
 
@@ -155,5 +159,4 @@ An autoscaler requests six replicas but only two are ready during a surge. Name 
 
 ## Takeaways and verification
 
-Autoscaling succeeds when signals represent correctable demand, startup delay fits the customer deadline, and floors and ceilings match shared-resource budgets. Observe ready capacity and customer outcomes alongside recommendations. Official Kubernetes and AWS documentation was inspected on2026-10-01. YAML and simulation are inline; no HPA application, ECS policy change, cluster load test or cloud scaling operation was executed while authoring.
-
+Autoscaling succeeds when signals represent correctable demand, startup delay fits the customer deadline, and floors and ceilings match shared-resource budgets. Observe ready capacity and customer outcomes alongside recommendations. Official Kubernetes and AWS documentation was inspected on 2026-10-04. YAML and simulation are inline; no HPA application, ECS policy change, cluster load test or cloud scaling operation was executed while authoring.

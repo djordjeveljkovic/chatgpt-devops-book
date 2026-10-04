@@ -5,7 +5,7 @@ volume_title: "Performance and Capacity Engineering"
 chapter: 153
 title: "Disk, Network and Connection Bottlenecks"
 slug: disk-network-and-connection-bottlenecks
-status: draft
+status: complete
 summary: ../../_ai/chapter-summaries/153-disk-network-and-connection-bottlenecks.md
 ---
 
@@ -110,7 +110,12 @@ Before scaling, identify whether the bottleneck is local or shared. Larger disks
 
 Exercises: calculate the total pool ceiling before/after replica addition; explain why low bandwidth can coexist with high synchronous-write latency; distinguish pool wait from executed SQL duration; identify what a steadily growing descriptor count suggests. Answer guidance: 200 versus 280 possible connections, per-operation latency matters independently of transfer size, separate timing establishes the stage, and investigate retained resource types before merely increasing limits.
 
-Review the resource scope, observation interval, connection-budget sum and transaction outcomes before applying a capacity change. The useful capacity is completed correct work, not the largest count of simultaneously open connections.
+## Takeaways
+
+- Distinguish bandwidth from latency and queueing; small synchronous operations can wait on a busy device or shared service.
+- Identify each boundary in a connection path: client, application pool, network, server admission, query execution and storage.
+- Sum potential connections across replicas and workers before changing pool size, and confirm the database has headroom for every consumer.
+- Observe counters over a bounded interval and protect sensitive SQL and credential data in diagnostics.
+- Resolve the resource or transaction behavior that delays correct work before adding application replicas or raising limits.
 
 Sources inspected 2026-10-01: [iostat manual](https://man7.org/linux/man-pages/man1/iostat.1.html), [ss manual](https://man7.org/linux/man-pages/man8/ss.8.html), [PostgreSQL connections](https://www.postgresql.org/docs/current/runtime-config-connection.html) and [statistics](https://www.postgresql.org/docs/current/monitoring-stats.html), whose current pages resolved to PostgreSQL 18. No device sample, database query, connection mutation or load experiment was executed during authoring.
-

@@ -5,17 +5,19 @@ volume_title: "Performance and Capacity Engineering"
 chapter: 159
 title: "Caching, Batching and Efficiency"
 slug: caching-batching-and-efficiency
-status: draft
+status: complete
 summary: ../../_ai/chapter-summaries/159-caching-batching-and-efficiency.md
 ---
 
 # Chapter 159 — Caching, Batching and Efficiency
 
+**Section outline:** avoid repeated work with bounded caches; control freshness and fill coordination; batch compatible operations; bound waiting and partial-failure recovery; measure whether efficiency reduces end-to-end cost.
+
 ## Avoid work before buying capacity for it
 
 Caching reuses a result; batching shares setup cost across several pieces of work. Both can reduce demand, but both change timing and failure behavior. They deserve the same correctness review as a new database schema. For DispatchDesk, a catalog description can tolerate a short stale interval under an explicit product contract. An acknowledged order's existence and notification intent cannot depend on an evictable cache. Reuse the right work, not merely the easiest object to store.
 
-[Capacity forecasting](158-capacity-planning-and-forecasting.md) modeled future demand. Efficiency changes the resource cost of that demand. If a database lookup costs four milliseconds of CPU and network overhead and a cache lookup costs one, a ninety-percent hit fraction reduces this component's modeled average cost to1.3milliseconds:0.9×1+0.1×4. That is67.5percent less work for this component under these assumptions. The service's total latency will not necessarily improve by the same fraction: order writes, queue work and unrelated waits remain. Measure the path that changed and the end-to-end result.
+[Capacity forecasting](158-capacity-planning-and-forecasting.md) modeled future demand. Efficiency changes the resource cost of that demand. If a database lookup costs four milliseconds of CPU and network overhead and a cache lookup costs one, a ninety-percent hit fraction makes the modeled mean lookup cost `0.9 × 1 ms + 0.1 × (1 ms + 4 ms) = 1.4 ms`: cache hits pay one millisecond, while misses pay both the cache lookup and database fallback. Compared with a four-millisecond direct database lookup, that is a sixty-five-percent reduction in this component, excluding cache-fill writes and other overhead. The service's total latency will not necessarily improve by the same fraction: order writes, queue work and unrelated waits remain. Measure the path that changed and the end-to-end result.
 
 Locality matters. A process-local cache avoids a network call but is duplicated across replicas and disappears on restart. A shared cache improves cross-replica reuse while adding a dependency, network latency and an operational cost. The least complicated correct option can differ across Harbor's VPS, Summit's managed services and Atlas's platform. A cache is not an automatic architectural requirement.
 
@@ -167,4 +169,3 @@ A batch contains ten notifications, with two failed entries. Which entries becom
 ## Takeaways and verification
 
 Efficiency is useful when it reduces work while preserving the promised freshness, authorization and durable result. Caches need bounded failure behavior; batches need both size and waiting limits plus per-item outcomes. Redis and AWS SQS primary documentation was inspected on2026-10-01. Python and JavaScript mechanics labs are inline; no Redis integration, provider batch call or production performance experiment was executed while authoring.
-

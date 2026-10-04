@@ -5,11 +5,13 @@ volume_title: "Performance and Capacity Engineering"
 chapter: 158
 title: "Capacity Planning and Forecasting"
 slug: capacity-planning-and-forecasting
-status: draft
+status: complete
 summary: ../../_ai/chapter-summaries/158-capacity-planning-and-forecasting.md
 ---
 
 # Chapter 158 — Capacity Planning and Forecasting
+
+**Section outline:** forecast workload by its consuming resource; model growth, seasonality and failure reserve; calculate scenario and retention budgets; inspect account/region quota limits; turn forecast triggers into owned decisions.
 
 ## Forecast demand in units the system actually consumes
 
@@ -33,10 +35,10 @@ Planned maintenance creates a different overlap. A rolling deployment may briefl
 
 ## A complete forecasting worksheet
 
-Create `capacity_cases.csv` with the following fictional scenarios. `growth_factor` is relative to the observed peak, while `retry_factor` converts original attempts to total work under the scenario. A value of1.10 means ten percent more attempts, not a ten-percent increase in successful orders. `lost_replicas` names the modeled failure. These values are teaching inputs and should be replaced with evidence.
+Create `capacity_cases.csv` with the following fictional scenarios. `observed_original_rps` is the measured rate of new logical submissions before retry amplification. `growth_factor` projects that pre-retry baseline, while `retry_factor` converts it to total API attempts under the scenario. A value of1.10 means ten percent more attempts than the projected original submissions, not a ten-percent increase in successful orders. `lost_replicas` names the modeled failure. These values are teaching inputs and should be replaced with evidence.
 
 ```csv
-case,observed_peak_rps,growth_factor,retry_factor,usable_rps_per_replica,lost_replicas
+case,observed_original_rps,growth_factor,retry_factor,usable_rps_per_replica,lost_replicas
 low,10,2.0,1.00,8,1
 expected,10,3.0,1.05,8,1
 high,10,4.5,1.10,8,2
@@ -55,7 +57,7 @@ connection_budget = 180
 
 with open("capacity_cases.csv", newline="") as stream:
     for row in csv.DictReader(stream):
-        demand = (float(row["observed_peak_rps"]) *
+        demand = (float(row["observed_original_rps"]) *
                   float(row["growth_factor"]) *
                   float(row["retry_factor"]))
         rate = float(row["usable_rps_per_replica"])
@@ -72,7 +74,7 @@ with open("capacity_cases.csv", newline="") as stream:
               f"connections fit={connections <= connection_budget}")
 ```
 
-The worksheet deliberately couples failure reserve to the connection budget. Reserving more replicas can increase their idle connection footprint even before a failure. If the high case exceeds that budget, the plan needs a smaller validated pool, a different worker budget, a database change or another explicit design adjustment. A printed `connections fit=True` cannot prove query throughput or memory capacity.
+The worksheet deliberately couples failure reserve to the connection budget. Reserving more replicas can increase their idle connection footprint even before a failure. If the high case exceeds that budget, the plan needs a smaller validated pool, a different worker budget, a database change or another explicit design adjustment. A printed `connections fit=True` cannot prove query throughput or memory capacity. Keep the pre-retry submission baseline alongside total attempts: CPU, API pools and providers consume attempts, while durable order storage should count unique accepted operations after idempotency.
 
 Record the input measurements separately: date, release, data size, request mix, test duration, latency and correctness boundaries, warmup, dependency conditions and observed bottleneck. Rounding up a noisy unverified capacity number only creates a precise-looking error. Retest when a substantial release, dataset or infrastructure change invalidates the measurement.
 
@@ -90,7 +92,7 @@ AWS Service Quotas distinguishes service limits and applied values, and quota in
 
 For Summit, inventory the exact account and region involved in a launch. Compute, load-balancer targets, network addresses, security rules, API rates and observability ingestion may have different scopes. Do not invent default numbers from memory. An account's applied values and the service's documented limits are the evidence. Nonadjustable limits require design changes rather than a request form.
 
-The following read-only discovery uses an existing AWS CLI profile named `dispatchdesk-observer`, whose setup and permissions are prerequisites. It runs from the operator workstation, as an ordinary user, on any of the three Linux families. First inspect identity in its own block:
+The following read-only discovery uses an existing AWS CLI v2 profile named `dispatchdesk-observer`, whose setup and permissions are prerequisites. See [Chapter 82](../09-aws-foundations/082-aws-cli-and-identity-sessions.md) for installation and profile setup, and [Chapter 215](../22-operational-reference/215-aws-cli-operational-reference.md) for command behavior. The commands run from the operator workstation as an ordinary user on any of the three Linux families. First inspect identity in its own block:
 
 ```bash
 aws sts get-caller-identity --profile dispatchdesk-observer \
@@ -122,11 +124,10 @@ An incident can reveal a capacity forecast defect: the plan allowed six workers 
 
 A service needs70attempts per second and each validated replica supplies20within the boundary. How many ready replicas retain capacity after one loss? Five under the stated independent-replica model. For a zone loss, calculate the placement-specific number removed rather than reuse one.
 
-A campaign forecast doubles accepted orders, while total attempts triple. Which factor is missing? Retry or rejection behavior may amplify attempts; compare original business demand with total attempted work. The CPU and dependency budget must account for attempts, while durable order storage should use actual accepted records.
+A campaign forecast doubles unique accepted orders from a baseline of ten new submissions per second, while total attempts rise from ten to thirty per second. What changed? New logical demand rose to twenty per second while total attempt demand tripled to thirty, so attempts per logical order increased from1.0to1.5 through retries or rejected-request behavior. CPU and dependency budgets use attempts; durable order storage uses unique accepted records.
 
 A volume has30days until the operational boundary, but migration preparation takes40days. Is current capacity sufficient? The deadline has already been missed under those assumptions. Short-term retention or expansion may buy time, but verify its effect and preserve required data.
 
 ## Takeaways and verification
 
-A useful capacity plan includes workload cost, uncertainty, specific failures, deployment overlap, retention and lead time. Check shared-resource budgets across every scenario and keep requested capacity separate from ready capacity. Official AWS quota and CLI documentation was inspected on2026-10-01. The CSV/Python worksheet and read-only CLI example are inline; no AWS query, quota request, production forecast validation or provider provisioning was executed while authoring.
-
+A useful capacity plan includes workload cost, uncertainty, specific failures, deployment overlap, retention and lead time. Check shared-resource budgets across every scenario and keep requested capacity separate from ready capacity. Official AWS quota and CLI documentation was inspected on 2026-10-04. The CSV/Python worksheet and read-only CLI example are inline; no AWS query, quota request, production forecast validation or provider provisioning was executed while authoring.

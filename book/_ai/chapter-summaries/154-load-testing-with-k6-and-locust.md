@@ -1,21 +1,21 @@
 # Chapter 154 continuation
 
-Status: draft
+Status: complete
 
 ## Written material
-Open and closed workload models; Warmup, test data and correctness; A staged DispatchDesk load experiment. Chapter-specific practical procedure, diagnosis, recovery, exercises and answer guidance exist.
+Open and closed workload models; isolated teaching target; k6 arrival-rate test; Locust user population; warmup, test data and correctness; staged DispatchDesk experiment; failure diagnosis/recovery; exercises with answer guidance; review questions and takeaways.
 
 ## Concepts and terminology
-Open arrival-rate and closed user models, semantic response checks, dropped iterations and staged test limits.
+Open arrival-rate and closed user models, semantic response checks, dropped iterations, threshold pass/fail versus abort, bounded Locust shutdown grace, and staged test limits.
 
 ## Examples and cross-references
 DispatchDesk fictional examples; inline commands/configuration. Prerequisite chapter 153 is context, not assumed executed setup.
 
 ## Open threads
-Independent review and resolution of findings are required before complete.
+Independent review approved the final body hash. No installation or load experiment was executed.
 
 ## Exact next section
-Independent review: verify inline examples, source-scoped claims and recovery reasoning. No live execution is claimed.
+None. Independently approved; continue to the next unfinished chapter.
 
 ## Verification
-Primary documentation inspected 2026-10-01: k6 installation/arrival executor/thresholds; Locust2.46.6 writing and headless documentation. Text and inline examples authored; no cloud provisioning, service execution, or load test performed. Installed-release compatibility remains a reader validation requirement.
+Body is 1,804 words. Focused checker passed two Python syntax checks, one JavaScript syntax check, two shell syntax checks and 1,445 local links with no warnings/errors. Official k6 thresholds and Locust 2.46.6 headless shutdown documentation checked 2026-10-04. No tool installation, cloud provisioning, service execution, load test, staging order or provider integration was performed. Installed-release compatibility remains a reader validation requirement.

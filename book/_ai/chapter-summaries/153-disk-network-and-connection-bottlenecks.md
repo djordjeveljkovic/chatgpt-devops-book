@@ -1,9 +1,9 @@
 # Chapter 153 continuation
 
-Status: draft
+Status: complete
 
 ## Written material
-Latency, bandwidth, queues and IOPS; Connection pools and file descriptors; Finding a shared resource ceiling. Chapter-specific practical procedure, diagnosis, recovery, exercises and answer guidance exist.
+Latency, bandwidth, queues and IOPS; connection pools and file descriptors; finding a shared resource ceiling; failure, recovery and scaling implications; exercises with answer guidance; review questions and explicit takeaways.
 
 ## Concepts and terminology
 IOPS, throughput, latency, queueing, connection budgets and transaction wait diagnosis.
@@ -12,10 +12,10 @@ IOPS, throughput, latency, queueing, connection budgets and transaction wait dia
 DispatchDesk fictional examples; inline commands/configuration. Prerequisite chapter 152 is context, not assumed executed setup.
 
 ## Open threads
-Independent review and resolution of findings are required before complete.
+Independent review approved the final body hash. No live database, device or load test was run.
 
 ## Exact next section
-Independent review: verify inline examples, source-scoped claims and recovery reasoning. No live execution is claimed.
+None. Independently approved; continue to the next unfinished chapter.
 
 ## Verification
-Primary documentation inspected 2026-10-01: iostat/ss manuals; PostgreSQL18 connection and monitoring statistics documentation. Text and inline examples authored; no cloud provisioning, service execution, or load test performed. Installed-release compatibility remains a reader validation requirement.
+Body is 1,820 words. Focused checker passed two shell syntax checks and 1,445 local links with no warnings/errors. iostat/ss manuals and PostgreSQL 18 connection/statistics documentation reviewed 2026-10-04. No database query, device sample, connection mutation or load test was executed. Installed-release compatibility remains a reader validation requirement.

@@ -1,6 +1,6 @@
 # Chapter 156 continuation
 
-Status: draft
+Status: complete
 
 ## Written material
 Stateless work and shared state; Coordination, partitioning and balancing; Adding replicas without multiplying a bottleneck. Chapter-specific practical procedure, diagnosis, recovery, exercises and answer guidance exist.
@@ -12,10 +12,10 @@ Replaceable process state; atomic idempotency arbitration; leases and duplicate 
 DispatchDesk fictional examples; inline commands/configuration. Prerequisite chapter 155 is context, not assumed executed setup.
 
 ## Open threads
-Independent review and resolution of findings are required before complete.
+Independent review approved the final body hash. No runtime or replica test was run.
 
 ## Exact next section
-Independent review of completed chapter, especially Go main-goroutine drain wait and shared resource assumptions. Python/shell parsing passed and Go gofmt parsing passed directly; no replica rollout or lifecycle runtime test.
+None. Independently approved; continue to the next unfinished chapter.
 
 ## Verification
-Primary documentation inspected 2026-10-01: AWS ECS draining; Kubernetes pod lifecycle; Go standard library lifecycle example (not executed). Text and inline examples authored; no cloud provisioning, service execution, or load test performed. Installed-release compatibility remains a reader validation requirement.
+Body is 1,946 words. Focused checker passed one Python, two shell and one Go syntax check plus 1,447 local links with no warnings/errors. AWS ECS draining, Kubernetes pod lifecycle and Go HTTP shutdown/signal documentation reviewed 2026-10-04. No live replica rollout, database coordination test or load-balancer integration was executed. Installed-release compatibility remains a reader validation requirement.

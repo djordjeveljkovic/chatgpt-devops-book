@@ -5,7 +5,7 @@ volume_title: "Performance and Capacity Engineering"
 chapter: 152
 title: "CPU, Memory and Scheduler Diagnosis"
 slug: cpu-memory-and-scheduler-diagnosis
-status: draft
+status: complete
 summary: ../../_ai/chapter-summaries/152-cpu-memory-and-scheduler-diagnosis.md
 ---
 
@@ -122,7 +122,12 @@ If CPU stays low while acceptance waits, inspect dependency acquisition and netw
 
 Exercises: explain fifty-percent host CPU with one saturated thread on two cores; identify why vmstat's first row differs; calculate retained payload bytes for 1,000 concurrent 64-KiB bodies; distinguish a memory-limit kill from host free-memory exhaustion. Answer guidance: denominators and serial execution, since-boot accounting, roughly 62.5 MiB before objects/overhead, and scope-specific memory events establish the distinctions.
 
-Review utilization scope, waiting time, limit ownership and runtime behavior before resizing. Performance recovery should reduce the measured cause of delayed useful work.
+## Takeaways
+
+- Anchor host diagnosis to user-visible delay and completed useful work; utilization alone cannot identify the bottleneck.
+- Compare host, process, thread and cgroup scopes because each has a different denominator and limit.
+- Use runnable and blocked work, PSI, CPU throttling and memory events together to distinguish execution contention from waiting and limit failures.
+- Compare cumulative counters over a defined interval and discover the real cgroup path before interpreting container limits.
+- Change resources through their owning service or deployment specification, then verify stable operation and customer outcomes.
 
 Sources inspected 2026-10-01: [kernel PSI](https://docs.kernel.org/accounting/psi.html), [cgroup v2](https://docs.kernel.org/admin-guide/cgroup-v2.html), [top manual](https://man7.org/linux/man-pages/man1/top.1.html) and [vmstat manual](https://man7.org/linux/man-pages/man8/vmstat.8.html). Online Python profile documentation retrieval failed; no profile-specific CLI is taught from that failed source. Host diagnostics, Python demonstration and production profiling were not executed during authoring.
-

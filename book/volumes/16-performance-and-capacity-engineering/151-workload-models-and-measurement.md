@@ -5,7 +5,7 @@ volume_title: "Performance and Capacity Engineering"
 chapter: 151
 title: "Workload Models and Measurement"
 slug: workload-models-and-measurement
-status: draft
+status: complete
 summary: ../../_ai/chapter-summaries/151-workload-models-and-measurement.md
 ---
 
@@ -53,7 +53,7 @@ A charter makes assumptions and stopping conditions reviewable. The following co
 
 ```yaml
 experiment: harbor-order-acceptance-baseline
-question: Can the candidate sustain the canonical ten-order-per-second peak?
+question: Can the candidate sustain ten offered order requests per second?
 target:
   environment: isolated-staging
   boundary: public-order-endpoint-to-durable-order-and-intent-commit
@@ -94,6 +94,8 @@ recovery:
 
 The artifact field is a recording instruction, not an invented digest. Fill the working-set and reviewed thresholds with actual values before execution. The mix includes valid retries only if the test application implements caller-supplied idempotency keys and durable deduplication. The Chapter 141 in-memory metrics endpoint does not implement this contract and must not be used to claim this charter's acceptance outcome.
 
+At the ten-request-per-second peak, this mix schedules nine new-order requests and one idempotent retry each second. Use nine per second when estimating newly created durable orders; ten per second is total offered HTTP request traffic. If the requirement is ten new orders plus retries at ten percent of new traffic, change the total arrival rate to approximately 11.11 requests per second and state that different workload explicitly.
+
 Capture the candidate artifact, configuration, host/container limits, database size and pool settings. Capture the generator version, its script and the actual scenario parameters. Record when the workload begins and when each plateau changes. These details let another engineer reproduce the question rather than merely rerun a filename.
 
 A small Python arithmetic tool can check the workload estimate before provisioning anything. Save `workload_budget.py` in a scratch directory and run it as an ordinary user with Python 3 on Ubuntu, Fedora or RHEL-compatible Linux:
@@ -120,7 +122,14 @@ Stop a damaging experiment by stopping new generated work, then observe drain an
 
 Exercises: compute concurrency at ten per second and two seconds residence; compare twenty closed users at 0.1 versus two seconds response plus one second think time; explain why a provider stub limits the result; define one correctness check beyond HTTP status. Answer guidance: twenty resident requests, approximately eighteen versus 6.7 iterations per second, missing real provider constraints, and durable deduplication/intent reconciliation are the required distinctions.
 
-The review questions are whether offered work matches the real arrival mechanism, whether the data set exercises the relevant working set, and whether “passed” names a precise latency and correctness boundary. Capacity evidence begins with a defensible workload model.
+The review questions are whether offered work matches the real arrival mechanism, whether the data set exercises the relevant working set, and whether “passed” names a precise latency and correctness boundary.
+
+## Takeaways
+
+- Define the workload at a named boundary and distinguish offered requests, completed work, concurrent residence, and active service time.
+- Match open or closed generation to the real arrival mechanism; a closed test can self-throttle during an outage.
+- State whether workload percentages refer to total requests or new durable business operations, then calculate each rate separately.
+- Measure representative payloads, data cardinality, cache state, retries, and dependency demand; averages alone can hide tail failures.
+- A valid capacity result includes generator health, dropped work, latency percentiles, correctness, stopping thresholds, and a safe drain/recovery plan.
 
 Primary sources inspected 2026-10-01: [k6 open and closed models](https://grafana.com/docs/k6/latest/using-k6/scenarios/concepts/open-vs-closed/) and [constant arrival-rate executor](https://grafana.com/docs/k6/latest/using-k6/scenarios/executors/constant-arrival-rate/). Charter and arithmetic are original fictional planning material. No load experiment or provider interaction was executed.
-

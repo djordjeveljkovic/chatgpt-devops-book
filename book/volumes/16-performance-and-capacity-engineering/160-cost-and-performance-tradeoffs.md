@@ -5,11 +5,13 @@ volume_title: "Performance and Capacity Engineering"
 chapter: 160
 title: "Cost and Performance Tradeoffs"
 slug: cost-and-performance-tradeoffs
-status: draft
+status: complete
 summary: ../../_ai/chapter-summaries/160-cost-and-performance-tradeoffs.md
 ---
 
 # Chapter 160 — Cost and Performance Tradeoffs
+
+**Section outline:** compare complete service boundaries; calculate successful-order unit economics; model recurring and migration ownership costs; test interruption and commitment assumptions; record a decision that can be revisited.
 
 ## Compare complete proposals at the same service boundary
 
@@ -31,7 +33,7 @@ Staff hours are not always cash that disappears from an invoice, but they are sc
 
 ## A complete fictional proposal comparison
 
-The following numbers are invented **cost units** for a local reasoning exercise. They are not currencies, vendor prices, quotations or forecasts of a real provider. Each proposal is assumed to meet the same hypothetical workload and service boundary only after separate technical validation. `ops_hours` represents estimated recurring engineering time; `migration_units` is a one-time transition estimate. The labor valuation is an explicit sensitivity input.
+The following numbers are invented **cost units** for a local reasoning exercise. They are not currencies, vendor prices, quotations or forecasts of a real provider. Each proposal is assumed to meet the same hypothetical workload and service boundary only after separate technical validation. The four `*_units` columns are recurring monthly amounts, and `ops_hours` is estimated recurring engineering hours per month; `migration_units` is a one-time transition estimate. The labor valuation is an explicit sensitivity input.
 
 Save `proposals.csv`:
 
@@ -123,4 +125,3 @@ A shared cluster looks cheaper because platform engineering is omitted. How shou
 ## Takeaways and verification
 
 Compare complete services under the same customer and recovery boundary, expose cost assumptions, and test sensitivity to demand and staff time. Interruptible capacity and commitments change operational and spending obligations; they are architectural decisions as well as billing options. Official AWS documentation was inspected on2026-10-01. The proposal arithmetic is inline and fictional; no billing query, purchase, interruption experiment or provider provisioning was executed while authoring.
-

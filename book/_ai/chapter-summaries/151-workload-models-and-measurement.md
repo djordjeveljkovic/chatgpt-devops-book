@@ -1,21 +1,21 @@
 # Chapter 151 continuation
 
-Status: draft
+Status: complete
 
 ## Written material
-Arrival rates, concurrency and service time; Percentiles and representative workloads; Writing a load-test charter. Chapter-specific practical procedure, diagnosis, recovery, exercises and answer guidance exist.
+Arrival rates, concurrency and service time; open and closed workload models; percentiles and representative workloads; writing a load-test charter; failure evidence and recovery; exercises with answer guidance; review questions; explicit takeaways.
 
 ## Concepts and terminology
-Arrival/completion/concurrency boundaries; open/closed workloads; working-set cohorts; complete charter and arithmetic
+Arrival/completion/concurrency boundaries; open/closed workloads; working-set cohorts; request mix versus new durable operations; complete charter and arithmetic.
 
 ## Examples and cross-references
 DispatchDesk fictional examples; inline commands/configuration. Prerequisite chapter 150 is context, not assumed executed setup.
 
 ## Open threads
-Independent review and resolution of findings are required before complete.
+Independent review approved the final body hash. No load test was executed.
 
 ## Exact next section
-Independent review of complete intended sections, CLI arguments, workload arithmetic, Linux scope and failure/recovery. No live execution claimed.
+None. Independently approved; continue to the next unfinished chapter.
 
 ## Verification
-Primary documentation inspected 2026-10-01: k6 open/closed workload models and constant arrival-rate executor. Text and inline examples authored; no cloud provisioning, service execution, or load test performed. Installed-release compatibility remains a reader validation requirement.
+Body is 1,794 words. k6 open/closed workload models and constant arrival-rate executor documentation checked 2026-10-04. Focused checker passed one YAML parse, one Python syntax check, and 1,445 local links with no warnings/errors; the full 220-chapter checker also passed. No cloud provisioning, service execution or load test was performed. Installed-release compatibility remains a reader validation requirement.

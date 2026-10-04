@@ -5,11 +5,13 @@ volume_title: "Performance and Capacity Engineering"
 chapter: 156
 title: "Horizontal Scaling Decisions"
 slug: horizontal-scaling-decisions
-status: draft
+status: complete
 summary: ../../_ai/chapter-summaries/156-horizontal-scaling-decisions.md
 ---
 
 # Chapter 156 — Horizontal Scaling Decisions
+
+**Section outline:** replace instance-local state with explicit ownership; quantify the shared-resource replica budget; choose coordination semantics; separate startup, readiness and draining; add replicas in a controlled experiment.
 
 ## Replicas change the ownership of work
 
@@ -17,7 +19,7 @@ Horizontal scaling adds independently scheduled execution units. They may be pro
 
 [Vertical scaling](155-vertical-scaling-decisions.md) gave Harbor a way to relieve a measured resource constraint while keeping operations simple. Summit chooses an ECS service and managed database because its workload is bursty and its small operations team wants less host management. Atlas uses Kubernetes because many teams require runtime isolation and a platform contract. These are distinct choices. None makes application coordination disappear.
 
-DispatchDesk acknowledges an order only after durable order state and notification intent exist. A replica cannot keep that state only in its own Python dictionary, PHP session directory, Go map or Node.js heap. A load balancer can route the next request elsewhere; a restart can erase it entirely. The deliberately in-memory API from chapter141 teaches instrumentation and remains unsuitable for this production acceptance contract. “Stateless API” means a replaceable process whose important state is elsewhere or can be reconstructed. It does not mean the product has no state.
+DispatchDesk acknowledges an order only after durable order state and notification intent exist. A replica cannot keep that state only in its own Python dictionary, PHP session directory, Go map or Node.js heap. A load balancer can route the next request elsewhere; a restart can erase it entirely. The deliberately in-memory API from [Chapter 141](../15-observability-and-telemetry/141-observability-from-questions-to-evidence.md) teaches instrumentation and remains unsuitable for this production acceptance contract. “Stateless API” means a replaceable process whose important state is elsewhere or can be reconstructed. It does not mean the product has no state.
 
 List state before adding replicas: durable orders, idempotency records, notification intent, session or authentication state, cached catalog data, configuration, upload objects, temporary files and in-flight requests. Give each a persistence requirement and owner. A temporary decoded payload may safely disappear with a failed request. An acknowledged order may not. A local cache can be rebuilt, but two replicas must agree about freshness expectations. Sticky routing can hide a local-state defect during normal operation and then reveal it during failover.
 
@@ -97,9 +99,19 @@ func main() {
 	ready.Store(true)
 	mux := http.NewServeMux()
 	mux.HandleFunc("/healthz", func(w http.ResponseWriter, r *http.Request) {
+		if r.Method != http.MethodGet {
+			w.Header().Set("Allow", http.MethodGet)
+			http.Error(w, "method not allowed", http.StatusMethodNotAllowed)
+			return
+		}
 		fmt.Fprintln(w, "alive")
 	})
 	mux.HandleFunc("/readyz", func(w http.ResponseWriter, r *http.Request) {
+		if r.Method != http.MethodGet {
+			w.Header().Set("Allow", http.MethodGet)
+			http.Error(w, "method not allowed", http.StatusMethodNotAllowed)
+			return
+		}
 		if !ready.Load() {
 			http.Error(w, "draining", http.StatusServiceUnavailable)
 			return
@@ -162,4 +174,3 @@ A worker lease expires after thirty seconds, but a provider call can last forty.
 ## Takeaways and verification
 
 Useful replicas require replaceable process state, deliberate work ownership, balanced demand and a budget for shared resources. Count temporary rollout capacity and test removal as carefully as addition. Primary ECS, Kubernetes, [Go HTTP shutdown](https://pkg.go.dev/net/http#Server.Shutdown) and [signal context](https://pkg.go.dev/os/signal#NotifyContext) documentation were inspected on2026-10-01. The Python arithmetic and Go lifecycle examples are inline; no live replica rollout, database coordination test or load-balancer integration was executed during authoring.
-

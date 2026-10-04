@@ -1,21 +1,21 @@
 # Chapter 157 continuation
 
-Status: draft
+Status: complete
 
 ## Written material
 Signals, delay and stabilization; Cold starts, floors and ceilings; Preventing scaling oscillation. Chapter-specific practical procedure, diagnosis, recovery, exercises and answer guidance exist.
 
 ## Concepts and terminology
-Delayed feedback; ready versus requested capacity; target-signal suitability; floors/ceilings; downscale stabilization; queue age and startup reserve.
+Delayed feedback; ready versus requested capacity; target-signal suitability; floors/ceilings; Pod-level CPU requests and sidecar contribution; rolling stabilization and policy windows; queue age and startup reserve.
 
 ## Examples and cross-references
 DispatchDesk fictional examples; inline commands/configuration. Prerequisite chapter 156 is context, not assumed executed setup.
 
 ## Open threads
-Independent review and resolution of findings are required before complete.
+Independent review approved the final body hash. No cloud or controller operation was executed.
 
 ## Exact next section
-Independent review of completed simulation and bounded autoscaling/v2 example. YAML/Python/shell syntax passed in156–157 check; no cloud/cluster/controller operation executed.
+None. Independently approved; continue to the next unfinished chapter.
 
 ## Verification
-Primary documentation inspected 2026-10-01: Kubernetes HPA autoscaling/v2 behavior; AWS ECS service autoscaling and target tracking. Text and inline examples authored; no cloud provisioning, service execution, or load test performed. Installed-release compatibility remains a reader validation requirement.
+Body is 2,022 words. Focused checker passed one YAML, one Python and two shell syntax checks plus 1,447 local links with no warnings/errors. Kubernetes HPA autoscaling/v2 and AWS ECS service-autoscaling/target-tracking documentation reviewed 2026-10-04. No HPA application, ECS policy change, cluster load test or cloud scaling operation was performed. Installed-release compatibility remains a reader validation requirement.
