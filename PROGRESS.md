@@ -1,12 +1,12 @@
 # Book progress and exact continuation
 
-Last refreshed: 2026-10-04 09:55 UTC.
+Last refreshed: 2026-10-04 12:39 UTC.
 
 ## Actual state
 
-Chapters: 220. Approximate written words: 361,037.
+Chapters: 220. Approximate written words: 388,523.
 
-complete: 180, draft: 4, planned: 36.
+complete: 190, draft: 7, planned: 23.
 
 Statuses reflect files, not promises. `complete` requires independent approval and validation. References and code contribute to approximate word counts; counts do not measure quality.
 
@@ -16,7 +16,7 @@ Read [AI_AUTHORING_GUIDE.md](AI_AUTHORING_GUIDE.md), [coordinator handoff](book/
 
 ## Earliest unfinished dependency
 
-Chapter 171: [Threat Modeling for Operators](book/volumes/18-security-and-software-supply-chains/171-threat-modeling-for-operators.md). Exact next step: Why this matters.
+Chapter 181: [SLIs, SLOs and Error Budgets](book/volumes/19-site-reliability-and-recovery/181-slis-slos-and-error-budgets.md). Exact next step: Independent review at Volume 19 boundary, with focus on arithmetic, event/measurement definitions, low-volume caveats and source examples..
 
 ## Chapter ledger
 
@@ -192,19 +192,19 @@ Chapter 171: [Threat Modeling for Operators](book/volumes/18-security-and-softwa
 | 168 | 17 | [Database Scaling and Partitioning](book/volumes/17-distributed-systems-and-data-operations/168-database-scaling-and-partitioning.md) | complete | approved | 2,006 | [Resume](book/_ai/chapter-summaries/168-database-scaling-and-partitioning.md) |
 | 169 | 17 | [Messaging and Event-driven Architecture](book/volumes/17-distributed-systems-and-data-operations/169-messaging-and-event-driven-architecture.md) | complete | approved | 2,089 | [Resume](book/_ai/chapter-summaries/169-messaging-and-event-driven-architecture.md) |
 | 170 | 17 | [Stateful Recovery and Data Migration](book/volumes/17-distributed-systems-and-data-operations/170-stateful-recovery-and-data-migration.md) | complete | approved | 2,202 | [Resume](book/_ai/chapter-summaries/170-stateful-recovery-and-data-migration.md) |
-| 171 | 18 | [Threat Modeling for Operators](book/volumes/18-security-and-software-supply-chains/171-threat-modeling-for-operators.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/171-threat-modeling-for-operators.md) |
-| 172 | 18 | [Host Security and Patch Management](book/volumes/18-security-and-software-supply-chains/172-host-security-and-patch-management.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/172-host-security-and-patch-management.md) |
-| 173 | 18 | [Container Security in Practice](book/volumes/18-security-and-software-supply-chains/173-container-security-in-practice.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/173-container-security-in-practice.md) |
-| 174 | 18 | [Kubernetes Security Boundaries](book/volumes/18-security-and-software-supply-chains/174-kubernetes-security-boundaries.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/174-kubernetes-security-boundaries.md) |
-| 175 | 18 | [Secrets and Credential Rotation](book/volumes/18-security-and-software-supply-chains/175-secrets-and-credential-rotation.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/175-secrets-and-credential-rotation.md) |
-| 176 | 18 | [Federation, OIDC and Short-lived Identity](book/volumes/18-security-and-software-supply-chains/176-federation-oidc-and-short-lived-identity.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/176-federation-oidc-and-short-lived-identity.md) |
-| 177 | 18 | [Vulnerability Scanning and SBOMs](book/volumes/18-security-and-software-supply-chains/177-vulnerability-scanning-and-sboms.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/177-vulnerability-scanning-and-sboms.md) |
-| 178 | 18 | [Artifact Signing and Provenance](book/volumes/18-security-and-software-supply-chains/178-artifact-signing-and-provenance.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/178-artifact-signing-and-provenance.md) |
-| 179 | 18 | [Policy, Audit and Compliance Evidence](book/volumes/18-security-and-software-supply-chains/179-policy-audit-and-compliance-evidence.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/179-policy-audit-and-compliance-evidence.md) |
-| 180 | 18 | [Security Incidents and Containment](book/volumes/18-security-and-software-supply-chains/180-security-incidents-and-containment.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/180-security-incidents-and-containment.md) |
-| 181 | 19 | [SLIs, SLOs and Error Budgets](book/volumes/19-site-reliability-and-recovery/181-slis-slos-and-error-budgets.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/181-slis-slos-and-error-budgets.md) |
-| 182 | 19 | [On-call and Operational Readiness](book/volumes/19-site-reliability-and-recovery/182-on-call-and-operational-readiness.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/182-on-call-and-operational-readiness.md) |
-| 183 | 19 | [Incident Command and Communication](book/volumes/19-site-reliability-and-recovery/183-incident-command-and-communication.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/183-incident-command-and-communication.md) |
+| 171 | 18 | [Threat Modeling for Operators](book/volumes/18-security-and-software-supply-chains/171-threat-modeling-for-operators.md) | complete | approved | 2,262 | [Resume](book/_ai/chapter-summaries/171-threat-modeling-for-operators.md) |
+| 172 | 18 | [Host Security and Patch Management](book/volumes/18-security-and-software-supply-chains/172-host-security-and-patch-management.md) | complete | approved | 2,464 | [Resume](book/_ai/chapter-summaries/172-host-security-and-patch-management.md) |
+| 173 | 18 | [Container Security in Practice](book/volumes/18-security-and-software-supply-chains/173-container-security-in-practice.md) | complete | approved | 2,388 | [Resume](book/_ai/chapter-summaries/173-container-security-in-practice.md) |
+| 174 | 18 | [Kubernetes Security Boundaries](book/volumes/18-security-and-software-supply-chains/174-kubernetes-security-boundaries.md) | complete | approved | 2,429 | [Resume](book/_ai/chapter-summaries/174-kubernetes-security-boundaries.md) |
+| 175 | 18 | [Secrets and Credential Rotation](book/volumes/18-security-and-software-supply-chains/175-secrets-and-credential-rotation.md) | complete | approved | 2,143 | [Resume](book/_ai/chapter-summaries/175-secrets-and-credential-rotation.md) |
+| 176 | 18 | [Federation, OIDC and Short-lived Identity](book/volumes/18-security-and-software-supply-chains/176-federation-oidc-and-short-lived-identity.md) | complete | approved | 2,281 | [Resume](book/_ai/chapter-summaries/176-federation-oidc-and-short-lived-identity.md) |
+| 177 | 18 | [Vulnerability Scanning and SBOMs](book/volumes/18-security-and-software-supply-chains/177-vulnerability-scanning-and-sboms.md) | complete | approved | 2,165 | [Resume](book/_ai/chapter-summaries/177-vulnerability-scanning-and-sboms.md) |
+| 178 | 18 | [Artifact Signing and Provenance](book/volumes/18-security-and-software-supply-chains/178-artifact-signing-and-provenance.md) | complete | approved | 2,274 | [Resume](book/_ai/chapter-summaries/178-artifact-signing-and-provenance.md) |
+| 179 | 18 | [Policy, Audit and Compliance Evidence](book/volumes/18-security-and-software-supply-chains/179-policy-audit-and-compliance-evidence.md) | complete | approved | 2,689 | [Resume](book/_ai/chapter-summaries/179-policy-audit-and-compliance-evidence.md) |
+| 180 | 18 | [Security Incidents and Containment](book/volumes/18-security-and-software-supply-chains/180-security-incidents-and-containment.md) | complete | approved | 1,827 | [Resume](book/_ai/chapter-summaries/180-security-incidents-and-containment.md) |
+| 181 | 19 | [SLIs, SLOs and Error Budgets](book/volumes/19-site-reliability-and-recovery/181-slis-slos-and-error-budgets.md) | draft | pending | 1,733 | [Resume](book/_ai/chapter-summaries/181-slis-slos-and-error-budgets.md) |
+| 182 | 19 | [On-call and Operational Readiness](book/volumes/19-site-reliability-and-recovery/182-on-call-and-operational-readiness.md) | draft | pending | 1,515 | [Resume](book/_ai/chapter-summaries/182-on-call-and-operational-readiness.md) |
+| 183 | 19 | [Incident Command and Communication](book/volumes/19-site-reliability-and-recovery/183-incident-command-and-communication.md) | draft | pending | 1,316 | [Resume](book/_ai/chapter-summaries/183-incident-command-and-communication.md) |
 | 184 | 19 | [Troubleshooting Under Pressure](book/volumes/19-site-reliability-and-recovery/184-troubleshooting-under-pressure.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/184-troubleshooting-under-pressure.md) |
 | 185 | 19 | [Postmortems and Corrective Actions](book/volumes/19-site-reliability-and-recovery/185-postmortems-and-corrective-actions.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/185-postmortems-and-corrective-actions.md) |
 | 186 | 19 | [Backup Engineering](book/volumes/19-site-reliability-and-recovery/186-backup-engineering.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/186-backup-engineering.md) |
