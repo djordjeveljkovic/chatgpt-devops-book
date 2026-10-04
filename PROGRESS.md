@@ -1,12 +1,12 @@
 # Book progress and exact continuation
 
-Last refreshed: 2026-10-04 07:42 UTC.
+Last refreshed: 2026-10-04 08:36 UTC.
 
 ## Actual state
 
-Chapters: 220. Approximate written words: 327,603.
+Chapters: 220. Approximate written words: 353,353.
 
-complete: 150, draft: 20, drafting: 1, planned: 49.
+complete: 160, draft: 20, drafting: 1, planned: 39.
 
 Statuses reflect files, not promises. `complete` requires independent approval and validation. References and code contribute to approximate word counts; counts do not measure quality.
 
@@ -16,7 +16,7 @@ Read [AI_AUTHORING_GUIDE.md](AI_AUTHORING_GUIDE.md), [coordinator handoff](book/
 
 ## Earliest unfinished dependency
 
-Chapter 131: [Release Engineering and Artifact Promotion](book/volumes/14-delivery-deployment-and-gitops/131-release-engineering-and-artifact-promotion.md). Exact next step: Why this matters.
+Chapter 151: [Workload Models and Measurement](book/volumes/16-performance-and-capacity-engineering/151-workload-models-and-measurement.md). Exact next step: Independent review of complete intended sections, CLI arguments, workload arithmetic, Linux scope and failure/recovery. No live execution claimed..
 
 ## Chapter ledger
 
@@ -152,16 +152,16 @@ Chapter 131: [Release Engineering and Artifact Promotion](book/volumes/14-delive
 | 128 | 13 | [Tests, Quality Gates and Feedback](book/volumes/13-continuous-integration-platforms/128-tests-quality-gates-and-feedback.md) | complete | approved | 1,874 | [Resume](book/_ai/chapter-summaries/128-tests-quality-gates-and-feedback.md) |
 | 129 | 13 | [Artifacts, Caches and Build Reproducibility](book/volumes/13-continuous-integration-platforms/129-artifacts-caches-and-build-reproducibility.md) | complete | approved | 1,654 | [Resume](book/_ai/chapter-summaries/129-artifacts-caches-and-build-reproducibility.md) |
 | 130 | 13 | [CI Incidents and Platform Comparison](book/volumes/13-continuous-integration-platforms/130-ci-incidents-and-platform-comparison.md) | complete | approved | 2,032 | [Resume](book/_ai/chapter-summaries/130-ci-incidents-and-platform-comparison.md) |
-| 131 | 14 | [Release Engineering and Artifact Promotion](book/volumes/14-delivery-deployment-and-gitops/131-release-engineering-and-artifact-promotion.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/131-release-engineering-and-artifact-promotion.md) |
-| 132 | 14 | [Deployment to VPS Infrastructure](book/volumes/14-delivery-deployment-and-gitops/132-deployment-to-vps-infrastructure.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/132-deployment-to-vps-infrastructure.md) |
-| 133 | 14 | [Container Deployment to AWS](book/volumes/14-delivery-deployment-and-gitops/133-container-deployment-to-aws.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/133-container-deployment-to-aws.md) |
-| 134 | 14 | [Rolling Updates and Blue Green](book/volumes/14-delivery-deployment-and-gitops/134-rolling-updates-and-blue-green.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/134-rolling-updates-and-blue-green.md) |
-| 135 | 14 | [Canary Releases and Feature Flags](book/volumes/14-delivery-deployment-and-gitops/135-canary-releases-and-feature-flags.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/135-canary-releases-and-feature-flags.md) |
-| 136 | 14 | [Database and Message Compatibility](book/volumes/14-delivery-deployment-and-gitops/136-database-and-message-compatibility.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/136-database-and-message-compatibility.md) |
-| 137 | 14 | [GitOps Principles and Reconciliation](book/volumes/14-delivery-deployment-and-gitops/137-gitops-principles-and-reconciliation.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/137-gitops-principles-and-reconciliation.md) |
-| 138 | 14 | [Argo CD in Practice](book/volumes/14-delivery-deployment-and-gitops/138-argo-cd-in-practice.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/138-argo-cd-in-practice.md) |
-| 139 | 14 | [Flux in Practice](book/volumes/14-delivery-deployment-and-gitops/139-flux-in-practice.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/139-flux-in-practice.md) |
-| 140 | 14 | [Rollback, Roll Forward and Release Incidents](book/volumes/14-delivery-deployment-and-gitops/140-rollback-roll-forward-and-release-incidents.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/140-rollback-roll-forward-and-release-incidents.md) |
+| 131 | 14 | [Release Engineering and Artifact Promotion](book/volumes/14-delivery-deployment-and-gitops/131-release-engineering-and-artifact-promotion.md) | complete | approved | 2,697 | [Resume](book/_ai/chapter-summaries/131-release-engineering-and-artifact-promotion.md) |
+| 132 | 14 | [Deployment to VPS Infrastructure](book/volumes/14-delivery-deployment-and-gitops/132-deployment-to-vps-infrastructure.md) | complete | approved | 2,776 | [Resume](book/_ai/chapter-summaries/132-deployment-to-vps-infrastructure.md) |
+| 133 | 14 | [Container Deployment to AWS](book/volumes/14-delivery-deployment-and-gitops/133-container-deployment-to-aws.md) | complete | approved | 2,529 | [Resume](book/_ai/chapter-summaries/133-container-deployment-to-aws.md) |
+| 134 | 14 | [Rolling Updates and Blue Green](book/volumes/14-delivery-deployment-and-gitops/134-rolling-updates-and-blue-green.md) | complete | approved | 2,508 | [Resume](book/_ai/chapter-summaries/134-rolling-updates-and-blue-green.md) |
+| 135 | 14 | [Canary Releases and Feature Flags](book/volumes/14-delivery-deployment-and-gitops/135-canary-releases-and-feature-flags.md) | complete | approved | 2,528 | [Resume](book/_ai/chapter-summaries/135-canary-releases-and-feature-flags.md) |
+| 136 | 14 | [Database and Message Compatibility](book/volumes/14-delivery-deployment-and-gitops/136-database-and-message-compatibility.md) | complete | approved | 2,633 | [Resume](book/_ai/chapter-summaries/136-database-and-message-compatibility.md) |
+| 137 | 14 | [GitOps Principles and Reconciliation](book/volumes/14-delivery-deployment-and-gitops/137-gitops-principles-and-reconciliation.md) | complete | approved | 2,887 | [Resume](book/_ai/chapter-summaries/137-gitops-principles-and-reconciliation.md) |
+| 138 | 14 | [Argo CD in Practice](book/volumes/14-delivery-deployment-and-gitops/138-argo-cd-in-practice.md) | complete | approved | 2,590 | [Resume](book/_ai/chapter-summaries/138-argo-cd-in-practice.md) |
+| 139 | 14 | [Flux in Practice](book/volumes/14-delivery-deployment-and-gitops/139-flux-in-practice.md) | complete | approved | 2,185 | [Resume](book/_ai/chapter-summaries/139-flux-in-practice.md) |
+| 140 | 14 | [Rollback, Roll Forward and Release Incidents](book/volumes/14-delivery-deployment-and-gitops/140-rollback-roll-forward-and-release-incidents.md) | complete | approved | 2,417 | [Resume](book/_ai/chapter-summaries/140-rollback-roll-forward-and-release-incidents.md) |
 | 141 | 15 | [Observability from Questions to Evidence](book/volumes/15-observability-and-telemetry/141-observability-from-questions-to-evidence.md) | complete | approved | 1,913 | [Resume](book/_ai/chapter-summaries/141-observability-from-questions-to-evidence.md) |
 | 142 | 15 | [Prometheus and Exporters](book/volumes/15-observability-and-telemetry/142-prometheus-and-exporters.md) | complete | approved | 1,711 | [Resume](book/_ai/chapter-summaries/142-prometheus-and-exporters.md) |
 | 143 | 15 | [PromQL for Operational Questions](book/volumes/15-observability-and-telemetry/143-promql-for-operational-questions.md) | complete | approved | 1,779 | [Resume](book/_ai/chapter-summaries/143-promql-for-operational-questions.md) |
