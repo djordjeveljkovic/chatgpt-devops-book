@@ -1,21 +1,21 @@
 # Chapter 188 continuation
 
-Status: planned
+Status: complete
 
 ## Written material
-None.
+Drafted hypothesis/steady-state measurement, target scope and authorization, preconditions, independent/manual stop controls, staged experiments, FIS limitations, recovery verification and recordkeeping.
 
 ## Exact next section
-Why this matters
+None. Independently approved; continue to the next unfinished chapter.
 
 ## Concepts and terminology
-None introduced yet.
+Chaos/resilience experiment, hypothesis, steady state, target selector, blast radius, stop condition, manual abort, recovery verification.
 
 ## Examples and cross-references
-None written yet.
+Fictional DispatchDesk isolated worker-loss test reveals shared lease service; link Chapter 187 DR context.
 
 ## Open threads
-Write and independently review the chapter.
+No fault injection, AWS account, cluster or production resource was used. Review pending.
 
 ## Verification
-Not performed.
+No focused checker run yet. Sources checked 2026-10-04: AWS FIS stop conditions, templates, safety guide; Chaos Mesh 2.6.7 experiment scope.

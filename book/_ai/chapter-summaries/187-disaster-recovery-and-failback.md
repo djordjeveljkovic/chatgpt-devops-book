@@ -1,21 +1,21 @@
 # Chapter 187 continuation
 
-Status: planned
+Status: complete
 
 ## Written material
-None.
+Drafted RTO/RPO and HA/DR distinctions, backup/restore through active-active patterns, dependency order, authority/split-brain prevention, failover/failback procedure and measured exercise evidence.
 
 ## Exact next section
-Why this matters
+None. Independently approved; continue to the next unfinished chapter.
 
 ## Concepts and terminology
-None introduced yet.
+High availability, disaster recovery, RTO, RPO, recovery point, warm standby, pilot light, active-active, fencing, single writer, failback.
 
 ## Examples and cross-references
-None written yet.
+Fictional DispatchDesk warm standby at 30-minute RTO/five-minute RPO, dependency readiness and measured failover; links Chapter 186 backups.
 
 ## Open threads
-Write and independently review the chapter.
+No failover, data promotion, traffic routing, replication or live objective test occurred. Review pending.
 
 ## Verification
-Not performed.
+No focused checker run yet. Sources checked 2026-10-04: AWS Well-Architected recovery objectives, DR strategies and DR testing guidance.

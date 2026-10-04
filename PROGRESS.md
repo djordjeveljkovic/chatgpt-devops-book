@@ -1,12 +1,12 @@
 # Book progress and exact continuation
 
-Last refreshed: 2026-10-04 12:39 UTC.
+Last refreshed: 2026-10-04 12:56 UTC.
 
 ## Actual state
 
-Chapters: 220. Approximate written words: 388,523.
+Chapters: 220. Approximate written words: 404,374.
 
-complete: 190, draft: 7, planned: 23.
+complete: 200, draft: 10, planned: 10.
 
 Statuses reflect files, not promises. `complete` requires independent approval and validation. References and code contribute to approximate word counts; counts do not measure quality.
 
@@ -16,7 +16,7 @@ Read [AI_AUTHORING_GUIDE.md](AI_AUTHORING_GUIDE.md), [coordinator handoff](book/
 
 ## Earliest unfinished dependency
 
-Chapter 181: [SLIs, SLOs and Error Budgets](book/volumes/19-site-reliability-and-recovery/181-slis-slos-and-error-budgets.md). Exact next step: Independent review at Volume 19 boundary, with focus on arithmetic, event/measurement definitions, low-volume caveats and source examples..
+Chapter 191: [Monoliths, Services and Organizational Boundaries](book/volumes/20-architecture-and-platform-engineering/191-monoliths-services-and-organizational-boundaries.md). Exact next step: Independent review at Volume 20 boundary; focus on monolith/service definitions, domain ownership, extraction/migration risk and autonomy evidence..
 
 ## Chapter ledger
 
@@ -202,26 +202,26 @@ Chapter 181: [SLIs, SLOs and Error Budgets](book/volumes/19-site-reliability-and
 | 178 | 18 | [Artifact Signing and Provenance](book/volumes/18-security-and-software-supply-chains/178-artifact-signing-and-provenance.md) | complete | approved | 2,274 | [Resume](book/_ai/chapter-summaries/178-artifact-signing-and-provenance.md) |
 | 179 | 18 | [Policy, Audit and Compliance Evidence](book/volumes/18-security-and-software-supply-chains/179-policy-audit-and-compliance-evidence.md) | complete | approved | 2,689 | [Resume](book/_ai/chapter-summaries/179-policy-audit-and-compliance-evidence.md) |
 | 180 | 18 | [Security Incidents and Containment](book/volumes/18-security-and-software-supply-chains/180-security-incidents-and-containment.md) | complete | approved | 1,827 | [Resume](book/_ai/chapter-summaries/180-security-incidents-and-containment.md) |
-| 181 | 19 | [SLIs, SLOs and Error Budgets](book/volumes/19-site-reliability-and-recovery/181-slis-slos-and-error-budgets.md) | draft | pending | 1,733 | [Resume](book/_ai/chapter-summaries/181-slis-slos-and-error-budgets.md) |
-| 182 | 19 | [On-call and Operational Readiness](book/volumes/19-site-reliability-and-recovery/182-on-call-and-operational-readiness.md) | draft | pending | 1,515 | [Resume](book/_ai/chapter-summaries/182-on-call-and-operational-readiness.md) |
-| 183 | 19 | [Incident Command and Communication](book/volumes/19-site-reliability-and-recovery/183-incident-command-and-communication.md) | draft | pending | 1,316 | [Resume](book/_ai/chapter-summaries/183-incident-command-and-communication.md) |
-| 184 | 19 | [Troubleshooting Under Pressure](book/volumes/19-site-reliability-and-recovery/184-troubleshooting-under-pressure.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/184-troubleshooting-under-pressure.md) |
-| 185 | 19 | [Postmortems and Corrective Actions](book/volumes/19-site-reliability-and-recovery/185-postmortems-and-corrective-actions.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/185-postmortems-and-corrective-actions.md) |
-| 186 | 19 | [Backup Engineering](book/volumes/19-site-reliability-and-recovery/186-backup-engineering.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/186-backup-engineering.md) |
-| 187 | 19 | [Disaster Recovery and Failback](book/volumes/19-site-reliability-and-recovery/187-disaster-recovery-and-failback.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/187-disaster-recovery-and-failback.md) |
-| 188 | 19 | [Chaos and Resilience Experiments](book/volumes/19-site-reliability-and-recovery/188-chaos-and-resilience-experiments.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/188-chaos-and-resilience-experiments.md) |
-| 189 | 19 | [Reliability Testing and Game Days](book/volumes/19-site-reliability-and-recovery/189-reliability-testing-and-game-days.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/189-reliability-testing-and-game-days.md) |
-| 190 | 19 | [Reducing Toil and Improving Operations](book/volumes/19-site-reliability-and-recovery/190-reducing-toil-and-improving-operations.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/190-reducing-toil-and-improving-operations.md) |
-| 191 | 20 | [Monoliths, Services and Organizational Boundaries](book/volumes/20-architecture-and-platform-engineering/191-monoliths-services-and-organizational-boundaries.md) | draft | pending | 1,929 | [Resume](book/_ai/chapter-summaries/191-monoliths-services-and-organizational-boundaries.md) |
+| 181 | 19 | [SLIs, SLOs and Error Budgets](book/volumes/19-site-reliability-and-recovery/181-slis-slos-and-error-budgets.md) | complete | approved | 1,733 | [Resume](book/_ai/chapter-summaries/181-slis-slos-and-error-budgets.md) |
+| 182 | 19 | [On-call and Operational Readiness](book/volumes/19-site-reliability-and-recovery/182-on-call-and-operational-readiness.md) | complete | approved | 1,515 | [Resume](book/_ai/chapter-summaries/182-on-call-and-operational-readiness.md) |
+| 183 | 19 | [Incident Command and Communication](book/volumes/19-site-reliability-and-recovery/183-incident-command-and-communication.md) | complete | approved | 1,316 | [Resume](book/_ai/chapter-summaries/183-incident-command-and-communication.md) |
+| 184 | 19 | [Troubleshooting Under Pressure](book/volumes/19-site-reliability-and-recovery/184-troubleshooting-under-pressure.md) | complete | approved | 1,365 | [Resume](book/_ai/chapter-summaries/184-troubleshooting-under-pressure.md) |
+| 185 | 19 | [Postmortems and Corrective Actions](book/volumes/19-site-reliability-and-recovery/185-postmortems-and-corrective-actions.md) | complete | approved | 1,238 | [Resume](book/_ai/chapter-summaries/185-postmortems-and-corrective-actions.md) |
+| 186 | 19 | [Backup Engineering](book/volumes/19-site-reliability-and-recovery/186-backup-engineering.md) | complete | approved | 1,710 | [Resume](book/_ai/chapter-summaries/186-backup-engineering.md) |
+| 187 | 19 | [Disaster Recovery and Failback](book/volumes/19-site-reliability-and-recovery/187-disaster-recovery-and-failback.md) | complete | approved | 1,584 | [Resume](book/_ai/chapter-summaries/187-disaster-recovery-and-failback.md) |
+| 188 | 19 | [Chaos and Resilience Experiments](book/volumes/19-site-reliability-and-recovery/188-chaos-and-resilience-experiments.md) | complete | approved | 1,286 | [Resume](book/_ai/chapter-summaries/188-chaos-and-resilience-experiments.md) |
+| 189 | 19 | [Reliability Testing and Game Days](book/volumes/19-site-reliability-and-recovery/189-reliability-testing-and-game-days.md) | complete | approved | 1,450 | [Resume](book/_ai/chapter-summaries/189-reliability-testing-and-game-days.md) |
+| 190 | 19 | [Reducing Toil and Improving Operations](book/volumes/19-site-reliability-and-recovery/190-reducing-toil-and-improving-operations.md) | complete | approved | 1,396 | [Resume](book/_ai/chapter-summaries/190-reducing-toil-and-improving-operations.md) |
+| 191 | 20 | [Monoliths, Services and Organizational Boundaries](book/volumes/20-architecture-and-platform-engineering/191-monoliths-services-and-organizational-boundaries.md) | draft | pending | 1,406 | [Resume](book/_ai/chapter-summaries/191-monoliths-services-and-organizational-boundaries.md) |
 | 192 | 20 | [Platform Teams and Developer Experience](book/volumes/20-architecture-and-platform-engineering/192-platform-teams-and-developer-experience.md) | draft | pending | 1,878 | [Resume](book/_ai/chapter-summaries/192-platform-teams-and-developer-experience.md) |
 | 193 | 20 | [Multi-tenancy and Isolation](book/volumes/20-architecture-and-platform-engineering/193-multi-tenancy-and-isolation.md) | draft | pending | 1,743 | [Resume](book/_ai/chapter-summaries/193-multi-tenancy-and-isolation.md) |
 | 194 | 20 | [Service Meshes and Traffic Policy](book/volumes/20-architecture-and-platform-engineering/194-service-meshes-and-traffic-policy.md) | draft | pending | 1,954 | [Resume](book/_ai/chapter-summaries/194-service-meshes-and-traffic-policy.md) |
-| 195 | 20 | [Multi-zone and Multi-region Architecture](book/volumes/20-architecture-and-platform-engineering/195-multi-zone-and-multi-region-architecture.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/195-multi-zone-and-multi-region-architecture.md) |
-| 196 | 20 | [Hybrid and Restricted Environments](book/volumes/20-architecture-and-platform-engineering/196-hybrid-and-restricted-environments.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/196-hybrid-and-restricted-environments.md) |
-| 197 | 20 | [Legacy Infrastructure Modernization](book/volumes/20-architecture-and-platform-engineering/197-legacy-infrastructure-modernization.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/197-legacy-infrastructure-modernization.md) |
-| 198 | 20 | [Architecture Reviews and Decision Records](book/volumes/20-architecture-and-platform-engineering/198-architecture-reviews-and-decision-records.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/198-architecture-reviews-and-decision-records.md) |
-| 199 | 20 | [FinOps and Engineering Economics](book/volumes/20-architecture-and-platform-engineering/199-finops-and-engineering-economics.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/199-finops-and-engineering-economics.md) |
-| 200 | 20 | [Senior Engineering Judgment](book/volumes/20-architecture-and-platform-engineering/200-senior-engineering-judgment.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/200-senior-engineering-judgment.md) |
+| 195 | 20 | [Multi-zone and Multi-region Architecture](book/volumes/20-architecture-and-platform-engineering/195-multi-zone-and-multi-region-architecture.md) | draft | pending | 1,105 | [Resume](book/_ai/chapter-summaries/195-multi-zone-and-multi-region-architecture.md) |
+| 196 | 20 | [Hybrid and Restricted Environments](book/volumes/20-architecture-and-platform-engineering/196-hybrid-and-restricted-environments.md) | draft | pending | 1,053 | [Resume](book/_ai/chapter-summaries/196-hybrid-and-restricted-environments.md) |
+| 197 | 20 | [Legacy Infrastructure Modernization](book/volumes/20-architecture-and-platform-engineering/197-legacy-infrastructure-modernization.md) | draft | pending | 1,023 | [Resume](book/_ai/chapter-summaries/197-legacy-infrastructure-modernization.md) |
+| 198 | 20 | [Architecture Reviews and Decision Records](book/volumes/20-architecture-and-platform-engineering/198-architecture-reviews-and-decision-records.md) | draft | pending | 1,086 | [Resume](book/_ai/chapter-summaries/198-architecture-reviews-and-decision-records.md) |
+| 199 | 20 | [FinOps and Engineering Economics](book/volumes/20-architecture-and-platform-engineering/199-finops-and-engineering-economics.md) | draft | pending | 1,036 | [Resume](book/_ai/chapter-summaries/199-finops-and-engineering-economics.md) |
+| 200 | 20 | [Senior Engineering Judgment](book/volumes/20-architecture-and-platform-engineering/200-senior-engineering-judgment.md) | draft | pending | 1,042 | [Resume](book/_ai/chapter-summaries/200-senior-engineering-judgment.md) |
 | 201 | 21 | [DispatchDesk on a Single VPS](book/volumes/21-projects-and-industry-case-studies/201-dispatchdesk-on-a-single-vps.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/201-dispatchdesk-on-a-single-vps.md) |
 | 202 | 21 | [The VPS Company Scales Carefully](book/volumes/21-projects-and-industry-case-studies/202-the-vps-company-scales-carefully.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/202-the-vps-company-scales-carefully.md) |
 | 203 | 21 | [The Managed AWS Company](book/volumes/21-projects-and-industry-case-studies/203-the-managed-aws-company.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/203-the-managed-aws-company.md) |

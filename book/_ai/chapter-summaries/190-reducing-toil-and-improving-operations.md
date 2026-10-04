@@ -1,21 +1,21 @@
 # Chapter 190 continuation
 
-Status: planned
+Status: complete
 
 ## Written material
-None.
+Drafted toil characteristics/measurement, source elimination, staged bounded automation, failure cases/maintenance and DispatchDesk idempotent queue handling example.
 
 ## Exact next section
-Why this matters
+None. Independently approved; continue to the next unfinished chapter.
 
 ## Concepts and terminology
-None introduced yet.
+Toil, operational overhead, frequency/impact baseline, idempotency, bounded automation, uncertain outcome, kill switch, manual fallback, enduring value.
 
 ## Examples and cross-references
-None written yet.
+DispatchDesk queue replay replaced with idempotency, read-only failure report and gated replay. Links Chapter 185 postmortem/corrective action.
 
 ## Open threads
-Write and independently review the chapter.
+No script, queue replay, production automation or service change was executed. Review pending.
 
 ## Verification
-Not performed.
+No focused checker run yet. Sources checked 2026-10-04: Google SRE Eliminating Toil, Workbook Eliminating Toil and Automation at Google.
