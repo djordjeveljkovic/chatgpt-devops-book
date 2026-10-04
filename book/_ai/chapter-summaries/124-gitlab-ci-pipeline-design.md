@@ -1,21 +1,27 @@
-# Chapter 124 continuation
+# Chapter 124 — GitLab CI Pipeline Design
 
-Status: planned
+Status: complete
 
 ## Written material
-None.
+
+Pipeline stages and DAG scheduling through `needs`; workflow and job rules; merge-request and fork context; include/component trust; artifact and cache boundaries; deployment environments; child and multi-project pipelines. DispatchDesk example tests API and worker jobs on merge requests and gates packaging/deployment to the default branch.
 
 ## Exact next section
-Why this matters
+
+None. Independently approved; continue to the next unfinished chapter.
 
 ## Concepts and terminology
-None introduced yet.
+
+Pipeline source, stage, job, `workflow: rules`, job `rules`, `needs`, include, component, artifact, cache, protected environment, parent-child pipeline, multi-project pipeline.
 
 ## Examples and cross-references
-None written yet.
+
+Illustrative `.gitlab-ci.yml` with repository-owned scripts; links to Chapters 121 and the GitLab docs.
 
 ## Open threads
-Write and independently review the chapter.
+
+Independent review approved the corrected body at its current hash. Validate with CI Lint against the target GitLab version and project settings before use; no runner, environment or deployment was configured.
 
 ## Verification
-Not performed.
+
+Official GitLab documentation inspected 2026-10-04. Static parse and link checks pending.

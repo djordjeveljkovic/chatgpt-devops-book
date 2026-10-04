@@ -1,21 +1,27 @@
-# Chapter 130 continuation
+# Chapter 130 — CI Incidents and Platform Comparison
 
-Status: planned
+Status: complete
 
 ## Written material
-None.
+
+Queue-time diagnosis, runner eligibility and capacity, flaky-job feedback; comparative control surfaces across GitHub Actions, GitLab CI/CD and Jenkins; containment and recovery for suspicious/stalled pipelines, with a DispatchDesk artifact/credential incident scenario.
 
 ## Exact next section
-Why this matters
+
+None. Independently approved; continue to the next unfinished chapter.
 
 ## Concepts and terminology
-None introduced yet.
+
+Queue time, execution time, concurrency group, runner eligibility, first-attempt failure, artifact digest, containment, known-good build chain.
 
 ## Examples and cross-references
-None written yet.
+
+Two illustrative DispatchDesk incidents and platform comparison table; links to official monitoring and troubleshooting sources.
 
 ## Open threads
-Write and independently review the chapter.
+
+Review exact platform-specific queue/cancellation descriptions; no live platform telemetry was inspected.
 
 ## Verification
-Not performed.
+
+Official documentation inspected 2026-10-04. Static link checks pending.

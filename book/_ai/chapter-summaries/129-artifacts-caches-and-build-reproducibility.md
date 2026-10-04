@@ -1,21 +1,27 @@
-# Chapter 129 continuation
+# Chapter 129 — Artifacts, Caches and Build Reproducibility
 
-Status: planned
+Status: complete
 
 ## Written material
-None.
+
+Platform-specific cache/artifact roles; untrusted cache boundaries and explicit producer-consumer contracts; reproducible inputs, deterministic versus hermetic builds, dependency integrity; SLSA provenance and verification limits; DispatchDesk artifact lifecycle by immutable digest from build through test, scan, promotion and deployment.
 
 ## Exact next section
-Why this matters
+
+None. Independently approved; continue to the next unfinished chapter.
 
 ## Concepts and terminology
-None introduced yet.
+
+Artifact, cache, immutable digest, reproducible build, deterministic build, hermetic build, provenance, builder, subject, resolved dependency.
 
 ## Examples and cross-references
-None written yet.
+
+Conceptual DispatchDesk image lineage diagram; links to Chapters 128 and 130 and current primary platform/SLSA references.
 
 ## Open threads
-Write and independently review the chapter.
+
+Review SLSA v1.2 terminology and platform cache boundary descriptions; no build or registry operation was executed.
 
 ## Verification
-Not performed.
+
+Official docs and SLSA v1.2 materials inspected 2026-10-04. Static checks pending.

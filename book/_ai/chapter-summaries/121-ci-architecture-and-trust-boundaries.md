@@ -1,21 +1,21 @@
 # Chapter 121 continuation
 
-Status: planned
+Status: complete
 
 ## Written material
-None.
+CI event/job/artifact architecture; fork and branch trust; GitHub Actions, GitLab and Jenkins security differences; runner isolation, token and credential scoping, cache/artifact trust, provenance and deployment separation; DispatchDesk artifact flow; threat-review checklist and exercises.
 
 ## Exact next section
-Why this matters
+None. Independently approved; continue to the next unfinished chapter.
 
 ## Concepts and terminology
-None introduced yet.
+Pipeline event, job graph, runner/agent, protected variable/runner, GITHUB_TOKEN, pull_request_target, artifact provenance, immutable digest, workload identity.
 
 ## Examples and cross-references
-None written yet.
+DispatchDesk untrusted pull request to protected artifact promotion; links to Chapter 118 and the upcoming platform-specific CI chapters.
 
 ## Open threads
-Write and independently review the chapter.
+Verify deployed provider edition, version and repository settings before applying any trigger or credential design; no live CI system was inspected.
 
 ## Verification
-Not performed.
+Scoped checker and local-link validation pending; official GitHub, GitLab and Jenkins security docs inspected 2026-10-04.

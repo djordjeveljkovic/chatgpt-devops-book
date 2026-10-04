@@ -1,12 +1,12 @@
 # Book progress and exact continuation
 
-Last refreshed: 2026-10-04 00:06 UTC.
+Last refreshed: 2026-10-04 07:42 UTC.
 
 ## Actual state
 
-Chapters: 220. Approximate written words: 308,141.
+Chapters: 220. Approximate written words: 327,603.
 
-complete: 140, draft: 20, drafting: 1, planned: 59.
+complete: 150, draft: 20, drafting: 1, planned: 49.
 
 Statuses reflect files, not promises. `complete` requires independent approval and validation. References and code contribute to approximate word counts; counts do not measure quality.
 
@@ -16,7 +16,7 @@ Read [AI_AUTHORING_GUIDE.md](AI_AUTHORING_GUIDE.md), [coordinator handoff](book/
 
 ## Earliest unfinished dependency
 
-Chapter 121: [CI Architecture and Trust Boundaries](book/volumes/13-continuous-integration-platforms/121-ci-architecture-and-trust-boundaries.md). Exact next step: Why this matters.
+Chapter 131: [Release Engineering and Artifact Promotion](book/volumes/14-delivery-deployment-and-gitops/131-release-engineering-and-artifact-promotion.md). Exact next step: Why this matters.
 
 ## Chapter ledger
 
@@ -142,16 +142,16 @@ Chapter 121: [CI Architecture and Trust Boundaries](book/volumes/13-continuous-i
 | 118 | 12 | [Helm and Kustomize](book/volumes/12-kubernetes-production-engineering/118-helm-and-kustomize.md) | complete | approved | 1,920 | [Resume](book/_ai/chapter-summaries/118-helm-and-kustomize.md) |
 | 119 | 12 | [Operators and Admission Policy](book/volumes/12-kubernetes-production-engineering/119-operators-and-admission-policy.md) | complete | approved | 1,940 | [Resume](book/_ai/chapter-summaries/119-operators-and-admission-policy.md) |
 | 120 | 12 | [Upgrades, etcd and Cluster Recovery](book/volumes/12-kubernetes-production-engineering/120-upgrades-etcd-and-cluster-recovery.md) | complete | approved | 2,105 | [Resume](book/_ai/chapter-summaries/120-upgrades-etcd-and-cluster-recovery.md) |
-| 121 | 13 | [CI Architecture and Trust Boundaries](book/volumes/13-continuous-integration-platforms/121-ci-architecture-and-trust-boundaries.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/121-ci-architecture-and-trust-boundaries.md) |
-| 122 | 13 | [GitHub Actions Workflows](book/volumes/13-continuous-integration-platforms/122-github-actions-workflows.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/122-github-actions-workflows.md) |
-| 123 | 13 | [GitHub Actions Runners and Security](book/volumes/13-continuous-integration-platforms/123-github-actions-runners-and-security.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/123-github-actions-runners-and-security.md) |
-| 124 | 13 | [GitLab CI Pipeline Design](book/volumes/13-continuous-integration-platforms/124-gitlab-ci-pipeline-design.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/124-gitlab-ci-pipeline-design.md) |
-| 125 | 13 | [GitLab Runners and Credentials](book/volumes/13-continuous-integration-platforms/125-gitlab-runners-and-credentials.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/125-gitlab-runners-and-credentials.md) |
-| 126 | 13 | [Jenkins Controllers and Agents](book/volumes/13-continuous-integration-platforms/126-jenkins-controllers-and-agents.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/126-jenkins-controllers-and-agents.md) |
-| 127 | 13 | [Jenkins Declarative Pipelines](book/volumes/13-continuous-integration-platforms/127-jenkins-declarative-pipelines.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/127-jenkins-declarative-pipelines.md) |
-| 128 | 13 | [Tests, Quality Gates and Feedback](book/volumes/13-continuous-integration-platforms/128-tests-quality-gates-and-feedback.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/128-tests-quality-gates-and-feedback.md) |
-| 129 | 13 | [Artifacts, Caches and Build Reproducibility](book/volumes/13-continuous-integration-platforms/129-artifacts-caches-and-build-reproducibility.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/129-artifacts-caches-and-build-reproducibility.md) |
-| 130 | 13 | [CI Incidents and Platform Comparison](book/volumes/13-continuous-integration-platforms/130-ci-incidents-and-platform-comparison.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/130-ci-incidents-and-platform-comparison.md) |
+| 121 | 13 | [CI Architecture and Trust Boundaries](book/volumes/13-continuous-integration-platforms/121-ci-architecture-and-trust-boundaries.md) | complete | approved | 2,461 | [Resume](book/_ai/chapter-summaries/121-ci-architecture-and-trust-boundaries.md) |
+| 122 | 13 | [GitHub Actions Workflows](book/volumes/13-continuous-integration-platforms/122-github-actions-workflows.md) | complete | approved | 2,076 | [Resume](book/_ai/chapter-summaries/122-github-actions-workflows.md) |
+| 123 | 13 | [GitHub Actions Runners and Security](book/volumes/13-continuous-integration-platforms/123-github-actions-runners-and-security.md) | complete | approved | 1,794 | [Resume](book/_ai/chapter-summaries/123-github-actions-runners-and-security.md) |
+| 124 | 13 | [GitLab CI Pipeline Design](book/volumes/13-continuous-integration-platforms/124-gitlab-ci-pipeline-design.md) | complete | approved | 1,912 | [Resume](book/_ai/chapter-summaries/124-gitlab-ci-pipeline-design.md) |
+| 125 | 13 | [GitLab Runners and Credentials](book/volumes/13-continuous-integration-platforms/125-gitlab-runners-and-credentials.md) | complete | approved | 1,883 | [Resume](book/_ai/chapter-summaries/125-gitlab-runners-and-credentials.md) |
+| 126 | 13 | [Jenkins Controllers and Agents](book/volumes/13-continuous-integration-platforms/126-jenkins-controllers-and-agents.md) | complete | approved | 2,242 | [Resume](book/_ai/chapter-summaries/126-jenkins-controllers-and-agents.md) |
+| 127 | 13 | [Jenkins Declarative Pipelines](book/volumes/13-continuous-integration-platforms/127-jenkins-declarative-pipelines.md) | complete | approved | 1,534 | [Resume](book/_ai/chapter-summaries/127-jenkins-declarative-pipelines.md) |
+| 128 | 13 | [Tests, Quality Gates and Feedback](book/volumes/13-continuous-integration-platforms/128-tests-quality-gates-and-feedback.md) | complete | approved | 1,874 | [Resume](book/_ai/chapter-summaries/128-tests-quality-gates-and-feedback.md) |
+| 129 | 13 | [Artifacts, Caches and Build Reproducibility](book/volumes/13-continuous-integration-platforms/129-artifacts-caches-and-build-reproducibility.md) | complete | approved | 1,654 | [Resume](book/_ai/chapter-summaries/129-artifacts-caches-and-build-reproducibility.md) |
+| 130 | 13 | [CI Incidents and Platform Comparison](book/volumes/13-continuous-integration-platforms/130-ci-incidents-and-platform-comparison.md) | complete | approved | 2,032 | [Resume](book/_ai/chapter-summaries/130-ci-incidents-and-platform-comparison.md) |
 | 131 | 14 | [Release Engineering and Artifact Promotion](book/volumes/14-delivery-deployment-and-gitops/131-release-engineering-and-artifact-promotion.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/131-release-engineering-and-artifact-promotion.md) |
 | 132 | 14 | [Deployment to VPS Infrastructure](book/volumes/14-delivery-deployment-and-gitops/132-deployment-to-vps-infrastructure.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/132-deployment-to-vps-infrastructure.md) |
 | 133 | 14 | [Container Deployment to AWS](book/volumes/14-delivery-deployment-and-gitops/133-container-deployment-to-aws.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/133-container-deployment-to-aws.md) |

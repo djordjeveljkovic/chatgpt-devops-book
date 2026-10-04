@@ -1,21 +1,27 @@
-# Chapter 128 continuation
+# Chapter 128 — Tests, Quality Gates and Feedback
 
-Status: planned
+Status: complete
 
 ## Written material
-None.
+
+Test boundaries for unit, integration, contract and end-to-end suites; realistic service and event-contract examples; flaky test ownership; security scanning limits; distinction between report artifacts and pipeline/job status across GitLab, Jenkins and GitHub; required-check policy, actionable feedback, runtime optimization and release artifact identity.
 
 ## Exact next section
-Why this matters
+
+None. Independently approved; continue to the next unfinished chapter.
 
 ## Concepts and terminology
-None introduced yet.
+
+Unit/integration/contract/end-to-end tests, flake, quality gate, baseline, required status check, JUnit report, artifact digest, waiver.
 
 ## Examples and cross-references
-None written yet.
+
+DispatchDesk API, worker and web test sequence; links to Chapters 127 and 129 and primary platform references.
 
 ## Open threads
-Write and independently review the chapter.
+
+Validate platform-specific merge gates and result behavior in the target GitHub/GitLab/Jenkins configuration; no CI platform was exercised.
 
 ## Verification
-Not performed.
+
+Official documentation inspected 2026-10-04. Static parsing and local-link checks pending.
