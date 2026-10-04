@@ -5,11 +5,13 @@ volume_title: "Distributed Systems and Data Operations"
 chapter: 164
 title: "Database Connections and Concurrency"
 slug: database-connections-and-concurrency
-status: draft
+status: complete
 summary: ../../_ai/chapter-summaries/164-database-connections-and-concurrency.md
 ---
 
 # Chapter 164 — Database Connections and Concurrency
+
+**Section outline:** distinguish pool acquisition from database work; keep business transactions short; reproduce row-lock contention with two sessions; inspect bounded blocker metadata; recover deadlocks and saturation safely.
 
 ## A pool is a concurrency boundary
 
@@ -17,7 +19,7 @@ A database pool limits active connections and reuses expensive connection setup.
 
 [Queue backpressure](163-queues-and-backpressure.md) bounded worker delivery. The same reasoning applies to database acquisition: bound waiting callers, give acquisition a deadline, and return connections reliably. A timeout at the pool boundary means no connection became available in time. It does not prove that PostgreSQL was unreachable. Distinguish acquisition time, execution time, lock waiting and transaction duration in telemetry.
 
-Calculate pool demand across processes, replicas, background jobs and rollout overlap. Four API replicas with twenty connections each plus three worker replicas with ten each permit110connections. A fifth temporary API replica raises the maximum to130. Reserve administrative and recovery access separately. The relevant ceiling is the database's authorized service budget, which can be below its global connection setting. Pools often open lazily or retain idle connections; inspect the actual client's behavior instead of assuming the maximum is the observed steady count.
+Calculate pool demand across processes, replicas, background jobs and rollout overlap. Four API replicas with twenty connections each plus three worker replicas with ten each permit 110 connections. A fifth temporary API replica raises the maximum to 130. Reserve administrative and recovery access separately. The relevant ceiling is the database's authorized service budget, which can be below its global connection setting. Pools often open lazily or retain idle connections; inspect the actual client's behavior instead of assuming the maximum is the observed steady count.
 
 More concurrency can reduce throughput once lock contention, storage or CPU saturates. A smaller bounded pool can improve latency by preventing the database from scheduling excessive simultaneous work. It can also increase application-side waiting, so compare the full path and rejection policy. An unbounded waiting queue outside a tiny pool simply moves overload into application memory.
 
@@ -37,7 +39,7 @@ A read-then-write business rule needs an appropriate mechanism: an atomic condit
 
 This lab requires an existing authorized disposable PostgreSQL database and the `psql` client. [The single-host database chapter](../04-vps-and-server-operations/036-database-and-cache-operations-on-one-host.md) supplies the Linux service context; [RDS operations](../10-aws-production-services/095-rds-and-managed-database-operations.md) supplies the managed alternative. The experiment does not provision a database. Use a dedicated nonproduction database where you may create and remove the named schema, with no customer data or other consumers.
 
-Ubuntu, Fedora and RHEL use the same SQL and psql arguments when a compatible client is installed. Their package repositories, PostgreSQL streams, service units, authentication and SELinux/AppArmor paths differ; retain the setup chapter's actual chosen engine/client rather than guessing that a generic package name supplies the same version everywhere. The SQL behavior was checked against PostgreSQL18 documentation. It uses established features, but confirm the installed version and privileges before execution.
+Ubuntu, Fedora and RHEL use the same SQL and psql arguments when a compatible client is installed. Their package repositories, PostgreSQL streams, service units, authentication and SELinux/AppArmor paths differ; retain the setup chapter's actual chosen engine/client rather than guessing that a generic package name supplies the same version everywhere. The SQL behavior was checked against PostgreSQL 18 documentation. It uses established features, but confirm the installed version and privileges before execution.
 
 Configure an approved password-free-on-command-line connection service named `dispatchdesk-lab` in the user's controlled [PostgreSQL connection service file](https://www.postgresql.org/docs/current/libpq-pgservice.html), using the organization's credential mechanism. A service definition must supply the actual host, port, database and user; remote TLS verification follows the approved server certificate contract. The connection service is a reader prerequisite, not an invented hostname or credential. Launch each terminal with:
 
@@ -57,7 +59,7 @@ CREATE TABLE dispatchdesk_concurrency_lab.inventory (
 INSERT INTO dispatchdesk_concurrency_lab.inventory VALUES ('synthetic-book', 1);
 ```
 
-If the schema already exists, stop and establish its owner rather than reusing or dropping unfamiliar data. The synthetic table begins with one available item. Now, in sessionA, acquire an update lock and leave the transaction open:
+If the schema already exists, stop and establish its owner rather than reusing or dropping unfamiliar data. The synthetic table begins with one available item. Now, in session A, acquire an update lock and leave the transaction open:
 
 ```sql
 SET application_name = 'dispatchdesk-lock-lab-A';
@@ -68,7 +70,7 @@ WHERE item = 'synthetic-book' AND remaining > 0
 RETURNING item, remaining;
 ```
 
-Do not commit yet. In sessionB, request the same conditional update with a bounded lock wait:
+Do not commit yet. In session B, request the same conditional update with a bounded lock wait:
 
 ```sql
 SET application_name = 'dispatchdesk-lock-lab-B';
@@ -153,5 +155,4 @@ An inventory row has one unit. Why is `UPDATE ... WHERE remaining > 0` stronger 
 
 ## Takeaways and verification
 
-Connection limits, pool waiting, locks and isolation are different concurrency boundaries. Keep acceptance transactions complete and short, put external effects in recoverable work, and diagnose the actual wait before changing capacity. PostgreSQL18 primary documentation was inspected on2026-10-01. The two-session lab and observer query are complete for an existing authorized database; no PostgreSQL connection, row-lock experiment, cancellation or production pool change was executed while authoring.
-
+Connection limits, pool waiting, locks and isolation are different concurrency boundaries. Keep acceptance transactions complete and short, put external effects in recoverable work, and diagnose the actual wait before changing capacity. PostgreSQL 18 primary documentation was inspected on 2026-10-01. The two-session lab and observer query are complete for an existing authorized database; no PostgreSQL connection, row-lock experiment, cancellation or production pool change was executed while authoring.

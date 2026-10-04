@@ -5,11 +5,13 @@ volume_title: "Distributed Systems and Data Operations"
 chapter: 165
 title: "Replication and Failover"
 slug: replication-and-failover
-status: draft
+status: complete
 summary: ../../_ai/chapter-summaries/165-replication-and-failover.md
 ---
 
 # Chapter 165 — Replication and Failover
+
+**Section outline:** define replication acknowledgments and read freshness; inspect receive/replay progress; model a loss window; fence obsolete leaders; rehearse and diagnose failover without confusing replication with backup.
 
 ## Replication copies state under a particular acknowledgment rule
 
@@ -25,7 +27,7 @@ Replication is also not a backup. Accidental deletion or a harmful migration can
 
 Lag can be expressed in bytes, positions, elapsed time or customer-visible freshness. Each has a denominator. A standby's last replay timestamp can be old because the primary has been idle, even when the standby is fully caught up. A small byte gap can contain an important recent order; a large gap can consist mostly of unrelated bulk work. Use the appropriate evidence for failover and read-freshness decisions.
 
-For an existing authorized PostgreSQL primary and standby, inspect role and WAL positions through approved observer connections. [Chapter164](164-database-connections-and-concurrency.md) explains psql service selection and identity checks. Define separate controlled client services for the real primary and standby; this chapter neither provisions replication nor invents their credentials. The read-only SQL is the same on Ubuntu, Fedora and RHEL with compatible clients. Database setup, service units and security policies remain distribution-specific.
+For an existing authorized PostgreSQL primary and standby, inspect role and WAL positions through approved observer connections. [Chapter 164](164-database-connections-and-concurrency.md) explains psql service selection and identity checks. Define separate controlled client services for the real primary and standby; this chapter neither provisions replication nor invents their credentials. The read-only SQL is the same on Ubuntu, Fedora and RHEL with compatible clients. Database setup, service units and security policies remain distribution-specific.
 
 On the primary, after confirming the intended database and role:
 
@@ -56,7 +58,7 @@ A read-after-write requirement can route the relevant lookup to the current writ
 
 ## A complete local loss-window model
 
-Save this as `replication_model.py` and run `python3 replication_model.py` as an ordinary user with Python3 on Ubuntu, Fedora or RHEL. It models lists of symbolic committed orders rather than a database protocol. It exposes which acknowledgments a chosen replica can recover; it does not implement WAL, replication, fsync or failover.
+Save this as `replication_model.py` and run `python3 replication_model.py` as an ordinary user with Python 3 on Ubuntu, Fedora or RHEL. It models lists of symbolic committed orders rather than a database protocol. It exposes which acknowledgments a chosen replica can recover; it does not implement WAL, replication, fsync or failover.
 
 ```python
 primary = ["order-A", "order-B", "order-C", "order-D"]
@@ -82,7 +84,7 @@ for name, acknowledged in (
           sorted(not_yet_visible))
 ```
 
-The model assumes every received entry is safely persisted and can replay after failure, an assumption stronger than the variable name alone. Under its primary-only acknowledgment case, orderD is acknowledged but absent from the surviving copy. OrderC is present for recovery but not yet visible in the current replay state. That distinction explains why durability and read freshness need separate language.
+The model assumes every received entry is safely persisted and can replay after failure, an assumption stronger than the variable name alone. Under its primary-only acknowledgment case, order D is acknowledged but absent from the surviving copy. Order C is present for recovery but not yet visible in the current replay state. That distinction explains why durability and read freshness need separate language.
 
 The named acknowledgment cases are teaching abstractions, not exact configuration names or guarantees for a provider. Change the surviving copy and examine how the sets change. A synchronous acknowledgment to one particular replica does not automatically prove every different candidate has that data. Candidate selection must honor the actual replication contract. Cleanup removes the local model file; it created no infrastructure or durable customer records.
 
@@ -126,5 +128,4 @@ A delete propagates to all replicas. Which recovery asset is needed? A suitable 
 
 ## Takeaways and verification
 
-Replication needs a precise acknowledgment and read-visibility contract. Failover needs candidate evidence, exclusion of stale authority, application connection recovery and durable-state reconciliation. PostgreSQL18 and scoped RDS Multi-AZ instance documentation was inspected on2026-10-01. Read-only SQL and the local symbolic model are inline; no replication setup, live database observation, promotion, managed failover or split-brain experiment was executed while authoring.
-
+Replication needs a precise acknowledgment and read-visibility contract. Failover needs candidate evidence, exclusion of stale authority, application connection recovery and durable-state reconciliation. PostgreSQL 18 and scoped RDS Multi-AZ instance documentation was inspected on 2026-10-01. Read-only SQL and the local symbolic model are inline; no replication setup, live database observation, promotion, managed failover or split-brain experiment was executed while authoring.

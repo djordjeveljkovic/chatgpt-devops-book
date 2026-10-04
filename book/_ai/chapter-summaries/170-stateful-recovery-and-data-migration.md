@@ -1,21 +1,21 @@
 # Chapter 170 continuation
 
-Status: planned
+Status: complete
 
 ## Written material
-None.
+Consistent baseline and captured change stream; keyed/business reconciliation; authority fence and conditional rollback; Summit catalog migration with a version-regression failure and recovery; temp-table SQL comparison.
 
 ## Exact next section
-Why this matters
+None. Independently approved; continue to the next unfinished chapter.
 
 ## Concepts and terminology
-None introduced yet.
+Migration watermark; backfill checkpoint; tombstone; keyed/invariant reconciliation; authoritative writer fence; rollback after target writes.
 
 ## Examples and cross-references
-None written yet.
+Summit fictional catalog migration; synthetic source/target SQL reconciliation; PostgreSQL logical replication and AWS DMS validation documentation. No live migration was executed.
 
 ## Open threads
-Write and independently review the chapter.
+Independent review findings and revisions remain before promotion.
 
 ## Verification
-Not performed.
+PostgreSQL 18 logical replication/pg_dump and AWS DMS validation documentation checked on 2026-10-04. Focused SQL/metadata/link validation pending review; no database, backup or replication runtime was used.

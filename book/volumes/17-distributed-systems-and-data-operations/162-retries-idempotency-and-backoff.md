@@ -5,15 +5,17 @@ volume_title: "Distributed Systems and Data Operations"
 chapter: 162
 title: "Retries, Idempotency and Backoff"
 slug: retries-idempotency-and-backoff
-status: draft
+status: complete
 summary: ../../_ai/chapter-summaries/162-retries-idempotency-and-backoff.md
 ---
 
 # Chapter 162 — Retries, Idempotency and Backoff
 
+**Section outline:** classify retryable outcomes; preserve a scoped idempotency result atomically; choose bounded backoff; recover queue work without duplicating effects; contain retry amplification.
+
 ## A retry is another attempt, not a reversal
 
-After [an uncertain response](161-partial-failure-and-timeouts.md), retrying can recover a result or duplicate an effect. The difference comes from the operation's contract. A GET commonly retrieves state without requesting a new business mutation. A POST may create a new order on every attempt unless the application supplies a durable idempotency mechanism. HTTP method semantics in [RFC9110](https://datatracker.ietf.org/doc/html/rfc9110#section-9.2.2) do not make an arbitrary custom POST safe to repeat.
+After [an uncertain response](161-partial-failure-and-timeouts.md), retrying can recover a result or duplicate an effect. The difference comes from the operation's contract. A GET commonly retrieves state without requesting a new business mutation. A POST may create a new order on every attempt unless the application supplies a durable idempotency mechanism. HTTP method semantics in [RFC 9110](https://datatracker.ietf.org/doc/html/rfc9110#section-9.2.2) do not make an arbitrary custom POST safe to repeat.
 
 Idempotency means repeated application of an operation has the intended same effect within its defined scope. It does not require identical timing, logs or every response header. DispatchDesk's acceptance contract should return the original order result for equivalent retries with the same authorized caller and key. Reusing that key for a different order meaning should be a conflict. A retry with a new key is a new operation, so a client that generates a fresh key after every timeout defeats the protection.
 
@@ -23,7 +25,7 @@ Define the key scope, payload comparison, retention period and result lookup bef
 
 A naive implementation checks whether a key exists, creates an order, then stores the result. Two API replicas can pass the check simultaneously. A process can also crash after creating the order but before recording the key. The database transaction and uniqueness boundary must cover the durable acceptance result together with the order and notification intent.
 
-The following complete local mechanics lab uses SQLite to demonstrate that boundary. It does not provide a production HTTP server, authentication, a provider worker, database failover or a backup plan. Save it as `idempotent_accept.py` in a new disposable directory and run `python3 idempotent_accept.py` as an ordinary user on Ubuntu, Fedora or RHEL with Python3 and its SQLite module. It creates `accept-lab.sqlite`, starts four concurrent local callers and verifies one order and intent. It sends no notifications and makes no cloud calls.
+The following complete local mechanics lab uses SQLite to demonstrate that boundary. It does not provide a production HTTP server, authentication, a provider worker, database failover or a backup plan. Save it as `idempotent_accept.py` in a new disposable directory and run `python3 idempotent_accept.py` as an ordinary user on Ubuntu, Fedora or RHEL with Python 3 and its SQLite module. It creates `accept-lab.sqlite`, starts four concurrent local callers and verifies one order and intent. It sends no notifications and makes no cloud calls.
 
 ```python
 import json
@@ -143,7 +145,7 @@ Some failures are unlikely to improve through immediate repetition: invalid payl
 
 Use a maximum attempt count, an elapsed deadline and a service-wide concurrency or retry budget. Backoff reduces repeated pressure; jitter prevents many callers from waking simultaneously. A common full-jitter model samples a delay between zero and a capped exponentially growing interval. It is a policy, not proof that the dependency will recover. A provider's rate limit still applies to original and retried work together.
 
-This complete local delay planner shows the calculation without making requests or sleeping. Save as `retry_plan.py` and run `python3 retry_plan.py`. It requires only Python3 and works identically on the three Linux families.
+This complete local delay planner shows the calculation without making requests or sleeping. Save as `retry_plan.py` and run `python3 retry_plan.py`. It requires only Python 3 and works identically on the three Linux families.
 
 ```python
 import random
@@ -191,5 +193,4 @@ A worker has persisted completion but crashes before acknowledgment. What should
 
 ## Takeaways and verification
 
-Retries consume real capacity and can duplicate real effects. Bind equivalent attempts to a durable scoped result, reject conflicting reuse, preserve stable external identities and bound backoff by the operation deadline. SQLite, SQS and HTTP primary documentation was inspected on2026-10-01. The complete acceptance lab was executed under Python3.14.7 in a temporary local directory: four concurrent same-key callers returned one order identity, conflicting payload reuse was rejected, and the database contained one order and one pending intent for that key. The process exited successfully. This tests local SQLite concurrency only; no power-loss durability, host recovery, provider delivery, distributed database failover or queue integration was exercised.
-
+Retries consume real capacity and can duplicate real effects. Bind equivalent attempts to a durable scoped result, reject conflicting reuse, preserve stable external identities and bound backoff by the operation deadline. SQLite, SQS and HTTP primary documentation was inspected on 2026-10-01. The complete acceptance lab was executed under Python 3.14.7 in a temporary local directory: four concurrent same-key callers returned one order identity, conflicting payload reuse was rejected, and the database contained one order and one pending intent for that key. The process exited successfully. This tests local SQLite concurrency only; no power-loss durability, host recovery, provider delivery, distributed database failover or queue integration was exercised.

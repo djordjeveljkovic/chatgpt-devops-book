@@ -5,11 +5,13 @@ volume_title: "Distributed Systems and Data Operations"
 chapter: 163
 title: "Queues and Backpressure"
 slug: queues-and-backpressure
-status: draft
+status: complete
 summary: ../../_ai/chapter-summaries/163-queues-and-backpressure.md
 ---
 
 # Chapter 163 — Queues and Backpressure
+
+**Section outline:** distinguish arrival from completion; apply backpressure at real capacity boundaries; use leases and acknowledgments safely; recover growing and dead-letter backlogs with bounded replay.
 
 ## A queue separates arrival from completion
 
@@ -17,7 +19,7 @@ DispatchDesk can record notification intent durably while a provider is unavaila
 
 [Retry and idempotency](162-retries-idempotency-and-backoff.md) established stable operation identity and duplicate-effect handling. A queue adds delivery and temporary ownership, not a guarantee that every external operation happens once. Producers, storage, consumers and providers can fail independently. Decide which system owns accepted work and how to reconcile an intent that exists in the database but has not reached a broker.
 
-The backlog change over an interval is approximately arrivals minus completions, with adjustments for cancellation, quarantine and redelivery accounting. At fifty arrivals per second and thirty-five completions per second, an initially empty backlog grows by900jobs per minute. If a later recovery supplies seventy completions per second while arrivals remain fifty, a9000-job backlog takes roughly450seconds to drain under stable assumptions. Adding workers is useful only if provider limits, database work and CPU permit that completion rate.
+The backlog change over an interval is approximately arrivals minus completions, with adjustments for cancellation, quarantine and redelivery accounting. At fifty arrivals per second and thirty-five completions per second, an initially empty backlog grows by 900 jobs per minute. If a later recovery supplies seventy completions per second while arrivals remain fifty, a 9,000-job backlog takes roughly 450 seconds to drain under stable assumptions. Adding workers is useful only if provider limits, database work and CPU permit that completion rate.
 
 Age and depth answer different questions. Depth helps estimate remaining work; oldest age exposes a deadline breach. A small queue containing one permanently failing old notification can have severe customer impact. A large freshly enqueued campaign batch can be within its agreed delivery window. Approximate broker metrics and movement between queues can further change what an “oldest” number represents.
 
@@ -35,7 +37,7 @@ For Harbor, a database-backed work table can be sufficient at its measured scale
 
 A lease says that a worker owns an item until a defined deadline under the authority's clock. It must identify the owning attempt, not merely the worker name. If an old worker resumes after expiry and another worker has acquired the item, the old attempt should not be allowed to overwrite the newer local state. A conditional update using the current ownership token can enforce that rule for the database state.
 
-The following complete local lab demonstrates expired ownership and bounded failure attempts. It uses a logical clock passed as an integer, so no wall-clock sleeping is necessary. It records synthetic jobs in `queue-lab.sqlite` and performs no external effects. Save it as `lease_lab.py` and run `python3 lease_lab.py` in a new disposable directory as an ordinary user with Python3/SQLite on Ubuntu, Fedora or RHEL.
+The following complete local lab demonstrates expired ownership and bounded failure attempts. It uses a logical clock passed as an integer, so no wall-clock sleeping is necessary. It records synthetic jobs in `queue-lab.sqlite` and performs no external effects. Save it as `lease_lab.py` and run `python3 lease_lab.py` in a new disposable directory as an ordinary user with Python 3 and SQLite on Ubuntu, Fedora or RHEL.
 
 ```python
 import sqlite3
@@ -146,7 +148,7 @@ Start by measuring incoming eligible work, successful completions, retries, in-f
 
 If completions fell after a release while arrivals remained stable, inspect worker readiness, schema parsing, lease renewal and provider behavior. A poisoned new payload can consume every worker attempt. Quarantine the classified bad work under the approved policy, repair compatibility and resume gradually. If provider throttling caused the decline, adding workers without a rate limit may make successful completion lower, not higher.
 
-If genuine arrival growth exceeds validated throughput, calculate the required sustainable excess capacity and downstream budget. For a backlogB and desired drain timeT with ongoing arrival rateλ, the modeled completion requirement isλ+B/T. State the assumptions and test the path. A backlog of12000with arrivals20persecond and a ten-minute drain goal requires40completions persecond under a steady model. Reserve for retries and variation separately.
+If genuine arrival growth exceeds validated throughput, calculate the required sustainable excess capacity and downstream budget. For a backlog B and desired drain time T with ongoing arrival rate λ, the modeled completion requirement is `λ + B/T`. State the assumptions and test the path. A backlog of 12,000 with arrivals at 20 per second and a ten-minute drain goal requires 40 completions per second under a steady model. Reserve for retries and variation separately.
 
 During recovery, prioritize according to the product's stated deadline and fairness policy. Do not quietly starve old work by always selecting newest items. Preserve tenant isolation and avoid letting one customer's campaign monopolize all workers. Track per-class age with bounded dimensions and controlled diagnostic samples; unbounded per-order metrics remain inappropriate.
 
@@ -154,7 +156,7 @@ Completion of the incident requires durable reconciliation, not an empty broker 
 
 ## Exercises and answer guidance
 
-Fifty jobs arrive each second and thirty-five complete. How quickly does depth grow? Fifteen per second, or900per minute under stable assumptions. Measure successful completion rather than receive rate.
+Fifty jobs arrive each second and thirty-five complete. How quickly does depth grow? Fifteen per second, or 900 per minute under stable assumptions. Measure successful completion rather than receive rate.
 
 The old lease owner is prevented from updating the database after expiry. Does that guarantee it cannot send externally? No. Local ownership checks fence local state; the external provider needs an applicable idempotency or authority mechanism.
 
@@ -162,5 +164,4 @@ Depth falls to zero after redrive, but the dead-letter queue grows. Is recovery 
 
 ## Takeaways and verification
 
-Queues absorb timing differences while exposing a finite waiting and ownership problem. Bound in-flight work, distinguish delivery from completion, and treat expired leases and dead letters as normal recovery paths with explicit limits. SQLite and AWS SQS primary documentation was inspected on2026-10-01. The local lease lab ran under Python3.14.7 in a temporary directory: expired-owner completion was rejected, the replacement owner completed, and the repeatedly failed synthetic item reached dead state; all assertions passed and the process exited0. Logical time and local SQLite were tested, not real-time lease renewal, crash reclamation, external effects, a broker or production backlog recovery.
-
+Queues absorb timing differences while exposing a finite waiting and ownership problem. Bound in-flight work, distinguish delivery from completion, and treat expired leases and dead letters as normal recovery paths with explicit limits. SQLite and AWS SQS primary documentation was inspected on 2026-10-01. The local lease lab ran under Python 3.14.7 in a temporary directory: expired-owner completion was rejected, the replacement owner completed, and the repeatedly failed synthetic item reached dead state; all assertions passed and the process exited 0. Logical time and local SQLite were tested, not real-time lease renewal, crash reclamation, external effects, a broker or production backlog recovery.

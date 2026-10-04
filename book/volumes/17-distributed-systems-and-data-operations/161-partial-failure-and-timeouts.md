@@ -5,15 +5,17 @@ volume_title: "Distributed Systems and Data Operations"
 chapter: 161
 title: "Partial Failure and Timeouts"
 slug: partial-failure-and-timeouts
-status: draft
+status: complete
 summary: ../../_ai/chapter-summaries/161-partial-failure-and-timeouts.md
 ---
 
 # Chapter 161 — Partial Failure and Timeouts
 
+**Section outline:** identify uncertain outcomes; budget total request time; reproduce an effect-before-response timeout; cancel work without contradicting durable state; reconcile one uncertain operation.
+
 ## The caller and the server can disagree about what happened
 
-A distributed operation can succeed at one boundary and fail at another. DispatchDesk can commit an order and its notification intent, then lose the connection before the caller receives202. A notification provider can accept a message, then return a response that never reaches the worker. The caller observes a timeout; the remote side may observe success. “The request failed” is therefore an incomplete incident statement unless it identifies the boundary and evidence.
+A distributed operation can succeed at one boundary and fail at another. DispatchDesk can commit an order and its notification intent, then lose the connection before the caller receives 202. A notification provider can accept a message, then return a response that never reaches the worker. The caller observes a timeout; the remote side may observe success. “The request failed” is therefore an incomplete incident statement unless it identifies the boundary and evidence.
 
 [Cost and performance choices](../16-performance-and-capacity-engineering/160-cost-and-performance-tradeoffs.md) compared execution environments. A VPS, ECS task or Kubernetes pod can all encounter this ambiguity. A platform restart does not reveal whether an external effect occurred. Reliability depends on an application contract for uncertain outcomes, not on the process supervisor's ability to replace the process.
 
@@ -25,11 +27,11 @@ A client cancellation also has a scope. It can stop waiting locally, close a soc
 
 A timeout limits waiting at a specified boundary. Connection timeout, TLS handshake timeout, response-header timeout, read-idle timeout and total deadline are different controls. A library's option called `timeout` may cover only some blocking operations. Inspect its documentation and test its behavior; a two-second socket timeout is not automatically a two-second end-to-end operation deadline.
 
-For a hypothetical order request with a one-second server-side budget, reserve time for response serialization and routing. The request might allocate at most150milliseconds to pool acquisition and550to transactional database work, leaving300for validation, scheduling and response. These allocations are illustrative. If pool acquisition consumes140milliseconds, the downstream operation must receive the remaining budget rather than a fresh independent one-second timeout. Otherwise a chain of individually reasonable waits can exceed the customer's total deadline.
+For a hypothetical order request with a one-second server-side budget, reserve time for response serialization and routing. The request might allocate at most 150 milliseconds to pool acquisition and 550 milliseconds to transactional database work, leaving 300 milliseconds for validation, scheduling and response. These allocations are illustrative. If pool acquisition consumes 140 milliseconds, the downstream operation must receive the remaining budget rather than a fresh independent one-second timeout. Otherwise a chain of individually reasonable waits can exceed the customer's total deadline.
 
 Use a monotonic clock for elapsed time inside one process. Wall clocks can be adjusted, and comparing unsynchronized clocks across machines can distort durations. To propagate a deadline between machines, account for the protocol and clock assumptions or transmit a remaining duration with an explicit handling policy. Never trust an unbounded client-provided budget: apply the service's maximum and authorize any privileged deadline extension.
 
-Nested retries consume the same budget. If three layers each allow three attempts, a single original request can trigger as many as27leaf attempts under an unfortunate failure path. Queues and external calls amplify work separately. A dependency that is merely slow can become unavailable when excess retries exhaust pools. [The next chapter](162-retries-idempotency-and-backoff.md) owns retry classification and idempotency design.
+Nested retries consume the same budget. If three layers each allow three attempts, a single original request can trigger as many as 27 leaf attempts under an unfortunate failure path. Queues and external calls amplify work separately. A dependency that is merely slow can become unavailable when excess retries exhaust pools. [The next chapter](162-retries-idempotency-and-backoff.md) owns retry classification and idempotency design.
 
 Timeout values should follow measured latency distributions and product deadlines. Extremely short values reject healthy variation and manufacture retries. Very long values occupy worker slots and connections while users have already stopped waiting. Include connection establishment and cold-path behavior in testing; a warmed persistent connection can hide a startup handshake cost.
 
@@ -37,7 +39,7 @@ Timeout values should follow measured latency distributions and product deadline
 
 The following single-file lab models a provider that records an effect, then delays its response. It uses a local SQLite ledger so the result can be observed independently of the timed-out connection. It does **not** implement DispatchDesk order acceptance, send a real notification or model provider durability guarantees. A unique operation token enables reconciliation in the fake provider. The actual provider must explicitly support a comparable lookup or idempotency contract before a real worker can rely on it.
 
-Save this as `uncertain_response.py` in a new disposable directory. Run it as an ordinary user with Python3 and its SQLite module available on Ubuntu, Fedora or RHEL. The script binds loopback8080, creates `effect-lab.sqlite`, performs one local HTTP request and a lookup, and shuts down its listener. Stop other8080labs first. No cloud identity, package download or privileged port is needed.
+Save this as `uncertain_response.py` in a new disposable directory. Run it as an ordinary user with Python3 and its SQLite module available on Ubuntu, Fedora or RHEL. The script binds loopback port 8080, creates `effect-lab.sqlite`, performs one local HTTP request and a lookup, and shuts down its listener. Stop other labs using port 8080 first. No cloud identity, package download or privileged port is needed.
 
 ```python
 import json
@@ -45,12 +47,13 @@ import sqlite3
 import threading
 import time
 import uuid
+from contextlib import closing
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from urllib.error import URLError
 from urllib.request import Request, build_opener, ProxyHandler
 
 path = "effect-lab.sqlite"
-with sqlite3.connect(path) as db:
+with closing(sqlite3.connect(path)) as db, db:
     db.execute("CREATE TABLE IF NOT EXISTS effects "
                "(operation TEXT PRIMARY KEY, recorded_at TEXT NOT NULL)")
 
@@ -79,7 +82,7 @@ class Handler(BaseHTTPRequestHandler):
         except ValueError:
             self.reply(400, {"error": "operation token required"})
             return
-        with sqlite3.connect(path, timeout=1.0) as db:
+        with closing(sqlite3.connect(path, timeout=1.0)) as db, db:
             db.execute("INSERT OR IGNORE INTO effects VALUES (?, ?)",
                        (token, "lab-recorded"))
         # The connection context has committed before this delay.
@@ -92,7 +95,7 @@ class Handler(BaseHTTPRequestHandler):
             self.reply(404, {"error": "route"})
             return
         token = self.path[len(prefix):]
-        with sqlite3.connect(path, timeout=1.0) as db:
+        with closing(sqlite3.connect(path, timeout=1.0)) as db, db:
             row = db.execute("SELECT operation FROM effects WHERE operation=?",
                              (token,)).fetchone()
         self.reply(200, {"operation": token, "recorded": row is not None})
@@ -147,11 +150,10 @@ Recovery evidence includes reconciled durable state and customer-visible behavio
 
 A client times out after the server committed an order. Should the server erase the order? No. The response observation does not undo the durable transaction. The client needs the original operation identity and idempotency/result lookup contract.
 
-Three layers each permit three attempts. What is the possible leaf-attempt count?27under the stated independent worst-case model. Choose a responsible retry layer, remaining deadline and attempt budget rather than independently multiplying policies.
+Three layers each permit three attempts. What is the possible leaf-attempt count? 27 under the stated independent worst-case model. Choose a responsible retry layer, remaining deadline and attempt budget rather than independently multiplying policies.
 
 A socket timeout is set to one second. Can a large response that continuously delivers bytes necessarily finish within one second? Not from that setting alone. Inspect whether it is an idle/blocking timeout or a total deadline, then test the actual library behavior.
 
 ## Takeaways and verification
 
-Partial failure creates uncertainty about outcomes, especially after durable or external effects. Bound the whole operation, preserve identities, and distinguish cancellation of waiting from reversal of committed state. Python HTTP/urllib and SQLite primary documentation was inspected on2026-10-01; the Python SQLite library page fetch failed, so only the engine transaction page was available for that source inspection. No local socket lab, provider call or production cancellation experiment was executed during authoring.
-
+Partial failure creates uncertainty about outcomes, especially after durable or external effects. Bound the whole operation, preserve identities, and distinguish cancellation of waiting from reversal of committed state. Python HTTP/urllib and SQLite transaction documentation was inspected on 2026-10-01; Python's sqlite3 library documentation was additionally verified during independent review on 2026-10-04. No local socket lab, provider call or production cancellation experiment was executed during authoring.

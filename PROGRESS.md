@@ -1,12 +1,12 @@
 # Book progress and exact continuation
 
-Last refreshed: 2026-10-04 09:16 UTC.
+Last refreshed: 2026-10-04 09:55 UTC.
 
 ## Actual state
 
-Chapters: 220. Approximate written words: 354,392.
+Chapters: 220. Approximate written words: 361,037.
 
-complete: 170, draft: 10, drafting: 1, planned: 39.
+complete: 180, draft: 4, planned: 36.
 
 Statuses reflect files, not promises. `complete` requires independent approval and validation. References and code contribute to approximate word counts; counts do not measure quality.
 
@@ -16,7 +16,7 @@ Read [AI_AUTHORING_GUIDE.md](AI_AUTHORING_GUIDE.md), [coordinator handoff](book/
 
 ## Earliest unfinished dependency
 
-Chapter 161: [Partial Failure and Timeouts](book/volumes/17-distributed-systems-and-data-operations/161-partial-failure-and-timeouts.md). Exact next step: Independent review of complete prose and inline examples. Python syntax3 and local links passed for161–162. No socket/provider execution..
+Chapter 171: [Threat Modeling for Operators](book/volumes/18-security-and-software-supply-chains/171-threat-modeling-for-operators.md). Exact next step: Why this matters.
 
 ## Chapter ledger
 
@@ -182,16 +182,16 @@ Chapter 161: [Partial Failure and Timeouts](book/volumes/17-distributed-systems-
 | 158 | 16 | [Capacity Planning and Forecasting](book/volumes/16-performance-and-capacity-engineering/158-capacity-planning-and-forecasting.md) | complete | approved | 1,979 | [Resume](book/_ai/chapter-summaries/158-capacity-planning-and-forecasting.md) |
 | 159 | 16 | [Caching, Batching and Efficiency](book/volumes/16-performance-and-capacity-engineering/159-caching-batching-and-efficiency.md) | complete | approved | 2,046 | [Resume](book/_ai/chapter-summaries/159-caching-batching-and-efficiency.md) |
 | 160 | 16 | [Cost and Performance Tradeoffs](book/volumes/16-performance-and-capacity-engineering/160-cost-and-performance-tradeoffs.md) | complete | approved | 1,964 | [Resume](book/_ai/chapter-summaries/160-cost-and-performance-tradeoffs.md) |
-| 161 | 17 | [Partial Failure and Timeouts](book/volumes/17-distributed-systems-and-data-operations/161-partial-failure-and-timeouts.md) | draft | pending | 1,923 | [Resume](book/_ai/chapter-summaries/161-partial-failure-and-timeouts.md) |
-| 162 | 17 | [Retries, Idempotency and Backoff](book/volumes/17-distributed-systems-and-data-operations/162-retries-idempotency-and-backoff.md) | draft | pending | 2,082 | [Resume](book/_ai/chapter-summaries/162-retries-idempotency-and-backoff.md) |
-| 163 | 17 | [Queues and Backpressure](book/volumes/17-distributed-systems-and-data-operations/163-queues-and-backpressure.md) | draft | pending | 1,912 | [Resume](book/_ai/chapter-summaries/163-queues-and-backpressure.md) |
-| 164 | 17 | [Database Connections and Concurrency](book/volumes/17-distributed-systems-and-data-operations/164-database-connections-and-concurrency.md) | draft | pending | 2,001 | [Resume](book/_ai/chapter-summaries/164-database-connections-and-concurrency.md) |
-| 165 | 17 | [Replication and Failover](book/volumes/17-distributed-systems-and-data-operations/165-replication-and-failover.md) | draft | pending | 1,813 | [Resume](book/_ai/chapter-summaries/165-replication-and-failover.md) |
-| 166 | 17 | [Consistency and Consensus Concepts](book/volumes/17-distributed-systems-and-data-operations/166-consistency-and-consensus-concepts.md) | draft | pending | 1,834 | [Resume](book/_ai/chapter-summaries/166-consistency-and-consensus-concepts.md) |
-| 167 | 17 | [Cache Design and Invalidation](book/volumes/17-distributed-systems-and-data-operations/167-cache-design-and-invalidation.md) | drafting | pending | 1,832 | [Resume](book/_ai/chapter-summaries/167-cache-design-and-invalidation.md) |
-| 168 | 17 | [Database Scaling and Partitioning](book/volumes/17-distributed-systems-and-data-operations/168-database-scaling-and-partitioning.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/168-database-scaling-and-partitioning.md) |
-| 169 | 17 | [Messaging and Event-driven Architecture](book/volumes/17-distributed-systems-and-data-operations/169-messaging-and-event-driven-architecture.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/169-messaging-and-event-driven-architecture.md) |
-| 170 | 17 | [Stateful Recovery and Data Migration](book/volumes/17-distributed-systems-and-data-operations/170-stateful-recovery-and-data-migration.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/170-stateful-recovery-and-data-migration.md) |
+| 161 | 17 | [Partial Failure and Timeouts](book/volumes/17-distributed-systems-and-data-operations/161-partial-failure-and-timeouts.md) | complete | approved | 1,970 | [Resume](book/_ai/chapter-summaries/161-partial-failure-and-timeouts.md) |
+| 162 | 17 | [Retries, Idempotency and Backoff](book/volumes/17-distributed-systems-and-data-operations/162-retries-idempotency-and-backoff.md) | complete | approved | 2,110 | [Resume](book/_ai/chapter-summaries/162-retries-idempotency-and-backoff.md) |
+| 163 | 17 | [Queues and Backpressure](book/volumes/17-distributed-systems-and-data-operations/163-queues-and-backpressure.md) | complete | approved | 1,964 | [Resume](book/_ai/chapter-summaries/163-queues-and-backpressure.md) |
+| 164 | 17 | [Database Connections and Concurrency](book/volumes/17-distributed-systems-and-data-operations/164-database-connections-and-concurrency.md) | complete | approved | 2,036 | [Resume](book/_ai/chapter-summaries/164-database-connections-and-concurrency.md) |
+| 165 | 17 | [Replication and Failover](book/volumes/17-distributed-systems-and-data-operations/165-replication-and-failover.md) | complete | approved | 1,847 | [Resume](book/_ai/chapter-summaries/165-replication-and-failover.md) |
+| 166 | 17 | [Consistency and Consensus Concepts](book/volumes/17-distributed-systems-and-data-operations/166-consistency-and-consensus-concepts.md) | complete | approved | 1,878 | [Resume](book/_ai/chapter-summaries/166-consistency-and-consensus-concepts.md) |
+| 167 | 17 | [Cache Design and Invalidation](book/volumes/17-distributed-systems-and-data-operations/167-cache-design-and-invalidation.md) | complete | approved | 1,940 | [Resume](book/_ai/chapter-summaries/167-cache-design-and-invalidation.md) |
+| 168 | 17 | [Database Scaling and Partitioning](book/volumes/17-distributed-systems-and-data-operations/168-database-scaling-and-partitioning.md) | complete | approved | 2,006 | [Resume](book/_ai/chapter-summaries/168-database-scaling-and-partitioning.md) |
+| 169 | 17 | [Messaging and Event-driven Architecture](book/volumes/17-distributed-systems-and-data-operations/169-messaging-and-event-driven-architecture.md) | complete | approved | 2,089 | [Resume](book/_ai/chapter-summaries/169-messaging-and-event-driven-architecture.md) |
+| 170 | 17 | [Stateful Recovery and Data Migration](book/volumes/17-distributed-systems-and-data-operations/170-stateful-recovery-and-data-migration.md) | complete | approved | 2,202 | [Resume](book/_ai/chapter-summaries/170-stateful-recovery-and-data-migration.md) |
 | 171 | 18 | [Threat Modeling for Operators](book/volumes/18-security-and-software-supply-chains/171-threat-modeling-for-operators.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/171-threat-modeling-for-operators.md) |
 | 172 | 18 | [Host Security and Patch Management](book/volumes/18-security-and-software-supply-chains/172-host-security-and-patch-management.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/172-host-security-and-patch-management.md) |
 | 173 | 18 | [Container Security in Practice](book/volumes/18-security-and-software-supply-chains/173-container-security-in-practice.md) | planned | pending | 0 | [Resume](book/_ai/chapter-summaries/173-container-security-in-practice.md) |

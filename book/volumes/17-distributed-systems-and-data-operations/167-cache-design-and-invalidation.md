@@ -5,11 +5,13 @@ volume_title: "Distributed Systems and Data Operations"
 chapter: 167
 title: "Cache Design and Invalidation"
 slug: cache-design-and-invalidation
-status: drafting
+status: complete
 summary: ../../_ai/chapter-summaries/167-cache-design-and-invalidation.md
 ---
 
 # Chapter 167 — Cache Design and Invalidation
+
+**Section outline:** define reconstructable derived state; prevent stale-fill regression; bound source fallback during cache loss; distinguish expiration from eviction and invalidation; recover against an explicit freshness contract.
 
 ## Derived state should have an explicit reconstruction route
 
@@ -23,17 +25,19 @@ A cache can be safely expendable while its absence is operationally dangerous. I
 
 ## Invalidation can race with a fill
 
-Consider a catalog row at version7. ReaderA begins a source lookup. WriterB commits version8 and deletes the current cache key. ReaderA then writes its older result into that key. The cache is stale even though the invalidation happened after the authoritative write. “Delete on update” is therefore a protocol with concurrency assumptions, not a complete explanation.
+Consider a catalog row at version 7. Reader A begins a source lookup. Writer B commits version 8 and deletes the current cache key. Reader A then writes its older result into that key. The cache is stale even though the invalidation happened after the authoritative write. “Delete on update” is therefore a protocol with concurrency assumptions, not a complete explanation.
 
-Versioned keys can make older fills harmless to newer reads when the reader has an authoritative version selector. For example, cache entries keyed by tenant, item and version allow the version7response to coexist with version8. The challenge moves to obtaining the correct version selector and retiring unused versions. Caching the selector without a suitable freshness contract simply recreates the original problem at another key.
+Versioned keys can make older fills harmless to newer reads when the reader has an authoritative version selector. For example, cache entries keyed by tenant, item and version allow the version 7 response to coexist with version 8. The challenge moves to obtaining the correct version selector and retiring unused versions. Caching the selector without a suitable freshness contract simply recreates the original problem at another key.
 
 Another design conditionally updates a cache envelope only if the new source revision is at least the stored revision. This prevents regression within that comparison boundary, but it requires an atomic comparison at the shared cache and a trustworthy monotonically ordered source revision. A locally checked condition across two network operations races again. A wall-clock timestamp from two application hosts is not automatically a reliable source order.
+
+The envelope remembers only revisions still present in the cache. If eviction or deletion removes it, a delayed version 7 fill can enter the now-empty key after version 8 was invalidated. Preserve a suitable watermark outside the evictable entry or select versions from an authoritative source when the freshness contract requires protection across that loss; otherwise document that the comparison only prevents regression while its envelope survives.
 
 Write-through, cache-aside and refresh-ahead describe when a cache is updated relative to application work. None alone creates an atomic transaction between a database and an independent cache. If the database commits but cache update fails, the design must tolerate and repair that divergence. Prefer source correctness and explicit stale behavior over rolling back a successfully committed order merely because a derived cache could not update.
 
 ## A complete revision-regression experiment
 
-Save the following as `cache_revision_lab.py` and run `python3 cache_revision_lab.py` with Python3 as an ordinary user on Ubuntu, Fedora or RHEL. It models an atomic envelope in one process using a lock. It performs no Redis or database operation and contains only synthetic catalog data.
+Save the following as `cache_revision_lab.py` and run `python3 cache_revision_lab.py` with Python 3 as an ordinary user on Ubuntu, Fedora or RHEL. It models an atomic envelope in one process using a lock. It performs no Redis or database operation and contains only synthetic catalog data.
 
 ```python
 import threading
@@ -161,5 +165,4 @@ After cache loss, every miss waits indefinitely for the database pool. What boun
 
 ## Takeaways and verification
 
-Cache correctness depends on source authority, scope, version order and a bounded failure path. Test stale fills and complete cache loss, not just normal hits. Redis primary documentation was inspected on2026-10-01. Both local Python experiments are inline; no Redis deployment, client tracking session, database fallback integration or production cache invalidation was executed while authoring.
-
+Cache correctness depends on source authority, scope, version order and a bounded failure path. Test stale fills and complete cache loss, not just normal hits. Redis primary eviction and client-side caching documentation was inspected on 2026-10-04. Both local Python experiments are inline; no Redis deployment, client tracking session, database fallback integration or production cache invalidation was executed while authoring.
